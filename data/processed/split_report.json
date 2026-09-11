@@ -1,0 +1,22 @@
+{
+  "test_group_size": 3228,
+  "train_pool_before_leakage_removal": 11477,
+  "removed_due_to_leakage": 1025,
+  "removed_examples": [
+    "ab wann etablierten sich in prosa verfasste bühnenstücke?",
+    "ab wann verstärkte mali die beziehungen zu den westlichen ländern?",
+    "ab wann war eritrea italienisches territorium?",
+    "ab wann war iso 10646 quasi mit unicode austauschbar?",
+    "ab wann war kerry offiziell kandidat für die präsidentenwahl 2004?",
+    "ab wann wurde glasproduktion im römischen reich in größerem umfang möglich?",
+    "als was entstand die stadt kolmannskuppe in namibia?",
+    "als was galt das arcadia hotel in santa monica nach seiner eröffnung?",
+    "als was gilt ellen johnson-sirleaf in afrika?",
+    "als was gilt zaynab von muhammed haykal?"
+  ],
+  "train_pool_after_leakage_removal": 10452,
+  "dev_size": 1045,
+  "train_size": 9407,
+  "dev_ratio": 0.1,
+  "seed": 42
+}

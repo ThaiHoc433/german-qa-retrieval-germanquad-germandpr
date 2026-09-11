@@ -1,0 +1,28 @@
+    # Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+    # Thông tin riêng
+.env
+.env.*
+!.env.example
+
+  # Dữ liệu và model sinh ra
+data/
+checkpoints/
+models/
+.cache/
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.npy
+*.npz
+  # Kết quả chạy: giữ báo cáo JSON nhỏ
+results/*
+!results/*.json
+!results/*.md

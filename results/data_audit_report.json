@@ -1,0 +1,93 @@
+{
+  "fields": {
+    "germanquad_columns": [
+      "id",
+      "context",
+      "question",
+      "answers"
+    ],
+    "germandpr_columns": [
+      "question",
+      "answers",
+      "positive_ctxs",
+      "negative_ctxs",
+      "hard_negative_ctxs"
+    ]
+  },
+  "germandpr_train_positive_count_dist": {
+    "1": 9275
+  },
+  "germandpr_train_hard_negative_count_dist": {
+    "3": 9267,
+    "1": 6,
+    "2": 2
+  },
+  "germandpr_train_negative_count_dist": {
+    "0": 9275
+  },
+  "germandpr_test_positive_count_dist": {
+    "1": 1025
+  },
+  "germandpr_test_hard_negative_count_dist": {
+    "3": 1025
+  },
+  "germanquad_rows_with_zero_answers": 0,
+  "unique_passage_count": 26844,
+  "passage_source_breakdown": {
+    "germanquad": 3014,
+    "germandpr_positive": 2472,
+    "germandpr_hard_negative": 24443
+  },
+  "passages_shared_across_sources": 2542,
+  "question_counts_raw": {
+    "germanquad_train": 11477,
+    "germanquad_test": 2203,
+    "germandpr_train": 9254,
+    "germandpr_test": 1025
+  },
+  "question_overlap": {
+    "germanquad_train ∩ germanquad_test": 0,
+    "germanquad_train ∩ germandpr_train": 9254,
+    "germanquad_train ∩ germandpr_test": 1025,
+    "germanquad_test ∩ germandpr_train": 0,
+    "germanquad_test ∩ germandpr_test": 0,
+    "germandpr_train ∩ germandpr_test": 1
+  },
+  "leakage_germandpr_train_in_germanquad_test": 0,
+  "leakage_germanquad_train_in_germandpr_test": 1025,
+  "leakage_examples": [
+    "wie wurden die gebiete des heutigen namibia unter deutscher herrschaft genannt?",
+    "in welcher beziehung stehen the funk brothers zu motown?",
+    "bei welchen internationalen organisationen ist guinea-bissau mitglied?",
+    "wie heißt die hauptstadt von eritrea?",
+    "wieso können sich bei einem befall mit tuberkuloseerregern leicht resistenzen bilden?"
+  ],
+  "context_length_words": {
+    "n": 13722,
+    "min": 54,
+    "p50": 185,
+    "p90": 326,
+    "p95": 398,
+    "p99": 851,
+    "max": 1513,
+    "mean": 214.0
+  },
+  "context_length_gbert_tokens_sample_n": 2000,
+  "context_length_gbert_tokens": {
+    "n": 2000,
+    "min": 100,
+    "p50": 290,
+    "p90": 507,
+    "p95": 609,
+    "p99": 1335,
+    "max": 2202,
+    "mean": 333.9
+  },
+  "pct_context_over_300_gbert_tokens_sampled": 0.473,
+  "answer_offset_checked": 18054,
+  "answer_offset_mismatches": 0,
+  "answer_offset_mismatch_examples": [],
+  "answers_with_multiple_occurrences_in_context": 1285,
+  "answers_with_multiple_occurrences_pct": 0.0712,
+  "answer_start_not_first_occurrence_count": 575
+}

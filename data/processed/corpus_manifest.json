@@ -1,0 +1,22 @@
+{
+  "corpus_tier": "base",
+  "target_size": null,
+  "actual_size": 54071,
+  "source_breakdown": {
+    "germanquad": 7520,
+    "germandpr_hard_negative": 46551
+  },
+  "chunk_window_words": 100,
+  "chunk_overlap_words": 20,
+  "seed": 42,
+  "qa_record_counts": {
+    "train": 9287,
+    "dev": 1031,
+    "test": 3220
+  },
+  "retrieval_training_record_counts": {
+    "train": 8345,
+    "dev": 929,
+    "test": 1026
+  }
+}

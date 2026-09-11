@@ -1,0 +1,19 @@
+{
+  "n_queries": 1031,
+  "recall@1": 0.18962172647914646,
+  "recall@5": 0.4481086323957323,
+  "recall@10": 0.5708050436469447,
+  "recall@20": 0.6639185257032008,
+  "mrr@10": 0.3064411959416809,
+  "latency_ms": {
+    "mean": 0.7533483996727187,
+    "p50": 0.6789000035496429,
+    "p95": 1.3261999993119389,
+    "n_queries_timed": 1031,
+    "note": "đo trên máy local (không phải Colab T4), chỉ để tham khảo tương đối — số chính thức xem 3.3 (thiết bị Colab T4)"
+  },
+  "run_id": "bm25_base_dev",
+  "corpus_id": "base",
+  "split": "dev",
+  "index_build_time_s": 8.735888900002465
+}
