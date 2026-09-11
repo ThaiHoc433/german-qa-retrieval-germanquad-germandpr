@@ -1,0 +1,74 @@
+{
+  "url": "index.html (file://)",
+  "viewports": [
+    {
+      "width": 375,
+      "initial": {
+        "width": 375,
+        "documentWidth": 375,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "expanded": {
+        "width": 375,
+        "documentWidth": 375,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "walkthrough": "passed all steps, next/previous and endpoints",
+      "keyboardDetails": 22,
+      "navigation": "all six anchors + back-to-top passed"
+    },
+    {
+      "width": 768,
+      "initial": {
+        "width": 768,
+        "documentWidth": 768,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "expanded": {
+        "width": 768,
+        "documentWidth": 768,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "walkthrough": "passed all steps, next/previous and endpoints",
+      "keyboardDetails": 22,
+      "navigation": "all six anchors + back-to-top passed"
+    },
+    {
+      "width": 1440,
+      "initial": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "expanded": {
+        "width": 1440,
+        "documentWidth": 1440,
+        "overflow": [],
+        "missingLinks": [],
+        "duplicateIds": [],
+        "brokenAssets": 0
+      },
+      "walkthrough": "passed all steps, next/previous and endpoints",
+      "keyboardDetails": 22,
+      "navigation": "all six anchors + back-to-top passed"
+    }
+  ],
+  "consoleErrors": [],
+  "noJavaScript": "All 5 walkthrough steps visible; native details opens; content available.",
+  "textEnlargement": "200% root font at 768px, no page horizontal overflow"
+}
