@@ -32,7 +32,7 @@ def load_prompt_template(name: str) -> PromptTemplate:
 
 def render_rag_prompt(template: PromptTemplate, question: str, passages: list[PassageInput]) -> str:
     passages_block = "\n\n".join(
-        f"[P{i}] {p.title or p.passage_id}\n{p.text}" for i, p in enumerate(passages, start=1)
+        f"[P{i}] {p.title or f'Passage {i}'}\n{p.text}" for i, p in enumerate(passages, start=1)
     )
     return template.text.format(passages=passages_block, question=question)
 

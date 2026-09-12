@@ -34,6 +34,16 @@ def test_render_closed_book_prompt_has_no_passage_section():
     assert "Was ist die Hauptstadt?" in rendered
 
 
+def test_render_rag_prompt_never_leaks_passage_id_when_title_missing():
+    # Finding 5: model không bao giờ được thấy passage_id — fallback phải là
+    # "Passage N" (theo thứ tự 1-indexed), không phải p.passage_id.
+    template = load_prompt_template("answer_de_v1")
+    passages = [PassageInput("secret_id_123", None, "Berlin ist die Hauptstadt.")]
+    rendered = render_rag_prompt(template, "Was ist die Hauptstadt?", passages)
+    assert "secret_id_123" not in rendered
+    assert "[P1] Passage 1" in rendered
+
+
 def test_different_prompt_files_have_different_hashes():
     rag = load_prompt_template("answer_de_v1")
     closed = load_prompt_template("answer_de_closed_book_v1")

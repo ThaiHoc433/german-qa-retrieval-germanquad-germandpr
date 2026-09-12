@@ -6,11 +6,10 @@ model_backend="open" thật) — đổi model không dụng citation.py/answer_p
 KHÔNG ở top-level module — nhờ vậy toàn bộ file này và test của nó chạy được mà không
 cần cài gói anthropic; chỉ cần cài khi thực sự gọi build_claude_api_client() để chạy thật.
 """
-import re
 import time
 from dataclasses import dataclass
 
-from src.answer_parser import ParsedAnswer
+from src.answer_parser import ParsedAnswer, extract_first_labels
 from src.citation import PassageInput
 
 
@@ -43,14 +42,17 @@ class FakeLLMClient:
         return RawGeneration(status="success", error_type=None, raw_text=item, latency_ms=1.0)
 
 
-_CLAUDE_LABEL_RE = re.compile(r"^(KURZ|ANTWORT):\s*(.*)$", re.MULTILINE)
-
-
-def _extract_kurz_antwort(full_text: str) -> tuple[str | None, str | None]:
-    labels: dict[str, str] = {}
-    for match in _CLAUDE_LABEL_RE.finditer(full_text):
-        labels.setdefault(match.group(1), match.group(2).strip())
-    return labels.get("KURZ"), labels.get("ANTWORT")
+def _extract_kurz_antwort(full_text: str) -> tuple[str, str] | None:
+    """None nếu nhãn lặp lại HOẶC KURZ/ANTWORT thiếu/rỗng — dùng CHUNG định nghĩa
+    format_violation với model_backend="open" (answer_parser.extract_first_labels), để
+    hai backend không lệch nhau khi so sánh format-violation rate (§3.5)."""
+    labels = extract_first_labels(full_text, ("KURZ", "ANTWORT"))
+    if labels is None:
+        return None
+    kurz, antwort = labels.get("KURZ", ""), labels.get("ANTWORT", "")
+    if not kurz or not antwort:
+        return None
+    return kurz, antwort
 
 
 @dataclass(frozen=True)
@@ -82,7 +84,7 @@ class ClaudeApiClient:
 
     MODEL_ID = "claude-opus-5"
 
-    def __init__(self, client, model_id: str = MODEL_ID, max_tokens: int = 512):
+    def __init__(self, client, model_id: str = MODEL_ID, max_tokens: int = 4096):
         self._client = client
         self._model_id = model_id
         self._max_tokens = max_tokens
@@ -95,15 +97,16 @@ class ClaudeApiClient:
             {
                 "type": "document",
                 "source": {"type": "text", "media_type": "text/plain", "data": p.text},
-                "title": p.title or p.passage_id,
+                "title": p.title or f"Passage {i}",
                 "citations": {"enabled": True},
             }
-            for p in passages
+            for i, p in enumerate(passages, start=1)
         ]
         try:
             response = self._client.messages.create(
                 model=self._model_id,
                 max_tokens=self._max_tokens,
+                output_config={"effort": "low"},
                 messages=[{
                     "role": "user",
                     "content": [*documents, {"type": "text", "text": f"{prompt_instructions}\n\nQuestion: {question}"}],
@@ -115,6 +118,18 @@ class ClaudeApiClient:
                 citations=[], latency_ms=(time.perf_counter() - t0) * 1000,
             )
         latency_ms = (time.perf_counter() - t0) * 1000
+
+        stop_reason = getattr(response, "stop_reason", None)
+        if stop_reason == "refusal":
+            return ClaudeGeneration(
+                status="error", error_type="refusal", short_answer=None, answer=None,
+                citations=[], latency_ms=latency_ms,
+            )
+        if stop_reason == "max_tokens":
+            return ClaudeGeneration(
+                status="error", error_type="truncated", short_answer=None, answer=None,
+                citations=[], latency_ms=latency_ms,
+            )
 
         full_text_parts, citations = [], []
         for block in response.content:
@@ -128,12 +143,13 @@ class ClaudeApiClient:
                     end_char_index=getattr(c, "end_char_index", None),
                 ))
 
-        kurz, antwort = _extract_kurz_antwort("".join(full_text_parts))
-        if kurz is None or antwort is None:
+        extracted = _extract_kurz_antwort("".join(full_text_parts))
+        if extracted is None:
             return ClaudeGeneration(
                 status="error", error_type="format_violation", short_answer=None, answer=None,
                 citations=[], latency_ms=latency_ms,
             )
+        kurz, antwort = extracted
         return ClaudeGeneration(
             status="success", error_type=None, short_answer=kurz, answer=antwort,
             citations=citations, latency_ms=latency_ms,

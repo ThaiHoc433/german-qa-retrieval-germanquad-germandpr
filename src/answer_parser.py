@@ -9,7 +9,7 @@ không phải từ text tự do.
 import re
 from dataclasses import dataclass
 
-_LABEL_RE = re.compile(r"^(KURZ|ANTWORT|QUELLE|ZITAT):\s*(.*)$", re.MULTILINE)
+_LABEL_RE = re.compile(r"^(KURZ|ANTWORT|QUELLE|ZITAT):[ \t]*(.*)$", re.MULTILINE)
 _QUELLE_REF_RE = re.compile(r"P(\d+)")
 
 
@@ -26,13 +26,32 @@ class ParsedAnswer:
     quote: str | None = None              # từ ZITAT, đã bỏ dấu ngoặc kép hai đầu
 
 
-def parse_llm_output(raw_text: str) -> ParsedAnswer:
+def extract_first_labels(raw_text: str, allowed_labels: tuple[str, ...]) -> dict[str, str] | None:
+    """Tách các nhãn dòng (vd KURZ/ANTWORT/QUELLE/ZITAT hoặc chỉ KURZ/ANTWORT cho nhánh
+    Claude) — dùng chung cho model_backend="open" (parse_llm_output) và "claude"
+    (llm_clients._extract_kurz_antwort), để hai backend không lệch định nghĩa
+    format_violation (§2.2/§2.3). `[ \\t]*` (không phải `\\s*`) — KHÔNG được ăn qua dấu
+    xuống dòng, nếu không giá trị rỗng của một nhãn sẽ nuốt luôn dòng tiếp theo làm giá
+    trị của chính nó (bug đã phát hiện ở review cuối). Trả None nếu một nhãn xuất hiện
+    nhiều hơn 1 lần. Nhãn thiếu hoàn toàn thì đơn giản không có trong dict trả về — caller
+    tự quyết định nhãn nào bắt buộc phải có."""
+    pattern = re.compile(
+        r"^(" + "|".join(re.escape(l) for l in allowed_labels) + r"):[ \t]*(.*)$",
+        re.MULTILINE,
+    )
     labels: dict[str, str] = {}
-    for match in _LABEL_RE.finditer(raw_text):
+    for match in pattern.finditer(raw_text):
         key = match.group(1)
-        if key in labels:  # nhãn lặp lại -> vi phạm định dạng, không lấy giá trị đầu
-            return ParsedAnswer(format_violation=True)
+        if key in labels:
+            return None
         labels[key] = match.group(2).strip()
+    return labels
+
+
+def parse_llm_output(raw_text: str) -> ParsedAnswer:
+    labels = extract_first_labels(raw_text, ("KURZ", "ANTWORT", "QUELLE", "ZITAT"))
+    if labels is None:
+        return ParsedAnswer(format_violation=True)
 
     kurz = labels.get("KURZ", "")
     antwort = labels.get("ANTWORT", "")

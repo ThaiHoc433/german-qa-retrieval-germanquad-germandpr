@@ -61,3 +61,37 @@ def test_multiple_quelle_refs_parsed():
     multi = ANSWERED.replace("QUELLE: P2", "QUELLE: P1, P3")
     parsed = parse_llm_output(multi)
     assert parsed.quelle_refs == ("P1", "P3")
+
+
+def test_empty_kurz_value_is_format_violation():
+    # Finding 1: trước fix, "\s*" sau dấu ":" ăn qua cả dấu xuống dòng, khiến giá trị
+    # rỗng của KURZ nuốt luôn dòng ANTWORT làm giá trị của chính nó thay vì trigger
+    # format_violation.
+    bad = 'KURZ: \nANTWORT: Berlin\nQUELLE: P1\nZITAT: "Berlin ist die Hauptstadt."\n'
+    assert parse_llm_output(bad).format_violation is True
+
+
+def test_empty_antwort_value_is_format_violation():
+    bad = 'KURZ: Berlin\nANTWORT: \nQUELLE: P1\nZITAT: "Berlin ist die Hauptstadt."\n'
+    assert parse_llm_output(bad).format_violation is True
+
+
+def test_empty_quelle_value_is_not_format_violation():
+    # Khác với KURZ/ANTWORT rỗng: QUELLE rỗng (nhưng KURZ/ANTWORT/ZITAT vẫn có) là ca
+    # "thiếu citation, vẫn trả lời được" — giống test_answered_shape_missing_citation_...
+    # — KHÔNG phải format_violation.
+    partial = 'KURZ: Berlin\nANTWORT: Berlin ist die Hauptstadt.\nQUELLE: \nZITAT: "Berlin ist die Hauptstadt."\n'
+    parsed = parse_llm_output(partial)
+    assert parsed.format_violation is False
+    assert parsed.answered is True
+    assert parsed.quelle_refs == ()
+    assert parsed.quote is None
+
+
+def test_empty_zitat_value_is_not_format_violation():
+    partial = "KURZ: Berlin\nANTWORT: Berlin ist die Hauptstadt.\nQUELLE: P1\nZITAT: \n"
+    parsed = parse_llm_output(partial)
+    assert parsed.format_violation is False
+    assert parsed.answered is True
+    assert parsed.quelle_refs == ()
+    assert parsed.quote is None
