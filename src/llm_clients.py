@@ -26,7 +26,7 @@ class FakeLLMClient:
     phụ thuộc mạng/model. `scripted[i]` là str (thành công) hoặc RawGeneration (kể cả
     lỗi, dùng để giả lập timeout/refusal)."""
 
-    def __init__(self, scripted: list):
+    def __init__(self, scripted: list[str | RawGeneration]):
         self._scripted = list(scripted)
         self._calls = 0
 
