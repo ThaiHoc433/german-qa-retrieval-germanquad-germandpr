@@ -8,6 +8,7 @@ import re
 import unicodedata
 from dataclasses import dataclass
 
+from src.answer_parser import ParsedAnswer
 from src.evaluation import normalize_answer
 
 
@@ -83,3 +84,65 @@ def find_short_answer_offsets(quote: str, short_answer: str) -> QuoteMatch | Non
         return None
     start = positions[0]
     return QuoteMatch(start, start + len(short_answer), "exact", len(positions))
+
+
+@dataclass(frozen=True)
+class CitationDetail:
+    passage_id: str
+    quote: str
+    quote_start: int
+    quote_end: int
+    quote_match_method: str
+    quote_occurrence_count: int
+    short_answer_start: int | None
+    short_answer_end: int | None
+
+
+@dataclass(frozen=True)
+class CitationOutcome:
+    citation_status: str  # verified|wrong_passage|quote_not_found|out_of_range|missing|multiple_sources
+    answer_supported: bool | None
+    citations: list[CitationDetail]
+    raw_citation_refs: tuple[str, ...] | None = None
+
+
+def verify_citation(passages: list[PassageInput], parsed: ParsedAnswer) -> CitationOutcome:
+    """§2.4 bước 2–5. Chỉ gọi khi parsed.answered is True — answered=False/
+    format_violation được LLMAnswerer (answerer.py, Task 8) xử lý TRƯỚC, không đi qua
+    hàm này."""
+    if len(parsed.quelle_refs) > 1:
+        return CitationOutcome("multiple_sources", None, [], raw_citation_refs=parsed.quelle_refs)
+    if not parsed.quelle_refs or parsed.quote is None:
+        return CitationOutcome("missing", None, [])
+
+    ref = parsed.quelle_refs[0]
+    index = int(ref[1:]) - 1  # "P1" -> 0
+    if not (0 <= index < len(passages)):
+        return CitationOutcome("out_of_range", None, [])
+
+    target = passages[index]
+    match = find_quote_in_passage(target.text, parsed.quote)
+    if match is None:
+        for other_index, other in enumerate(passages):
+            if other_index == index:
+                continue
+            if find_quote_in_passage(other.text, parsed.quote) is not None:
+                return CitationOutcome("wrong_passage", None, [])  # KHÔNG tự sửa QUELLE
+        return CitationOutcome("quote_not_found", None, [])
+
+    supported = None
+    sa_start = sa_end = None
+    if parsed.short_answer is not None:
+        supported = is_short_answer_supported(parsed.quote, parsed.short_answer)
+        offsets = find_short_answer_offsets(parsed.quote, parsed.short_answer)
+        if offsets is not None:
+            sa_start, sa_end = offsets.quote_start, offsets.quote_end
+
+    detail = CitationDetail(
+        passage_id=target.passage_id, quote=parsed.quote,
+        quote_start=match.quote_start, quote_end=match.quote_end,
+        quote_match_method=match.quote_match_method,
+        quote_occurrence_count=match.quote_occurrence_count,
+        short_answer_start=sa_start, short_answer_end=sa_end,
+    )
+    return CitationOutcome("verified", supported, [detail])

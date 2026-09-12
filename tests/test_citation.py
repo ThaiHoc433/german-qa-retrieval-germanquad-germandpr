@@ -3,7 +3,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.citation import find_quote_in_passage, find_short_answer_offsets, is_short_answer_supported
+from src.citation import PassageInput, find_quote_in_passage, find_short_answer_offsets, is_short_answer_supported, verify_citation
+from src.answer_parser import ParsedAnswer
 
 
 def test_exact_substring_match():
@@ -60,3 +61,67 @@ def test_short_answer_supported_uses_em_f1_style_normalization():
     # ho tro, khac voi cach chuan hoa NFC+khoang-trang dung khi tim quote trong passage.
     quote = "Es gibt etwa 1300 ethnische Gruppen."
     assert is_short_answer_supported(quote, "1300.") is True
+
+
+P1 = PassageInput("p1", "Titel A", "Albert Einstein wurde 1879 geboren. Er entwickelte die Relativitaetstheorie.")
+P2 = PassageInput("p2", "Titel B", "Marie Curie erhielt zwei Nobelpreise.")
+
+
+def _parsed(**overrides):
+    base = dict(
+        format_violation=False, answered=True, short_answer="Albert Einstein",
+        answer="Albert Einstein entwickelte die Relativitaetstheorie.",
+        # NOTE: brief's original fixture had quote="Er entwickelte die Relativitaetstheorie."
+        # (only the 2nd sentence, referring to Einstein via pronoun "Er"), which never
+        # contains the literal string "Albert Einstein" -- inconsistent with this test's
+        # own assertion that answer_supported is True, since is_short_answer_supported is
+        # pure literal-substring matching (no coreference resolution, by design). Fixed to
+        # the full P1 text so the fixture is self-consistent; see task-4-report.md.
+        quelle_refs=("P1",), quote=P1.text,
+    )
+    base.update(overrides)
+    return ParsedAnswer(**base)
+
+
+def test_verified_and_supported():
+    outcome = verify_citation([P1, P2], _parsed())
+    assert outcome.citation_status == "verified"
+    assert outcome.answer_supported is True
+    assert len(outcome.citations) == 1
+    assert outcome.citations[0].passage_id == "p1"
+
+
+def test_verified_but_not_supported():
+    outcome = verify_citation([P1, P2], _parsed(short_answer="Marie Curie"))
+    assert outcome.citation_status == "verified"
+    assert outcome.answer_supported is False
+
+
+def test_wrong_passage():
+    # quote thật ra nằm ở P2, nhưng model ghi QUELLE: P1
+    outcome = verify_citation([P1, P2], _parsed(quote="Marie Curie erhielt zwei Nobelpreise."))
+    assert outcome.citation_status == "wrong_passage"
+    assert outcome.answer_supported is None
+
+
+def test_quote_not_found_anywhere():
+    outcome = verify_citation([P1, P2], _parsed(quote="Das steht nirgendwo im Text."))
+    assert outcome.citation_status == "quote_not_found"
+
+
+def test_out_of_range_quelle():
+    outcome = verify_citation([P1, P2], _parsed(quelle_refs=("P9",)))
+    assert outcome.citation_status == "out_of_range"
+
+
+def test_missing_citation():
+    outcome = verify_citation([P1, P2], _parsed(quelle_refs=(), quote=None))
+    assert outcome.citation_status == "missing"
+    assert outcome.answer_supported is None
+
+
+def test_multiple_sources_keeps_raw_refs_without_choosing():
+    outcome = verify_citation([P1, P2], _parsed(quelle_refs=("P1", "P2")))
+    assert outcome.citation_status == "multiple_sources"
+    assert outcome.citations == []
+    assert outcome.raw_citation_refs == ("P1", "P2")
