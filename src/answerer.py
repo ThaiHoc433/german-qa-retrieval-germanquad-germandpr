@@ -79,11 +79,13 @@ class LLMAnswerer:
     biết khác biệt đó."""
 
     def __init__(self, model_backend: ModelBackend, client, prompt_template: PromptTemplate,
-                 closed_book_prompt_template: PromptTemplate | None = None):
+                 closed_book_prompt_template: PromptTemplate | None = None,
+                 claude_prompt_template: PromptTemplate | None = None):
         self._model_backend = model_backend
         self._client = client
         self._prompt_template = prompt_template
         self._closed_book_prompt_template = closed_book_prompt_template
+        self._claude_prompt_template = claude_prompt_template
 
     def answer(self, answerer_type: AnswererType, question: str,
                passages: list[PassageInput]) -> AnswerResult:
@@ -98,14 +100,18 @@ class LLMAnswerer:
         parsed, latency_ms, error_result = self._generate_and_parse_open(prompt)
         if error_result is not None:
             return error_result
+        if parsed.format_violation:
+            return _error_result("format_violation", latency_ms)
         if not parsed.answered:
             return _no_answer_result(parsed, latency_ms)
         return _answered_without_citation_result(parsed, latency_ms)
 
     def _answer_with_passages(self, question: str, passages: list[PassageInput]) -> AnswerResult:
         if self._model_backend == "claude":
+            if self._claude_prompt_template is None:
+                raise ValueError("LLMAnswerer cần claude_prompt_template để trả lời model_backend=\"claude\"")
             gen: ClaudeGeneration = self._client.generate_with_citations(
-                self._prompt_template.text, question, passages
+                self._claude_prompt_template.text, question, passages
             )
             if gen.status == "error":
                 return _error_result(gen.error_type, gen.latency_ms)

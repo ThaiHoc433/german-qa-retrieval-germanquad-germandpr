@@ -10,6 +10,7 @@ from src.prompt_loader import load_prompt_template
 
 RAG_TEMPLATE = load_prompt_template("answer_de_v1")
 CLOSED_BOOK_TEMPLATE = load_prompt_template("answer_de_closed_book_v1")
+CLAUDE_TEMPLATE = load_prompt_template("answer_de_claude_v1")
 
 P1 = PassageInput("p1", "Titel A", "Albert Einstein wurde 1879 geboren. Er entwickelte die Relativitaetstheorie.")
 P2 = PassageInput("p2", "Titel B", "Marie Curie erhielt zwei Nobelpreise.")
@@ -106,6 +107,13 @@ def test_closed_book_no_answer():
     assert result.answered is False
 
 
+def test_closed_book_format_violation():
+    result = _open_answerer([FORMAT_VIOLATION_TEXT]).answer("closed_book", "Wer war Napoleon?", [])
+    assert result.generation_status == "error"
+    assert result.error_type == "format_violation"
+    assert result.answered is None
+
+
 def test_rag_with_claude_backend_verified():
     claude_gen = ClaudeGeneration(
         status="success", error_type=None, short_answer="Albert Einstein",
@@ -123,7 +131,7 @@ def test_rag_with_claude_backend_verified():
         def generate_with_citations(self, prompt_instructions, question, passages):
             return claude_gen
 
-    answerer = LLMAnswerer("claude", _StubClaudeClient(), RAG_TEMPLATE)
+    answerer = LLMAnswerer("claude", _StubClaudeClient(), RAG_TEMPLATE, claude_prompt_template=CLAUDE_TEMPLATE)
     result = answerer.answer("rag", "Wer war Einstein?", [P1, P2])
     assert result.citation_status == "verified"
     assert result.answer_supported is True
@@ -143,7 +151,35 @@ def test_rag_with_claude_backend_multiple_sources():
         def generate_with_citations(self, prompt_instructions, question, passages):
             return claude_gen
 
-    answerer = LLMAnswerer("claude", _StubClaudeClient(), RAG_TEMPLATE)
+    answerer = LLMAnswerer("claude", _StubClaudeClient(), RAG_TEMPLATE, claude_prompt_template=CLAUDE_TEMPLATE)
     result = answerer.answer("rag", "Frage?", [P1, P2])
     assert result.citation_status == "multiple_sources"
     assert result.raw_citation_refs == ("P1", "P2")
+
+
+def test_rag_with_claude_backend_sends_fully_rendered_prompt_instructions():
+    # design §2.3: Claude is asked only for KURZ/ANTWORT (QUELLE/ZITAT come from the
+    # citations API, not from free text), and passages reach Claude via the `documents`
+    # list built by ClaudeApiClient, not embedded as text in prompt_instructions -- so the
+    # Claude prompt template must not contain unresolved {passages}/{question}
+    # placeholders (unlike RAG_TEMPLATE, which is meant for render_rag_prompt()).
+    claude_gen = ClaudeGeneration(
+        status="success", error_type=None, short_answer="Albert Einstein",
+        answer="Albert Einstein entwickelte die Relativitaetstheorie.",
+        citations=[], latency_ms=1.0,
+    )
+
+    class _CapturingClaudeClient:
+        def __init__(self):
+            self.captured_prompt_instructions = None
+
+        def generate_with_citations(self, prompt_instructions, question, passages):
+            self.captured_prompt_instructions = prompt_instructions
+            return claude_gen
+
+    stub = _CapturingClaudeClient()
+    answerer = LLMAnswerer("claude", stub, RAG_TEMPLATE, claude_prompt_template=CLAUDE_TEMPLATE)
+    answerer.answer("rag", "Wer war Einstein?", [P1, P2])
+    assert stub.captured_prompt_instructions is not None
+    assert "{passages}" not in stub.captured_prompt_instructions
+    assert "{question}" not in stub.captured_prompt_instructions
