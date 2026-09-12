@@ -130,6 +130,18 @@ def test_adapter_maps_multiple_citations_without_choosing():
     assert parsed.quote is None
 
 
+def test_adapter_maps_zero_citations_still_answered():
+    gen = ClaudeGeneration(
+        status="success", error_type=None, short_answer="Albert Einstein",
+        answer="Albert Einstein entwickelte die Relativitaetstheorie.",
+        citations=[], latency_ms=1.0,
+    )
+    parsed = claude_generation_to_parsed_answer(gen)
+    assert parsed.answered is True
+    assert parsed.quelle_refs == ()
+    assert parsed.quote is None
+
+
 def test_adapter_maps_keine_antwort():
     gen = ClaudeGeneration(status="success", error_type=None, short_answer="KEINE ANTWORT",
                             answer="None", citations=[], latency_ms=1.0)
