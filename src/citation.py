@@ -8,6 +8,8 @@ import re
 import unicodedata
 from dataclasses import dataclass
 
+from src.evaluation import normalize_answer
+
 
 @dataclass(frozen=True)
 class PassageInput:
@@ -60,3 +62,24 @@ def _find_quote_normalized(passage_text: str, quote: str) -> QuoteMatch | None:
     start = passage_tokens[first][0].start()
     end = passage_tokens[first + n - 1][0].end()
     return QuoteMatch(start, end, "normalized", len(occurrences))
+
+
+def is_short_answer_supported(quote: str, short_answer: str) -> bool:
+    """§2.4 bước 5: dùng CÙNG cách chuẩn hóa EM/F1 của V1 (normalize_answer: NFC,
+    lowercase, xóa dấu câu, gộp khoảng trắng) — KHÁC cách chuẩn hóa NFC+khoảng-trắng
+    dùng khi tìm quote trong passage (find_quote_in_passage)."""
+    norm_quote = normalize_answer(quote)
+    norm_answer = normalize_answer(short_answer)
+    return bool(norm_answer) and norm_answer in norm_quote
+
+
+def find_short_answer_offsets(quote: str, short_answer: str) -> QuoteMatch | None:
+    """Vị trí ký tự CHÍNH XÁC của short_answer trong quote GỐC (chưa chuẩn hóa) — chỉ có
+    giá trị khi short_answer là chuỗi con chính xác. `is_short_answer_supported` vẫn có
+    thể True dù hàm này trả None (khớp chỉ sau chuẩn hóa EM/F1, không có offset chính
+    xác) — hai hàm độc lập, không suy hàm này từ hàm kia."""
+    positions = [m.start() for m in re.finditer(re.escape(short_answer), quote)]
+    if not positions:
+        return None
+    start = positions[0]
+    return QuoteMatch(start, start + len(short_answer), "exact", len(positions))
