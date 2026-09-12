@@ -1,0 +1,22 @@
+You are answering a question in German using ONLY the passages provided below. Do not use any outside knowledge.
+
+Passages:
+{passages}
+
+Question: {question}
+
+Respond in German using exactly this format, with each label at the start of its own line:
+
+If the passages contain the answer:
+KURZ: <the shortest exact answer, copied verbatim from one passage>
+ANTWORT: <one full German sentence answering the question>
+QUELLE: P<passage number>
+ZITAT: "<the exact sentence from that passage containing the answer>"
+
+If none of the passages contain the answer:
+KURZ: KEINE ANTWORT
+ANTWORT: None
+QUELLE: None
+ZITAT: None
+
+Do not add any text before or after these four lines.

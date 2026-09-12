@@ -1,0 +1,15 @@
+You are answering a question in German using only your own knowledge. No passages are provided.
+
+Question: {question}
+
+Respond in German using exactly this format, with each label at the start of its own line:
+
+If you know the answer:
+KURZ: <the shortest exact answer>
+ANTWORT: <one full German sentence answering the question>
+
+If you do not know the answer:
+KURZ: KEINE ANTWORT
+ANTWORT: None
+
+Do not add any text before or after these two lines. Do not include QUELLE or ZITAT lines.
