@@ -10,6 +10,9 @@ import re
 import time
 from dataclasses import dataclass
 
+from src.answer_parser import ParsedAnswer
+from src.citation import PassageInput
+
 
 @dataclass(frozen=True)
 class RawGeneration:
@@ -38,3 +41,137 @@ class FakeLLMClient:
         if isinstance(item, RawGeneration):
             return item
         return RawGeneration(status="success", error_type=None, raw_text=item, latency_ms=1.0)
+
+
+_CLAUDE_LABEL_RE = re.compile(r"^(KURZ|ANTWORT):\s*(.*)$", re.MULTILINE)
+
+
+def _extract_kurz_antwort(full_text: str) -> tuple[str | None, str | None]:
+    labels: dict[str, str] = {}
+    for match in _CLAUDE_LABEL_RE.finditer(full_text):
+        labels.setdefault(match.group(1), match.group(2).strip())
+    return labels.get("KURZ"), labels.get("ANTWORT")
+
+
+@dataclass(frozen=True)
+class ClaudeCitation:
+    document_index: int
+    cited_text: str
+    start_char_index: int | None
+    end_char_index: int | None
+
+
+@dataclass(frozen=True)
+class ClaudeGeneration:
+    """Kết quả một lượt gọi model_backend="claude" — khác RawGeneration vì citations
+    của Claude là dữ liệu có cấu trúc (document_index/cited_text), không phải text tự
+    do như QUELLE/ZITAT của model_backend="open"."""
+    status: str
+    error_type: str | None
+    short_answer: str | None
+    answer: str | None
+    citations: list[ClaudeCitation]
+    latency_ms: float
+
+
+class ClaudeApiClient:
+    """model_backend="claude". `client` là object có `.messages.create(**kwargs)` —
+    thường là `anthropic.Anthropic()` thật (xem build_claude_api_client), hoặc stub
+    trong test. Prompt chỉ yêu cầu KURZ/ANTWORT (§2.3) — QUELLE/ZITAT lấy từ block
+    `citations` mà API tự trả kèm mỗi đoạn text đã trích dẫn."""
+
+    MODEL_ID = "claude-opus-5"
+
+    def __init__(self, client, model_id: str = MODEL_ID, max_tokens: int = 512):
+        self._client = client
+        self._model_id = model_id
+        self._max_tokens = max_tokens
+
+    def generate_with_citations(
+        self, prompt_instructions: str, question: str, passages: list[PassageInput]
+    ) -> ClaudeGeneration:
+        t0 = time.perf_counter()
+        documents = [
+            {
+                "type": "document",
+                "source": {"type": "text", "media_type": "text/plain", "data": p.text},
+                "title": p.title or p.passage_id,
+                "citations": {"enabled": True},
+            }
+            for p in passages
+        ]
+        try:
+            response = self._client.messages.create(
+                model=self._model_id,
+                max_tokens=self._max_tokens,
+                messages=[{
+                    "role": "user",
+                    "content": [*documents, {"type": "text", "text": f"{prompt_instructions}\n\nQuestion: {question}"}],
+                }],
+            )
+        except Exception:  # lỗi mạng/API — không phân loại chi tiết ở bản này
+            return ClaudeGeneration(
+                status="error", error_type="api_error", short_answer=None, answer=None,
+                citations=[], latency_ms=(time.perf_counter() - t0) * 1000,
+            )
+        latency_ms = (time.perf_counter() - t0) * 1000
+
+        full_text_parts, citations = [], []
+        for block in response.content:
+            if getattr(block, "type", None) != "text":
+                continue
+            full_text_parts.append(block.text)
+            for c in (getattr(block, "citations", None) or []):
+                citations.append(ClaudeCitation(
+                    document_index=c.document_index, cited_text=c.cited_text,
+                    start_char_index=getattr(c, "start_char_index", None),
+                    end_char_index=getattr(c, "end_char_index", None),
+                ))
+
+        kurz, antwort = _extract_kurz_antwort("".join(full_text_parts))
+        if kurz is None or antwort is None:
+            return ClaudeGeneration(
+                status="error", error_type="format_violation", short_answer=None, answer=None,
+                citations=[], latency_ms=latency_ms,
+            )
+        return ClaudeGeneration(
+            status="success", error_type=None, short_answer=kurz, answer=antwort,
+            citations=citations, latency_ms=latency_ms,
+        )
+
+
+def claude_generation_to_parsed_answer(gen: ClaudeGeneration) -> ParsedAnswer:
+    """Chuẩn hóa ClaudeGeneration về CÙNG dạng ParsedAnswer mà citation.verify_citation
+    dùng cho model_backend="open" — nhờ vậy verify_citation KHÔNG cần biết backend nào
+    đã sinh ra câu trả lời."""
+    if gen.short_answer is None or gen.short_answer == "KEINE ANTWORT":
+        return ParsedAnswer(format_violation=False, answered=False)
+    if len(gen.citations) > 1:
+        refs = tuple(f"P{c.document_index + 1}" for c in gen.citations)
+        return ParsedAnswer(
+            format_violation=False, answered=True,
+            short_answer=gen.short_answer, answer=gen.answer,
+            quelle_refs=refs, quote=None,
+        )
+    if not gen.citations:
+        return ParsedAnswer(
+            format_violation=False, answered=True,
+            short_answer=gen.short_answer, answer=gen.answer,
+            quelle_refs=(), quote=None,
+        )
+    only = gen.citations[0]
+    return ParsedAnswer(
+        format_violation=False, answered=True,
+        short_answer=gen.short_answer, answer=gen.answer,
+        quelle_refs=(f"P{only.document_index + 1}",), quote=only.cited_text,
+    )
+
+
+def build_claude_api_client(model_id: str = ClaudeApiClient.MODEL_ID) -> ClaudeApiClient:
+    """Factory dùng khi chạy THẬT — import anthropic CHỈ ở đây (local import), để phần
+    còn lại của module (và mọi test) không cần cài gói anthropic. Đọc API key theo cơ
+    chế resolve credential mặc định của SDK (biến môi trường ANTHROPIC_API_KEY, hoặc
+    `ant auth login`) — không tự đọc file .env ở đây, đó là việc của app/service.py
+    (ngoài phạm vi plan này, xem design §5.4)."""
+    import anthropic
+    return ClaudeApiClient(anthropic.Anthropic(), model_id=model_id)
