@@ -1,17 +1,32 @@
-"""Schema validation V1.0 cho QARecord / RetrievalResult / PredictionRecord —
-mục 1.2, 1.4, 1.5 của docs/superpowers/specs/2026-09-10-german-qa-retrieval-module-specs.md.
+"""Schema validation V1.1 — mục 1.1–1.5 của
+docs/superpowers/specs/2026-09-10-german-qa-retrieval-module-specs.md.
 
 Mỗi validator trả về list lỗi (rỗng = hợp lệ) để gom toàn bộ lỗi của cả file
 rồi mới báo, thay vì dừng ở lỗi đầu tiên.
 """
 import math
+import re
 from collections import Counter
+from collections.abc import Mapping
+
+from src.corpus import normalize_text, passage_id
 
 SPLITS = ("train", "dev", "test")
 CORPUS_IDS = ("base", "mid", "large")
 RETRIEVER_NAMES = ("bm25", "dense", "hybrid", "cross_encoder")
 STATUSES = ("ok", "error")
 ERROR_STAGES = ("retrieval", "rerank", "read")
+PASSAGE_SOURCES = ("germanquad", "germandpr_positive", "wikipedia_distractor")
+
+PASSAGE_RECORD_FIELDS = (
+    "passage_id", "text", "normalized_text", "source", "title", "char_len",
+    "parent_document_id", "chunk_start_char", "chunk_end_char",
+)
+TRAINING_RECORD_FIELDS = (
+    "query_id", "question", "positive_texts", "positive_passage_ids",
+    "hard_negative_groups", "source_split",
+)
+HARD_NEGATIVE_GROUP_FIELDS = ("source_context_id", "texts", "passage_ids")
 
 QA_RECORD_FIELDS = (
     "query_id", "question", "gold_evidences", "reference_answers", "source_dataset", "source_split",
@@ -24,7 +39,8 @@ ANSWER_FIELDS = (
 )
 LATENCY_FIELDS = ("retrieval", "rerank", "read", "total")
 PREDICTION_RECORD_FIELDS = (
-    "run_id", "config_id", "corpus_id", "query_id", "status", "error_stage",
+    "run_id", "config_id", "corpus_id", "retrieval_k", "reader_k",
+    "query_id", "status", "error_stage",
     "retrieved", "reranked", *ANSWER_FIELDS, "latency_ms",
 )
 
@@ -66,9 +82,64 @@ def _label(rec: dict, where: str) -> str:
     return f"{where}[{qid}]" if isinstance(qid, str) and qid else where
 
 
+# ---------- PassageRecord (1.1) ----------
+
+def _is_hash_id(value) -> bool:
+    return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{16}", value) is not None
+
+
+def validate_passage_record(rec: object, where: str = "PassageRecord", *,
+                            parent_text: str | None = None) -> list[str]:
+    """Kiểm schema; khi có parent_text, kiểm thêm hash parent và slice gốc."""
+    errors = _field_errors(rec, PASSAGE_RECORD_FIELDS, where)
+    if not _has_all(rec, PASSAGE_RECORD_FIELDS):
+        return errors
+
+    text = rec["text"]
+    text_ok = _is_nonempty_str(text)
+    if not text_ok:
+        errors.append(f"{where}: text phải là chuỗi khác rỗng")
+    if not _is_hash_id(rec["passage_id"]):
+        errors.append(f"{where}: passage_id phải là 16 ký tự hex thường")
+    if text_ok:
+        if rec["normalized_text"] != normalize_text(text):
+            errors.append(f"{where}: normalized_text khác normalize_text(text)")
+        if rec["passage_id"] != passage_id(text):
+            errors.append(f"{where}: passage_id khác hash của text đã normalize")
+    if not _is_nonempty_str(rec["normalized_text"]):
+        errors.append(f"{where}: normalized_text phải là chuỗi khác rỗng")
+    if rec["source"] not in PASSAGE_SOURCES:
+        errors.append(f"{where}: source phải thuộc {PASSAGE_SOURCES}")
+    if rec["title"] is not None and not isinstance(rec["title"], str):
+        errors.append(f"{where}: title phải là chuỗi hoặc None")
+    if not (_is_int(rec["char_len"]) and rec["char_len"] > 0):
+        errors.append(f"{where}: char_len phải là số nguyên dương")
+    elif text_ok and rec["char_len"] != len(text):
+        errors.append(f"{where}: char_len khác len(text)")
+    if not _is_hash_id(rec["parent_document_id"]):
+        errors.append(f"{where}: parent_document_id phải là 16 ký tự hex thường")
+
+    start, end = rec["chunk_start_char"], rec["chunk_end_char"]
+    offsets_ok = _is_int(start) and start >= 0 and _is_int(end) and end > start
+    if not offsets_ok:
+        errors.append(f"{where}: chunk_start_char/chunk_end_char phải là số nguyên, 0 ≤ start < end")
+    elif text_ok and end - start != len(text):
+        errors.append(f"{where}: chunk_end_char - chunk_start_char khác len(text)")
+    if parent_text is not None:
+        if not isinstance(parent_text, str):
+            errors.append(f"{where}: parent_text phải là chuỗi")
+        else:
+            if rec["parent_document_id"] != passage_id(parent_text):
+                errors.append(f"{where}: parent_document_id khác hash của parent_text")
+            if offsets_ok and (end > len(parent_text) or parent_text[start:end] != text):
+                errors.append(f"{where}: slice parent_text[chunk_start_char:chunk_end_char] khác text")
+    return errors
+
+
 # ---------- QARecord (1.2) ----------
 
-def validate_qa_record(rec, where: str = "QARecord") -> list[str]:
+def validate_qa_record(rec: object, where: str = "QARecord", *,
+                       passage_texts: Mapping[str, str] | None = None) -> list[str]:
     errors = _field_errors(rec, QA_RECORD_FIELDS, where)
     if not _has_all(rec, QA_RECORD_FIELDS):
         return errors
@@ -115,6 +186,65 @@ def validate_qa_record(rec, where: str = "QARecord") -> list[str]:
             )
         if refs_ok and ev["answer_text"] not in refs:
             errors.append(f"{ev_where}: answer_text {ev['answer_text']!r} không có trong reference_answers")
+        if passage_texts is not None and _is_nonempty_str(ev["passage_id"]):
+            passage_text = passage_texts.get(ev["passage_id"])
+            if not isinstance(passage_text, str):
+                errors.append(f"{ev_where}: passage_id thiếu text trong passage_texts")
+            elif _is_int(start) and start >= 0 and _is_int(end):
+                if end > len(passage_text) or passage_text[start:end] != ev["answer_text"]:
+                    errors.append(f"{ev_where}: slice passage[answer_start:answer_end] khác answer_text")
+    return errors
+
+
+# ---------- RetrievalTrainingRecord (1.3) ----------
+
+def _text_id_errors(texts, ids, text_field: str, id_field: str, where: str) -> list[str]:
+    """Hai list chunk/ID không rỗng, song song; không tra corpus cho hard negative."""
+    errors = []
+    if not isinstance(texts, list) or not texts:
+        errors.append(f"{where}: {text_field} phải là list khác rỗng")
+    if not isinstance(ids, list) or not ids:
+        errors.append(f"{where}: {id_field} phải là list khác rỗng")
+    if not isinstance(texts, list) or not isinstance(ids, list):
+        return errors
+    if len(texts) != len(ids):
+        errors.append(f"{where}: {text_field}/{id_field} phải có cùng số phần tử")
+    for i, text in enumerate(texts):
+        if not _is_nonempty_str(text):
+            errors.append(f"{where}.{text_field}[{i}]: phải là chuỗi khác rỗng")
+    for i, pid in enumerate(ids):
+        if not _is_hash_id(pid):
+            errors.append(f"{where}.{id_field}[{i}]: phải là 16 ký tự hex thường")
+        elif i < len(texts) and _is_nonempty_str(texts[i]) and pid != passage_id(texts[i]):
+            errors.append(f"{where}.{id_field}[{i}]: khác hash của {text_field}[{i}]")
+    return errors
+
+
+def validate_retrieval_training_record(rec: object,
+                                      where: str = "RetrievalTrainingRecord") -> list[str]:
+    errors = _field_errors(rec, TRAINING_RECORD_FIELDS, where)
+    if not _has_all(rec, TRAINING_RECORD_FIELDS):
+        return errors
+    where = _label(rec, where)
+    for field in ("query_id", "question"):
+        if not _is_nonempty_str(rec[field]):
+            errors.append(f"{where}: {field} phải là chuỗi khác rỗng")
+    if rec["source_split"] not in SPLITS:
+        errors.append(f"{where}: source_split phải thuộc {SPLITS}")
+    errors += _text_id_errors(rec["positive_texts"], rec["positive_passage_ids"],
+                              "positive_texts", "positive_passage_ids", where)
+    groups = rec["hard_negative_groups"]
+    if not isinstance(groups, list):
+        errors.append(f"{where}: hard_negative_groups phải là list (được phép rỗng)")
+        return errors
+    for i, group in enumerate(groups):
+        group_where = f"{where}.hard_negative_groups[{i}]"
+        errors += _field_errors(group, HARD_NEGATIVE_GROUP_FIELDS, group_where)
+        if not _has_all(group, HARD_NEGATIVE_GROUP_FIELDS):
+            continue
+        if not _is_hash_id(group["source_context_id"]):
+            errors.append(f"{group_where}: source_context_id phải là 16 ký tự hex thường")
+        errors += _text_id_errors(group["texts"], group["passage_ids"], "texts", "passage_ids", group_where)
     return errors
 
 
@@ -184,6 +314,13 @@ def validate_prediction_record(rec, where: str = "PredictionRecord") -> list[str
             errors.append(f"{where}: {f} phải là chuỗi khác rỗng")
     if rec["corpus_id"] not in CORPUS_IDS:
         errors.append(f"{where}: corpus_id phải thuộc {CORPUS_IDS}, nhận {rec['corpus_id']!r}")
+
+    for field in ("retrieval_k", "reader_k"):
+        if not (_is_int(rec[field]) and rec[field] >= 1):
+            errors.append(f"{where}: {field} phải là số nguyên ≥ 1")
+    if (_is_int(rec["retrieval_k"]) and _is_int(rec["reader_k"])
+            and rec["reader_k"] > rec["retrieval_k"]):
+        errors.append(f"{where}: reader_k không được lớn hơn retrieval_k")
 
     status, stage = rec["status"], rec["error_stage"]
     if status not in STATUSES:

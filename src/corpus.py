@@ -58,7 +58,7 @@ def find_span_chunks(chunks: list[Chunk], answer_start: int, answer_end: int) ->
     ]
 
 
-SOURCE_PRIORITY = {"germanquad": 0, "germandpr_positive": 1, "germandpr_hard_negative": 2}
+SOURCE_PRIORITY = {"germanquad": 0, "germandpr_positive": 1, "wikipedia_distractor": 2}
 
 
 class CorpusBuilder:
@@ -66,40 +66,37 @@ class CorpusBuilder:
     Giữ `text` đại diện theo priority nguồn khi 2 chunk trùng hash (spec 2.3.a)."""
 
     def __init__(self):
-        self.passages: dict[str, dict] = {}  # passage_id -> {text, source, sources:set, char_len}
+        self.passages: dict[str, dict] = {}  # passage_id -> PassageRecord đại diện
 
-    def add_text(self, full_text: str, source: str) -> list[Chunk]:
+    def add_text(self, full_text: str, source: str, *, title: str | None = None) -> list[Chunk]:
+        if source not in SOURCE_PRIORITY:
+            raise ValueError(f"source không được phép vào corpus đánh giá: {source!r}")
         chunks = chunk_text(full_text)
+        if title is None and source == "germanquad":
+            # Chỉ lấy dòng đầu; không đoán title từ dòng sau khi dòng đầu rỗng.
+            lines = full_text.splitlines()
+            title = lines[0] if lines else None
+        if title is not None and not title.strip():
+            title = None
+        parent_id = passage_id(full_text)
         for c in chunks:
             pid = passage_id(c.text)
-            if pid not in self.passages:
+            entry = self.passages.get(pid)
+            if entry is None or SOURCE_PRIORITY[source] < SOURCE_PRIORITY[entry["source"]]:
+                # Thay cả record để text/title/length/provenance luôn cùng occurrence.
+                # Cùng priority giữ bản đầu tiên theo thứ tự input.
                 self.passages[pid] = {
                     "passage_id": pid,
                     "text": c.text,
                     "normalized_text": normalize_text(c.text),
                     "source": source,
-                    "sources": {source},
+                    "title": title,
                     "char_len": len(c.text),
+                    "parent_document_id": parent_id,
+                    "chunk_start_char": c.char_start,
+                    "chunk_end_char": c.char_end,
                 }
-            else:
-                entry = self.passages[pid]
-                entry["sources"].add(source)
-                if SOURCE_PRIORITY[source] < SOURCE_PRIORITY[entry["source"]]:
-                    entry["source"] = source
-                    entry["text"] = c.text  # cùng normalized_text nên an toàn khi thay
         return chunks
 
     def records(self) -> list[dict]:
-        out = []
-        for p in self.passages.values():
-            out.append(
-                {
-                    "passage_id": p["passage_id"],
-                    "text": p["text"],
-                    "normalized_text": p["normalized_text"],
-                    "source": p["source"],
-                    "title": None,
-                    "char_len": p["char_len"],
-                }
-            )
-        return out
+        return [dict(p) for p in self.passages.values()]

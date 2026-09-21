@@ -60,6 +60,8 @@ def pred(qid, retrieved, reranked=None, answer=None, answer_pid=None, status="ok
         "run_id": run_id,
         "config_id": config_id,
         "corpus_id": corpus_id,
+        "retrieval_k": 20,
+        "reader_k": 5,
         "query_id": qid,
         "status": status,
         "error_stage": error_stage,
