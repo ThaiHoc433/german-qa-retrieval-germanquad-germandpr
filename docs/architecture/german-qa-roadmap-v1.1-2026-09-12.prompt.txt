@@ -1,0 +1,63 @@
+Create a polished high-resolution Vietnamese academic roadmap infographic, portrait aspect ratio about 4:5, ample readable text, white background, navy header, teal/blue/purple/orange section accents, crisp professional typography with correct Vietnamese diacritics, tidy aligned rounded cards, meaningful simple icons and clear arrows. This is a NEW current project roadmap, not a comparison image. No fabricated scores. Prioritize legibility and exact factual content over decorative complexity.
+
+Title: "ROADMAP GERMAN OPEN-DOMAIN EXTRACTIVE QA"
+Subtitle: "GermanQuAD + GermanDPR • Spec V1.1 • Kế hoạch cập nhật 11/09/2026"
+Small headline: "Ảnh hưởng của quy mô corpus và điểm nghẽn pipeline"
+
+Layout from top to bottom:
+1. Three research-question cards under "3 CÂU HỎI NGHIÊN CỨU"
+"RQ1 · Quy mô corpus" / "BM25 và Dense thay đổi thế nào khi corpus lớn hơn?"
+"RQ2 · Điểm nghẽn" / "Lỗi nằm ở retrieval, selection hay reader?"
+"RQ3 · Giá trị reranker" / "Giữ gold, cải thiện EM/F1 và chi phí latency"
+
+2. Two adjacent main panels.
+Left "DỮ LIỆU & CORPUS"
+"GermanQuAD: reader và QA"
+"GermanDPR: train Dense / reranker"
+"Audit leakage → Giữ test gốc → Chunk 100 từ, overlap 20 → Gold theo offset"
+Three nested boxes clearly indicating corpus set inclusion:
+"BASE · số thực sau build (~7,5K dự kiến)"
+"MID · tổng 50.000 passage"
+"LARGE · tổng 150.000 passage"
+Below "Base: context GermanQuAD + positive context GermanDPR"
+"Mid / Large: thêm distractor Wikipedia lọc title"
+"Hard negatives: dùng cho training"
+Right "PIPELINE V1"
+Vertical explicit directed graph:
+"Câu hỏi" → "BM25 HOẶC Dense DPR" → "Top-20 candidates" → branch:
+"Tắt reranker: top-5 theo rank" OR "Bật reranker: cross-encoder chọn 5"
+both merge → "Reader: gbert-base + QA head" → "Answer span".
+Small box "Dense: 2 gbert-base • CLS • dot product • FAISS IndexFlatIP"
+Small separate box clearly outside main flow "Oracle reader: đọc toàn bộ gold passage"
+
+3. Full-width "THỰC NGHIỆM & ĐÁNH GIÁ"
+Large formula "2 retriever × 2 trạng thái reranker × 3 corpus = 12 cấu hình"
+"Khóa checkpoint / config trên dev trước khi chạy test"
+Three concise cards:
+"Retrieval" / "Recall@1/5/10/20 = Hit@k" / "MRR@10"
+"QA & Latency" / "EM • Token-F1" / "Latency từng bước + tổng"
+"Phân tích lỗi" / "Execution → Retrieval → Selection → Reader" / "Lưu final_correct độc lập"
+Footer small "Chất lượng: N_eval • Latency: n_latency • Mỗi run có manifest và fingerprint"
+
+4. "LỘ TRÌNH 10 CHẶNG • 32 BUỔI"
+Make ten numbered cards in two rows of five, arrows imply sequential order 1 to 10. Keep large readable labels:
+"1 · Hiểu đề tài" / "Buổi 1–2"
+"2 · Setup môi trường" / "Buổi 3–4"
+"3 · Tìm hiểu dataset" / "Buổi 5–7"
+"4 · Audit dữ liệu" / "Buổi 8–10"
+"5 · Schema & build base" / "Buổi 11–16"
+"6 · Run infra + Eval + BM25" / "Buổi 17–19"
+"7 · Dense Retriever" / "Buổi 20–22"
+"8 · Reader + Oracle + Reranker" / "Buổi 23–26"
+"9 · Integration & benchmark" / "Buổi 27–29"
+"10 · Phân tích & bàn giao" / "Buổi 30–32"
+Below "Dự kiến 11–12 tuần • Thời gian train / tải dữ liệu tính riêng"
+
+5. Bottom clear scope strip with two contrasting cards:
+"V1 BẮT BUỘC" / "Data audit • BM25 • DPR • Reader • Reranker • Oracle • Benchmark 3 corpus • Phân tích RQ"
+"V2 MỞ RỘNG" / "Hybrid / RRF • Hard-negative mining • Haystack"
+Very small but readable footer:
+"V1.2 chưa hiệu lực: A3 cần chốt trước chọn checkpoint reranker production."
+"Lộ trình dự kiến — không thể hiện trạng thái đã hoàn thành."
+
+Do not put Hybrid in the V1 pipeline. Do not imply SBERT, cosine similarity or ANN is the implemented Dense default. Do not claim base count is verified. All Vietnamese spelling correct. Create one cohesive beautiful infographic with sufficient space, high resolution and sharp text.

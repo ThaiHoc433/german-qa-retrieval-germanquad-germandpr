@@ -1,0 +1,450 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>German Open-Domain Extractive QA — Kiến trúc hệ thống hiện tại (xác minh từ code, commit fb34890)</title>
+<!--
+  Nguồn sự thật: src/*.py, notebooks/*.py, tests/*.py, website/*, .gitignore, .specify/*.json,
+  data/processed/*.json, results/*.json, phiên bản gói trong môi trường Python 3.13.
+  Mô tả chi tiết: ARCHITECTURE_CURRENT.md (cùng thư mục).
+  Xuất PNG: xem mục "Tái tạo hình" trong ARCHITECTURE_CURRENT.md.
+-->
+<defs>
+<style>
+.title{font:700 30px 'Segoe UI',Arial,sans-serif;fill:#0F172A}
+.sub{font:400 15px 'Segoe UI',Arial,sans-serif;fill:#475569}
+.ph{font:700 14px 'Segoe UI',Arial,sans-serif;fill:#FFFFFF;letter-spacing:.6px}
+.phs{font:400 12px 'Segoe UI',Arial,sans-serif;fill:#D6E2F5}
+.lab{font:700 10.5px 'Segoe UI',Arial,sans-serif;letter-spacing:.6px}
+.val{font:400 12px 'Segoe UI',Arial,sans-serif;fill:#0F172A}
+.h13{font:700 13px 'Segoe UI',Arial,sans-serif}
+.h12{font:700 12.5px 'Segoe UI',Arial,sans-serif;fill:#0F172A}
+.t{font:400 11.5px 'Segoe UI',Arial,sans-serif;fill:#1E293B}
+.t11{font:400 11px 'Segoe UI',Arial,sans-serif;fill:#334155}
+.ts{font:400 10.5px 'Segoe UI',Arial,sans-serif;fill:#64748B}
+.it{font-style:italic}
+.b{font-weight:700}
+.m{font:700 11.5px Consolas,'Cascadia Mono','Courier New',monospace;fill:#0F2A5F}
+.mm{font:400 10.5px Consolas,'Cascadia Mono','Courier New',monospace;fill:#334155}
+.pill{font:700 9.5px 'Segoe UI',Arial,sans-serif;fill:#FFFFFF;letter-spacing:.5px}
+.arr{fill:none;stroke:#475569;stroke-width:1.5}
+.arrg{fill:none;stroke:#059669;stroke-width:1.5}
+.arrt{fill:none;stroke:#0E7490;stroke-width:1.5}
+.card{fill:#FFFFFF;stroke:#A8B6CC;stroke-width:1.1}
+.logic{fill:#EFF5FF;stroke:#9DBAF3;stroke-width:1.1}
+.webcard{fill:#FFFFFF;stroke:#A5D8E2;stroke-width:1.1}
+</style>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#475569"/></marker>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#059669"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#0E7490"/></marker>
+</defs>
+
+<rect width="1920" height="1080" fill="#FFFFFF"/>
+<rect width="1920" height="6" fill="#0F2A5F"/>
+
+<!-- ================= HEADER ================= -->
+<text class="title" x="40" y="50">German Open-Domain Extractive QA — Kiến trúc hệ thống hiện tại</text>
+<text class="sub" x="40" y="78">Current System Architecture · xác minh trực tiếp từ source code tại commit fb34890 (nhánh test1, 2026-09-11) · kiểm tra ngày 2026-09-12</text>
+<rect x="1296" y="22" width="600" height="58" rx="10" fill="#F1F5FB" stroke="#CBD5E1"/>
+<text class="h13" x="1312" y="45" style="fill:#0F2A5F">Loại hệ thống: pipeline nghiên cứu offline (CLI, batch) + website tĩnh</text>
+<text class="t" x="1312" y="67" style="fill:#B91C1C">Không có: server/API · database · auth · Docker · CI/CD · deploy · monitoring</text>
+<line x1="24" y1="94" x2="1896" y2="94" stroke="#E2E8F0" stroke-width="1.2"/>
+
+<!-- ================= TECHNOLOGY STACK ================= -->
+<rect x="24" y="106" width="340" height="570" rx="12" fill="#FFFFFF" stroke="#D5DEEA" stroke-width="1.2"/>
+<path d="M24,146 V118 A12,12 0 0 1 36,106 H352 A12,12 0 0 1 364,118 V146 Z" fill="#0F2A5F"/>
+<text class="ph" x="40" y="131">TECHNOLOGY STACK</text>
+<text class="phs" x="198" y="131">phát hiện từ code</text>
+
+<text class="lab" x="40" y="168" fill="#0F2A5F">RUNTIME</text>
+<text class="val" x="40" y="185">Python 3.13.3 · Windows 11 · CPU, máy local</text>
+<line x1="40" y1="191" x2="348" y2="191" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="206" fill="#2563EB">DATA I/O</text>
+<text class="val" x="40" y="223">pandas 2.2.3 · pyarrow 23.0.1 · json / jsonl</text>
+<line x1="40" y1="229" x2="348" y2="229" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="244" fill="#1D4ED8">EXTERNAL DATA</text>
+<text class="val" x="40" y="261">huggingface_hub 1.31.0 → Hugging Face Hub</text>
+<line x1="40" y1="267" x2="348" y2="267" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="282" fill="#0891B2">RETRIEVAL / IR</text>
+<text class="val" x="40" y="299">bm25s 0.3.11 (phụ thuộc numpy 2.2.5)</text>
+<line x1="40" y1="305" x2="348" y2="305" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="320" fill="#0891B2">TOKENIZER</text>
+<text class="val" x="40" y="337">tokenizers 0.23.2 · vocab gbert-base (audit)</text>
+<line x1="40" y1="343" x2="348" y2="343" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="358" fill="#059669">TESTING</text>
+<text class="val" x="40" y="375">pytest 9.1.1 · 51 test, fixture tổng hợp</text>
+<line x1="40" y1="381" x2="348" y2="381" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="396" fill="#0E7490">FRONTEND</text>
+<text class="val" x="40" y="413">HTML + CSS + JavaScript thuần (không build)</text>
+<line x1="40" y1="419" x2="348" y2="419" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="434" fill="#0E7490">WEB QA</text>
+<text class="val" x="40" y="451">Node.js 24 + Playwright (qa/check.cjs)</text>
+<line x1="40" y1="457" x2="348" y2="457" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="472" fill="#059669">STORAGE</text>
+<text class="val" x="40" y="489">File JSON / JSONL + HF cache · không database</text>
+<line x1="40" y1="495" x2="348" y2="495" stroke="#EEF2F7"/>
+<text class="lab" x="40" y="510" fill="#0F2A5F">DEV WORKFLOW</text>
+<text class="val" x="40" y="527">Git · Spec Kit 1.0.5 (Codex, PowerShell)</text>
+
+<rect x="40" y="542" width="308" height="58" rx="8" fill="#FEF2F2" stroke="#FECACA"/>
+<text class="lab" x="52" y="560" fill="#B91C1C">KHÔNG CÓ TRONG REPO</text>
+<text class="t" x="52" y="577" style="fill:#7F1D1D">server/API · database · auth · Docker · CI/CD</text>
+<text class="t" x="52" y="593" style="fill:#7F1D1D">deploy · monitoring · requirements / pyproject</text>
+<rect x="40" y="608" width="308" height="58" rx="8" fill="#FFFBEB" stroke="#FDE68A"/>
+<text class="lab" x="52" y="626" fill="#B45309">CÀI TRONG MÔI TRƯỜNG, CODE KHÔNG DÙNG</text>
+<text class="t" x="52" y="643" style="fill:#78350F">torch 2.11 · transformers 5.17 · datasets 5.0.1</text>
+<text class="t" x="52" y="659" style="fill:#78350F">FAISS chưa cài · không có checkpoint model</text>
+
+<!-- ================= SYSTEM ARCHITECTURE ================= -->
+<rect x="380" y="106" width="1516" height="570" rx="12" fill="#FFFFFF" stroke="#D5DEEA" stroke-width="1.2"/>
+<path d="M380,146 V118 A12,12 0 0 1 392,106 H1884 A12,12 0 0 1 1896,118 V146 Z" fill="#0F2A5F"/>
+<text class="ph" x="396" y="131">SYSTEM ARCHITECTURE</text>
+<text class="phs" x="576" y="131">hai phần độc lập, không gọi nhau qua mạng: (A) pipeline nghiên cứu Python · (B) website tĩnh</text>
+
+<!-- layer labels -->
+<rect x="388" y="180" width="3" height="44" fill="#CBD5E1"/>
+<text class="lab" x="398" y="198" fill="#0F2A5F">USER</text>
+<text class="ts" x="398" y="213">người dùng</text>
+<rect x="388" y="240" width="3" height="72" fill="#CBD5E1"/>
+<text class="lab" x="398" y="262" fill="#0F2A5F">INTERFACE</text>
+<text class="ts" x="398" y="277">entry point</text>
+<text class="ts it" x="398" y="294">pipeline: không có</text>
+<text class="ts it" x="398" y="307">frontend / API</text>
+<rect x="388" y="328" width="3" height="92" fill="#CBD5E1"/>
+<text class="lab" x="398" y="358" fill="#0F2A5F">LOGIC + AI</text>
+<text class="ts" x="398" y="373">src/ · Python</text>
+<rect x="388" y="436" width="3" height="102" fill="#CBD5E1"/>
+<text class="lab" x="398" y="474" fill="#0F2A5F">STORAGE &amp;</text>
+<text class="lab" x="398" y="488" fill="#0F2A5F">EXTERNAL</text>
+<text class="ts" x="398" y="503">file + HF Hub</text>
+<rect x="388" y="554" width="3" height="110" fill="#CBD5E1"/>
+<text class="lab" x="398" y="598" fill="#0F2A5F">RESULT</text>
+<text class="ts" x="398" y="613">kết quả</text>
+
+<!-- lane backgrounds -->
+<rect x="504" y="152" width="984" height="516" rx="12" fill="#F8FAFD" stroke="#E2E8F0"/>
+<rect x="1500" y="152" width="380" height="516" rx="12" fill="#F2FAFB" stroke="#CDE9EE"/>
+<text class="h13" x="516" y="171" style="fill:#0F2A5F">A · PIPELINE NGHIÊN CỨU OFFLINE<tspan class="t11" dx="6">— Python 3.13, người dùng chạy tay từng script; dữ liệu trao đổi qua file</tspan></text>
+<text class="h13" x="1512" y="171" style="fill:#0E7490">B · WEBSITE TĨNH<tspan class="t11" dx="6">— tách rời pipeline</tspan></text>
+
+<!-- Lane A: USER -->
+<rect x="512" y="180" width="968" height="44" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+<circle cx="532" cy="195" r="6.5" fill="#0F2A5F"/>
+<path d="M521,217 a11,9 0 0 1 22,0 Z" fill="#0F2A5F"/>
+<text class="h12" x="552" y="198">Researcher / sinh viên<tspan class="t" dx="6">— chạy lệnh python trong terminal (PowerShell), rồi tự mở file JSON / đọc log để xem kết quả</tspan></text>
+<text class="ts" x="552" y="214">Pipeline không có giao diện người dùng: không frontend, không API, không đăng nhập; mọi bước chạy thủ công, tuần tự</text>
+
+<path class="arr" d="M614,224 V238" marker-end="url(#a)"/>
+<path class="arr" d="M848,224 V238" marker-end="url(#a)"/>
+<path class="arr" d="M1096,224 V238" marker-end="url(#a)"/>
+<path class="arr" d="M1354,224 V238" marker-end="url(#a)"/>
+
+<!-- Lane A: INTERFACE -->
+<rect class="card" x="512" y="240" width="204" height="72" rx="8"/>
+<text class="m" x="524" y="258">notebooks/00_data_audit.py</text>
+<text class="t" x="524" y="275">audit dữ liệu gốc (chỉ đọc)</text>
+<text class="t11" x="524" y="291">overlap · độ dài · offset đáp án</text>
+<text class="t11" x="524" y="306">→ data_audit_report.json</text>
+
+<rect class="card" x="732" y="240" width="232" height="72" rx="8"/>
+<text class="m" x="744" y="258" style="font-size:11px">notebooks/01_build_corpus_base.py</text>
+<text class="t" x="744" y="275">split + chunk + dedup → corpus base</text>
+<text class="t11" x="744" y="291">import hf_data · splits · corpus</text>
+<text class="t11" x="744" y="306">→ 7 JSONL + 3 JSON (data/processed)</text>
+
+<rect class="card" x="980" y="240" width="232" height="72" rx="8"/>
+<text class="m" x="992" y="258">notebooks/02_run_bm25.py</text>
+<text class="t" x="992" y="275">BM25 trên corpus base · tập dev</text>
+<text class="t11" x="992" y="291">import bm25_retriever · evaluation</text>
+<text class="t11" x="992" y="306">→ retrieval top-50 + metrics JSON</text>
+
+<rect class="card" x="1228" y="240" width="252" height="72" rx="8"/>
+<text class="m" x="1240" y="258">python -m pytest</text>
+<rect x="1414" y="247" width="54" height="16" rx="8" fill="#059669"/>
+<text class="pill" x="1441" y="258.5" text-anchor="middle">51 TEST</text>
+<text class="t11" x="1240" y="275">schemas 21 · evaluation 25 · bm25 5</text>
+<text class="t11" x="1240" y="291">fixture tổng hợp, không đọc data/</text>
+<text class="t11" x="1240" y="306">CLI src.evaluation: có, chưa dùng thật</text>
+
+<path class="arr" d="M614,312 V326" marker-end="url(#a)"/>
+<path class="arr" d="M848,312 V326" marker-end="url(#a)"/>
+<path class="arr" d="M1096,312 V326" marker-end="url(#a)"/>
+<path class="arr" d="M1354,312 V326" marker-end="url(#a)"/>
+
+<!-- Lane A: LOGIC + AI -->
+<rect x="512" y="328" width="204" height="92" rx="8" fill="#FFFFFF" stroke="#94A3B8" stroke-dasharray="5 3"/>
+<text class="h12" x="524" y="347" style="fill:#475569">Không import src/</text>
+<text class="t11" x="524" y="364">viết lại load, normalize, hash</text>
+<text class="t11" x="524" y="380">tokenizers + vocab gbert-base</text>
+<text class="t11" x="524" y="396">(chỉ để đếm độ dài token)</text>
+<text class="ts" x="524" y="412">pandas · huggingface_hub</text>
+
+<rect class="logic" x="732" y="328" width="232" height="28" rx="6"/>
+<text class="m" x="744" y="346.5">splits.py</text>
+<text class="t11" x="812" y="346.5">question_key · dev 10%</text>
+<rect class="logic" x="732" y="360" width="232" height="28" rx="6"/>
+<text class="m" x="744" y="378.5">corpus.py</text>
+<text class="t11" x="812" y="378.5">chunk 100/80 · dedup</text>
+<rect class="logic" x="732" y="392" width="232" height="28" rx="6"/>
+<text class="m" x="744" y="410.5">hf_data.py</text>
+<text class="t11" x="818" y="410.5">load_split() Parquet</text>
+
+<rect x="980" y="328" width="232" height="44" rx="8" fill="#E6F7FB" stroke="#0891B2" stroke-width="1.4"/>
+<text class="m" x="992" y="346" style="fill:#0E7490">bm25_retriever.py</text>
+<rect x="1148" y="335" width="54" height="15" rx="7.5" fill="#0891B2"/>
+<text class="pill" x="1175" y="345.5" text-anchor="middle">AI / IR</text>
+<text class="t11" x="992" y="363">bm25s BM25 · top-50 · lexical</text>
+<rect class="logic" x="980" y="376" width="232" height="44" rx="8"/>
+<text class="m" x="992" y="394">evaluation.py</text>
+<text class="t11" x="992" y="411">evaluate_retrieval(): Recall@k, MRR</text>
+
+<rect class="logic" x="1228" y="328" width="252" height="44" rx="8"/>
+<text class="m" x="1240" y="346">schemas.py</text>
+<text class="t11" x="1240" y="363">validators V1.0 cho 3 loại record</text>
+<rect x="1228" y="376" width="252" height="44" rx="8" fill="#FFF7F7" stroke="#F1A7A7" stroke-dasharray="5 3"/>
+<text class="h12" x="1240" y="394" style="fill:#B91C1C">Chưa có trong code</text>
+<text class="t11" x="1240" y="411">Dense · Reranker · Reader · FAISS index</text>
+
+<!-- evaluation imports schemas -->
+<path class="arr" d="M1212,398 H1220 V350 H1226" marker-end="url(#a)"/>
+
+<!-- Lane A: STORAGE & EXTERNAL -->
+<rect x="536" y="436" width="264" height="102" rx="10" fill="#EFF5FF" stroke="#1D4ED8" stroke-width="1.3" stroke-dasharray="6 3"/>
+<text class="h13" x="550" y="456" style="fill:#1D4ED8">Hugging Face Hub</text>
+<rect x="724" y="444" width="66" height="16" rx="8" fill="#1D4ED8"/>
+<text class="pill" x="757" y="455.5" text-anchor="middle">EXTERNAL</text>
+<text class="mm" x="550" y="474">deepset/germanquad</text>
+<text class="mm" x="550" y="489">deepset/germandpr</text>
+<text class="t11" x="550" y="504">Parquet · nhánh refs/convert/parquet</text>
+<text class="mm" x="550" y="519">deepset/gbert-base · vocab.txt</text>
+<text class="ts" x="550" y="533">→ HF cache local (hf_hub_download)</text>
+
+<path d="M816,445 V529 A198,9 0 0 0 1212,529 V445" fill="#EEFBF4" stroke="#059669" stroke-width="1.3"/>
+<ellipse cx="1014" cy="445" rx="198" ry="9" fill="#D5F5E3" stroke="#059669" stroke-width="1.3"/>
+<text class="m" x="832" y="470" style="fill:#065F46">data/processed/<tspan class="ts" dx="6">JSONL / JSON trên đĩa local</tspan></text>
+<text class="t11" x="832" y="486">corpus_base.jsonl · 54.071 passage (GermanQuAD + hard neg.)</text>
+<text class="t11" x="832" y="501">qa_germanquad_{train,dev,test} · 9.287 / 1.031 / 3.220</text>
+<text class="t11" x="832" y="516">retrieval_germandpr_{…} · retrieval_bm25_base_dev (top-50)</text>
+<text class="t11" x="832" y="530">split_report · chunk_coverage_report · corpus_manifest</text>
+
+<path d="M1228,445 V529 A126,9 0 0 0 1480,529 V445" fill="#EEFBF4" stroke="#059669" stroke-width="1.3"/>
+<ellipse cx="1354" cy="445" rx="126" ry="9" fill="#D5F5E3" stroke="#059669" stroke-width="1.3"/>
+<text class="m" x="1244" y="470" style="fill:#065F46">results/</text>
+<text class="t11" x="1244" y="487">data_audit_report.json (từ 00)</text>
+<text class="t11" x="1244" y="502">metrics_bm25_base_dev.json (từ 02)</text>
+<text class="ts" x="1244" y="518">chưa có run_manifest / SHA-256</text>
+
+<!-- logic -> storage -->
+<path class="arr" d="M640,420 V434" marker-end="url(#a)"/>
+<path class="arr" d="M776,420 V434" marker-end="url(#a)"/>
+<path class="arrg" d="M920,420 V434" marker-end="url(#ag)"/>
+<path class="arrg" d="M1030,435 V422" marker-end="url(#ag)"/>
+<path class="arrg" d="M1054,420 V434" marker-end="url(#ag)"/>
+<path class="arrg" d="M1188,420 V428 H1300 V434" marker-end="url(#ag)"/>
+<path class="arrg" d="M524,420 V546 H1268 V538" marker-end="url(#ag)"/>
+<path class="arrg" d="M1354,538 V552" marker-end="url(#ag)"/>
+
+<!-- Lane A: RESULT -->
+<text class="ts" x="540" y="563">00 ghi results/data_audit_report.json</text>
+<rect x="512" y="572" width="452" height="88" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+<text class="h12" x="524" y="592" style="fill:#0F2A5F">Kết quả quay về người dùng thế nào?</text>
+<text class="t" x="524" y="610">Không có response HTTP hay UI: script in log ra terminal và ghi file;</text>
+<text class="t" x="524" y="626">người dùng tự mở JSON để đọc số rồi quyết định bước tiếp theo.</text>
+<text class="t" x="524" y="648" style="fill:#B45309">Chưa có output QA: không có Reader → chưa có answer span, EM/F1.</text>
+
+<rect x="980" y="554" width="500" height="110" rx="10" fill="#ECFDF5" stroke="#059669" stroke-width="1.3"/>
+<line x1="1228" y1="566" x2="1228" y2="652" stroke="#A7E3CB"/>
+<text class="h12" x="994" y="574" style="fill:#065F46">BM25 · base · dev (N = 1.031)</text>
+<text class="t11" x="994" y="594">Recall@1</text><text class="h12" x="1102" y="594" text-anchor="end">0,190</text>
+<text class="t11" x="1116" y="594">Recall@5</text><text class="h12" x="1216" y="594" text-anchor="end">0,448</text>
+<text class="t11" x="994" y="612">Recall@10</text><text class="h12" x="1102" y="612" text-anchor="end">0,571</text>
+<text class="t11" x="1116" y="612">Recall@20</text><text class="h12" x="1216" y="612" text-anchor="end">0,664</text>
+<text class="t11" x="994" y="630">MRR@10</text><text class="h12" x="1102" y="630" text-anchor="end">0,306</text>
+<text class="t11" x="1116" y="630">Latency</text><text class="h12" x="1216" y="630" text-anchor="end">0,75 ms</text>
+<text class="ts" x="994" y="651">corpus V1.0 (có hard neg.) · đo máy local</text>
+<text class="h12" x="1242" y="574" style="fill:#065F46">Audit dữ liệu gốc</text>
+<text class="t11" x="1242" y="593">18.054 đáp án: 0 lệch offset</text>
+<text class="t11" x="1242" y="609">1.025 key GQ train ∩ GDPR test</text>
+<text class="t11" x="1242" y="625">context p50: 185 từ · 290 token</text>
+<text class="t11" x="1242" y="641">GDPR: 1 positive + thường 3 hard neg.</text>
+
+<!-- Lane B: WEBSITE -->
+<rect class="webcard" x="1512" y="180" width="356" height="44" rx="8"/>
+<circle cx="1532" cy="195" r="6.5" fill="#0E7490"/>
+<path d="M1521,217 a11,9 0 0 1 22,0 Z" fill="#0E7490"/>
+<text class="h12" x="1552" y="198">Người xem website</text>
+<text class="ts" x="1552" y="214">trình duyệt bất kỳ · không đăng nhập</text>
+
+<rect class="webcard" x="1512" y="240" width="356" height="72" rx="8"/>
+<text class="h12" x="1524" y="258" style="fill:#0E7490">Trình duyệt</text>
+<text class="mm" x="1524" y="275">file:///…/website/index.html</text>
+<text class="t11" x="1524" y="291">hoặc python -m http.server 8000</text>
+<text class="ts" x="1524" y="306">không build, không npm, không CDN</text>
+
+<rect class="webcard" x="1512" y="328" width="356" height="92" rx="8"/>
+<text class="m" x="1524" y="347" style="fill:#0E7490">script.js (vanilla JS)</text>
+<text class="t11" x="1524" y="364">walkthrough 5 bước + menu active</text>
+<text class="t11" x="1524" y="380">không fetch, không gọi API</text>
+<text class="t11" x="1524" y="396">không chạy model, không logic nghiệp vụ</text>
+<text class="ts" x="1524" y="412">trang vẫn đọc được khi tắt JavaScript</text>
+
+<rect class="webcard" x="1512" y="436" width="356" height="102" rx="8"/>
+<text class="m" x="1524" y="456" style="fill:#0E7490">index.html · styles.css · .nojekyll</text>
+<text class="t11" x="1524" y="474">nội dung viết tay từ docs spec V1.1</text>
+<text class="t11" x="1524" y="490">(thiết kế mục tiêu, không phải số đo)</text>
+<text class="t11" x="1524" y="506">hero + 11 mục · không database</text>
+<text class="ts" x="1524" y="522">không asset / font ngoài, chạy offline</text>
+
+<rect x="1512" y="554" width="356" height="110" rx="8" fill="#F0FDFA" stroke="#5EC4D3"/>
+<text class="h12" x="1524" y="574" style="fill:#0E7490">Trang tài liệu tĩnh</text>
+<text class="t11" x="1524" y="592">mô tả thiết kế V1.1; không hiển thị</text>
+<text class="t11" x="1524" y="608">kết quả chạy pipeline</text>
+<text class="t11" x="1524" y="626">QA: qa/check.cjs (Playwright) → report.json</text>
+<text class="t11" x="1524" y="642">375 / 768 / 1440 px, không lỗi JS</text>
+<text class="ts" x="1524" y="658">GitHub Pages: chưa deploy</text>
+
+<path class="arrt" d="M1690,224 V238" marker-end="url(#at)"/>
+<path class="arrt" d="M1690,312 V326" marker-end="url(#at)"/>
+<path class="arrt" d="M1690,420 V434" marker-end="url(#at)"/>
+<path class="arrt" d="M1690,538 V552" marker-end="url(#at)"/>
+
+<!-- ================= DATA FLOW ================= -->
+<rect x="24" y="690" width="1872" height="150" rx="12" fill="#FFFFFF" stroke="#D5DEEA" stroke-width="1.2"/>
+<path d="M24,724 V702 A12,12 0 0 1 36,690 H1884 A12,12 0 0 1 1896,702 V724 Z" fill="#0F2A5F"/>
+<text class="ph" x="40" y="712">DATA FLOW</text>
+<text class="phs" x="136" y="712">luồng dữ liệu thực tế — batch, chạy tuần tự bằng tay</text>
+<text class="phs" x="1880" y="712" text-anchor="end">Nhánh phụ: 00_data_audit.py → HF Hub (+ vocab gbert-base) → results/data_audit_report.json</text>
+
+<rect x="40" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#BFD0F5"/>
+<circle cx="60" cy="754" r="11" fill="#1D4ED8"/><text class="pill" x="60" y="758" text-anchor="middle" style="font-size:11px">1</text>
+<text class="h12" x="78" y="758">Tải dữ liệu</text>
+<text class="t11" x="54" y="782">HF Hub · Parquet 4 split</text>
+<text class="t11" x="54" y="798">hf_data.load_*() → DataFrame</text>
+
+<rect x="306" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#BFD0F5"/>
+<circle cx="326" cy="754" r="11" fill="#2563EB"/><text class="pill" x="326" y="758" text-anchor="middle" style="font-size:11px">2</text>
+<text class="h12" x="344" y="758">Gán split</text>
+<text class="t11" x="320" y="782">splits.assign_splits(question_key)</text>
+<text class="t11" x="320" y="798">loại 1.025 key trùng test · dev 10%</text>
+
+<rect x="572" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#BFD0F5"/>
+<circle cx="592" cy="754" r="11" fill="#2563EB"/><text class="pill" x="592" y="758" text-anchor="middle" style="font-size:11px">3</text>
+<text class="h12" x="610" y="758">Chunk + dedup</text>
+<text class="t11" x="586" y="782">CorpusBuilder: 100 từ, overlap 20</text>
+<text class="t11" x="586" y="798">passage_id = sha256[:16]</text>
+
+<rect x="838" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#BFD0F5"/>
+<circle cx="858" cy="754" r="11" fill="#2563EB"/><text class="pill" x="858" y="758" text-anchor="middle" style="font-size:11px">4</text>
+<text class="h12" x="876" y="758">Gắn gold passage</text>
+<text class="t11" x="852" y="782">find_span_chunks: chunk chứa đáp án</text>
+<text class="t11" x="852" y="798">184 dòng không phủ → loại, có đếm</text>
+
+<rect x="1104" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#A7E3CB"/>
+<circle cx="1124" cy="754" r="11" fill="#059669"/><text class="pill" x="1124" y="758" text-anchor="middle" style="font-size:11px">5</text>
+<text class="h12" x="1142" y="758">Ghi file</text>
+<text class="t11" x="1118" y="782">data/processed: 7 JSONL + 3 JSON</text>
+<text class="t11" x="1118" y="798">corpus 54.071 · QA 9.287/1.031/3.220</text>
+
+<rect x="1370" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#9ADCEA"/>
+<circle cx="1390" cy="754" r="11" fill="#0891B2"/><text class="pill" x="1390" y="758" text-anchor="middle" style="font-size:11px">6</text>
+<text class="h12" x="1408" y="758">BM25 retrieval</text>
+<text class="t11" x="1384" y="782">đọc corpus + qa dev · bm25s index</text>
+<text class="t11" x="1384" y="798">search top-50 cho 1.031 câu dev</text>
+
+<rect x="1636" y="732" width="242" height="76" rx="10" fill="#FFFFFF" stroke="#A7E3CB"/>
+<circle cx="1656" cy="754" r="11" fill="#059669"/><text class="pill" x="1656" y="758" text-anchor="middle" style="font-size:11px">7</text>
+<text class="h12" x="1674" y="758">Chấm điểm → kết quả</text>
+<text class="t11" x="1650" y="782">evaluate_retrieval: Recall@k, MRR</text>
+<text class="t11" x="1650" y="798">→ results/metrics_bm25_base_dev.json</text>
+
+<path class="arr" d="M282,770 H303" marker-end="url(#a)"/>
+<path class="arr" d="M548,770 H569" marker-end="url(#a)"/>
+<path class="arr" d="M814,770 H835" marker-end="url(#a)"/>
+<path class="arr" d="M1080,770 H1101" marker-end="url(#a)"/>
+<path class="arr" d="M1346,770 H1367" marker-end="url(#a)"/>
+<path class="arr" d="M1612,770 H1633" marker-end="url(#a)"/>
+
+<path d="M40,814 V820 H1346 V814" fill="none" stroke="#94A3B8" stroke-width="1.2"/>
+<text class="ts b" x="693" y="834" text-anchor="middle">notebooks/01_build_corpus_base.py — bước 1–5</text>
+<path d="M1370,814 V820 H1878 V814" fill="none" stroke="#94A3B8" stroke-width="1.2"/>
+<text class="ts b" x="1624" y="834" text-anchor="middle">notebooks/02_run_bm25.py — bước 6–7 (đọc lại file của bước 5)</text>
+
+<!-- ================= MODULE DETAILS ================= -->
+<rect x="24" y="856" width="1872" height="200" rx="12" fill="#FFFFFF" stroke="#D5DEEA" stroke-width="1.2"/>
+<path d="M24,890 V868 A12,12 0 0 1 36,856 H1884 A12,12 0 0 1 1896,868 V890 Z" fill="#0F2A5F"/>
+<text class="ph" x="40" y="878">MODULE DETAILS</text>
+<text class="phs" x="178" y="878">file thực tế trong repo và điểm lệch so với spec V1.1 (frozen 2026-09-11)</text>
+<text class="phs" x="1880" y="878" text-anchor="end">Nhãn V1.0 = code theo spec cũ; cần sửa để khớp V1.1</text>
+
+<!-- card 1 -->
+<rect x="40" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="52" y="922" style="font-size:12px">hf_data.py · splits.py</text>
+<rect x="281" y="910" width="40" height="16" rx="8" fill="#FEF3C7"/><text class="tag pill" x="301" y="921.5" text-anchor="middle" style="fill:#92400E">V1.0</text>
+<text class="t11" x="52" y="942">load_split(): Parquet refs/convert/parquet</text>
+<text class="t11" x="52" y="958">load_germanquad() · load_germandpr()</text>
+<text class="t11" x="52" y="974">question_key: NFC + lower + gộp khoảng trắng</text>
+<text class="t11" x="52" y="990">assign_splits: test = test GQ ∪ test GDPR</text>
+<text class="t11" x="52" y="1006">loại 1.025 key trùng test · dev 10% (seed 42)</text>
+<line x1="52" y1="1015" x2="321" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="52" y="1032" style="fill:#B45309"><tspan class="b">Lệch D1:</tspan> GQ train trùng test bị gán vào test</text>
+
+<!-- card 2 -->
+<rect x="349" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="361" y="922" style="font-size:12px">corpus.py</text>
+<rect x="590" y="910" width="40" height="16" rx="8" fill="#FEF3C7"/><text class="pill" x="610" y="921.5" text-anchor="middle" style="fill:#92400E">V1.0</text>
+<text class="t11" x="361" y="942">normalize_text: NFC · lower · gộp khoảng trắng</text>
+<text class="t11" x="361" y="958">passage_id = sha256(normalized)[:16]</text>
+<text class="t11" x="361" y="974">chunk_text: 100 từ, bước 80 (overlap 20)</text>
+<text class="t11" x="361" y="990">find_span_chunks: chunk chứa trọn đáp án</text>
+<text class="t11" x="361" y="1006">CorpusBuilder: dedup, ưu tiên theo nguồn</text>
+<line x1="361" y1="1015" x2="630" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="361" y="1032" style="fill:#B45309"><tspan class="b">Lệch D6:</tspan> corpus gồm 46.551 hard negative</text>
+
+<!-- card 3 -->
+<rect x="658" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="670" y="922" style="font-size:12px;fill:#0E7490">bm25_retriever.py</text>
+<rect x="899" y="910" width="40" height="16" rx="8" fill="#FEF3C7"/><text class="pill" x="919" y="921.5" text-anchor="middle" style="fill:#92400E">V1.0</text>
+<text class="t11" x="670" y="942">BM25Retriever(passage_ids, normalized_texts)</text>
+<text class="t11" x="670" y="958">bm25s.tokenize mặc định, không stopword</text>
+<text class="t11" x="670" y="974">search(): top-50 → (passage_id, score)</text>
+<text class="t11" x="670" y="990">query rỗng → [] · toàn OOV → điểm 0,</text>
+<text class="t11" x="670" y="1006">khi đó xếp theo passage_id</text>
+<line x1="670" y1="1015" x2="939" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="670" y="1032" style="fill:#B45309"><tspan class="b">Lệch §4.3:</tspan> spec tách từ theo khoảng trắng</text>
+
+<!-- card 4 -->
+<rect x="967" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="979" y="922" style="font-size:12px">schemas.py · evaluation.py</text>
+<rect x="1208" y="910" width="40" height="16" rx="8" fill="#FEF3C7"/><text class="pill" x="1228" y="921.5" text-anchor="middle" style="fill:#92400E">V1.0</text>
+<text class="t11" x="979" y="942">validators QARecord / Retrieval / Prediction</text>
+<text class="t11" x="979" y="958">Recall@k = Hit@k · MRR@10 · EM/F1 · latency</text>
+<text class="t11" x="979" y="974">3 mode + CLI; bucket reranking_failure</text>
+<text class="t11" x="979" y="990">end_to_end / reader_only: chỉ có trong test</text>
+<text class="t11" x="979" y="1006">02_run_bm25 chỉ gọi evaluate_retrieval()</text>
+<line x1="979" y1="1015" x2="1248" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="979" y="1032" style="fill:#B45309"><tspan class="b">Lệch:</tspan> CLI từ chối file QA hiện tại (schema cũ)</text>
+
+<!-- card 5 -->
+<rect x="1276" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="1288" y="922" style="font-size:12px">notebooks/ (entry scripts)</text>
+<rect x="1517" y="910" width="40" height="16" rx="8" fill="#FEF3C7"/><text class="pill" x="1537" y="921.5" text-anchor="middle" style="fill:#92400E">V1.0</text>
+<text class="t11" x="1288" y="942">00_data_audit.py → data_audit_report.json</text>
+<text class="t11" x="1288" y="958">01_build_corpus_base.py → data/processed/</text>
+<text class="t11" x="1288" y="974">02_run_bm25.py → retrieval + metrics</text>
+<text class="t11" x="1288" y="990">file .py chạy trực tiếp (không phải .ipynb)</text>
+<text class="t11" x="1288" y="1006">sys.path.insert để import src/</text>
+<line x1="1288" y1="1015" x2="1557" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="1288" y="1032" style="fill:#B45309"><tspan class="b">Lệch §8:</tspan> run_id cố định, chưa có manifest + SHA-256</text>
+
+<!-- card 6 -->
+<rect x="1585" y="900" width="293" height="146" rx="10" fill="#F8FAFD" stroke="#DCE3EE"/>
+<text class="m" x="1597" y="922" style="font-size:12px">tests/ · website/</text>
+<rect x="1802" y="910" width="64" height="16" rx="8" fill="#CFF1F6"/><text class="pill" x="1834" y="921.5" text-anchor="middle" style="fill:#0E7490">tách rời</text>
+<text class="t11" x="1597" y="942">pytest: test_schemas 21 · test_evaluation 25</text>
+<text class="t11" x="1597" y="958">test_bm25_retriever 5 · fixture tổng hợp</text>
+<text class="t11" x="1597" y="974">chưa có test cho corpus / splits / hf_data</text>
+<text class="t11" x="1597" y="990">website: index.html · styles.css · script.js</text>
+<text class="t11" x="1597" y="1006">qa/check.cjs (Playwright) → report.json</text>
+<line x1="1597" y1="1015" x2="1866" y2="1015" stroke="#E5E7EB"/>
+<text class="t11" x="1597" y="1032" style="fill:#0E7490"><tspan class="b">Lưu ý:</tspan> website chỉ mô tả spec, không nối pipeline</text>
+
+<!-- ================= FOOTER ================= -->
+<text class="ts" x="24" y="1071">Nguồn xác minh: src/*.py · notebooks/*.py · tests/*.py · website/* · .gitignore · .specify/*.json · data/processed/*.json · results/*.json · phiên bản gói lấy từ môi trường Python 3.13 — mô tả chi tiết: docs/architecture/ARCHITECTURE_CURRENT.md</text>
+</svg>

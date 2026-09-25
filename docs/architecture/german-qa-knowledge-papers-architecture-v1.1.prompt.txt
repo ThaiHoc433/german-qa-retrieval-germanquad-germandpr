@@ -1,0 +1,146 @@
+Tool: ImageGen built-in
+
+Use case: infographic-diagram. Create ONE high-resolution detailed academic infographic in Vietnamese, portrait poster approximately 3:4, 3000px or greater if possible, extremely crisp readable type and accurate Vietnamese diacritics. White background, dark navy title, blue/teal/purple/orange/pink thin-bordered pastel cards and restrained icons. Professional educational reference poster, organized like a knowledge roadmap above a systems architecture and evaluation reference. No implementation schedule, no session counts. All content below is deliberate. Do not invent numerical results. Fit substantial text by using a large canvas, not microscopic fonts.
+
+TITLE "ROADMAP KIẾN THỨC + BÀI BÁO"
+SUBTITLE "GermanQuAD & GermanDPR · Retrieval + Extractive QA tiếng Đức"
+Small subtitle "Kiến trúc dự kiến theo spec V1.1 và plan hiện tại"
+
+TOP SECTION: "1. HỌC GÌ — ĐỌC GÌ — ÁP DỤNG Ở ĐÂU"
+8 colored numbered knowledge cards arranged 4 across by 2 rows, sequential arrows 1→2→3→4 then 5→6→7→8, reading order left-to-right.
+Card 1 "NLP tiếng Đức & BERT"
+"Word / subword tokenization"
+"Unicode, ä/ö/ü/ß; char / token offsets"
+"Transformer, attention, contextual embedding"
+"Đọc [1], [2] → nền tảng encoder"
+Card 2 "Dữ liệu & Open-domain QA"
+"Document → passage; chunk / overlap"
+"Gold evidence, answer span, positive / negative"
+"Train / dev / test; leakage; provenance"
+"Đọc [3], [4] → chuẩn bị corpus và nhãn"
+Card 3 "IR & BM25"
+"TF-IDF, inverted index, lexical matching"
+"BM25: TF saturation, IDF, k1 và b"
+"Ranking; khác biệt retrieval và QA"
+"Đọc [5] → baseline bm25s"
+Card 4 "Embedding & DPR"
+"Bi-encoder; CLS pooling; dot product"
+"Contrastive loss; in-batch / hard negatives"
+"Mask gold; FAISS IndexFlatIP"
+"Đọc [6]; [8] bổ trợ → Dense retriever"
+Card 5 "Extractive Reader"
+"Query–passage encoding; start / end logits"
+"Sliding windows; span hợp lệ; offset"
+"Fine-tuning; EM / F1; oracle reader"
+"Đọc [1], [3], [4] → gbert-base + QA head"
+Card 6 "Cross-encoder Reranking"
+"Encode chung query–passage"
+"Binary cross-entropy; relevance score"
+"Top-20 → chọn 5; chi phí so với bi-encoder"
+"Đọc [7] → reranker thuộc V1"
+Card 7 "Thiết kế thực nghiệm"
+"Corpus lồng nhau; distractor; dev selection"
+"Khóa checkpoint; so cặp bật / tắt reranker"
+"Recall, MRR, EM / F1, latency"
+"Áp dụng spec §3, §8 và RQ1–RQ3"
+Card 8 "Phân tích lỗi & mở rộng"
+"Retrieval → selection → reader; oracle gap"
+"Robustness theo độ dài / loại câu hỏi"
+"V2: Hybrid / RRF; hard-negative mining"
+"Phân tích chính theo spec; V2 có spec riêng"
+Small note below: "SBERT là bài đọc bổ trợ; Dense V1 dùng DPR, không mặc định cosine / SBERT."
+
+NEXT SECTION "2. DANH MỤC BÀI ĐỌC"
+Arrange in 2 columns of 4 compact readable entries with exact IDs linking cards:
+"[1] Devlin et al. (2019) — BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+"[2] Chan, Schweter & Möller (2020) — German’s Next Language Model"
+"[3] Rajpurkar et al. (2016) — SQuAD: 100,000+ Questions for Machine Comprehension of Text"
+"[4] Möller, Risch & Pietsch (2021) — GermanQuAD and GermanDPR: Improving Non-English Question Answering and Passage Retrieval"
+"[5] Robertson & Zaragoza (2009) — The Probabilistic Relevance Framework: BM25 and Beyond"
+"[6] Karpukhin et al. (2020) — Dense Passage Retrieval for Open-Domain Question Answering"
+"[7] Nogueira & Cho (2019) — Passage Re-ranking with BERT"
+"[8] Reimers & Gurevych (2019) — Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks · Bổ trợ"
+
+BOTTOM LARGE AREA split into LEFT 45% system architecture, RIGHT 55% metrics and error analysis stacked.
+LEFT title "3. KIẾN TRÚC HỆ THỐNG SẼ XÂY"
+Three clear labeled subareas within architecture, strong directed arrows and no spaghetti.
+A "Chuẩn bị dữ liệu & huấn luyện"
+"GermanQuAD + GermanDPR + Wikipedia"
+→ "Data: audit leakage, split, chunk 100 từ / overlap 20, gold offset"
+→ "Corpus: base ⊂ mid ⊂ large"
+small "Base ~7,5K dự kiến · Mid 50K · Large 150K"
+Training notes beside data box:
+"GermanQuAD train → Reader"
+"GermanDPR train → Dense + Reranker"
+"Hard negatives chỉ dùng training"
+B "Luồng hỏi đáp"
+"Câu hỏi" branches to alternative retrievers "BM25 · bm25s" OR "Dense DPR · 2 gbert-base / CLS / dot product / FAISS IndexFlatIP", corpus has arrows feeding both retriever indexes.
+Both alternatives lead to "Retrieval pool: top-20"
+Then branch to alternatives "OFF: top-5 theo rank" and "ON: cross-encoder chọn 5"
+Merge into "Reader · gbert-base + QA head" → "Answer text + passage_id + offsets"
+Note "Thiếu candidate: không pad"
+C "Đánh giá từ artifact"
+"Integration → predictions + latency + run manifest"
+arrow to "Evaluation → metrics + per-query + error analysis"
+Separate small box "Oracle: gold passages → cùng Reader → EM / F1"
+"Oracle là mốc năng lực, không phải trần tuyệt đối."
+No Hybrid in main architecture.
+
+RIGHT UPPER title "4. CHỈ SỐ ĐÁNH GIÁ"
+"Retrieval (trước selection)"
+"Recall@1/5/10/20 = Hit@k"
+"Tỷ lệ câu có ít nhất 1 gold trong top-k"
+"MRR@10: trung bình nghịch đảo hạng gold đầu tiên"
+"GoldCoverage@k: metric phụ, đo phần gold tìm được"
+"QA"
+"EM: khớp hoàn toàn sau chuẩn hóa"
+"Token-F1 = 2PR / (P + R)"
+"Lấy điểm cao nhất qua các đáp án tham chiếu"
+"Latency"
+"Retrieval / Rerank / Read / Total"
+"Mean · p50 · p95; luôn ghi n_latency"
+"Chất lượng dùng N_eval = số câu có gold evidence"
+"Gold rỗng báo riêng; query lỗi không bị bỏ khỏi N_eval"
+
+RIGHT LOWER title "5. PHÂN TÍCH LỖI THEO THỨ TỰ"
+Show vertical decision cascade with right-side colored outcomes, explicit YES/NO:
+"Thiếu prediction hoặc status=error?" — yes→ "execution_failure"
+no ↓
+"Không có gold trong top-20?" — yes→ "retrieval_miss"
+no ↓
+"Không có gold trong passage được chọn?" — yes→ "selection_failure"
+no ↓
+"Đáp án sai (EM=0)?" — yes→ "reader_failure"
+no ↓ "correct: có gold trong reader input và EM=1"
+Beneath decision graph:
+"Tỷ lệ mỗi nhóm = số câu trong nhóm / N_eval × 100%"
+"5 nhóm loại trừ nhau, tổng = 100%"
+"final_correct = (EM=1), lưu độc lập với nhóm"
+"Ví dụ: gold hạng 8, OFF lấy top-5 → selection_failure"
+"Review tay: F1>0 và EM=0; tối đa 100 case, seed 42"
+"Review tay không đổi tỷ lệ nhóm tự động"
+
+FULL-WIDTH FOOTER substantial concise strip title "THỰC NGHIỆM TRẢ LỜI 3 RQ"
+"2 retriever × 2 trạng thái reranker × 3 corpus = 12 cấu hình + Oracle"
+"RQ1: Quy mô ảnh hưởng chất lượng?  |  RQ2: Điểm nghẽn dịch chuyển?  |  RQ3: Lợi ích reranker / latency?"
+"Chọn checkpoint trên dev; khóa trước test. GermanQuAD test: đánh giá chính."
+Tiny footer "V1.2 A3 còn là draft. Đây là sơ đồ học tập và hệ thống dự kiến, không phải kết quả đã đo."
+
+Make hierarchy clear with numbered section headers, distinct academic diagrams, ample margins. Text must be legible. No invented graphs or performance bars. This poster must emphasize knowledge and theoretical readings and accurate error definitions, not the previous 10-stage project schedule.
+
+Correction 1:
+Edit this infographic with minimal precise arrow corrections only. Preserve all Vietnamese text, colors, layout, paper references and all other elements.
+1. Section 3B: Corpus must have TWO outgoing arrows, one to BM25 and one to Dense DPR. Remove the existing direct Corpus → Retrieval pool arrow. Route that corpus arrow to the Dense DPR box instead. Both retrievers feed Retrieval pool as before. Question still feeds both retrievers.
+2. Section 3C: Oracle is an independent inference runner whose output is scored by Evaluation. Reverse the arrow currently going Evaluation → Oracle: make it Oracle → Evaluation. Keep Integration → Evaluation unchanged. Oracle is NOT a step after evaluation.
+3. Section 3A: remove the rightward Corpus → Huấn luyện arrow. Training depends on the dataset splits, not a required sequential stage after corpus build. Keep the training notes in their separate box, without a connecting arrow from Corpus.
+4. Correct the spelling 'bổ trợ' in the sentence below knowledge cards if needed. All other content unchanged. No new elements. Render at highest possible resolution with sharp readable Vietnamese text.
+
+Correction 2:
+Make only these two local changes to this poster; everything else must remain unchanged, including all text and paper references.
+Section 3B: remove BOTH downward arrows from the Corpus box to BM25. Instead leave Corpus as a standalone annotation box with text "Corpus (base / mid / large)" and add immediately beneath it small text "Dùng chung cho BM25 và Dense". No arrows at all from Corpus. Preserve all Question → retriever → retrieval pool → selection → Reader arrows.
+Section 3C: replace its three boxes and arrows with this exact simple text panel, no arrows anywhere in section C:
+"Integration: chạy pipeline, lưu predictions, latency và manifest."
+"Oracle runner: đưa gold passages vào cùng Reader."
+"Evaluation: chấm artifact từ pipeline hoặc oracle; xuất metrics và phân tích lỗi."
+"Oracle là mốc năng lực reader, không phải trần tuyệt đối."
+This prevents any false impression that Oracle is a mandatory intermediate stage. Preserve header "C Đánh giá từ artifact", same panel size and pastel colors. Prioritize these corrections exactly.

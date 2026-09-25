@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../genai"
+		},
+		{
+			"path": "../../../genai/huflit-chatbot-law-faculty"
+		},
+		{
+			"path": "../../../genai/huflit-chatbot"
+		},
+		{
+			"path": "../../../masterCĐT"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

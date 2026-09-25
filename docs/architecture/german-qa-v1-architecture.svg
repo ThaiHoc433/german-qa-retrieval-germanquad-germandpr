@@ -1,0 +1,508 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1320" viewBox="0 0 1920 1320">
+<title>Kiến trúc hệ thống V1 — German Open-Domain Extractive QA</title>
+<defs>
+<style>
+.title{font:700 28px 'Segoe UI',Arial,sans-serif;fill:#1A202C}
+.sub{font:400 15px 'Segoe UI',Arial,sans-serif;fill:#4A5568}
+.sb{font-weight:700;fill:#1A202C}
+.note{font:400 12px 'Segoe UI',Arial,sans-serif;fill:#718096}
+.ph{font:700 14px 'Segoe UI',Arial,sans-serif;fill:#FFFFFF;letter-spacing:.4px}
+.phs{font:400 11.5px 'Segoe UI',Arial,sans-serif;fill:#FFFFFF;fill-opacity:.92}
+.h{font:700 14px 'Segoe UI',Arial,sans-serif;fill:#1A202C}
+.h13{font:700 13px 'Segoe UI',Arial,sans-serif;fill:#1A202C}
+.t{font:400 12px 'Segoe UI',Arial,sans-serif;fill:#2D3748}
+.tb{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#2D3748}
+.ts{font:400 11px 'Segoe UI',Arial,sans-serif;fill:#4A5568}
+.it{font-style:italic}
+.m{font:700 12.5px Consolas,'Cascadia Mono','Courier New',monospace;fill:#1C5A40}
+.mm{font:400 11px Consolas,'Cascadia Mono','Courier New',monospace;fill:#2D3748}
+.tag{font:700 10px 'Segoe UI',Arial,sans-serif}
+.step{font:700 11px 'Segoe UI',Arial,sans-serif;fill:#5B2FA0;letter-spacing:.5px}
+.chip{font:700 11px Consolas,'Cascadia Mono','Courier New',monospace}
+.flow{fill:none;stroke:#4A5568;stroke-width:1.5}
+.ckpt{fill:none;stroke:#7C55C7;stroke-width:1.5;stroke-dasharray:6 4}
+.web{fill:none;stroke:#B53A68;stroke-width:1.5;stroke-dasharray:6 4}
+.row{fill:#F2F8F5;stroke:#B5D8C4;stroke-width:1.1}
+.rowp{fill:#FBFDFC;stroke:#6FAE8C;stroke-width:1.1;stroke-dasharray:5 3}
+.ai{fill:#FFFFFF;stroke:#9B79D8;stroke-width:1.3}
+.aip{fill:#FFFFFF;stroke:#9B79D8;stroke-width:1.3;stroke-dasharray:5 3}
+.band{fill:#F8F4FE;stroke:#DCCBF5;stroke-width:1}
+</style>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#4A5568"/></marker>
+<marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#7C55C7"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#B53A68"/></marker>
+</defs>
+
+<rect width="1920" height="1320" fill="#F7F8FA"/>
+
+<!-- ============ HEADER ============ -->
+<text class="title" x="32" y="52">Kiến trúc hệ thống V1 — Hỏi đáp mở trích xuất tiếng Đức (GermanQuAD · GermanDPR)</text>
+<text class="sub" x="32" y="82">Dự án nghiên cứu chạy offline: <tspan class="sb">Backend</tspan> = pipeline Python (CLI / notebook) · <tspan class="sb">AI</tspan> = Retriever → Selection → Reader · <tspan class="sb">Frontend</tspan> = website tĩnh. V1 không có server/API; website không chạy inference.</text>
+<text class="note" x="1888" y="46" text-anchor="end">Tổng hợp từ: module spec V1.1 (frozen 2026-09-11) · design RQ1–RQ3</text>
+<text class="note" x="1888" y="64" text-anchor="end">constitution v1.0.0 · roadmap 10 chặng · task catalog · website/README</text>
+<line x1="24" y1="100" x2="1896" y2="100" stroke="#E2E8F0" stroke-width="1.2"/>
+
+<!-- ============ COL 1: DỮ LIỆU NGOÀI ============ -->
+<rect x="24" y="116" width="252" height="784" rx="12" fill="#FFFFFF" stroke="#C3D3EF" stroke-width="1.2"/>
+<path d="M24,168 V128 A12,12 0 0 1 36,116 H264 A12,12 0 0 1 276,128 V168 Z" fill="#2F5FB3"/>
+<text class="ph" x="38" y="138">DỮ LIỆU NGOÀI</text>
+<text class="phs" x="38" y="157">Hugging Face Hub · tải về, cache local</text>
+
+<rect x="38" y="180" width="224" height="112" rx="8" fill="#F3F7FE" stroke="#C9D8F2"/>
+<text class="h" x="50" y="204">GermanQuAD</text>
+<text class="mm" x="50" y="222" style="fill:#2F5FB3">deepset/germanquad</text>
+<text class="t" x="50" y="244">train 11.518 · test 2.204</text>
+<text class="t" x="50" y="262">QA trích xuất, nhiều đáp án</text>
+<text class="t" x="50" y="279">tham chiếu, có answer_start</text>
+
+<rect x="38" y="304" width="224" height="112" rx="8" fill="#F3F7FE" stroke="#C9D8F2"/>
+<text class="h" x="50" y="328">GermanDPR</text>
+<text class="mm" x="50" y="346" style="fill:#2F5FB3">deepset/germandpr</text>
+<text class="t" x="50" y="368">train 9.275 · test 1.025</text>
+<text class="t" x="50" y="386">1 positive + thường 3 hard</text>
+<text class="t" x="50" y="403">negative; không answer_start</text>
+
+<rect x="38" y="428" width="224" height="112" rx="8" fill="#F3F7FE" stroke="#C9D8F2"/>
+<text class="h" x="50" y="452">Wikipedia tiếng Đức</text>
+<text class="mm" x="50" y="470" style="fill:#2F5FB3">wikimedia/wikipedia</text>
+<text class="t" x="50" y="492">snapshot 20231101.de</text>
+<text class="t" x="50" y="510">distractor cho tier mid/large,</text>
+<text class="t" x="50" y="527">đọc streaming, lọc title (P4)</text>
+
+<rect x="38" y="552" width="224" height="96" rx="8" fill="#F3F7FE" stroke="#C9D8F2"/>
+<text class="h" x="50" y="576">gbert-base</text>
+<text class="mm" x="50" y="594" style="fill:#2F5FB3">deepset/gbert-base</text>
+<text class="t" x="50" y="616">BERT tiếng Đức, ghim revision;</text>
+<text class="t" x="50" y="633">khởi tạo mọi mô hình neural</text>
+
+<rect x="38" y="664" width="224" height="222" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+<text class="h13" x="50" y="688">Vai trò khi đánh giá</text>
+<text class="t" x="50" y="710">• GermanQuAD test gốc: tập trả</text>
+<text class="t" x="62" y="727">lời RQ1–RQ3 (mẫu số N_eval)</text>
+<text class="t" x="50" y="748">• GermanDPR test: sanity-check</text>
+<text class="t" x="62" y="765">retrieval-only riêng</text>
+<text class="t" x="50" y="786">• Không dùng test để chọn</text>
+<text class="t" x="62" y="803">checkpoint / hyperparameter</text>
+<text class="t" x="50" y="824">• Parquet lấy từ nhánh</text>
+<text class="mm" x="62" y="841">refs/convert/parquet</text>
+<text class="t" x="62" y="858">(datasets 5.x bỏ script)</text>
+
+<!-- sources -> data pipeline -->
+<path class="flow" d="M262,360 H288 V236"/>
+<path class="flow" d="M262,236 H288 V198 H312" marker-end="url(#a)"/>
+<path class="flow" d="M262,484 H288 V520 H312" marker-end="url(#a)"/>
+
+<!-- ============ COL 2: BACKEND 1 — DATA PIPELINE ============ -->
+<rect x="300" y="116" width="320" height="544" rx="12" fill="#FFFFFF" stroke="#BADBC9" stroke-width="1.2"/>
+<path d="M300,168 V128 A12,12 0 0 1 312,116 H608 A12,12 0 0 1 620,128 V168 Z" fill="#23795A"/>
+<text class="ph" x="314" y="138">BACKEND 1 — DATA PIPELINE</text>
+<text class="phs" x="314" y="157">Python · CPU local · src/ + notebooks/ + scripts/</text>
+
+<rect class="row" x="314" y="176" width="292" height="44" rx="6"/>
+<text class="m" x="326" y="194">hf_data.py</text>
+<rect x="536" y="182" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="567" y="194" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="326" y="211">tải Parquet GermanQuAD / GermanDPR</text>
+
+<rect class="row" x="314" y="226" width="292" height="60" rx="6"/>
+<text class="m" x="326" y="244">splits.py</text>
+<rect x="536" y="232" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="567" y="244" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="326" y="261">D1: giữ test gốc; dòng train trùng test</text>
+<text class="t" x="326" y="277">bị loại (không chuyển); dev 10%, seed 42</text>
+
+<rect class="row" x="314" y="292" width="292" height="60" rx="6"/>
+<text class="m" x="326" y="310">corpus.py</text>
+<rect x="536" y="298" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="567" y="310" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="326" y="327">chunk 100 từ, overlap 20; passage_id =</text>
+<text class="t" x="326" y="343">sha256[:16]; provenance; build base D6</text>
+
+<rect class="rowp" x="314" y="358" width="292" height="60" rx="6"/>
+<text class="m" x="326" y="376">qa_records.py</text>
+<rect x="546" y="364" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="572" y="376" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="326" y="393">gold_evidences, reference_answers;</text>
+<text class="t" x="326" y="409">xử lý collision; gold rỗng vẫn lưu</text>
+
+<rect class="rowp" x="314" y="424" width="292" height="60" rx="6"/>
+<text class="m" x="326" y="442">retrieval_records.py</text>
+<rect x="546" y="430" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="572" y="442" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="326" y="459">positive = hợp các chunk chứa đáp án;</text>
+<text class="t" x="326" y="475">hard_negative_groups — chỉ để train</text>
+
+<rect class="rowp" x="314" y="490" width="292" height="60" rx="6"/>
+<text class="m" x="326" y="508">distractors.py</text>
+<rect x="546" y="496" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="572" y="508" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="326" y="525">chuỗi distractor Wikipedia cố định,</text>
+<text class="t" x="326" y="541">lịch R, lọc title trùng nguồn (P4)</text>
+
+<rect class="row" x="314" y="556" width="292" height="44" rx="6"/>
+<text class="m" x="326" y="574">schemas.py</text>
+<rect x="536" y="562" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="567" y="574" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="326" y="591">validators V1.1 — vi phạm thì dừng</text>
+
+<rect class="rowp" x="314" y="606" width="292" height="44" rx="6"/>
+<text class="m" x="326" y="624">check_data_acceptance.py</text>
+<rect x="546" y="612" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="572" y="624" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="326" y="641">nghiệm thu: offset, nguồn, coverage ≥98%</text>
+
+<path class="flow" d="M460,650 V681" marker-end="url(#a)"/>
+
+<!-- store: data/processed/v1.1 -->
+<path d="M300,698 V886 A160,14 0 0 0 620,886 V698" fill="#FFF7E3" stroke="#D9A62E" stroke-width="1.4"/>
+<ellipse cx="460" cy="698" rx="160" ry="14" fill="#FFEFC7" stroke="#D9A62E" stroke-width="1.4"/>
+<text class="m" x="318" y="736" style="fill:#7A5200">data/processed/v1.1/</text>
+<text class="tb" x="318" y="756">Corpus 3 tier lồng nhau (D6 / P4):</text>
+<text class="t" x="318" y="774">base ≈7,5K (số thật chốt sau build)</text>
+<text class="t" x="318" y="792">⊂ mid 50.000 ⊂ large 150.000 passage</text>
+<text class="t" x="318" y="812">6 file split · hard negatives (chỉ train)</text>
+<text class="mm" x="318" y="830">base_title_exclusions.json</text>
+<text class="mm" x="318" y="846">wikipedia_distractors.jsonl</text>
+<text class="t" x="318" y="866">5 báo cáo, gồm corpus_manifest</text>
+
+<!-- store -> AI retriever, store -> training -->
+<path class="flow" d="M620,740 H632 V278 H655" marker-end="url(#a)"/>
+<path class="flow" d="M620,800 H641" marker-end="url(#a)"/>
+
+<!-- ============ COL 3: AI — PIPELINE ============ -->
+<rect x="644" y="116" width="632" height="544" rx="12" fill="#FFFFFF" stroke="#D3C2EF" stroke-width="1.2"/>
+<path d="M644,166 V128 A12,12 0 0 1 656,116 H1264 A12,12 0 0 1 1276,128 V166 Z" fill="#6A3FB5"/>
+<text class="ph" x="658" y="137">AI — PIPELINE HỎI ĐÁP (INFERENCE)</text>
+<text class="phs" x="658" y="156">PyTorch · Transformers · bm25s · FAISS — chạy cho từng câu hỏi, cùng ngân sách reader_k = 5</text>
+
+<rect x="790" y="176" width="340" height="26" rx="13" fill="#EDF2F7" stroke="#A0AEC0"/>
+<text class="tb" x="960" y="193.5" text-anchor="middle">Câu hỏi tiếng Đức — split dev / test (query_id)</text>
+<path class="flow" d="M960,202 V211" marker-end="url(#a)"/>
+
+<rect class="band" x="658" y="212" width="604" height="118" rx="10"/>
+<text class="step" x="672" y="227">BƯỚC 1 · RETRIEVER — chọn 1 trong 2</text>
+<rect class="ai" x="672" y="234" width="200" height="88" rx="8"/>
+<text class="h" x="684" y="256">BM25</text>
+<rect x="800" y="240" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="831" y="252" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="684" y="274">bm25s, không cần train</text>
+<text class="t" x="684" y="291">index riêng cho từng tier</text>
+<text class="mm" x="684" y="310" style="fill:#5B2FA0">src/bm25_retriever.py</text>
+<text class="ts it" x="888" y="282" text-anchor="middle">hoặc</text>
+<rect class="aip" x="904" y="234" width="344" height="88" rx="8"/>
+<text class="h" x="916" y="256">Dense DPR — dual-encoder</text>
+<rect x="1186" y="240" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1212" y="252" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="916" y="274">Question encoder ‖ Passage encoder:</text>
+<text class="t" x="916" y="291">2 × gbert-base độc lập · CLS · dot product</text>
+<text class="t" x="916" y="309">FAISS IndexFlatIP + ID map (theo tier)</text>
+
+<path class="flow" d="M960,330 V339" marker-end="url(#a)"/>
+<rect x="805" y="340" width="310" height="26" rx="13" fill="#F3EDFD" stroke="#9B79D8"/>
+<text class="tb" x="960" y="357.5" text-anchor="middle" style="fill:#4B2590">Retrieval pool: top-20 (retrieval_k = 20)</text>
+<path class="flow" d="M960,366 V375" marker-end="url(#a)"/>
+
+<rect class="band" x="658" y="376" width="604" height="82" rx="10"/>
+<text class="step" x="672" y="391">BƯỚC 2 · SELECTION — reranker bật / tắt</text>
+<rect class="aip" x="672" y="398" width="300" height="52" rx="8"/>
+<text class="h13" x="684" y="418">Cross-Encoder reranker</text>
+<rect x="910" y="404" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="936" y="416" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="684" y="437">gbert-base · BCE · chấm lại 20 → giữ 5</text>
+<text class="ts it" x="988" y="428" text-anchor="middle">hoặc</text>
+<rect class="aip" x="1004" y="398" width="244" height="52" rx="8"/>
+<text class="h13" x="1016" y="418">Rerank tắt</text>
+<rect x="1186" y="404" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1212" y="416" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="1016" y="437">lấy top-5 theo rank retriever</text>
+
+<path class="flow" d="M960,458 V467" marker-end="url(#a)"/>
+<rect x="785" y="468" width="350" height="26" rx="13" fill="#F3EDFD" stroke="#9B79D8"/>
+<text class="tb" x="960" y="485.5" text-anchor="middle" style="fill:#4B2590">≤ 5 passage vào Reader (reader_k = 5, không pad)</text>
+<path class="flow" d="M960,494 V503" marker-end="url(#a)"/>
+
+<rect class="band" x="658" y="504" width="604" height="82" rx="10"/>
+<text class="step" x="672" y="519">BƯỚC 3 · READER — trích xuất span</text>
+<rect class="aip" x="672" y="526" width="576" height="52" rx="8"/>
+<text class="h13" x="684" y="546">Reader · gbert-base + QA head</text>
+<rect x="1186" y="532" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1212" y="544" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="684" y="565">max_seq 384 · stride 128 · max_answer 30 token · score = start + end logit</text>
+
+<path class="flow" d="M960,586 V597" marker-end="url(#a)"/>
+<rect x="730" y="598" width="460" height="30" rx="15" fill="#5B2FA0"/>
+<text class="tb" x="960" y="617.5" text-anchor="middle" style="fill:#FFFFFF">Đáp án = span text + passage_id + char offset (hoặc None)</text>
+
+<!-- checkpoints -> models -->
+<path class="ckpt" d="M700,684 V590" marker-end="url(#ap)"/>
+<text class="ts" x="708" y="648" style="fill:#5B2FA0">checkpoint đã chọn → Dense · Reranker · Reader</text>
+
+<!-- AI -> evaluation; integration -> AI -->
+<path class="flow" d="M1115,353 H1288 V470 H1312" marker-end="url(#a)"/>
+<text class="ts" x="1124" y="347">retrieval results</text>
+<path class="flow" d="M1190,613 H1288 V560 H1312" marker-end="url(#a)"/>
+<text class="ts" x="1197" y="607">predictions</text>
+<path class="flow" d="M1312,280 H1280" marker-end="url(#a)"/>
+
+<!-- ============ TRAINING ============ -->
+<rect x="644" y="684" width="632" height="216" rx="12" fill="#FFFFFF" stroke="#D3C2EF" stroke-width="1.2"/>
+<path d="M644,730 V696 A12,12 0 0 1 656,684 H1264 A12,12 0 0 1 1276,696 V730 Z" fill="#8B67CF"/>
+<text class="ph" x="658" y="704">AI — TRAINING &amp; CHỌN CHECKPOINT</text>
+<text class="phs" x="658" y="722">Colab T4 · fp16 · khởi tạo từ gbert-base · chọn trên dev theo P2, không dùng test</text>
+
+<rect x="658" y="740" width="193" height="112" rx="8" fill="#FAF7FE" stroke="#B9A0E6" stroke-dasharray="5 3"/>
+<text class="h13" x="670" y="760">Dense retriever</text>
+<text class="t" x="670" y="778">DPR NLL · 1 positive / câu</text>
+<text class="t" x="670" y="795">in-batch + hard negative</text>
+<text class="t" x="670" y="812">mask toàn bộ gold_set</text>
+<text class="tb" x="670" y="836" style="fill:#5B2FA0">chọn: Recall@20 dev/base</text>
+
+<rect x="863" y="740" width="193" height="112" rx="8" fill="#FAF7FE" stroke="#B9A0E6" stroke-dasharray="5 3"/>
+<text class="h13" x="875" y="760">Cross-Encoder reranker</text>
+<text class="t" x="875" y="778">BCE, cặp (câu hỏi, passage)</text>
+<text class="t" x="875" y="795">sampling / mask như Dense</text>
+<text class="t" x="875" y="812">top-20 cố định từ retriever</text>
+<text class="tb" x="875" y="836" style="fill:#5B2FA0">chọn: Recall@5 sau rerank</text>
+
+<rect x="1068" y="740" width="193" height="112" rx="8" fill="#FAF7FE" stroke="#B9A0E6" stroke-dasharray="5 3"/>
+<text class="h13" x="1080" y="760">Reader</text>
+<text class="t" x="1080" y="778">fine-tune GermanQuAD train</text>
+<text class="t" x="1080" y="795">oracle runner: đọc toàn bộ</text>
+<text class="t" x="1080" y="812">gold passage (reader_only)</text>
+<text class="tb" x="1080" y="836" style="fill:#5B2FA0">chọn: F1 reader-only dev</text>
+
+<text class="ts" x="658" y="872">Checkpoint mỗi epoch + optimizer/step/RNG → Google Drive · khóa trước test và trước khi mở rộng tier</text>
+<text class="ts" x="658" y="889">Chấm dev qua Evaluation + run_manifest; mỗi checkpoint được chấm có fingerprint riêng</text>
+
+<!-- ============ COL 4: BACKEND 2 — RUN & EVALUATION ============ -->
+<rect x="1300" y="116" width="316" height="544" rx="12" fill="#FFFFFF" stroke="#BADBC9" stroke-width="1.2"/>
+<path d="M1300,166 V128 A12,12 0 0 1 1312,116 H1604 A12,12 0 0 1 1616,128 V166 Z" fill="#23795A"/>
+<text class="ph" x="1314" y="137">BACKEND 2 — RUN &amp; EVALUATION</text>
+<text class="phs" x="1314" y="156">Python · CLI · Evaluation chỉ chấm artifact</text>
+
+<rect class="rowp" x="1314" y="176" width="288" height="60" rx="6"/>
+<text class="m" x="1326" y="194">run_manifest.py</text>
+<rect x="1542" y="182" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1568" y="194" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="1326" y="211">run_id; SHA-256 gold/corpus/checkpoint;</text>
+<text class="t" x="1326" y="227">bundle hash; ghi manifest TRƯỚC khi chạy</text>
+
+<rect class="rowp" x="1314" y="242" width="288" height="76" rx="6"/>
+<text class="m" x="1326" y="260">integration.py</text>
+<rect x="1542" y="248" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1568" y="260" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="1326" y="277">điều phối Retriever → Selection → Reader</text>
+<text class="t" x="1326" y="293">latency: batch 1, warm-up 10 câu dev</text>
+<text class="t" x="1326" y="309">query lỗi → status=error; resume run</text>
+
+<rect class="rowp" x="1314" y="324" width="288" height="44" rx="6"/>
+<text class="m" x="1326" y="342">reader_runner.py</text>
+<rect x="1542" y="330" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="1568" y="342" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="1326" y="359">oracle: Reader đọc toàn bộ gold passage</text>
+
+<rect class="row" x="1314" y="374" width="288" height="276" rx="6"/>
+<text class="m" x="1326" y="392">evaluation.py</text>
+<rect x="1532" y="380" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="1563" y="392" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="1326" y="410">3 mode: end_to_end · reader_only ·</text>
+<text class="t" x="1326" y="426">retrieval_only</text>
+<text class="t" x="1326" y="445">Recall@1/5/10/20 (= Hit@k) · MRR@10</text>
+<text class="t" x="1326" y="461">EM / F1 trên N_eval (gold không rỗng)</text>
+<text class="t" x="1326" y="477">Latency mean / p50 / p95 trên n_latency</text>
+<text class="tb" x="1326" y="498">Bucket lỗi (tầng 1) — theo thứ tự:</text>
+
+<rect x="1326" y="506" width="115" height="20" rx="10" fill="#FDE2E1" stroke="#D64545"/>
+<text class="chip" x="1383.5" y="520" text-anchor="middle" fill="#9B1C1C">execution_failure</text>
+<text class="tb" x="1451" y="520" text-anchor="middle">→</text>
+<rect x="1461" y="506" width="97" height="20" rx="10" fill="#FEEBD6" stroke="#DD6B20"/>
+<text class="chip" x="1509.5" y="520" text-anchor="middle" fill="#9C4221">retrieval_miss</text>
+
+<text class="tb" x="1334" y="546" text-anchor="middle">→</text>
+<rect x="1344" y="532" width="115" height="20" rx="10" fill="#FEF5CC" stroke="#C99A06"/>
+<text class="chip" x="1401.5" y="546" text-anchor="middle" fill="#744210">selection_failure</text>
+<text class="tb" x="1469" y="546" text-anchor="middle">→</text>
+<rect x="1479" y="532" width="97" height="20" rx="10" fill="#EDE4FB" stroke="#805AD5"/>
+<text class="chip" x="1527.5" y="546" text-anchor="middle" fill="#44337A">reader_failure</text>
+
+<text class="tb" x="1334" y="572" text-anchor="middle">→</text>
+<rect x="1344" y="558" width="54" height="20" rx="10" fill="#DCF2E4" stroke="#2F9E5B"/>
+<text class="chip" x="1371" y="572" text-anchor="middle" fill="#1C4532">correct</text>
+
+<text class="t" x="1326" y="598">final_correct (EM = 1) lưu riêng, không</text>
+<text class="t" x="1326" y="614">suy ra từ bucket (và ngược lại)</text>
+<text class="ts" x="1326" y="636">manual review: F1 &gt; 0, EM = 0 (≤ 100 mẫu)</text>
+
+<path class="flow" d="M1458,650 V681" marker-end="url(#a)"/>
+
+<!-- store: results -->
+<path d="M1300,698 V886 A158,14 0 0 0 1616,886 V698" fill="#FFF7E3" stroke="#D9A62E" stroke-width="1.4"/>
+<ellipse cx="1458" cy="698" rx="158" ry="14" fill="#FFEFC7" stroke="#D9A62E" stroke-width="1.4"/>
+<text class="m" x="1318" y="736" style="fill:#7A5200">results/&lt;run_id&gt;/</text>
+<text class="t" x="1318" y="756">run_manifest.json: config + SHA-256</text>
+<text class="t" x="1318" y="774">gold · corpus · checkpoint (ghi trước)</text>
+<text class="t" x="1318" y="794">retrieval / predictions (JSONL)</text>
+<text class="t" x="1318" y="812">metrics_{run_id}.json + per_query</text>
+<text class="t" x="1318" y="832">dev → chọn checkpoint (P2)</text>
+<text class="t" x="1318" y="850">test → số liệu báo cáo (đã khóa)</text>
+
+<path class="ckpt" d="M1300,828 H1280" marker-end="url(#ap)"/>
+<path class="flow" d="M1616,790 H1628 V218 H1651" marker-end="url(#a)"/>
+
+<!-- ============ COL 5: PHÂN TÍCH ============ -->
+<rect x="1640" y="116" width="256" height="404" rx="12" fill="#FFFFFF" stroke="#B3DCE3" stroke-width="1.2"/>
+<path d="M1640,166 V128 A12,12 0 0 1 1652,116 H1884 A12,12 0 0 1 1896,128 V166 Z" fill="#0E7A8A"/>
+<text class="ph" x="1654" y="137">PHÂN TÍCH &amp; BÁO CÁO</text>
+<text class="phs" x="1654" y="156">notebooks · bảng · hình · báo cáo</text>
+
+<rect x="1654" y="176" width="228" height="84" rx="8" fill="#EFF8FA" stroke="#BFE1E7"/>
+<text class="h13" x="1666" y="196">Ma trận thực nghiệm</text>
+<text class="t" x="1666" y="214">2 retriever × rerank bật/tắt</text>
+<text class="t" x="1666" y="231">× 3 tier = 12 cấu hình</text>
+<text class="t" x="1666" y="248">+ oracle reader-only</text>
+
+<rect x="1654" y="268" width="228" height="66" rx="8" fill="#EFF8FA" stroke="#BFE1E7"/>
+<text class="h13" x="1666" y="288">RQ1 · Quy mô corpus</text>
+<text class="t" x="1666" y="306">6 cấu hình rerank tắt</text>
+<text class="tb" x="1666" y="323" style="fill:#0E7A8A">→ Bảng 1 · Hình 1</text>
+
+<rect x="1654" y="342" width="228" height="66" rx="8" fill="#EFF8FA" stroke="#BFE1E7"/>
+<text class="h13" x="1666" y="362">RQ2 · Điểm nghẽn</text>
+<text class="t" x="1666" y="380">5 bucket + oracle gap</text>
+<text class="tb" x="1666" y="397" style="fill:#0E7A8A">→ Bảng 2 · Hình 2</text>
+
+<rect x="1654" y="416" width="228" height="66" rx="8" fill="#EFF8FA" stroke="#BFE1E7"/>
+<text class="h13" x="1666" y="436">RQ3 · Giá trị selection</text>
+<text class="t" x="1666" y="454">cặp bật/tắt: gold, EM/F1, latency</text>
+<text class="tb" x="1666" y="471" style="fill:#0E7A8A">→ Bảng 3</text>
+
+<text class="ts it" x="1654" y="503">Kết luận mô tả; chưa kiểm định thống kê</text>
+
+<path class="web" d="M1768,520 V537" marker-end="url(#ar)"/>
+
+<!-- ============ FRONTEND ============ -->
+<rect x="1640" y="540" width="256" height="360" rx="12" fill="#FFFFFF" stroke="#EFC3D3" stroke-width="1.2"/>
+<path d="M1640,590 V552 A12,12 0 0 1 1652,540 H1884 A12,12 0 0 1 1896,552 V590 Z" fill="#B53A68"/>
+<text class="ph" x="1654" y="561">FRONTEND — WEBSITE TĨNH</text>
+<text class="phs" x="1654" y="580">website/ · HTML + CSS + vanilla JS</text>
+
+<rect x="1654" y="600" width="228" height="76" rx="6" fill="#FDF4F8" stroke="#E9B9CB"/>
+<path d="M1654,616 V606 A6,6 0 0 1 1660,600 H1876 A6,6 0 0 1 1882,606 V616 Z" fill="#F6D9E4"/>
+<circle cx="1664" cy="608" r="3" fill="#E57373"/>
+<circle cx="1674" cy="608" r="3" fill="#F6C343"/>
+<circle cx="1684" cy="608" r="3" fill="#6BC98B"/>
+<text class="mm" x="1696" y="612" style="font-size:9.5px;fill:#8A4A63">localhost:8000</text>
+<text class="mm" x="1666" y="636">index.html · styles.css</text>
+<text class="mm" x="1666" y="653">script.js · .nojekyll</text>
+<text class="ts" x="1666" y="669">tài liệu đề tài dạng trang web</text>
+
+<text class="t" x="1654" y="698">• Không framework, không build step</text>
+<text class="t" x="1654" y="716">• Không backend, không API key</text>
+<text class="t" x="1654" y="734">• Không chạy model / inference</text>
+<text class="t" x="1654" y="752">• Mở file:// hoặc chạy lệnh</text>
+<text class="mm" x="1666" y="769">python -m http.server 8000</text>
+<text class="t" x="1654" y="789">• QA Playwright 375/768/1440 px</text>
+<text class="t" x="1654" y="807">• GitHub Pages: chưa deploy</text>
+<text class="t" x="1654" y="825">• Hiện: nội dung từ spec V1.1</text>
+<text class="t" x="1654" y="843">• Sau: thêm kết quả đã nghiệm</text>
+<text class="t" x="1666" y="860">thu, có provenance (T10.2)</text>
+
+<!-- ============ HẠ TẦNG ============ -->
+<rect x="24" y="920" width="920" height="190" rx="12" fill="#FFFFFF" stroke="#CBD2DC" stroke-width="1.2"/>
+<path d="M24,958 V932 A12,12 0 0 1 36,920 H932 A12,12 0 0 1 944,932 V958 Z" fill="#4A5568"/>
+<text class="ph" x="38" y="944">HẠ TẦNG TÍNH TOÁN &amp; LƯU TRỮ</text>
+<text class="phs" x="300" y="944">nơi từng phần chạy — không có máy chủ web trong V1</text>
+
+<rect x="38" y="970" width="214" height="128" rx="8" fill="#F5F7FA" stroke="#D5DBE3"/>
+<text class="h13" x="50" y="992">Máy local · Windows 11</text>
+<text class="t" x="50" y="1011">CPU; GPU RTX 3050 Laptop 4GB</text>
+<text class="t" x="50" y="1028">(torch hiện là bản CPU-only)</text>
+<text class="t" x="50" y="1049">data pipeline, BM25,</text>
+<text class="t" x="50" y="1066">Evaluation, pytest, fixture</text>
+
+<rect x="264" y="970" width="214" height="128" rx="8" fill="#F5F7FA" stroke="#D5DBE3"/>
+<text class="h13" x="276" y="992">Google Colab · GPU T4</text>
+<text class="t" x="276" y="1011">train Dense/Reranker/Reader</text>
+<text class="t" x="276" y="1028">fp16; encode corpus → FAISS</text>
+<text class="t" x="276" y="1049">latency chính thức: batch 1,</text>
+<text class="t" x="276" y="1066">warm-up, cuda.synchronize</text>
+
+<rect x="490" y="970" width="214" height="128" rx="8" fill="#F5F7FA" stroke="#D5DBE3"/>
+<text class="h13" x="502" y="992">Google Drive</text>
+<text class="t" x="502" y="1011">checkpoint mỗi epoch</text>
+<text class="t" x="502" y="1028">(weights/optimizer/step/RNG)</text>
+<text class="t" x="502" y="1049">→ resume khi Colab ngắt phiên</text>
+
+<rect x="716" y="970" width="214" height="128" rx="8" fill="#F5F7FA" stroke="#D5DBE3"/>
+<text class="h13" x="728" y="992">Git repo · nlp/</text>
+<text class="t" x="728" y="1011">src · tests · notebooks</text>
+<text class="t" x="728" y="1028">docs · website · .specify</text>
+<text class="t" x="728" y="1049">commit / push chỉ khi chủ</text>
+<text class="t" x="728" y="1066">project yêu cầu</text>
+
+<!-- ============ QUẢN TRỊ ============ -->
+<rect x="968" y="920" width="928" height="190" rx="12" fill="#FFFFFF" stroke="#E2D3B5" stroke-width="1.2"/>
+<path d="M968,958 V932 A12,12 0 0 1 980,920 H1884 A12,12 0 0 1 1896,932 V958 Z" fill="#7B5B2A"/>
+<text class="ph" x="982" y="944">QUẢN TRỊ &amp; TÀI LIỆU</text>
+<text class="phs" x="1172" y="944">docs/superpowers · .specify/memory — nguồn chuẩn cho mọi phần trên</text>
+
+<rect x="982" y="970" width="164" height="100" rx="8" fill="#FBF7EF" stroke="#E3D4B8"/>
+<text class="h13" x="994" y="992">Constitution v1.0.0</text>
+<text class="t" x="994" y="1011">7 nguyên tắc quản trị</text>
+<text class="t" x="994" y="1028">ratified 2026-09-11</text>
+
+<rect x="1166" y="970" width="164" height="100" rx="8" fill="#FBF7EF" stroke="#E3D4B8"/>
+<text class="h13" x="1178" y="992">Module spec V1.1</text>
+<text class="tb" x="1178" y="1011" style="fill:#C53030">FROZEN 2026-09-11</text>
+<text class="t" x="1178" y="1028">hợp đồng kỹ thuật</text>
+<text class="t" x="1178" y="1045">D1–D6 · P1–P4 · §0–§9</text>
+
+<rect x="1350" y="970" width="164" height="100" rx="8" fill="#FBF7EF" stroke="#E3D4B8"/>
+<text class="h13" x="1362" y="992">Design · RQ1–RQ3</text>
+<text class="t" x="1362" y="1011">đề tài, đóng góp,</text>
+<text class="t" x="1362" y="1028">phạm vi kết luận</text>
+
+<rect x="1534" y="970" width="164" height="100" rx="8" fill="#FBF7EF" stroke="#E3D4B8"/>
+<text class="h13" x="1546" y="992">Roadmap · Tasks</text>
+<text class="t" x="1546" y="1011">10 chặng · 32 buổi</text>
+<text class="t" x="1546" y="1028">T1.1 → T10.2</text>
+
+<rect x="1718" y="970" width="164" height="100" rx="8" fill="#FFFDF7" stroke="#C9A227" stroke-dasharray="5 3"/>
+<text class="h13" x="1730" y="992">V1.2 draft · A1–A4</text>
+<text class="tb" x="1730" y="1011" style="fill:#B7791F">CHƯA hiệu lực</text>
+<text class="t" x="1730" y="1028">run infra sớm,</text>
+<text class="t" x="1730" y="1045">provenance post-rerank</text>
+
+<path class="flow" d="M1146,1020 H1165" marker-end="url(#a)"/>
+<path class="flow" d="M1330,1020 H1349" marker-end="url(#a)"/>
+<path class="flow" d="M1514,1020 H1533" marker-end="url(#a)"/>
+
+<text class="ts" x="982" y="1094">Quy trình: spec → freeze → implementation plan → chủ project duyệt → thực thi · không tune theo test · draft không tự có hiệu lực</text>
+
+<!-- ============ CHÚ GIẢI ============ -->
+<rect x="24" y="1126" width="920" height="174" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+<text class="h13" x="40" y="1150">Chú giải</text>
+
+<rect x="40" y="1164" width="14" height="14" rx="3" fill="#2F5FB3"/><text class="t" x="62" y="1176">Dữ liệu ngoài (Hugging Face)</text>
+<rect x="268" y="1164" width="14" height="14" rx="3" fill="#23795A"/><text class="t" x="290" y="1176">Backend — pipeline Python</text>
+<rect x="496" y="1164" width="14" height="14" rx="3" fill="#6A3FB5"/><text class="t" x="518" y="1176">AI — mô hình &amp; training</text>
+<rect x="724" y="1164" width="14" height="14" rx="3" fill="#D9A62E"/><text class="t" x="746" y="1176">Lưu trữ artifact (file)</text>
+<rect x="40" y="1188" width="14" height="14" rx="3" fill="#0E7A8A"/><text class="t" x="62" y="1200">Phân tích &amp; báo cáo</text>
+<rect x="268" y="1188" width="14" height="14" rx="3" fill="#B53A68"/><text class="t" x="290" y="1200">Frontend — website tĩnh</text>
+<rect x="496" y="1188" width="14" height="14" rx="3" fill="#4A5568"/><text class="t" x="518" y="1200">Hạ tầng tính toán</text>
+<rect x="724" y="1188" width="14" height="14" rx="3" fill="#7B5B2A"/><text class="t" x="746" y="1200">Quản trị &amp; tài liệu</text>
+
+<path class="flow" d="M40,1226 H88" marker-end="url(#a)"/>
+<text class="t" x="98" y="1230">luồng dữ liệu / inference / kết quả</text>
+<path class="ckpt" d="M340,1226 H388" marker-end="url(#ap)"/>
+<text class="t" x="398" y="1230">checkpoint · chấm dev để chọn · cập nhật website sau</text>
+
+<rect x="40" y="1246" width="62" height="16" rx="8" fill="#DDEFE5"/><text class="tag" x="71" y="1258" text-anchor="middle" fill="#276749">có · V1.0</text>
+<text class="t" x="110" y="1258">file đã có — bản V1.0, phải sửa theo V1.1 (viền liền)</text>
+<rect x="500" y="1246" width="52" height="16" rx="8" fill="#FCEBCB"/><text class="tag" x="526" y="1258" text-anchor="middle" fill="#975A16">dự kiến</text>
+<text class="t" x="560" y="1258">theo task catalog, chưa tạo (viền đứt)</text>
+
+<text class="ts" x="40" y="1284">Số dòng dataset theo audit hiện có; base ≈7,5K là ước tính — số thật chốt sau khi build V1.1. Mid/large là tổng số passage cố định, lồng nhau.</text>
+
+<!-- ============ V2 ============ -->
+<rect x="968" y="1126" width="440" height="174" rx="12" fill="#FAFAFA" stroke="#A0AEC0" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text class="h13" x="984" y="1152" style="fill:#4A5568">V2 — NGOÀI PHẠM VI V1</text>
+<text class="t" x="984" y="1178">• Hybrid retrieval (BM25 + Dense)</text>
+<text class="t" x="984" y="1198">• Hard-negative mining từ tập train</text>
+<text class="t" x="984" y="1218">• Dựng lại pipeline bằng Haystack</text>
+<text class="ts" x="984" y="1248">Cần spec riêng; không thuộc cổng hoàn tất V1;</text>
+<text class="ts" x="984" y="1266">không dùng test để mine hoặc tune.</text>
+
+<!-- ============ HIỆN TRẠNG ============ -->
+<rect x="1432" y="1126" width="464" height="174" rx="12" fill="#FFFBEB" stroke="#F0D48A" stroke-width="1.2"/>
+<text class="h13" x="1448" y="1152" style="fill:#744210">HIỆN TRẠNG · 2026-09-11</text>
+<text class="t" x="1448" y="1178">• Tài liệu: spec V1.1 frozen, constitution, roadmap, tasks</text>
+<text class="t" x="1448" y="1198">• Code src/ là bản V1.0 (51 test pass theo kỳ vọng cũ) →</text>
+<text class="t" x="1460" y="1215">viết lại / build lại theo V1.1 từ Chặng 5</text>
+<text class="t" x="1448" y="1235">• BM25 mới chạy trên dữ liệu V1.0; chưa train Dense,</text>
+<text class="t" x="1460" y="1252">Reranker, Reader</text>
+<text class="t" x="1448" y="1272">• Website tĩnh đã có (chưa deploy); không có server/API</text>
+</svg>

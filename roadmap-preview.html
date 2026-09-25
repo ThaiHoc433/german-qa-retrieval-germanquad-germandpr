@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>German QA · Lộ trình 32 buổi</title>
+<style>
+/* Nền, chữ và điều khiển dùng chung. */
+:root{color-scheme:light dark;--bg:#f4f5f0;--paper:#fff;--ink:#192c29;--muted:#52645e;--line:#d6dfd8;--accent:#19634c;--soft:#e6efe8;--focus:#b04400;--shadow:0 12px 36px #203c2810}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}button,select,input{font:inherit}button,select{color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:9px 12px}button,summary,select{cursor:pointer}a{color:var(--accent)}a,button,input,summary,select{touch-action:manipulation}:focus-visible{outline:3px solid var(--focus);outline-offset:4px}h1,h2,h3,p{margin:0}h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.06;letter-spacing:-.055em}h2{font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.035em}h3{font-size:1.08rem}small,.muted{color:var(--muted)}button:hover,a:hover{filter:brightness(.92)}[hidden]{display:none!important}.wrap{max-width:1480px;margin:auto;padding:28px clamp(16px,4vw,56px)}.skip{position:absolute;left:12px;top:-100px;padding:12px;background:var(--paper);z-index:10}.skip:focus{top:12px}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.intro{max-width:670px;margin-top:20px;font-size:1.05rem;color:var(--muted)}.section{margin-top:48px}.section-head{margin-bottom:20px}.section-head p{color:var(--muted);margin-top:6px}.pill,.tag{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:.75rem;max-width:100%;overflow-wrap:anywhere}.tag{border-radius:6px;background:var(--bg)}.stage-chip{border-left:5px solid var(--stage);font-weight:650}.dot{width:10px;height:10px;flex:none;border-radius:50%;background:var(--stage)}.tags{display:flex;gap:6px;flex-wrap:wrap}.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}.note{border-left:3px solid var(--accent);padding:10px 14px;background:var(--soft);border-radius:0 8px 8px 0;font-size:.87rem}.topline{padding-bottom:35px}.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:35px;align-items:end}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:17px;border-top:1px solid var(--line)}.stat strong{font-size:1.9rem;letter-spacing:-.04em;display:block}.stat span{color:var(--muted);font-size:.86rem}.progress-panel{margin-top:28px}.progress-top{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}progress{display:block;width:100%;height:12px;border:0;border-radius:20px;overflow:hidden;margin:12px 0;background:var(--line);accent-color:var(--accent)}progress::-webkit-progress-bar{background:var(--line)}progress::-webkit-progress-value{background:var(--accent);border-radius:20px}progress::-moz-progress-bar{background:var(--accent)}.next{font-weight:700}.progress-panel small{display:block;margin-top:8px}
+/* Timeline: 36 vị trí = 12 tuần × 3 buổi; thanh màu chiếm đúng vị trí. */
+.map-shell{padding:24px 14px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.map-bars{display:grid;grid-template-columns:repeat(36,minmax(0,1fr));gap:5px 2px;margin-bottom:14px;background:repeating-linear-gradient(to right,transparent 0,transparent calc(8.333333% - 1px),var(--line) calc(8.333333% - 1px),var(--line) 8.333333%)}.bar{grid-row:var(--lane);grid-column:var(--start)/span var(--span);padding:7px 0;border:0;border-radius:7px;background:var(--stage);color:white;font-weight:800;min-width:0;text-align:center}.map-weeks{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}.week-link{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 7px;text-decoration:none;color:var(--ink);font-size:.73rem;min-width:0;overflow-wrap:anywhere}.week-link strong{font-size:.95rem;display:block}.week-link .week-names{display:block;margin:9px 0;color:var(--muted)}.week-link.is-next{outline:2px solid var(--accent);outline-offset:1px;background:var(--soft)}.mini-slots{display:flex;gap:3px;margin-top:8px}.mini-slot{height:7px;flex:1;border-radius:3px;background:var(--stage,var(--line))}.mini-slot.done{outline:1px solid var(--ink);outline-offset:1px}.map-key{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}.map-key button{font-size:.75rem;padding:5px 9px;text-align:left}.map-help{margin-top:16px;color:var(--muted);font-size:.83rem}
+/* Navigation, cartes de séance et panneaux de chặng. */
+.controls{display:flex;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:20px}.controls label{display:grid;gap:5px;font-size:.8rem;font-weight:650;flex:1;min-width:150px}.controls select{width:100%}.week-block{margin:20px 0;border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden;scroll-margin-top:20px}.week-block>summary{padding:18px 22px;font-size:1.15rem;font-weight:750}.week-block>summary small{font-size:.8rem;font-weight:450;margin-left:12px}.week-body{padding:0 20px 20px}.week-stages{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.lesson{border:1px solid var(--line);border-top:5px solid var(--stage);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--paper)}.lesson.is-done{background:var(--soft)}.day{display:flex;justify-content:space-between;gap:8px;font-size:.8rem;color:var(--muted)}.lesson-copy{font-size:.9rem;overflow-wrap:anywhere}.lesson .tasks{margin-top:auto}.tasks small{display:block;font-size:.71rem;margin-bottom:5px}.machine{font-size:.76rem;padding:7px 9px;background:var(--soft);border-radius:8px}.done-label{display:flex;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--line);cursor:pointer;font-weight:650;font-size:.85rem}.done-label input{width:20px;height:20px;margin:0;accent-color:var(--accent)}.reserve{border:1px dashed var(--line);padding:24px;border-radius:12px;grid-column:1/-1}.stage-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stage-detail{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--stage);border-radius:12px;align-self:start}.stage-detail summary{padding:17px;font-weight:750}.stage-detail summary small{display:block;margin-left:18px;font-weight:450}.stage-content{padding:0 20px 20px;font-size:.88rem}dl{margin:0}dt{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-top:15px;color:var(--muted)}dd{margin:4px 0 0;overflow-wrap:anywhere}.stage-content .note{margin-top:15px}.stage-content .tags{margin-top:15px}.ritual{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;list-style:none;padding:0;margin:20px 0}.ritual li{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}.ritual b{display:block;font-size:1.5rem;color:var(--accent);margin-bottom:12px}.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.legend-grid p{margin-bottom:12px}.foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
+@media(prefers-color-scheme:dark){:root{--bg:#111b19;--paper:#192623;--ink:#edf4ef;--muted:#b4c4bc;--line:#3b4f46;--accent:#98ddb5;--soft:#233d31;--focus:#ffbb7c;--shadow:none}}
+@media(max-width:1050px){.map-weeks{gap:3px}.week-link{font-size:.67rem;padding:9px 4px}.cards{gap:10px}.lesson{padding:12px}.hero{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero,.stage-grid,.legend-grid{grid-template-columns:1fr}.hero{gap:20px}.topline{padding-bottom:25px}.panel{padding:18px}.cards{grid-template-columns:1fr}.map-bars{display:none}.map-weeks{grid-template-columns:1fr;gap:9px}.week-link{padding:13px;font-size:.85rem;border-left:5px solid var(--line)}.week-link strong{font-size:1rem}.week-link .week-names{margin:5px 0}.mini-slot{height:10px}.map-shell{padding:15px}.map-key{margin-top:15px}.week-block>summary{padding:16px}.week-block>summary small{display:block;margin:4px 0 0 17px}.week-body{padding:0 12px 12px}.ritual{grid-template-columns:1fr}.ritual li{display:flex;align-items:center;gap:15px;padding:12px 16px}.ritual b{margin:0}.section{margin-top:32px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@page{size:A4;margin:12mm}
+@media print{:root{color-scheme:light;--bg:#fff;--paper:#fff;--ink:#111;--muted:#444;--line:#bbb;--accent:#174c37;--soft:#f2f4f2;--shadow:none}body{font-size:10pt}.wrap{padding:0;max-width:none}.no-print,.controls,.skip,.map-shell{display:none!important}.hero{grid-template-columns:1fr 1fr;gap:20px}h1{font-size:30pt}h2{font-size:18pt}.stat{padding:6px}.stat strong{font-size:19pt}.section{margin-top:20px}.panel{padding:12px}.cards{grid-template-columns:repeat(3,minmax(0,1fr))}.week-block,.lesson,.stage-detail,.ritual li{break-inside:avoid}.week-block{margin:10px 0}.week-block>summary{padding:10px;font-size:12pt}.week-body{padding:0 10px 10px}.lesson{padding:9px;gap:8px}.lesson-copy{font-size:9pt}.tag,.pill,.machine{font-size:8pt}.stage-grid{grid-template-columns:1fr 1fr}.stage-content{font-size:9pt}.ritual{grid-template-columns:repeat(5,1fr)}.ritual li{padding:9px;display:block}.legend-grid{grid-template-columns:1fr 1fr}a{color:inherit;text-decoration:none}*{box-shadow:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<a href="#lich" class="skip">Đến lịch học</a>
+<main class="wrap">
+<div class="row topline"><span class="eyebrow">German QA / Học và triển khai</span><button id="print" class="no-print" type="button">In lộ trình</button></div>
+<header>
+ <div class="hero"><div><div class="eyebrow">Từ dữ liệu đến bằng chứng</div><h1>Lộ trình<br>32 buổi học.</h1><p class="intro">Hiểu dữ liệu, hoàn thiện pipeline V1.1 và trả lời các câu hỏi nghiên cứu bằng artifact.</p></div><div class="stats" id="stats"></div></div>
+ <div class="panel progress-panel"><div class="progress-top"><strong>Tiến độ học của bạn</strong><span id="progress-text" aria-live="polite"></span></div><progress id="progress" max="32" value="0" aria-label="Tiến độ hoàn thành buổi học"></progress><a class="next" id="next" href="#tuan-1"></a><small id="storage-note">Tiến độ được lưu trên trình duyệt này. Đánh dấu đã học không đồng nghĩa code đã nghiệm thu.</small></div>
+</header>
+<section class="section" aria-labelledby="map-title"><div class="section-head"><span class="eyebrow">01 / Toàn cảnh</span><h2 id="map-title">12 tuần, một lộ trình rõ ràng</h2><p>3 buổi/tuần · Thứ 2 / Thứ 4 / Thứ 6 là <strong>lịch gợi ý, có thể đổi</strong>.</p></div><div class="map-shell"><div id="map-bars" class="map-bars" aria-label="Thanh chặng theo vị trí buổi"></div><nav id="map-weeks" class="map-weeks" aria-label="Bản đồ 12 tuần"></nav><p class="map-help">Mỗi tuần có 3 vị trí buổi. Thanh màu mang số chặng; bấm để xem điều kiện. Trên điện thoại, các đoạn màu nằm trong từng tuần. Tuần có viền nổi bật chứa buổi chưa học đầu tiên, không phải tuần theo ngày hiện tại.</p><div id="map-key" class="map-key"></div></div><p class="note" style="margin-top:16px">Thời gian tải Wikipedia/train GPU là thời gian máy chạy riêng. Lịch được chốt lại sau khảo sát môi trường, fixture dữ liệu và smoke T4; không ép qua gate để kịp lịch.</p></section>
+<section id="lich" class="section" aria-labelledby="schedule-title"><div class="section-head"><span class="eyebrow">02 / Từng tuần</span><h2 id="schedule-title">Mở tuần. Xem bài. Đánh dấu đã học.</h2></div><div class="controls no-print"><label>Nhảy tới tuần<select id="jump"></select></label><label>Lọc theo chặng<select id="stage-filter"><option value="">Tất cả chặng</option></select></label><label>Lọc theo môi trường<select id="env-filter"><option value="">Tất cả môi trường</option><option value="CPU">CPU</option><option value="T4">T4</option></select></label><button type="button" id="clear">Bỏ bộ lọc</button></div><p class="muted" id="filter-status" role="status"></p><div id="weeks"></div></section>
+<section class="section" aria-labelledby="stage-title"><div class="section-head"><span class="eyebrow">03 / Điều kiện từng chặng</span><h2 id="stage-title">Học đến đâu, kiểm chứng đến đó</h2><p>Mở chặng để xem đầu vào, đầu ra, kiểm tra, gate và task.</p></div><div id="stages" class="stage-grid"></div></section>
+<section class="section" aria-labelledby="ritual-title"><div class="section-head"><span class="eyebrow">04 / Nhịp học</span><h2 id="ritual-title">Một buổi học diễn ra thế nào?</h2></div><ol class="ritual" id="ritual"></ol><div class="panel"><h3>Sau mỗi buổi cần ghi gì?</h3><p id="journal" style="margin:10px 0"></p><p class="note">Nếu lỗi gate: phân loại code/data/spec/environment; chỉ sửa trong phạm vi được duyệt, không đổi giao thức để làm score đẹp.</p></div></section>
+<section class="section" aria-labelledby="legend-title"><div class="section-head"><span class="eyebrow">05 / Chú giải</span><h2 id="legend-title">Đọc đúng các ký hiệu</h2></div><div class="panel legend-grid"><div><h3>Màu và số chặng</h3><div id="legend-stages" class="map-key"></div></div><div><h3>Môi trường & thời gian máy</h3><p class="muted">Badge môi trường lấy theo bảng cấp chặng trong nguồn; không khẳng định mọi buổi đều sử dụng tất cả môi trường của chặng đó. Bộ lọc CPU/T4 cũng áp dụng theo bảng này.</p><div id="legend-env" class="tags"></div><p style="margin-top:14px">◷ <strong>Thời gian máy chạy riêng:</strong> tải dữ liệu/train GPU ngoài giờ hướng dẫn; không cộng thành buổi mới.</p><p class="muted">Tag “Tasks của chặng” giữ phạm vi task trong nguồn khi chưa có ánh xạ riêng cho từng buổi. Mục không ghi riêng được nêu rõ, không bổ sung yêu cầu mới.</p></div></div></section>
+<footer class="foot">Nguồn duy nhất: 2026-09-11-german-qa-learning-roadmap.md · Ngày lập: 11/09/2026 · V1.1 frozen.<br>Checkbox khởi tạo chưa hoàn thành; tiến độ đã lưu chỉ phản ánh thao tác của người học trên trình duyệt này.</footer>
+<noscript><p class="note">Cần bật JavaScript để hiển thị dữ liệu lộ trình và lưu tiến độ.</p></noscript>
+</main>
+<script>
+/* Dữ liệu nguồn tập trung; chỉ lịch thứ trong tuần là gợi ý. */
+const DATA = {
+ total:32, duration:"1,5–2,5", days:["Thứ 2","Thứ 4","Thứ 6"],
+ weeks:[[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15],[16,17,18],[19,20,21],[22,23,24],[25,26,27],[28,29,30],[31,32],[]],
+ steps:["Giải thích bằng ví dụ","Xem input","Thao tác từng lệnh","Kiểm tra output","Tự giải thích và ghi nhật ký"],
+ journal:"Ngày · Task · Câu hỏi đã hiểu/chưa hiểu · Lệnh chạy · Output path · Lỗi gặp · Bước tiếp theo.",
+ stages:[
+  {id:1,name:"Hiểu đề tài/project",range:[1,2],color:"#246b54",env:["Đọc tài liệu","Local"],tasks:["T1.1","T1.2"],input:"design, spec, cây repo và record mẫu.",output:"ghi chú khảo sát, pipeline sinh viên tự vẽ.",check:"giải thích vì sao tìm được passage và trả lời đúng là hai việc khác nhau.",gate:"biết nguồn chuẩn và chưa nhầm website/spec/code/metrics."},
+  {id:2,name:"Setup môi trường",range:[3,4],color:"#326ba0",env:["Local","Kiểm tra Colab"],tasks:["T2.1","T2.2"],input:"code/imports và máy local.",output:"dependency được ghim, setup guide, log kiểm tra.",check:"đóng/mở terminal vẫn chạy cùng interpreter và test; không dùng Windows Store alias.",gate:"môi trường và lệnh thực thi được ghi rõ. Constitution đã có, chỉ kiểm tra/reuse, không init đè lần nữa."},
+  {id:3,name:"Làm quen dataset",range:[5,7],color:"#7351a1",env:["CPU","Cache"],tasks:["T3.1","T3.2","T3.3"],input:"4 split Parquet đã cache nếu hợp lệ.",output:"notebook khám phá và bảng nguồn/revision/license.",check:"chỉ đúng field của từng dataset; giải thích vì sao không gán mọi chunk positive context là gold.",gate:"hiểu split, offset và role của negative."},
+  {id:4,name:"Data audit và quyết định spec",range:[8,10],color:"#a43f68",env:["CPU"],tasks:["T4.1","T4.2"],input:"dataset gốc, artifact cũ, spec.",output:"audit và requirement traceability matrix.",check:"dự đoán trước mỗi record giữ/loại/đi split nào rồi đối chiếu script.",gate:"biết các lỗi phải sửa và revision dữ liệu dùng làm căn cứ."},
+  {id:5,name:"Schema và dữ liệu V1.1",range:[11,16],color:"#a25121",env:["CPU","Fixture"],tasks:["T5.0","T5.1","T5.2","T5.3","T5.4","T5.5","T5.6","T5.7","T5.8"],input:"raw splits, fixture nhỏ, validators.",output:"data/processed/v1.1/ và báo cáo.",check:"offset đúng từng chunk, test gốc đúng, gold rỗng được lưu, negative không làm nguồn corpus, coverage ≥98% theo file; train+dev+test+rows loại leakage = tổng GermanQuAD gốc.",gate:"base và logic distractor trên fixture đạt; chưa tuyên bố mid/large thật đã nghiệm thu.",note:"Nếu không đạt coverage, dừng báo vấn đề; thay overlap cần quy trình phiên bản, không sửa frozen."},
+  {id:6,name:"Run infra, Evaluation, BM25",range:[17,19],color:"#746119",env:["CPU"],tasks:["T6.1","T6.2","T6.3","T6.4"],input:"base V1.1 và fixtures.",output:"module run infrastructure có test, Evaluation, manifest entry BM25/dev và retrieval/metrics.",check:null,gate:"đúng giao thức, không yêu cầu score cao.",note:"Run helpers được triển khai sớm để đáp ứng §3.2/§8.7, không đổi pipeline V1.1."},
+  {id:7,name:"Dense Retriever",range:[20,22],color:"#127580",env:["Fixture CPU","Smoke/train T4"],tasks:["T7.1","T7.2","T7.3"],input:null,output:"checkpoint hai tower, config, index và dev runs.",check:"giải thích gradient accumulation không tăng in-batch negative của một forward.",gate:"theo §5.6/P2.",note:"Thời gian train riêng ngoài giờ hướng dẫn."},
+  {id:8,name:"Reader và Reranker",range:[23,26],color:"#4d5eae",env:["CPU","T4"],tasks:["T8.1","T8.2","T8.3","T8.4"],input:null,output:"checkpoint và artifact oracle/post-rerank dev có nguồn rõ.",check:null,gate:"theo §6/§7/P2.",note:"Nếu A3 chưa chốt, tiếp tục fixtures/training logic độc lập; production checkpoint selection theo adapter mở rộng đợi giao thức được phê chuẩn. Buổi 26 khóa candidate top-20, dùng stage provenance riêng theo draft A3 sau khi được chốt."},
+  {id:9,name:"Integration và benchmark",range:[27,29],color:"#9b433a",env:["CPU","T4","Streaming"],tasks:["T9.1","T9.2","T9.3"],input:"modules/checkpoints đạt dev gates.",output:"12 cấu hình end-to-end, retrieval metrics, oracle và manifests; RQ1 dùng 6 cấu hình reranker off trong cùng ma trận.",check:null,gate:"SHA-256/config khớp, n_latency rõ, query lỗi không âm thầm bỏ; base/mid/large nghiệm thu thật.",note:"Khóa checkpoint/config khi đánh giá test và mở rộng tier. Buổi 28 nghiệm thu dense+rerank+base trên test theo §8.6 trước mở tier lớn. Lỗi phải log, không tune theo test. Tải dữ liệu/GPU có thể cần nhiều phiên ngoài buổi học."},
+  {id:10,name:"Phân tích và bàn giao",range:[30,32],color:"#596a2e",env:["CPU","Tài liệu"],tasks:["T10.1","T10.2"],input:null,output:"báo cáo, bảng/hình, manifest index và hướng dẫn bàn giao.",check:null,gate:"mọi số truy ngược được, không gọi oracle là trần tuyệt đối, không kết luận thống kê chưa được kiểm chứng.",note:"Push/deploy là thao tác riêng khi người dùng yêu cầu."}
+ ],
+ lessons:[
+  {id:1,text:"Phân biệt closed-context/open-domain và extractive QA qua ví dụ Einstein. Khảo sát src/tests/notebooks/data/results/docs; mở 1 record mỗi dataset nếu công cụ hiện có đọc được."},
+  {id:2,text:"Đọc RQ1 scale, RQ2 bottleneck, RQ3 selection; nối câu hỏi với bảng kết quả cần có. Lập bản đồ module và hiện trạng giữ/sửa/viết mới/build lại."},
+  {id:3,text:"Kiểm tra Git/Python thật/venv; đọc imports để cài dependency dữ liệu/BM25. Ghi phiên bản, chạy test cũ và phân loại kỳ vọng đúng/sai V1.1."},
+  {id:4,text:"Kích hoạt lại môi trường từ terminal mới; thiết lập notebook Colab. Kiểm tra GPU thực được cấp, nơi lưu checkpoint và Spec Kit root nlp."},
+  {id:5,text:"JSON/object/list, JSONL và Parquet. Phân biệt dòng dữ liệu với question_key duy nhất."},
+  {id:6,text:"GermanQuAD: question/context/answers/answer_start và nhiều references. Tự kiểm tra context[start:start+len(answer)] == answer."},
+  {id:7,text:"GermanDPR positive/hard negative; đọc dataset card, paper, license, revisions. Kiểm tra cache; hiểu Wikipedia snapshot và streaming trước khi tải thêm."},
+  {id:8,text:"Đếm rows/keys, độ dài context/answer và phân phối positive/negative."},
+  {id:9,text:"Giao question_key giữa 4 split; fixture train trùng test; diễn giải D1. Báo riêng key/dòng theo dataset, không cộng máy móc các giao nhau."},
+  {id:10,text:"Đối chiếu D1–D6/P1–P4 với code/artifact. Phân biệt audit cũ và nghiệm thu mới."},
+  {id:11,text:"Schema validators; chunk/provenance/title.",tasks:["T5.0","T5.1"]},
+  {id:12,text:"Split D1 và bảo toàn rows theo từng dataset.",tasks:["T5.2"]},
+  {id:13,text:"gold_evidences/reference_answers và collision fallback.",tasks:["T5.3","T5.4"]},
+  {id:14,text:"Positive occurrence union và hard-negative groups.",tasks:["T5.5"]},
+  {id:15,text:"Base D6/title exclusions P4; distractor fixture.",tasks:["T5.6","T5.7"]},
+  {id:16,text:"Build base, các báo cáo áp dụng và checker nghiệm thu base.",tasks:["T5.8"]},
+  {id:17,text:"run_id/UUID, file + checkpoint fingerprints, bundle hash và manifest. Thiết kế đủ field ngay đầu; test bản sao gold sửa 1 byte bị từ chối.",tasks:["T6.1"]},
+  {id:18,text:"Tính tay Recall/GoldCoverage/MRR/EM/F1, mẫu số, bucket và validator. File prediction rỗng có manifest vẫn chấm được.",tasks:["T6.2","T6.3"]},
+  {id:19,text:"BM25 base/dev qua run retrieval_only; không đo thì latency/warm-up metadata null. Ghi entry trước chạy; lưu top-50 và metrics trong namespace run riêng.",tasks:["T6.4"]},
+  {id:20,text:"Vector/dot product/CLS; tự vẽ batch. Target, negative groups và mask toàn gold_set."},
+  {id:21,text:"Test seed xuyên process, gradient hai tower, save/load/resume. Smoke T4 để đo VRAM."},
+  {id:22,text:"Train, chọn checkpoint Recall@20 GermanQuAD dev/base qua hạ tầng run. Mỗi checkpoint được chấm có fingerprint riêng; encode corpus, lưu FAISS + ID map.",machine:true},
+  {id:23,text:"Reader evidence examples, char/token offsets, overflow. Kiểm thử logits giả, max raw score khi dedup và softmax theo §6.3, tie deterministic."},
+  {id:24,text:"Runner reader_only/oracle: reranker off, retrieved=[], reranked=null, latency.retrieval=0; đủ fingerprint/điều kiện đo. Train và chọn reader checkpoint F1 oracle dev.",machine:true},
+  {id:25,text:"Cross-Encoder/BCE; sampling/mask như Dense. Test subset/min(5,pool), tie rank."},
+  {id:26,text:"Khóa candidate top-20, chọn reranker theo Recall@5 sau rerank. Stage provenance riêng theo draft A3 sau khi chốt; không lẫn metric retriever."},
+  {id:27,text:"Ghép pipeline, mở rộng manifest chung cho end-to-end. Fingerprint đủ mọi checkpoint, total latency, query error, resume; không trùng record."},
+  {id:28,text:"Smoke 4 cấu hình + oracle; khóa checkpoint/config. Nghiệm thu dense+rerank+base trên test theo §8.6 trước mở tier lớn; log lỗi, không tune theo test."},
+  {id:29,text:"Streaming toàn snapshot theo lịch R, lọc P4, dedup, đóng băng chuỗi. Dựng mid/large, kiểm tra tổng/tập con; reuse embeddings, hoàn tất ma trận benchmark.",machine:true},
+  {id:30,text:"Bảng 1/Hình 1 cho RQ1; Bảng 2/Hình 2 cho RQ2. Oracle gap và final_correct."},
+  {id:31,text:"Bảng 3 cho RQ3, paired config/latency; manual review tối đa 100 case. Ghi giới hạn nhãn, seed, tài nguyên và phân tích phụ từ per_query."},
+  {id:32,text:"Viết kết luận mô tả, đối chiếu contributions với bằng chứng; README tái lập. Cập nhật website bằng kết quả có provenance; luyện giải thích một số từ báo cáo về run."}
+ ]
+};
+
+/* Hàm dựng giao diện; không dùng nguồn hoặc thư viện ngoài. */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stageOf = id => DATA.stages.find(s=>id>=s.range[0]&&id<=s.range[1]);
+const lessonOf = id => DATA.lessons.find(l=>l.id===id);
+const tone = s => `style="--stage:${s.color}"`;
+const tags = list => list.map(t=>`<span class="tag">${esc(t)}</span>`).join('');
+const chip = s => `<span class="pill stage-chip" ${tone(s)}>Chặng ${s.id} · ${esc(s.name)}</span>`;
+const stageButton = s => `<button type="button" data-stage="${s.id}" ${tone(s)}><span class="dot" style="display:inline-block;margin-right:6px"></span>${s.id}. ${esc(s.name)}</button>`;
+
+/* Kiểm tra cấu trúc dữ liệu trước khi render. */
+const planned = DATA.weeks.flat();
+if(DATA.lessons.length!==DATA.total || new Set(planned).size!==DATA.total || planned.some((id,i)=>id!==i+1) || DATA.lessons.some((l,i)=>l.id!==i+1) || DATA.stages.length!==10 || DATA.weeks.length!==12 || DATA.weeks[10].length!==2 || DATA.weeks[11].length!==0 || planned.some(id=>DATA.stages.filter(s=>id>=s.range[0]&&id<=s.range[1]).length!==1)){
+ throw new Error('Dữ liệu lộ trình không hợp lệ.');
+}
+
+/* localStorage có thể bị chặn; Set vẫn giữ tiến độ trong phiên. */
+const STORAGE_KEY = 'german-qa-roadmap-2026-09-11-progress';
+let completed = new Set();
+let storageOK = true;
+try{
+ const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+ if(Array.isArray(saved)) completed = new Set(saved.filter(id=>Number.isInteger(id)&&planned.includes(id)));
+}catch{storageOK=false;}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify([...completed]));}catch{storageOK=false;}}
+
+function render(){
+ $('stats').innerHTML=[[DATA.total,'buổi toàn khóa'],['~11','tuần + 1 tuần dự phòng'],[DATA.stages.length,'chặng học'],[DATA.duration,'giờ / buổi']].map(([n,t])=>`<div class="stat"><strong>${n}</strong><span>${t}</span></div>`).join('');
+ $('map-bars').innerHTML=DATA.stages.map(s=>`<button type="button" class="bar" data-stage="${s.id}" style="--stage:${s.color};--start:${s.range[0]};--span:${s.range[1]-s.range[0]+1};--lane:${s.id%2+1}" aria-label="Chặng ${s.id}: ${esc(s.name)}, buổi ${s.range.join('–')}" title="${esc(s.name)} · Buổi ${s.range.join('–')}">${s.id}</button>`).join('');
+ $('map-key').innerHTML=DATA.stages.map(stageButton).join('');
+ $('legend-stages').innerHTML=DATA.stages.map(stageButton).join('');
+ $('legend-env').innerHTML=tags([...new Set(DATA.stages.flatMap(s=>s.env))]);
+ $('map-weeks').innerHTML=DATA.weeks.map((ids,i)=>{
+  const ss=[...new Set(ids.map(id=>stageOf(id)))];
+  return `<a class="week-link" id="map-week-${i+1}" href="#tuan-${i+1}" data-week="${i+1}"><strong>Tuần ${i+1}</strong><span>${ids.length?ids.length+' buổi':'Dự phòng'}</span><span class="week-names">${ss.map(s=>`${s.id}. ${esc(s.name)}`).join('<br>')||'Không có buổi cố định'}</span><div class="mini-slots" aria-hidden="true">${Array.from({length:3},(_,j)=>ids[j]?`<span class="mini-slot" data-slot="${ids[j]}" ${tone(stageOf(ids[j]))}></span>`:'<span class="mini-slot"></span>').join('')}</div><span id="week-progress-${i+1}"></span></a>`;
+ }).join('');
+ $('jump').innerHTML='<option value="">Chọn tuần…</option>'+DATA.weeks.map((ids,i)=>`<option value="${i+1}">Tuần ${i+1} · ${ids.length?'Buổi '+ids.join(', '):'Dự phòng'}</option>`).join('');
+ $('stage-filter').insertAdjacentHTML('beforeend',DATA.stages.map(s=>`<option value="${s.id}">${s.id}. ${esc(s.name)}</option>`).join(''));
+ $('weeks').innerHTML=DATA.weeks.map((ids,i)=>{
+  const ss=[...new Set(ids.map(id=>stageOf(id)))];
+  return `<details class="week-block" id="tuan-${i+1}" open><summary>Tuần ${i+1}<small>${ids.length?'Buổi '+ids.join(' · ')+' / 32':'Dự phòng · Không có buổi cố định'}</small></summary><div class="week-body"><div class="week-stages">${ss.map(chip).join('')}</div><div class="cards">${ids.map((id,day)=>{
+   const l=lessonOf(id),s=stageOf(id);
+   return `<article class="lesson" id="buoi-${id}" data-lesson="${id}" ${tone(s)}><div class="day"><span>${esc(DATA.days[day])} <small>· gợi ý</small></span><span>Buổi ${id}/${DATA.total}</span></div><h3>${chip(s)}</h3><p class="lesson-copy">${esc(l.text)}</p><div class="tags" aria-label="Môi trường của chặng">${tags(s.env)}</div>${l.machine?'<p class="machine"><span aria-hidden="true">◷</span> Thời gian máy chạy riêng</p>':''}<div class="tasks"><small>${l.tasks?'Tasks của buổi':'Tasks của chặng · nguồn chưa chia theo buổi'}</small><div class="tags">${tags(l.tasks||s.tasks)}</div></div><label class="done-label"><input type="checkbox" data-complete="${id}" aria-label="Buổi ${id}: đã học xong"><span>Đã học xong</span></label></article>`;
+  }).join('')||'<div class="reserve"><h3>Dự phòng/bù buổi</h3><p class="muted">Không có buổi cố định trong file nguồn.</p></div>'}</div></div></details>`;
+ }).join('');
+ $('stages').innerHTML=DATA.stages.map(s=>`<details class="stage-detail" id="chang-${s.id}" ${tone(s)}><summary>Chặng ${s.id} · ${esc(s.name)}<small>Buổi ${s.range.join('–')} · ${s.range[1]-s.range[0]+1} buổi</small></summary><div class="stage-content"><dl>${[['Đầu vào (Input)',s.input],['Đầu ra (Output)',s.output],['Kiểm tra',s.check],['Gate',s.gate]].map(([label,value])=>`<dt>${label}</dt><dd>${value?esc(value):'Không ghi thành mục riêng trong nguồn; xem nội dung các buổi của chặng.'}</dd>`).join('')}</dl><div class="tags" aria-label="Tasks của chặng">${tags(s.tasks)}</div>${s.note?`<p class="note">${esc(s.note)}</p>`:''}</div></details>`).join('');
+ $('ritual').innerHTML=DATA.steps.map((s,i)=>`<li><b aria-hidden="true">0${i+1}</b><span>${esc(s)}</span></li>`).join('');
+ $('journal').textContent=DATA.journal;
+}
+
+/* Đồng bộ checkbox, thanh tiến độ và tuần học tiếp. */
+function updateProgress(){
+ $('progress').value=completed.size;
+ $('progress-text').textContent=`${completed.size} / ${DATA.total} buổi · ${Math.round(completed.size/DATA.total*100)}%`;
+ document.querySelectorAll('[data-complete]').forEach(el=>{el.checked=completed.has(Number(el.dataset.complete));el.closest('.lesson').classList.toggle('is-done',el.checked);});
+ document.querySelectorAll('[data-slot]').forEach(el=>el.classList.toggle('done',completed.has(Number(el.dataset.slot))));
+ const next=planned.find(id=>!completed.has(id));
+ const nextWeek=next?DATA.weeks.findIndex(ids=>ids.includes(next))+1:null;
+ DATA.weeks.forEach((ids,i)=>{
+  const current=i+1===nextWeek;
+  $('map-week-'+(i+1)).classList.toggle('is-next',current);
+  if(current)$('map-week-'+(i+1)).setAttribute('aria-current','step');else $('map-week-'+(i+1)).removeAttribute('aria-current');
+  $('week-progress-'+(i+1)).textContent=ids.length?`${ids.filter(id=>completed.has(id)).length}/${ids.length} đã học`:'';
+ });
+ $('next').textContent=next?`Học tiếp → Tuần ${nextWeek} · Buổi ${next} · Chặng ${stageOf(next).id}`:'Đã đánh dấu đủ 32 buổi → Xem điều kiện nghiệm thu';
+ $('next').href=next?'#tuan-'+nextWeek:'#chang-10';
+ if(!storageOK)$('storage-note').textContent='Không thể lưu lâu dài trên trình duyệt này; tiến độ vẫn dùng được trong phiên hiện tại. Đã học không đồng nghĩa code đã nghiệm thu.';
+}
+
+/* Bộ lọc chỉ ảnh hưởng lịch chi tiết; bản đồ luôn giữ đủ 12 tuần. */
+function applyFilters(){
+ const sid=Number($('stage-filter').value),env=$('env-filter').value;
+ let visible=0;
+ document.querySelectorAll('[data-lesson]').forEach(el=>{
+  const s=stageOf(Number(el.dataset.lesson));
+  el.hidden=!!((sid&&s.id!==sid)||(env&&!s.env.some(e=>e.includes(env))));
+  if(!el.hidden)visible++;
+ });
+ DATA.weeks.forEach((ids,i)=>{
+  const block=$('tuan-'+(i+1));
+  block.hidden=ids.length?ids.every(id=>$('buoi-'+id).hidden):!!(sid||env);
+  if((sid||env)&&!block.hidden)block.open=true;
+ });
+ $('filter-status').textContent=`Hiển thị ${visible}/${DATA.total} buổi${sid||env?' · Môi trường theo cấp chặng.':''}`;
+}
+function clearFilters(){ $('stage-filter').value='';$('env-filter').value='';applyFilters(); }
+function reveal(id){
+ const el=$(id);if(!el)return;
+ if(id.startsWith('tuan-'))clearFilters();
+ if(el.tagName==='DETAILS')el.open=true;
+ el.scrollIntoView({block:'start'});
+ const focus=el.querySelector('summary');if(focus)focus.focus({preventScroll:true});
+}
+render();updateProgress();applyFilters();
+document.addEventListener('change',event=>{
+ const el=event.target;
+ if(el.matches('[data-complete]')){const id=Number(el.dataset.complete);el.checked?completed.add(id):completed.delete(id);save();updateProgress();}
+});
+document.addEventListener('click',event=>{
+ const button=event.target.closest('[data-stage]');
+ if(button){reveal('chang-'+button.dataset.stage);return;}
+ const anchor=event.target.closest('a[href^="#"]');
+ if(anchor){event.preventDefault();reveal(anchor.getAttribute('href').slice(1));}
+});
+$('jump').addEventListener('change',()=>{if($('jump').value)reveal('tuan-'+$('jump').value);});
+$('stage-filter').addEventListener('change',applyFilters);
+$('env-filter').addEventListener('change',applyFilters);
+$('clear').addEventListener('click',clearFilters);
+$('print').addEventListener('click',()=>window.print());
+
+/* In toàn bộ lịch và điều kiện, rồi trả lại trạng thái đang xem. */
+let printState=null;
+window.addEventListener('beforeprint',()=>{
+ if(printState)return;
+ printState=[...document.querySelectorAll('details,[data-lesson]')].map(el=>({el,hidden:el.hidden,open:el.open}));
+ printState.forEach(({el})=>{el.hidden=false;if(el.tagName==='DETAILS')el.open=true;});
+});
+window.addEventListener('afterprint',()=>{
+ if(!printState)return;
+ printState.forEach(({el,hidden,open})=>{el.hidden=hidden;if(el.tagName==='DETAILS')el.open=open;});printState=null;
+});
+</script>
+</body>
+</html>
