@@ -1,0 +1,65 @@
+{
+  "by_stage": {
+    "retrieval_failure": 246,
+    "selection_failure": 202,
+    "wrong_passage": 662,
+    "wrong_span_gold_passage": 366
+  },
+  "flags": {
+    "retrieval_failure": {
+      "answer_in_other_retrieved": 50,
+      "answer_in_selected_passage": 15,
+      "article_only": 0,
+      "f1_at_least_0.5": 12
+    },
+    "selection_failure": {
+      "answer_in_other_retrieved": 52,
+      "answer_in_selected_passage": 8,
+      "article_only": 0,
+      "f1_at_least_0.5": 12
+    },
+    "wrong_passage": {
+      "answer_in_other_retrieved": 132,
+      "answer_in_selected_passage": 40,
+      "article_only": 2,
+      "f1_at_least_0.5": 36
+    },
+    "wrong_span_gold_passage": {
+      "answer_in_other_retrieved": 42,
+      "answer_in_selected_passage": 0,
+      "article_only": 17,
+      "f1_at_least_0.5": 198
+    }
+  },
+  "stage_x_relation": {
+    "retrieval_failure": {
+      "contains_gold": 7,
+      "disjoint": 157,
+      "empty": 4,
+      "inside_gold": 2,
+      "partial_overlap": 76
+    },
+    "selection_failure": {
+      "contains_gold": 2,
+      "disjoint": 127,
+      "empty": 0,
+      "inside_gold": 3,
+      "partial_overlap": 70
+    },
+    "wrong_passage": {
+      "contains_gold": 15,
+      "disjoint": 392,
+      "empty": 0,
+      "inside_gold": 11,
+      "partial_overlap": 244
+    },
+    "wrong_span_gold_passage": {
+      "contains_gold": 166,
+      "disjoint": 65,
+      "empty": 0,
+      "inside_gold": 90,
+      "partial_overlap": 45
+    }
+  },
+  "wrong": 1476
+}

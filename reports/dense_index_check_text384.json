@@ -1,0 +1,34 @@
+{
+  "artifact": "artifacts/dense/text384",
+  "bytes": {
+    "embeddings": 82526336,
+    "index": 82526253
+  },
+  "dim": 768,
+  "faiss_vs_numpy": {
+    "file_index_equals_rebuilt": true,
+    "identical_top20_ids": 196,
+    "max_abs_score_diff": 0.0001068115234375,
+    "max_score_gap_in_those_rows": 7.62939453125e-05,
+    "questions": 200,
+    "rows_with_different_ids": 4,
+    "same_id_set_in_those_rows": 4
+  },
+  "finite": true,
+  "fp16_vs_fp32": {
+    "cosine_mean": 0.9999998211860657,
+    "cosine_min": 0.999999463558197,
+    "max_abs_diff": 0.0035810470581054688,
+    "passages": 300,
+    "top1_same": 1.0,
+    "top5_set_same": 1.0
+  },
+  "ids_match_corpus_order": true,
+  "ids_unique": true,
+  "n_vectors": 26864,
+  "norm": {
+    "max": 25.844820022583008,
+    "mean": 25.484039306640625,
+    "min": 25.072649002075195
+  }
+}

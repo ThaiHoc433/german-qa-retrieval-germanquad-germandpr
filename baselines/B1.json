@@ -1,0 +1,125 @@
+{
+  "artifacts": {
+    "text256": {
+      "ctx_encoder": {
+        "repo": "deepset/gbert-base-germandpr-ctx_encoder",
+        "revision": "5c13387b5f87efc8b2363f86416b2f2d980e19c7"
+      },
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "question_encoder": {
+        "repo": "deepset/gbert-base-germandpr-question_encoder",
+        "revision": "c5b8d88c45320a0f8ba714c286ff3bc0af4d72fa"
+      },
+      "sha1": {
+        "embeddings.npy": "f44885151ffa21e835e319a3bec0551953dbe8a8",
+        "index.faiss": "68d331660a407efeee5e1656762f219464ffa95d",
+        "manifest.json": "d16b7aeb20f893fabccbfca672ebffe83a4c8172",
+        "passage_ids.json": "6a956b4b72bd966748e0826a37a772fb80772b76"
+      },
+      "truncation": {
+        "frac_truncated": 0.32638475282906493,
+        "max_length": 256,
+        "n_truncated": 8768,
+        "tokens_max": 2204,
+        "tokens_mean": 236.2431134603931,
+        "tokens_p95": 454.0
+      }
+    },
+    "text384": {
+      "ctx_encoder": {
+        "repo": "deepset/gbert-base-germandpr-ctx_encoder",
+        "revision": "5c13387b5f87efc8b2363f86416b2f2d980e19c7"
+      },
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "question_encoder": {
+        "repo": "deepset/gbert-base-germandpr-question_encoder",
+        "revision": "c5b8d88c45320a0f8ba714c286ff3bc0af4d72fa"
+      },
+      "sha1": {
+        "embeddings.npy": "3026b36f18bcbf9edafc3ba0918c4ac11db8f19f",
+        "index.faiss": "e437047fc4fa377ceb33e41ede0cb06c8ee2045d",
+        "manifest.json": "8b7c24582ab288cdccae0549b0e2c963a34d8208",
+        "passage_ids.json": "6a956b4b72bd966748e0826a37a772fb80772b76"
+      },
+      "truncation": {
+        "frac_truncated": 0.10880732578916022,
+        "max_length": 384,
+        "n_truncated": 2923,
+        "tokens_max": 2204,
+        "tokens_mean": 236.2431134603931,
+        "tokens_p95": 454.0
+      }
+    }
+  },
+  "baseline": "B1",
+  "corpus_sha1": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+  "dense_config": {
+    "artifact_dir": "artifacts/dense/text384",
+    "ctx_encoder": "deepset/gbert-base-germandpr-ctx_encoder",
+    "encode_batch_size": 32,
+    "fp16": true,
+    "passage_field": "original_text",
+    "passage_input": "text",
+    "passage_max_length": 384,
+    "question_encoder": "deepset/gbert-base-germandpr-question_encoder",
+    "question_max_length": 64,
+    "similarity": "dot",
+    "top_k": 20
+  },
+  "end_to_end_dev": {
+    "note": "Chênh EM/F1 nằm trong nhiễu của 234 câu (±~6 điểm); quyết định 384 dựa trên chỉ số truy hồi (n=2223), không phải EM/F1.",
+    "old_text256": {
+      "dev_EM": 0.3376,
+      "dev_F1": 0.5139,
+      "file": "eval_dev_dense_20261104T121120Z_57716bd8.json",
+      "unseen234_EM": 0.2009,
+      "unseen234_F1": 0.419,
+      "unseen234_hit@5": 0.752
+    },
+    "text384": {
+      "dev_EM": 0.3393,
+      "dev_F1": 0.5088,
+      "file": "eval_dev_dense_20261107T072837Z_b97b5c1e.json",
+      "unseen234_EM": 0.1966,
+      "unseen234_F1": 0.4101,
+      "unseen234_hit@5": 0.765
+    }
+  },
+  "environment": {
+    "cuda_available": true,
+    "faiss": "1.15.1",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.3",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.19.0"
+  },
+  "length_decision": {
+    "adopt_text384": true,
+    "paired_384_minus_256": {
+      "hit@20": {
+        "diff": -0.000449842555105713,
+        "hi": 0.004048582995951417,
+        "lo": -0.004948268106162843
+      },
+      "hit@5": {
+        "diff": 0.014844804318488529,
+        "hi": 0.024302744039586134,
+        "lo": 0.005836707152496636
+      }
+    },
+    "reason": "chỉ số chính tăng +0.0148 (cận dưới +0.0058 > 0); chỉ số phụ cận dưới -0.0049 ≥ -0.01",
+    "rule": "Hit@5 tăng với khoảng tin cậy ghép cặp > 0, và Hit@20 cận dưới >= -0.01",
+    "status": "ĐÃ XÁC NHẬN 2026-11-07: configs/dense.yaml dùng artifacts/dense/text384"
+  },
+  "seed": 42,
+  "select_ids_sha1": "f25b6eb2c08211e391c192a52021592d3dd9b620",
+  "top100_files": {
+    "B0_select_top100.jsonl": "161e7a6d2cfe1e3f62e0cff166a00ae5b8070f9d",
+    "B1_select_top100.jsonl": "4bf613c15a7eb6378c78dd672d9826f49204601a",
+    "B1_select_top100_384.jsonl": "641adc5e1546a1ecddf9e809cbc0d5a3d5591cc9"
+  }
+}

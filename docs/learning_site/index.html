@@ -1,0 +1,1429 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>German QA Learning Path</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* Layout: sidebar trái (mục lục theo giai đoạn) + cột nội dung đọc ~72ch; ba giai đoạn mang ba màu riêng */
+:root{
+  --bg:#f6f7f5; --panel:#ffffff; --fg:#17201b; --muted:#5a645e; --line:#dfe4e0; --soft:#eef1ee;
+  --s1:#1f7a5a; --s1-bg:#e5f3ec; --s2:#a35a00; --s2-bg:#fbefdc; --s3:#2453b8; --s3-bg:#e6eefc;
+  --bad:#b3261e; --good:#1b7a33; --code-bg:#f1f3f1; --accent:#1f7a5a;
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --surface:#fcfcfb;
+  --f-body:"Be Vietnam Pro",system-ui,"Segoe UI",Arial,sans-serif; --f-mono:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121614; --panel:#1a1f1c; --fg:#e7ece8; --muted:#a2aca6; --line:#2d3531; --soft:#222925;
+  --s1:#5cc59a; --s1-bg:#183027; --s2:#f0a64a; --s2-bg:#33260f; --s3:#86a9f5; --s3-bg:#1a2540;
+  --bad:#ff8a80; --good:#6fd08a; --code-bg:#161b18; --accent:#5cc59a; --c1:#3987e5; --c2:#d95926; --c3:#199e70; --surface:#1a1a19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --panel:#1a1f1c; --fg:#e7ece8; --muted:#a2aca6; --line:#2d3531; --soft:#222925;
+  --s1:#5cc59a; --s1-bg:#183027; --s2:#f0a64a; --s2-bg:#33260f; --s3:#86a9f5; --s3-bg:#1a2540;
+  --bad:#ff8a80; --good:#6fd08a; --code-bg:#161b18; --accent:#5cc59a; --c1:#3987e5; --c2:#d95926; --c3:#199e70; --surface:#1a1a19; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.65;margin:0}
+a{color:var(--accent)}
+.app{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100%}
+nav.side{position:sticky;top:0;height:100vh;overflow-y:auto;border-right:1px solid var(--line);background:var(--panel);padding:18px 14px 40px max(14px,env(safe-area-inset-left,0px))}
+.brand{font-weight:700;font-size:16px;line-height:1.3;margin:0 6px 4px}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:12px;margin-top:2px}
+.prog{margin:12px 6px 16px;font-size:12px;color:var(--muted)}
+.prog .bar{height:5px;background:var(--soft);border-radius:3px;margin-top:5px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.grp{margin:14px 0 4px;padding:0 6px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.grp.g1{color:var(--s1)}.grp.g2{color:var(--s2)}.grp.g3{color:var(--s3)}
+.side a.it{display:flex;gap:8px;align-items:baseline;padding:5px 8px;border-radius:6px;color:var(--fg);text-decoration:none;font-size:13.5px;line-height:1.35}
+.side a.it:hover{background:var(--soft)}
+.side a.it.on{background:var(--soft);font-weight:600}
+.side a.it .n{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-width:28px}
+.side a.it.seen .n::after{content:" ✓";color:var(--good)}
+.menu-btn{display:none}
+main{min-width:0;padding-block:28px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page{max-width:900px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+.st1{color:var(--s1)}.st2{color:var(--s2)}.st3{color:var(--s3)}.st0{color:var(--muted)}
+h1{font-size:30px;line-height:1.2;margin:6px 0 10px;text-wrap:balance}
+h2{font-size:21px;margin:34px 0 10px;text-wrap:balance}
+h3{font-size:16.5px;margin:22px 0 6px}
+p{margin:8px 0;max-width:72ch}
+.lead{font-size:17px;color:var(--muted);max-width:68ch}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px}
+.tag{font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel)}
+.tag.base{border-color:var(--muted);color:var(--muted)}
+.tag.new{background:var(--s3-bg);border-color:var(--s3);color:var(--s3)}
+.tag.ext{border-style:dashed;border-color:var(--s2);color:var(--s2)}
+.tag.p1{background:var(--s1-bg);color:var(--s1);border-color:var(--s1)}
+.part{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:14px 0}
+.part>.lbl{display:flex;gap:10px;align-items:baseline;margin-bottom:4px}
+.part>.lbl b{font-family:var(--f-mono);font-size:12px;letter-spacing:.05em}
+.part>.lbl span{font-weight:700;font-size:15.5px}
+.k1 .lbl b{color:var(--s1)}.k2 .lbl b{color:var(--s2)}.k3 .lbl b{color:var(--s3)}
+ul,ol{padding-left:22px;margin:6px 0}li{margin:3px 0;max-width:70ch}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--code-bg);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;font-family:var(--f-mono);font-size:12.5px;line-height:1.55;margin:10px 0}
+pre code{background:none;padding:0;font-size:inherit}
+.src{font-size:12px;color:var(--muted);margin-top:-4px}
+.tw{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;font-size:13.5px;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+td.num,th.num{text-align:right}
+tr.hl td{background:var(--soft);font-weight:600}
+.files{display:grid;gap:6px;margin:8px 0}
+.file{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px;font-size:13.5px;padding:7px 10px;background:var(--soft);border-radius:6px}
+.file code{background:none;padding:0}
+details.deep{margin:10px 0;border:1px dashed var(--line);border-radius:8px;padding:6px 12px}
+details.deep summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--accent)}
+.note{border-left:3px solid var(--s2);background:var(--s2-bg);padding:8px 12px;border-radius:0 6px 6px 0;margin:10px 0;font-size:14.5px}
+.warn{border-left:3px solid var(--bad);padding:8px 12px;margin:10px 0;font-size:14.5px;background:var(--soft);border-radius:0 6px 6px 0}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0;font-size:13.5px}
+.chain span{background:var(--soft);border:1px solid var(--line);padding:3px 10px;border-radius:6px}
+.chain i{font-style:normal;color:var(--muted)}
+.conn{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.conn a{font-size:13px;text-decoration:none;border:1px solid var(--line);padding:3px 10px;border-radius:999px;background:var(--panel)}
+.conn a:hover{border-color:var(--accent)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:10px 0}
+.res div{background:var(--soft);border-radius:8px;padding:10px 12px}
+.res b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.res small{color:var(--muted);font-size:12px;line-height:1.35;display:block}
+.navbtns{display:flex;justify-content:space-between;gap:10px;margin-top:40px;border-top:1px solid var(--line);padding-top:18px}
+.navbtns a{flex:1;min-width:0;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:10px 14px;color:var(--fg);background:var(--panel)}
+.navbtns a small{display:block;color:var(--muted);font-size:12px}
+.navbtns a.nx{text-align:right}
+.navbtns a:hover{border-color:var(--accent)}
+.btn{font:inherit;font-size:13.5px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:6px;padding:5px 12px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}.btn.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.widget{border:1px solid var(--line);border-radius:10px;padding:14px;margin:12px 0;background:var(--surface)}
+.widget .ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:10px;font-size:13.5px}
+.widget input[type=text]{font:inherit;font-size:14px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);min-width:0;flex:1 1 240px}
+.widget input[type=range]{accent-color:var(--accent)}
+.widget select{font:inherit;padding:4px 6px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+.toy{font-size:12px;color:var(--muted);font-style:italic}
+svg.arch{width:100%;height:auto;display:block}
+svg .nd rect{fill:var(--soft);stroke:var(--muted);stroke-width:1.2}
+svg .nd.new rect{fill:var(--s3-bg);stroke:var(--s3)}
+svg .nd.opt rect{stroke-dasharray:5 4}
+svg .nd.data rect{fill:var(--panel)}
+svg .nd text{fill:var(--fg);font-size:14px;font-weight:600;text-anchor:middle;font-family:var(--f-body)}
+svg .nd text.sub{font-size:11.5px;font-weight:400;fill:var(--muted)}
+svg .nd.active rect{stroke:var(--s2);stroke-width:3;fill:var(--s2-bg)}
+svg .ed{fill:none;stroke:var(--muted);stroke-width:1.4}
+svg .ed.new{stroke:var(--s3)}
+svg .ed.opt{stroke-dasharray:5 4}
+svg .lab{fill:var(--muted);font-size:12px;font-style:italic;font-family:var(--f-body)}
+svg .ah{fill:var(--muted)}
+.cap{font-size:13.5px;color:var(--muted);min-height:2.6em;margin-top:6px}
+.cap b{color:var(--fg)}
+.fig3{background:#fff;border-radius:8px;overflow-x:auto;border:1px solid var(--line)}
+.fig3 svg{display:block;width:100%;min-width:860px;height:auto}
+.kmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.kcol{border-radius:10px;padding:12px;border:1px solid var(--line);background:var(--panel)}
+.kcol h4{margin:0 0 2px;font-size:14px}.kcol p{font-size:12.5px;color:var(--muted);margin:0 0 8px}
+.kcol.c1{border-top:4px solid var(--s1)}.kcol.c2{border-top:4px solid var(--s2)}.kcol.c3{border-top:4px solid var(--s3)}
+.chip{display:block;font-size:12.5px;padding:4px 8px;border-radius:6px;margin:4px 0;text-decoration:none;color:var(--fg);border:1px solid var(--line);line-height:1.35}
+.chip.inh{background:var(--soft);color:var(--muted)}
+.chip.nw{background:var(--s3-bg);border-color:var(--s3)}
+.chip.c1n{background:var(--s1-bg);border-color:var(--s1)}
+.chip.ex{border-style:dashed;border-color:var(--s2);background:var(--s2-bg)}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted);margin:6px 0}
+.legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle;border:1px solid var(--line)}
+.wins{position:relative;font-family:var(--f-mono);font-size:11px}
+.wrow{display:flex;align-items:center;gap:8px;margin:5px 0}
+.wrow .tl{width:64px;color:var(--muted);flex:none}
+.wtrack{position:relative;height:18px;flex:1;background:var(--soft);border-radius:4px}
+.wseg{position:absolute;top:0;height:100%;border-radius:4px;background:var(--s1);opacity:.8}
+.wans{position:absolute;top:-3px;height:24px;border:2px solid var(--bad);border-radius:3px}
+.bars{display:grid;gap:6px;margin:10px 0}
+.brow{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) 56px;gap:8px;align-items:center;font-size:13px}
+.btrack{background:var(--soft);border-radius:4px;height:16px;position:relative}
+.btrack i{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;background:var(--c1)}
+.chart-box{position:relative;height:300px;margin:10px 0}
+.story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.story a{display:block;text-decoration:none;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--panel)}
+.story a b{display:block;font-size:15px;margin:2px 0}
+.story a small{color:var(--muted);font-size:12.5px;line-height:1.4;display:block}
+
+.formula{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:10px 0;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:17px;line-height:2;overflow-x:auto;text-align:center}
+.formula i{font-style:italic}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px;line-height:1.25}
+.frac>span:first-child{border-bottom:1px solid currentColor;padding:0 4px}
+.frac>span:last-child{padding:0 4px}
+table.vars td.v{white-space:nowrap;font-family:"Cambria Math","Times New Roman",serif;font-size:15px;width:1%}
+ol.steps{counter-reset:st;list-style:none;padding-left:0}
+ol.steps>li{counter-increment:st;position:relative;padding-left:34px;margin:6px 0}
+ol.steps>li::before{content:counter(st);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--soft);border:1px solid var(--line);font-size:12px;font-weight:700;display:grid;place-items:center}
+.pc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.pc>div{background:var(--soft);border-radius:8px;padding:10px 14px}
+.pc b{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+dl.terms{margin:8px 0;display:grid;grid-template-columns:minmax(120px,200px) minmax(0,1fr);gap:6px 14px}
+dl.terms dt{font-weight:600}
+dl.terms dd{margin:0;color:var(--fg)}
+.hlc .hk{color:var(--s3);font-weight:600}.hlc .hs{color:var(--s1)}.hlc .hc{color:var(--muted);font-style:italic}.hlc .hn{color:var(--s2)}.hlc .ht{color:var(--c2)}
+.modebar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 4px;font-size:13px;color:var(--muted)}
+.toc-in{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 4px}
+.toc-in .lnk{font:inherit;font-size:12px;background:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted);cursor:pointer}
+.toc-in .lnk:hover{border-color:var(--accent);color:var(--fg)}
+.phead{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;margin:26px 0 4px;padding:8px 14px;border-radius:8px}
+.phead b{font-size:13px;letter-spacing:.08em}
+.phead span{font-size:13px;color:var(--muted)}
+.phead.pa{background:var(--s1-bg);color:var(--s1)}
+.phead.pb{background:var(--s3-bg);color:var(--s3)}
+body.only-theory .partB{display:none}
+body.only-project .partA{display:none}
+.part{scroll-margin-top:16px}
+.exq{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;background:var(--panel)}
+.exq textarea{width:100%;font:inherit;font-size:14px;border:1px solid var(--line);border-radius:6px;padding:6px 8px;background:var(--bg);color:var(--fg);resize:vertical}
+details.sol{margin-top:8px}
+details.sol summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:14px}
+details.sol>div{margin-top:6px;padding:8px 12px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0}
+.donebar{margin:20px 0 0}
+.tag.lv0{background:var(--s1-bg);color:var(--s1);border-color:var(--s1)}
+.tag.lv1{background:var(--s3-bg);color:var(--s3);border-color:var(--s3)}
+.tag.lv2{color:var(--muted)}
+.side a.it.done .n::after{content:" ✓";color:var(--good)}
+.side a.it.seen .n::after{content:" ·";color:var(--muted)}
+@media (max-width:860px){dl.terms{grid-template-columns:1fr}}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  nav.side{position:fixed;inset:0 auto 0 0;width:min(300px,86vw);z-index:20;transform:translateX(-102%);transition:transform .2s;height:100%;box-shadow:0 0 30px rgba(0,0,0,.2);padding-top:calc(18px + env(safe-area-inset-top,0px))}
+  nav.side.open{transform:none}
+  .menu-btn{display:inline-block;position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin-bottom:10px}
+  .kmap,.story{grid-template-columns:1fr}
+  .file{grid-template-columns:1fr}
+  h1{font-size:25px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="app">
+<nav class="side" id="side" aria-label="Mục lục">
+  <div class="brand">Hỏi đáp tiếng Đức<small>Giáo trình: lý thuyết trước, project sau</small></div>
+  <div class="prog"><span id="progtxt">0 bài đã mở</span><div class="bar"><i id="progbar"></i></div></div>
+  <div id="toc"></div>
+</nav>
+<main>
+  <button class="btn menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false">☰ Mục lục</button>
+  <div class="page" id="page"></div>
+</main>
+</div>
+
+<template id="fig3tpl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 846" width="1320" height="846" font-family="Segoe UI, Inter, Arial, sans-serif" role="img" aria-label="Ba giai đoạn: baseline gồm các thành phần cơ bản, pipeline B0 ghép BM25 với reader, cải tiến thay khâu truy hồi bằng BM25 cộng dense hợp nhất RRF và reranker tùy chọn, giữ nguyên reader">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d5fd1"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a94a0"/></marker></defs>
+<rect x="0" y="0" width="1320" height="846" fill="#ffffff"/>
+<rect x="820" y="14" width="22" height="14" rx="3" fill="#f1f3f5" stroke="#8a94a0"/>
+<text x="850" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">có từ giai đoạn trước / giữ nguyên</text>
+<rect x="1050" y="14" width="22" height="14" rx="3" fill="#e6effd" stroke="#1d5fd1"/>
+<text x="1080" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">thêm hoặc thay mới</text>
+<rect x="1200" y="14" width="22" height="14" rx="3" fill="#fff" stroke="#8a94a0" stroke-dasharray="4 3"/>
+<text x="1230" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">tùy chọn</text>
+<text x="20" y="27" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">Hệ thống hỏi đáp tiếng Đức: Baseline → Pipeline → Cải tiến</text>
+<rect x="8" y="44" width="1304" height="218" rx="10" fill="#f7f8fa" stroke="#e1e5ea"/>
+<text x="24" y="74" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 1</text>
+<text x="24" y="94" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">BASELINE</text>
+<text x="24" y="114" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Mô hình cơ bản</text>
+<text x="24" y="132" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 3, 4.1–4.3</text>
+<text x="24" y="148" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">offline, chạy một lần</text>
+<rect x="8" y="274" width="1304" height="274" rx="10" fill="#f7f8fa" stroke="#e1e5ea"/>
+<text x="24" y="304" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 2</text>
+<text x="24" y="324" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">PIPELINE</text>
+<text x="24" y="344" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Phát triển từ baseline</text>
+<text x="24" y="362" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 4.4–4.6, 6.1.5</text>
+<text x="24" y="378" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">B0 + dense DPR đối chiếu</text>
+<rect x="8" y="560" width="1304" height="272" rx="10" fill="#f3f7fe" stroke="#e1e5ea"/>
+<text x="24" y="590" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 3</text>
+<text x="24" y="610" font-size="15" font-weight="700" fill="#1849a9" text-anchor="start">CẢI TIẾN</text>
+<text x="24" y="630" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">So với pipeline</text>
+<text x="24" y="648" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 5</text>
+<text x="24" y="664" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">H0 mặc định · H1 tùy chọn</text>
+<rect x="170" y="72.0" width="190" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="265.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">GermanQuAD + GermanDPR</text>
+<text x="265.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">dữ liệu thô</text>
+<rect x="390" y="72.0" width="230" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="505.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Tiền xử lý · chia tập</text>
+<text x="505.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · khử trùng · Union-Find</text>
+<rect x="650" y="72.0" width="190" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="745.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Corpus 26.864 đoạn</text>
+<text x="745.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">original_text / retrieval_text</text>
+<rect x="870" y="72.0" width="150" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="945.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Train 10.301 câu</text>
+<text x="945.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">dev 1.176 · test 2.203</text>
+<polyline points="360,100 388,100" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="620,100 648,100" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="560,72 560,60 945,60 945,70" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="172.0" width="180" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="490.0" y="196" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">BM25 Okapi</text>
+<text x="490.0" y="212" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">k1 0,7 · b 0,2 · loại stopword</text>
+<rect x="880" y="172.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="196" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Reader GBERT</text>
+<text x="940.0" y="212" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">fine-tune 3 epoch</text>
+<polyline points="700,128 700,150 490,150 490,170" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="570" y="145" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">dựng chỉ mục</text>
+<polyline points="945,128 945,170" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="952" y="158" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">fine-tune</text>
+<text x="1040" y="180" font-size="11.5" font-weight="600" fill="#1f2933" text-anchor="start">Đánh giá riêng từng thành phần (dev)</text>
+<text x="1040" y="200" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">BM25: Hit@20 0,814</text>
+<text x="1040" y="218" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Reader, đoạn gold cho sẵn: EM 0,469</text>
+<text x="1040" y="236" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">cửa sổ 384 · stride 128</text>
+<rect x="170" y="372.0" width="80" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="210.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Câu hỏi</text>
+<text x="210.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">tiếng Đức</text>
+<rect x="270" y="372.0" width="110" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="325.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Chuẩn hóa</text>
+<text x="325.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · ≤ 64 token</text>
+<rect x="760" y="372.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="810.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Select</text>
+<text x="810.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-5</text>
+<rect x="880" y="372.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Read</text>
+<text x="940.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">GBERT reader</text>
+<rect x="1020" y="372.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1070.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Aggregate</text>
+<text x="1070.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">minus_cls</text>
+<rect x="1140" y="372.0" width="160" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1220.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Đáp án + bằng chứng</text>
+<text x="1220.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">đoạn · offset [start, end)</text>
+<polyline points="250,400 268,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="860,400 878,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1000,400 1018,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1120,400 1138,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="342.0" width="180" height="48" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="490.0" y="362" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Retrieve: BM25</text>
+<text x="490.0" y="378" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-20 đoạn · B0</text>
+<rect x="400" y="410.0" width="180" height="48" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="490.0" y="430" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Retrieve: Dense DPR</text>
+<text x="490.0" y="446" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">256 tok · FAISS Flat · top-20</text>
+<polyline points="380,400 390,400 390,366 398,366" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="390,400 390,434 398,434" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="580,366 680,366 680,392 758,392" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="630" y="360" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">20 đoạn</text>
+<polyline points="580,434 680,434 680,408 758,408" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<text x="630" y="450" font-size="10.5" font-weight="400" fill="#1d5fd1" text-anchor="middle" font-style="italic">hoặc 20 đoạn dense</text>
+<polyline points="490,228 490,340" fill="none" stroke="#8a94a0" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#g)"/>
+<text x="497" y="300" font-size="10.5" font-weight="400" fill="#8a94a0" text-anchor="start" font-style="italic">nạp chỉ mục</text>
+<polyline points="940,228 940,370" fill="none" stroke="#8a94a0" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#g)"/>
+<text x="947" y="300" font-size="10.5" font-weight="400" fill="#8a94a0" text-anchor="start" font-style="italic">nạp checkpoint (epoch 2)</text>
+<text x="490" y="474" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">encoder có sẵn của deepset · mã hóa sẵn 26.864 đoạn</text>
+<text x="700" y="350" font-size="10.5" font-weight="400" fill="#b4410c" text-anchor="start">▲ BM25: 18,6% câu dev có gold ngoài top-20</text>
+<text x="810" y="446" font-size="10.5" font-weight="400" fill="#b4410c" text-anchor="middle">▲ 17,3%: gold bị loại khi cắt top-5</text>
+<text x="1220" y="446" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">FastAPI → React tô sáng đáp án</text>
+<text x="170" y="510" font-size="12" font-weight="600" fill="#1f2933" text-anchor="start">Test B0:  Hit@5 0,793   ·   EM 0,222 (first_ref) / 0,330 (all_refs)   ·   p50 63,8 ms</text>
+<text x="170" y="530" font-size="11.5" font-weight="400" fill="#1849a9" text-anchor="start">Dev, cùng pipeline:  Dense 256 Hit@5 0,816 · EM 0,338  so với  BM25 0,638 · 0,236   (89,8% gold dev encoder đã thấy)</text>
+<rect x="170" y="656.0" width="80" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="210.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Câu hỏi</text>
+<text x="210.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">tiếng Đức</text>
+<rect x="270" y="656.0" width="110" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="325.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Chuẩn hóa</text>
+<text x="325.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · ≤ 64 token</text>
+<rect x="760" y="656.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="810.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Select</text>
+<text x="810.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-5</text>
+<rect x="880" y="656.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Read</text>
+<text x="940.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">GBERT reader</text>
+<rect x="1020" y="656.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1070.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Aggregate</text>
+<text x="1070.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">minus_cls</text>
+<rect x="1140" y="656.0" width="160" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1220.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Đáp án + bằng chứng</text>
+<text x="1220.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">đoạn · offset [start, end)</text>
+<polyline points="250,684 268,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="860,684 878,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1000,684 1018,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1120,684 1138,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="618.0" width="130" height="48" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="465.0" y="638" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">BM25</text>
+<text x="465.0" y="654" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-100</text>
+<rect x="400" y="702.0" width="130" height="48" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4"/>
+<text x="465.0" y="722" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Dense DPR · 384 tok</text>
+<text x="465.0" y="738" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-100</text>
+<rect x="560" y="656.0" width="75" height="56" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4"/>
+<text x="597.5" y="680" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">RRF</text>
+<text x="597.5" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">c = 10</text>
+<rect x="652" y="656.0" width="96" height="56" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="700.0" y="680" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Cross-encoder</text>
+<text x="700.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">rerank · bge-m3</text>
+<polyline points="380,684 390,684 390,642 398,642" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="390,684 390,726 398,726" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="530,642 545,642 545,674 558,674" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="530,726 545,726 545,694 558,694" fill="none" stroke="#1d5fd1" stroke-width="1.4" marker-end="url(#b)"/>
+<polyline points="635,684 650,684" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="748,684 758,684" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="598,656 598,638 810,638 810,654" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="704" y="632" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">H0: 20 đoạn đi thẳng</text>
+<text x="701" y="730" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">H1: bật reranking, xếp lại 20 đoạn</text>
+<text x="965" y="640" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">giữ nguyên reader, top-5 và đầu ra để so công bằng</text>
+<polyline points="640,538 640,600" fill="none" stroke="#1d5fd1" stroke-width="1.4" marker-end="url(#b)"/>
+<text x="648" y="582" font-size="10.5" font-weight="400" fill="#1d5fd1" text-anchor="start" font-style="italic">mở rộng dense 256 → 384, thêm RRF và cross-encoder</text>
+<text x="465" y="766" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">từ 256 → 384 token; đo trên dev-unseen 234 câu</text>
+<text x="170" y="792" font-size="12" font-weight="600" fill="#1849a9" text-anchor="start">Test H0 (mặc định):  Hit@5 0,919   ·   EM 0,261 / 0,383   ·   p50 141,9 ms</text>
+<text x="170" y="814" font-size="12" font-weight="400" fill="#1f2933" text-anchor="start">Test H1 (+ cross-encoder):  Hit@5 0,969   ·   EM 0,250 / 0,361 (thấp hơn H0, có ý nghĩa)   ·   p50 743,6 ms</text>
+</svg></template>
+
+<script>
+"use strict";
+/* ================= tiện ích ================= */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const fmt = (x, d = 3) => Number(x).toFixed(d).replace(".", ",");
+const files = rows => `<div class="files">${rows.map(([f, d]) => `<div class="file"><code>${esc(f)}</code><span>${d}</span></div>`).join("")}</div>`;
+const table = (head, rows, opts = {}) => `<div class="tw"><table><thead><tr>${head.map((h, i) => `<th class="${opts.num && i >= opts.num ? "num" : ""}">${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr class="${r.hl ? "hl" : ""}">${(r.c || r).map((c, i) => `<td class="${opts.num && i >= opts.num ? "num" : ""}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${opts.src ? `<p class="src">Nguồn: ${opts.src}</p>` : ""}`;
+const res = items => `<div class="res">${items.map(([v, l]) => `<div><b>${v}</b><small>${l}</small></div>`).join("")}</div>`;
+const chain = arr => `<div class="chain">${arr.map(a => `<span>${a}</span>`).join("<i>→</i>")}</div>`;
+const deep = (t, body) => `<details class="deep"><summary>${t}</summary>${body}</details>`;
+const conn = ids => `<div class="conn">${ids.map(([id, t]) => `<a href="#${id}">${t}</a>`).join("")}</div>`;
+
+/* ================= sơ đồ kiến trúc (SVG) ================= */
+const NODES = {
+  q: {x: 8, y: 84, w: 92, t: "Câu hỏi", s: "tiếng Đức", k: "data"},
+  norm: {x: 116, y: 84, w: 106, t: "Chuẩn hóa", s: "NFC · ≤ 64 token"},
+  bm25B0: {x: 240, y: 84, w: 170, t: "Retrieve: BM25", s: "top-20 đoạn"},
+  bm25P: {x: 240, y: 46, w: 186, t: "Retrieve: BM25", s: "top-20 · cấu hình B0"},
+  denseP: {x: 240, y: 124, w: 186, t: "Retrieve: Dense DPR", s: "256 tok · FAISS · top-20", k: "new opt"},
+  bm25: {x: 240, y: 38, w: 132, t: "BM25", s: "top-100"},
+  dense: {x: 240, y: 130, w: 132, t: "Dense DPR 384", s: "top-100", k: "new"},
+  rrf: {x: 392, y: 84, w: 96, t: "RRF", s: "c = 10 → 20 đoạn", k: "new"},
+  rerank: {x: 504, y: 84, w: 116, t: "Cross-encoder", s: "bge-reranker-v2-m3", k: "new opt"},
+  sel: {x: 640, y: 84, w: 90, t: "Select", s: "top-5"},
+  read: {x: 746, y: 84, w: 104, t: "Read", s: "GBERT reader"},
+  out: {x: 866, y: 84, w: 126, t: "Aggregate", s: "đáp án + bằng chứng"}
+};
+const H = 52;
+function nodeSVG(id) {
+  const n = NODES[id];
+  return `<g class="nd ${n.k || ""}" data-id="${id}"><rect x="${n.x}" y="${n.y - H / 2}" width="${n.w}" height="${H}" rx="7"/>
+  <text x="${n.x + n.w / 2}" y="${n.y - 3}">${esc(n.t)}</text><text class="sub" x="${n.x + n.w / 2}" y="${n.y + 14}">${esc(n.s)}</text></g>`;
+}
+function edge(pts, cls = "", lab = null) {
+  const p = pts.map(a => a.join(",")).join(" ");
+  const [x2, y2] = pts[pts.length - 1], [x1, y1] = pts[pts.length - 2];
+  const ang = Math.atan2(y2 - y1, x2 - x1);
+  const a1 = [x2 - 8 * Math.cos(ang - 0.4), y2 - 8 * Math.sin(ang - 0.4)], a2 = [x2 - 8 * Math.cos(ang + 0.4), y2 - 8 * Math.sin(ang + 0.4)];
+  return `<polyline class="ed ${cls}" points="${p}"/><polygon class="ah" points="${x2},${y2} ${a1.join(",")} ${a2.join(",")}"/>` +
+    (lab ? `<text class="lab" x="${lab[0]}" y="${lab[1]}" text-anchor="middle">${esc(lab[2])}</text>` : "");
+}
+const R = id => [NODES[id].x + NODES[id].w, NODES[id].y], L = id => [NODES[id].x, NODES[id].y];
+function archSVG(v, label) {
+  let ids, eds = [];
+  const tail = () => { eds.push(edge([R("sel"), L("read")])); eds.push(edge([R("read"), L("out")], "", [858, 50, "5 span"])); };
+  if (v === "P") {
+    ids = ["q", "norm", "bm25P", "denseP", "sel", "read", "out"];
+    eds.push(edge([R("q"), L("norm")]));
+    eds.push(edge([[222, 84], [230, 84], [230, 46], [240, 46]]), edge([[230, 84], [230, 124], [240, 124]], "new opt"));
+    eds.push(edge([R("bm25P"), [600, 46], [600, 76], [640, 76]], "", [520, 38, "20 đoạn (B0)"]));
+    eds.push(edge([R("denseP"), [600, 124], [600, 92], [640, 92]], "new opt", [520, 150, "hoặc 20 đoạn dense (đối chiếu)"]));
+  } else if (v === "B0") {
+    ids = ["q", "norm", "bm25B0", "sel", "read", "out"];
+    eds.push(edge([R("q"), L("norm")]), edge([R("norm"), L("bm25B0")]), edge([R("bm25B0"), L("sel")], "", [525, 76, "20 đoạn theo hạng BM25"]));
+  } else {
+    ids = ["q", "norm", "bm25", "dense", "rrf", "sel", "read", "out"];
+    if (v === "H1") ids.push("rerank");
+    eds.push(edge([R("q"), L("norm")]));
+    eds.push(edge([[222, 84], [230, 84], [230, 38], [240, 38]]), edge([[230, 84], [230, 130], [240, 130]], "new"));
+    eds.push(edge([R("bm25"), [382, 38], [382, 74], [392, 74]]), edge([R("dense"), [382, 130], [382, 94], [392, 94]], "new"));
+    if (v === "H1") { eds.push(edge([R("rrf"), L("rerank")], "new opt"), edge([R("rerank"), L("sel")], "new opt", [562, 132, "xếp lại 20 đoạn"])); }
+    else eds.push(edge([R("rrf"), L("sel")], "", [564, 76, "20 đoạn theo hạng RRF"]));
+  }
+  tail();
+  return `<svg class="arch" viewBox="0 0 1000 170" role="img" aria-label="${esc(label || "Kiến trúc " + v)}">${eds.join("")}${ids.map(nodeSVG).join("")}</svg>`;
+}
+function baselineSVG() {
+  const N = {
+    raw: {x: 8, y: 40, w: 196, t: "GermanQuAD + GermanDPR", s: "dữ liệu thô", k: "data"},
+    pre: {x: 222, y: 40, w: 200, t: "Tiền xử lý · chia tập", s: "NFC · khử trùng · Union-Find"},
+    cor: {x: 440, y: 40, w: 196, t: "Corpus 26.864 đoạn", s: "original_text / retrieval_text"},
+    trn: {x: 760, y: 40, w: 232, t: "Train 10.301 · dev 1.176", s: "test 2.203 (chỉ để báo cáo)"},
+    bm: {x: 440, y: 140, w: 196, t: "Chỉ mục BM25", s: "k1 0,7 · b 0,2 · loại stopword"},
+    rd: {x: 760, y: 140, w: 232, t: "Reader GBERT fine-tune", s: "3 epoch · checkpoint epoch 2"}
+  };
+  const box = (n) => `<g class="nd ${n.k || ""}"><rect x="${n.x}" y="${n.y - H / 2}" width="${n.w}" height="${H}" rx="7"/><text x="${n.x + n.w / 2}" y="${n.y - 3}">${esc(n.t)}</text><text class="sub" x="${n.x + n.w / 2}" y="${n.y + 14}">${esc(n.s)}</text></g>`;
+  const e = [edge([[204, 40], [222, 40]]), edge([[422, 40], [440, 40]]),
+    edge([[322, 14], [322, 4], [876, 4], [876, 14]]),
+    edge([[538, 66], [538, 114]], "", [590, 96, "dựng chỉ mục"]),
+    edge([[876, 66], [876, 114]], "", [920, 96, "fine-tune"])];
+  return `<svg class="arch" viewBox="0 -6 1000 180" role="img" aria-label="Baseline: dữ liệu được tiền xử lý thành corpus và các tập; corpus dựng chỉ mục BM25; tập train fine-tune reader GBERT">${e.join("")}${Object.values(N).map(box).join("")}
+  <text class="lab" x="8" y="150">Đánh giá riêng (dev):</text><text class="lab" x="8" y="166">BM25 Hit@20 0,814 · Reader EM 0,469</text></svg>`;
+}
+const STEPS = {
+  B0: [["q", "Câu hỏi thật của tập dev: „Wann wurde Hundefett in der Medizin verwendet?“"],
+       ["norm", "Chuẩn hóa NFC, bỏ ký tự vô hình (<code>normalize_question</code>); câu hỏi cho reader cắt tối đa 64 token."],
+       ["bm25B0", "BM25 trả 20 đoạn. Đoạn đúng (bài „Haushund“) đứng <b>hạng 3</b>."],
+       ["sel", "Giữ 5 đoạn đầu theo hạng BM25; 15 đoạn còn lại không được đọc."],
+       ["read", "Reader đọc từng đoạn, mỗi đoạn trả một span và một điểm minus_cls. Bốn đoạn kia cho điểm âm."],
+       ["out", "Chọn span điểm cao nhất (26,8) ở đoạn hạng 3: „vom Mittelalter bis in die Neuzeit“, khớp đáp án chuẩn."]],
+  H0: [["q", "Cùng câu hỏi „Wann wurde Hundefett in der Medizin verwendet?“"],
+       ["norm", "Chuẩn hóa giữ nguyên như B0."],
+       ["bm25", "BM25 lấy 100 đoạn; đoạn „Haushund“ ở <b>hạng 3</b>."],
+       ["dense", "Dense (DPR, 384 token) lấy 100 đoạn; cùng đoạn đó ở <b>hạng 1</b>."],
+       ["rrf", "RRF cộng w/(c + hạng) của hai nhánh, c = 10: đoạn này lên <b>hạng 1</b>, giữ 20 đoạn."],
+       ["sel", "Select top-5 như cũ."], ["read", "Reader giữ nguyên checkpoint epoch 2."],
+       ["out", "Reader trích „vom Mittelalter bis in die Neuzeit“."]],
+  H1: [["q", "Câu hỏi đi qua cùng nhánh hybrid như H0."], ["bm25", "BM25 top-100."], ["dense", "Dense top-100."],
+       ["rrf", "RRF giữ 20 đoạn (pool)."],
+       ["rerank", "Cross-encoder đọc cặp (câu hỏi, đoạn) cho cả 20 đoạn, trung bình 23,1 cửa sổ mỗi câu; trung vị 583,5 ms."],
+       ["sel", "Top-5 lấy SAU khi xếp lại."], ["read", "Reader giữ nguyên."],
+       ["out", "Đầu ra thêm hạng trước/sau rerank và rerank_score."]]
+};
+function archWidget(v, label) {
+  const id = "aw" + Math.random().toString(36).slice(2, 8);
+  setTimeout(() => {
+    const box = document.getElementById(id); if (!box) return;
+    const cap = box.querySelector(".cap"); let timer = null;
+    const clear = () => box.querySelectorAll(".nd").forEach(n => n.classList.remove("active"));
+    box.querySelector(".play").onclick = () => {
+      clearInterval(timer); let i = 0; const st = STEPS[v];
+      const tick = () => { clear(); if (i >= st.length) { clearInterval(timer); cap.innerHTML = "<b>Xong.</b> Bấm ▶ để chạy lại."; return; }
+        const [nid, txt] = st[i]; const g = box.querySelector(`.nd[data-id="${nid}"]`); if (g) g.classList.add("active");
+        cap.innerHTML = `<b>Bước ${i + 1}/${st.length}.</b> ${txt}`; i++; };
+      tick(); timer = setInterval(tick, 2300);
+    };
+  }, 0);
+  return `<div class="widget" id="${id}"><div class="ctl"><button class="btn play">▶ Chạy luồng ${v}</button><span class="toy">ví dụ là câu hỏi thật trong reports/pipeline_dev_predictions.jsonl</span></div>
+  <div class="tw">${archSVG(v, label)}</div><div class="cap">Bấm ▶ để xem câu hỏi đi qua từng bước.</div></div>`;
+}
+
+/* ================= widget: BM25 ================= */
+const STOP = new Set("der die das den dem des ein eine einen einem einer eines und oder aber ist sind war waren wird werden wurde wurden hat haben hatte hatten im in an auf aus bei mit nach von vor zu zum zur über unter für durch als wie wo wer was wann warum welche welcher welches nicht auch sich es er sie wir ihr ich du man dass".split(" "));
+const tok = (t, sw) => (t.toLowerCase().match(/[\p{L}\p{N}_]+/gu) || []).filter(w => !sw || !STOP.has(w));
+const TOY = [
+  ["P1", "Haushund. Hundefett wurde vom Mittelalter bis in die Neuzeit in der Medizin verwendet."],
+  ["P2", "Haushund. Der Hund ist ein Haustier und stammt vom Wolf ab."],
+  ["P3", "Medizin. Die Medizin des Mittelalters nutzte Heilpflanzen und Tierfette in Salben."],
+  ["P4", "Fett. Tierisches Fett wird in der Küche verwendet, Fett liefert Energie."]];
+function bm25Widget() {
+  setTimeout(() => {
+    const box = $("#bm25w"); if (!box) return;
+    const run = () => {
+      const k1 = +$("#k1", box).value, b = +$("#bb", box).value, sw = $("#sw", box).checked;
+      $("#k1v", box).textContent = fmt(k1, 1); $("#bv", box).textContent = fmt(b, 2);
+      const docs = TOY.map(([id, t]) => ({id, t, toks: tok(t, sw)}));
+      const N = docs.length, avg = docs.reduce((a, d) => a + d.toks.length, 0) / N;
+      const q = [...new Set(tok($("#bq", box).value, sw))];
+      const df = w => docs.filter(d => d.toks.includes(w)).length;
+      const idf = w => Math.log(1 + (N - df(w) + 0.5) / (df(w) + 0.5));
+      const rows = docs.map(d => {
+        const parts = q.map(w => { const tf = d.toks.filter(x => x === w).length; if (!tf) return 0;
+          return idf(w) * tf * (k1 + 1) / (tf + k1 * (1 - b + b * d.toks.length / avg)); });
+        return {d, parts, s: parts.reduce((a, c) => a + c, 0)};
+      }).sort((a, c) => c.s - a.s);
+      $("#bqt", box).innerHTML = `Token truy vấn${sw ? " (đã bỏ stopword)" : ""}: ${q.map(w => `<code>${esc(w)}</code> idf=${fmt(idf(w), 2)}`).join(" · ") || "—"} · avgdl = ${fmt(avg, 1)}`;
+      $("#bt", box).innerHTML = table(["Hạng", "Đoạn", "|d|", ...q.map(w => esc(w)), "Điểm BM25"],
+        rows.map((r, i) => ({hl: i === 0 && r.s > 0, c: [i + 1, `<b>${r.d.id}</b> ${esc(r.d.t)}`, r.d.toks.length, ...r.parts.map(p => p ? fmt(p, 2) : "·"), `<b>${fmt(r.s, 3)}</b>`]})), {num: 2});
+    };
+    box.querySelectorAll("input").forEach(i => i.addEventListener("input", run)); run();
+  }, 0);
+  return `<div class="widget" id="bm25w"><div class="ctl"><input type="text" id="bq" value="Wann wurde Hundefett in der Medizin verwendet?" aria-label="Câu truy vấn">
+  <label>k1 <input type="range" id="k1" min="0.2" max="2" step="0.1" value="0.7"> <span id="k1v"></span></label>
+  <label>b <input type="range" id="bb" min="0" max="1" step="0.05" value="0.2"> <span id="bv"></span></label>
+  <label><input type="checkbox" id="sw" checked> bỏ stopword</label></div>
+  <div id="bqt" class="src"></div><div id="bt"></div>
+  <p class="toy">Kho 4 đoạn là ví dụ tự đặt để minh họa công thức; tách từ, danh sách stopword và công thức idf giống hệt <code>tokenizer.py</code> và <code>bm25.py</code>. Mặc định k1 = 0,7, b = 0,2 là giá trị project chọn trên dev.</p></div>`;
+}
+
+/* ================= widget: cửa sổ trượt ================= */
+function windowWidget() {
+  setTimeout(() => {
+    const box = $("#winw"); if (!box) return;
+    const run = () => {
+      const L = +$("#clen", box).value, q = +$("#qlen", box).value, ML = 384, ST = 128;
+      $("#clv", box).textContent = L; $("#qlv", box).textContent = q;
+      const cap = ML - q - 3; const wins = []; let s = 0;
+      while (true) { wins.push([s, Math.min(L, s + cap)]); if (s + cap >= L) break; s += cap - ST; }
+      const a0 = Math.round(L * 0.58), a1 = a0 + 9;
+      const pct = x => (100 * x / L).toFixed(2) + "%";
+      $("#wout", box).innerHTML = `<div class="wins">${wins.map(([a, c], i) => {
+        const has = a <= a0 && c >= a1;
+        return `<div class="wrow"><span class="tl">cửa sổ ${i + 1}</span><div class="wtrack"><div class="wseg" style="left:${pct(a)};width:${pct(c - a)}"></div><div class="wans" style="left:${pct(a0)};width:${pct(a1 - a0)}"></div></div><span class="tl" style="width:auto">${has ? "nhãn = span" : "nhãn = [CLS]"}</span></div>`;
+      }).join("")}</div><p class="src">Mỗi cửa sổ chứa ${ML} token = [CLS] + câu hỏi (${q}) + [SEP] + ${cap} token context + [SEP]. Hai cửa sổ liền nhau chồng ${ST} token. Context ${L} token → <b>${wins.length} cửa sổ</b>. Khung đỏ là vị trí đáp án giả định.</p>`;
+    };
+    box.querySelectorAll("input").forEach(i => i.addEventListener("input", run)); run();
+  }, 0);
+  return `<div class="widget" id="winw"><div class="ctl"><label>Độ dài context <input type="range" id="clen" min="150" max="1400" step="10" value="900"> <span id="clv"></span> token</label>
+  <label>Câu hỏi <input type="range" id="qlen" min="8" max="64" step="1" value="16"> <span id="qlv"></span> token</label></div><div id="wout"></div>
+  <p class="toy">Tham số thật: max_length = 384, stride = 128 (configs/reader.yaml); cách cắt giống <code>_encode</code> (truncation="only_second", return_overflowing_tokens).</p></div>`;
+}
+
+/* ================= widget: EM / F1 ================= */
+const PUNCT = new Set("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~„“”‚‘’»«–—…".split(""));
+const qn = t => [...t.toLowerCase()].filter(c => !PUNCT.has(c)).join("").replace(/\s+/g, " ").trim();
+function emWidget() {
+  setTimeout(() => {
+    const box = $("#emw"); if (!box) return;
+    const run = () => {
+      const p = qn($("#pred", box).value), r = qn($("#ref", box).value);
+      const pt = p ? p.split(" ") : [], rt = r ? r.split(" ") : [];
+      const cnt = a => a.reduce((m, w) => (m[w] = (m[w] || 0) + 1, m), {});
+      const cp = cnt(pt), cr = cnt(rt); let common = 0; for (const w in cp) common += Math.min(cp[w], cr[w] || 0);
+      const P = pt.length ? common / pt.length : 0, Rc = rt.length ? common / rt.length : 0;
+      const f1 = (!pt.length || !rt.length) ? (pt.length === rt.length ? 1 : 0) : (common ? 2 * P * Rc / (P + Rc) : 0);
+      $("#emo", box).innerHTML = `Sau normalize: dự đoán <code>${esc(p)}</code> · tham chiếu <code>${esc(r)}</code><br>
+      Token chung = ${common} · Precision = ${fmt(P, 3)} · Recall = ${fmt(Rc, 3)}` + res([[p === r ? "1" : "0", "Exact Match"], [fmt(f1, 3), "F1 cấp token"]]);
+    };
+    box.querySelectorAll("input").forEach(i => i.addEventListener("input", run)); run();
+  }, 0);
+  return `<div class="widget" id="emw"><div class="ctl"><label style="flex:1 1 100%">Dự đoán <input type="text" id="pred" value="Mittelalter bis in die Neuzeit"></label>
+  <label style="flex:1 1 100%">Tham chiếu <input type="text" id="ref" value="vom Mittelalter bis in die Neuzeit"></label></div><div id="emo"></div>
+  <p class="toy">Chuẩn hóa giống <code>qa_metrics.normalize</code>: chữ thường, bỏ dấu câu (cả „ “ – …), gộp khoảng trắng, <b>không</b> bỏ mạo từ. Thử xóa „vom“ hoặc thêm „die“ để thấy EM sụp về 0 trong khi F1 vẫn cao.</p></div>`;
+}
+
+/* ================= widget: RRF ================= */
+function rrfWidget() {
+  setTimeout(() => {
+    const box = $("#rrfw"); if (!box) return;
+    const B = ["A", "B", "C", "D", "E", "F"], D = ["C", "G", "A", "H", "B", "I"];
+    const run = () => {
+      const c = +$("#rc", box).value, w = +$("#rw", box).value; $("#rwv", box).textContent = fmt(w, 1);
+      const sc = {}, src = {};
+      [["bm25", B, 1], ["dense", D, w]].forEach(([n, l, wt]) => l.forEach((p, i) => { sc[p] = (sc[p] || 0) + wt / (c + i + 1); (src[p] = src[p] || {})[n] = i + 1; }));
+      const order = Object.keys(sc).sort((a, b) => sc[b] - sc[a] || Math.min(...Object.values(src[a])) - Math.min(...Object.values(src[b])) || a.localeCompare(b));
+      $("#rro", box).innerHTML = table(["Hạng RRF", "Đoạn", "Hạng BM25", "Hạng dense", "Điểm RRF"],
+        order.map((p, i) => ({hl: i < 5, c: [i + 1, `<b>${p}</b>`, src[p].bm25 || "—", src[p].dense || "—", fmt(sc[p], 4)]})), {num: 2}) +
+        `<p class="src">Hàng tô đậm = top-5 đưa vào reader. Với c = ${c}: hạng 1 được 1/${c + 1} = ${fmt(1 / (c + 1), 4)}, hạng 10 được 1/${c + 10} = ${fmt(1 / (c + 10), 4)}.</p>`;
+    };
+    box.querySelectorAll("select,input").forEach(i => i.addEventListener("input", run)); run();
+  }, 0);
+  return `<div class="widget" id="rrfw"><div class="ctl"><span>BM25: A B C D E F</span><span>Dense: C G A H B I</span>
+  <label>c <select id="rc"><option>10</option><option>20</option><option>60</option><option>100</option></select></label>
+  <label>w_dense <input type="range" id="rw" min="0" max="2" step="0.5" value="1"> <span id="rwv"></span></label></div><div id="rro"></div>
+  <p class="toy">Hai danh sách là ví dụ tự đặt. Cách cộng điểm và phá hòa (hạng tốt nhất ở nhánh bất kỳ, rồi mã đoạn) giống <code>retrieval/rrf.py</code>. Lưới project thử c ∈ {10, 20, 60, 100}, chọn c = 10, w_dense = 1.</p></div>`;
+}
+
+/* ================= tiện ích giáo trình ================= */
+const KW = new Set("def class return if elif else for in while not and or is None True False import from as with try except raise lambda yield pass break continue global".split(" "));
+function hl(src) {
+  const out = []; const re = /(#[^\n]*)|("""[\s\S]*?"""|"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*')|(\b\d+(?:\.\d+)?(?:e-?\d+)?\b)|([A-Za-z_]\w*)|([\s\S])/g; let m;
+  while ((m = re.exec(src))) {
+    if (m[1]) out.push(`<span class="hc">${esc(m[1])}</span>`);
+    else if (m[2]) out.push(`<span class="hs">${esc(m[2])}</span>`);
+    else if (m[3]) out.push(`<span class="hn">${m[3]}</span>`);
+    else if (m[4]) out.push(KW.has(m[4]) ? `<span class="hk">${m[4]}</span>` : (/^[A-Z]/.test(m[4]) ? `<span class="ht">${m[4]}</span>` : m[4]));
+    else out.push(esc(m[5]));
+  }
+  return out.join("");
+}
+const code = (lang, s) => `<pre class="hlc"><code>${lang === "py" ? hl(s.replace(/^\n/, "")) : esc(s.replace(/^\n/, ""))}</code></pre>`;
+const F = (h, note) => `<div class="formula">${h}</div>${note ? `<p class="src">${note}</p>` : ""}`;
+const frac = (a, b) => `<span class="frac"><span>${a}</span><span>${b}</span></span>`;
+const vars = rows => `<div class="tw"><table class="vars"><tbody>${rows.map(([v, d]) => `<tr><td class="v">${v}</td><td>${d}</td></tr>`).join("")}</tbody></table></div>`;
+const H3 = t => `<h3>${t}</h3>`;
+const steps = arr => `<ol class="steps">${arr.map(s => `<li>${s}</li>`).join("")}</ol>`;
+const pc = (pros, cons) => `<div class="pc"><div><b>Ưu điểm</b><ul>${pros.map(x => `<li>${x}</li>`).join("")}</ul></div><div><b>Hạn chế</b><ul>${cons.map(x => `<li>${x}</li>`).join("")}</ul></div></div>`;
+const term = (t, d) => `<dt>${t}</dt><dd>${d}</dd>`;
+const terms = arr => `<dl class="terms">${arr.map(([t, d]) => term(t, d)).join("")}</dl>`;
+
+const S1 = "g1", S2 = "g2", S3 = "g3";
+const PAGES = [];
+const P = o => PAGES.push(o);
+
+/* ================================================================
+   TỔNG QUAN
+   ================================================================ */
+P({id: "overview", grp: "Bắt đầu", n: "00", title: "Cách học giáo trình này", render: () => `
+<div class="eyebrow st0">Giáo trình · Hỏi đáp và truy hồi đoạn văn tiếng Đức</div>
+<h1>Học kiến thức trước, rồi mới xem project dùng nó thế nào</h1>
+<p class="lead">Giáo trình dạy các kiến thức NLP và truy hồi thông tin mà một hệ thống hỏi đáp tiếng Đức thực tế đã dùng. Mỗi bài có hai nửa: <b>A · Lý thuyết</b> đọc độc lập, áp dụng được cho bài toán khác; <b>B · Áp dụng vào project</b> chỉ ra vì sao và bằng cách nào kiến thức đó xuất hiện trong mã nguồn.</p>
+<h2>Cấu trúc mỗi bài</h2>
+${table(["Mục", "Nội dung", "Phần"], [["1 · Kiến thức tiên quyết", "Cần biết gì trước, giải thích ngắn các khái niệm nền", "A"], ["2 · Lý thuyết chi tiết", "Định nghĩa, bản chất, nguyên lý, thành phần, công thức, ví dụ, ưu/nhược", "A"], ["3 · Ví dụ thực hành độc lập", "Một bài toán nhỏ tính từng bước, không cần project", "A"], ["4 · Liên hệ với project", "Project cần kiến thức này để làm gì, vì sao chọn", "B"], ["5 · Phân tích triển khai", "Sơ đồ, input/output, mã nguồn, cấu hình, luồng dữ liệu", "B"], ["6 · Đánh giá và mở rộng", "Ưu/nhược khi áp dụng, phương án thay thế, hướng tiếp", "B"], ["7 · Bài tập tự học", "Cơ bản, vận dụng, project; lời giải ẩn", "A + B"]])}
+<p>Nút <b>Chỉ lý thuyết</b> ở đầu mỗi bài ẩn toàn bộ phần B. Nhãn mức độ: <span class="tag lv0">nền tảng</span> phải nắm chắc, <span class="tag lv1">nâng cao</span> cần để hiểu cải tiến, <span class="tag lv2">tham khảo</span> đọc để biết.</p>
+<h2>Ba chương theo tiến trình của project</h2>
+<div class="story">
+  <a href="#c1-intro"><span class="eyebrow st1">Chương 1 · Baseline</span><b>Kiến thức nền tảng</b><small>QA trích xuất, phân tích dữ liệu GermanQuAD, Unicode, truy hồi thưa, BM25, Transformer, reader, độ đo.</small></a>
+  <a href="#c2-intro"><span class="eyebrow st2">Chương 2 · Pipeline</span><b>Ghép thành hệ thống</b><small>Retriever–Reader, GermanDPR, dense retrieval, chọn ứng viên, bootstrap, phân rã lỗi, phục vụ mô hình.</small></a>
+  <a href="#c3-intro"><span class="eyebrow st3">Chương 3 · Improvements</span><b>Kỹ thuật nâng cao</b><small>Thiết kế thí nghiệm, nhiễm bẩn, hybrid, RRF, cross-encoder, đọc đúng đánh đổi.</small></a>
+</div>
+<div class="fig3">${$("#fig3tpl").innerHTML}</div>
+<p class="src">Sơ đồ ba giai đoạn của project (docs/figures/hinh_3_giai_doan.svg).</p>
+<h2>Bản đồ kiến thức và thứ tự học</h2>
+<p>Mũi tên trong mỗi bài (mục 1) chỉ bài tiên quyết. Bảng dưới là thứ tự đề xuất; bấm để mở.</p>
+<div class="kmap">
+ <div class="kcol c1"><h4>Chương 1 · Baseline</h4><p>Nền tảng</p>
+  <a class="chip c1n" href="#l1-qa">1.1 Bài toán QA trích xuất</a>
+  <a class="chip c1n" href="#l1-eda">1.2 Phân tích dữ liệu: GermanQuAD</a>
+  <a class="chip c1n" href="#l1-prep">1.3 Unicode, chuẩn hóa, chia tập</a>
+  <a class="chip c1n" href="#l1-ir">1.4 Truy hồi thông tin, TF-IDF</a>
+  <a class="chip c1n" href="#l1-bm25">1.5 BM25</a>
+  <a class="chip c1n" href="#l1-bert">1.6 Transformer, BERT, tokenizer</a>
+  <a class="chip c1n" href="#l1-reader">1.7 Reader trích xuất, fine-tuning</a>
+  <a class="chip c1n" href="#l1-eval">1.8 Độ đo truy hồi và đáp án</a></div>
+ <div class="kcol c2"><h4>Chương 2 · Pipeline</h4><p>Ghép hệ thống, kiến thức mới</p>
+  <a class="chip nw" href="#l2-arch">2.1 Kiến trúc Retriever–Reader</a>
+  <a class="chip nw" href="#l2-dpr">2.2 Phân tích dữ liệu: GermanDPR</a>
+  <a class="chip nw" href="#l2-dense">2.3 Dense retrieval, FAISS</a>
+  <a class="chip nw" href="#l2-select">2.4 Chọn ứng viên, tổng hợp đoạn</a>
+  <a class="chip nw" href="#l2-boot">2.5 Bootstrap, khoảng tin cậy</a>
+  <a class="chip nw" href="#l2-err">2.6 Phân rã lỗi</a>
+  <a class="chip nw" href="#l2-serve">2.7 Phục vụ mô hình</a></div>
+ <div class="kcol c3"><h4>Chương 3 · Improvements</h4><p>Nâng cao</p>
+  <a class="chip nw" href="#l3-design">3.1 Thiết kế thí nghiệm</a>
+  <a class="chip ex" href="#l3-contam">3.2 Nhiễm bẩn, độ nhạy</a>
+  <a class="chip nw" href="#l3-hybrid">3.3 Hybrid, hợp nhất điểm</a>
+  <a class="chip nw" href="#l3-rrf">3.4 Reciprocal Rank Fusion</a>
+  <a class="chip nw" href="#l3-rerank">3.5 Cross-encoder reranking</a>
+  <a class="chip ex" href="#l3-trade">3.6 Nút thắt và đánh đổi</a></div>
+</div>
+<div class="note">Mọi số liệu về project lấy từ <code>results/</code>, <code>reports/</code>, <code>configs/</code> hoặc báo cáo Word của nhóm. Ví dụ trong mục 2 và 3 là dữ liệu tự đặt để học, có ghi rõ.</div>`});
+
+/* ================================================================
+   CHƯƠNG 1 – BASELINE
+   ================================================================ */
+P({id: "c1-intro", grp: "Chương 1 – Baseline", g: S1, n: "1.0", title: "Mục tiêu chương", render: () => `
+<div class="eyebrow st1">Chương 1 · Baseline · mô hình cơ bản</div>
+<h1>Những gì cần biết để dựng các thành phần đầu tiên</h1>
+<p class="lead">Một hệ thống hỏi đáp phải nhận câu hỏi, tìm đoạn văn liên quan, đọc và trích ra câu trả lời, rồi tự đánh giá mình. Chương này dạy kiến thức cho từng việc, theo thứ tự từ bài toán, dữ liệu, truy hồi, mô hình ngôn ngữ đến độ đo.</p>
+<h2>Sơ đồ những gì chương này dựng được</h2>
+<div class="widget"><div class="tw">${baselineSVG()}</div><p class="src">Hai thành phần đứng riêng: chỉ mục BM25 và reader GBERT. Chương 2 mới ghép chúng.</p></div>
+${table(["Việc hệ thống phải làm", "Bài"], [["Hiểu bài toán, định dạng đầu ra", `<a href="#l1-qa">1.1</a>`], ["Biết dữ liệu trông thế nào trước khi xử lý", `<a href="#l1-eda">1.2</a>`], ["Làm sạch văn bản, chia tập không rò rỉ", `<a href="#l1-prep">1.3</a>`], ["Tìm đoạn văn liên quan", `<a href="#l1-ir">1.4</a>, <a href="#l1-bm25">1.5</a>`], ["Biểu diễn văn bản cho mô hình", `<a href="#l1-bert">1.6</a>`], ["Trích câu trả lời", `<a href="#l1-reader">1.7</a>`], ["Đo chất lượng", `<a href="#l1-eval">1.8</a>`]])}`});
+
+P({id: "l1-qa", grp: "Chương 1 – Baseline", g: S1, n: "1.1", title: "Bài toán Question Answering trích xuất", level: 0,
+pre: `<p>Không cần kiến thức trước. Hai khái niệm dùng trong bài:</p>${terms([["Chuỗi ký tự", "dãy ký tự có thứ tự; mỗi ký tự có một vị trí (chỉ số) bắt đầu từ 0."], ["Ký tự Unicode (code point)", "một mã số cho mỗi ký tự trên thế giới, ví dụ „ß“ là U+00DF. Bài 1.3 nói kỹ hơn."]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Question Answering</b> (QA, hỏi đáp tự động) là bài toán: cho một câu hỏi bằng ngôn ngữ tự nhiên, trả về câu trả lời. Có hai trục phân loại quan trọng.</p>
+${table(["Trục", "Biến thể", "Ý nghĩa"], [["Có cho sẵn văn bản không?", "<b>miền đóng</b> (closed-domain / reading comprehension)", "đoạn văn chứa đáp án được cho cùng câu hỏi"], ["", "<b>miền mở</b> (open-domain)", "hệ thống phải tự tìm đoạn văn trong một kho lớn"], ["Đáp án được tạo thế nào?", "<b>trích xuất</b> (extractive)", "đáp án là một đoạn con liên tục của văn bản"], ["", "<b>sinh</b> (generative)", "mô hình viết câu trả lời mới, có thể không có trong văn bản"]])}
+${H3("Bản chất: vì sao có QA trích xuất")}<p>Người dùng cần câu trả lời <i>kiểm chứng được</i>. Nếu đáp án luôn là một đoạn con của tài liệu gốc, ta có thể chỉ ra chính xác nó nằm ở đâu. Đổi lại, QA trích xuất không trả lời được câu hỏi cần tổng hợp hay suy luận ra điều không viết sẵn.</p>
+${H3("Nguyên lý và thành phần")}${terms([["Context", "đoạn văn được dùng để trả lời."], ["Span", "đoạn con liên tục của context; được xác định bởi vị trí bắt đầu và kết thúc."], ["Offset nửa mở [start, end)", "start là chỉ số ký tự đầu của đáp án, end là chỉ số ngay <i>sau</i> ký tự cuối. Độ dài = end − start. Cách này giúp context[start:end] trong Python cho đúng đáp án."], ["Đáp án tham chiếu", "đáp án do người gán nhãn; một câu hỏi có thể có nhiều đáp án tham chiếu đều đúng."]])}
+${H3("Công thức")}${F(`Đáp án = context[<i>start</i> : <i>end</i>] &nbsp;&nbsp; với &nbsp; 0 ≤ <i>start</i> &lt; <i>end</i> ≤ |context|`)}
+${vars([["<i>start</i>", "chỉ số ký tự đầu tiên của đáp án"], ["<i>end</i>", "chỉ số sau ký tự cuối (không thuộc đáp án)"], ["|context|", "số ký tự của context"]])}
+${H3("Một chi tiết hay gây lỗi: đơn vị của offset")}<p>"Ký tự" có thể đếm theo byte (UTF-8), theo code point (Python) hoặc theo đơn vị UTF-16 (JavaScript). Chữ „ß“ là 1 code point nhưng 2 byte UTF-8; emoji „😀“ là 1 code point nhưng 2 đơn vị UTF-16. Hai hệ thống dùng hai cách đếm khác nhau sẽ tô sáng lệch đáp án.</p>
+${pc(["Có bằng chứng, dễ kiểm tra", "Đánh giá tự động đơn giản (so chuỗi)", "Mô hình nhỏ cũng làm tốt"], ["Không trả lời được câu cần tổng hợp nhiều nơi", "Ranh giới span mơ hồ (có lấy „vom“ hay không?)", "Miền mở cần thêm bước tìm văn bản"])}`,
+practice: `<p><b>Bài toán:</b> context = „Die Universität wurde 1386 gegründet.“, câu hỏi „Wann wurde die Universität gegründet?“. Tìm offset của đáp án „1386“.</p>
+${steps(["Đếm ký tự trước đáp án: „Die“ (3) + cách (1) + „Universität“ (11) + cách (1) + „wurde“ (5) + cách (1) = 22.", "Vậy <i>start</i> = 22 (chỉ số bắt đầu từ 0).", "<i>end</i> = start + độ dài „1386“ = 22 + 4 = 26.", "Kiểm tra: context[22:26] = „1386“. ✓"])}
+<p><b>Biến thể đơn vị:</b> chuỗi „😀ß“ có 2 code point nhưng 3 đơn vị UTF-16 (emoji chiếm 2). Nếu backend trả offset code point [1, 2) cho „ß“ mà frontend JavaScript cắt theo UTF-16 thì sẽ cắt nhầm vào nửa sau của emoji.</p>`,
+project: `<p>Project giải bài toán <b>miền mở, trích xuất</b>: người dùng chỉ đưa câu hỏi tiếng Đức, hệ thống tự tìm trong kho 26.864 đoạn Wikipedia rồi cắt đáp án nguyên văn. Lý do chọn trích xuất: đáp án luôn kèm đoạn bằng chứng và vị trí chính xác, người dùng tự kiểm tra được. Hỏi đáp sinh nằm trong hướng phát triển, chưa làm.</p>`,
+impl: `<p>Mọi cấu hình (B0, B1, H0, H1) và API trả về cùng một dạng <code>QAResponse</code>:</p>
+${code("py", `class QAResponse:
+    """Dạng phản hồi mà pipeline (GĐ5) và API (GĐ8) sẽ trả về."""
+    question: str
+    answer: str
+    passage_id: str
+    passage_text: str
+    answer_start: int          # [start, end) trên passage_text gốc
+    answer_end: int
+    retrieval_score: float
+    reader_score: float
+    ...
+    status: str = "ok"         # "ok" | "empty_question" | "no_passages" | "no_valid_span" | "question_truncated"`)}
+${files([["src/germanqa/schemas.py · QAResponse", "hợp đồng đầu ra"], ["src/germanqa/data/validate_spans.py · find_all, validate", "kiểm tra đáp án trong dữ liệu khớp offset khai báo"], ["frontend/src/lib/highlight.ts · utf16FromCodePoint", "đổi offset code point (Python) sang UTF-16 (JavaScript)"], ["frontend/src/api/types.ts · answer_start_utf16", "trường offset dành cho trình duyệt"]])}
+<p><b>Luồng:</b> câu hỏi → (pipeline) → <code>QAResponse</code> với offset code point → API → frontend đổi sang UTF-16 → tô sáng đáp án trong đoạn.</p>`,
+eval: `${pc(["Một hợp đồng đầu ra cho mọi cấu hình nên so sánh và thay thế dễ", "Offset nửa mở + kiểm tra bất biến chặn lỗi lệch vị trí"], ["Chỉ trả một đáp án; không có cơ chế „không có câu trả lời“ ngoài các trạng thái lỗi", "Không trả lời được câu hỏi cần tổng hợp"])}
+<p><b>Thay thế:</b> QA sinh (RAG với LLM) cho câu trả lời tự nhiên hơn nhưng khó kiểm chứng. <b>Hướng tiếp:</b> cho phép trả „không biết“ khi điểm thấp (như SQuAD 2.0).</p>`,
+ex: [["Cơ bản", "Vì sao offset dùng khoảng nửa mở [start, end) thay vì [start, end]?", "Vì độ dài = end − start, nối hai khoảng liền nhau không bị trùng ký tự, và khớp trực tiếp với phép cắt chuỗi context[start:end] của Python."],
+     ["Vận dụng", "Context „Berlin ist die Hauptstadt.“ Đáp án „die Hauptstadt“. Tính start, end.", "„Berlin“ (6) + cách (1) + „ist“ (3) + cách (1) = 11. start = 11, end = 11 + 14 = 25. Kiểm tra context[11:25] = „die Hauptstadt“."],
+     ["Project", "Mở src/germanqa/pipeline.py, tìm dòng kiểm tra đáp án khớp văn bản gốc. Điều gì xảy ra nếu bỏ dòng đó?", "Dòng <code>if passage_text[span[\"start\"]:span[\"end\"]] != span[\"text\"]: raise ValueError(...)</code>. Bỏ đi thì một lỗi offset (ví dụ do chuẩn hóa làm đổi độ dài văn bản) sẽ âm thầm trả về vị trí sai, giao diện tô sáng nhầm mà không ai biết."]]});
+
+P({id: "l1-eda", grp: "Chương 1 – Baseline", g: S1, n: "1.2", title: "Phân tích dữ liệu (EDA): GermanQuAD", level: 0,
+pre: `${conn([["l1-qa", "1.1 context, span, đáp án tham chiếu"]])}${terms([["Phân phối", "cách các giá trị (ví dụ độ dài) trải ra: nhiều giá trị nhỏ, ít giá trị lớn…"], ["Token", "đơn vị mô hình đọc; một từ có thể thành nhiều token. Bài 1.6 dạy kỹ."]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Phân tích dữ liệu khám phá</b> (Exploratory Data Analysis, EDA) là bước đo và nhìn dữ liệu <i>trước khi</i> xây mô hình, để phát hiện các vấn đề sẽ ảnh hưởng tới thiết kế: thiếu, trùng, lệch phân phối, vượt giới hạn mô hình, rò rỉ giữa các tập.</p>
+${H3("Bản chất")}<p>Mô hình chỉ tốt bằng dữ liệu của nó. Nhiều lỗi nghiêm trọng (điểm test bị thổi phồng vì trùng lặp, đáp án bị cắt mất vì văn bản quá dài) không thể phát hiện bằng cách nhìn điểm số cuối; phải đo trực tiếp trên dữ liệu.</p>
+${H3("Các bước của một EDA cho NLP")}${steps(["<b>Toàn vẹn:</b> đúng phiên bản, đủ số mẫu so với tài liệu mô tả (dataset card), đúng schema.", "<b>Thiếu và trùng:</b> trường rỗng, bản ghi trùng nội dung.", "<b>Độ dài:</b> đo bằng chính tokenizer của mô hình, không bằng số từ.", "<b>Vượt giới hạn:</b> bao nhiêu mẫu dài hơn số token mô hình nhận được.", "<b>Nhãn:</b> mỗi mẫu có mấy đáp án, độ dài đáp án.", "<b>Văn bản:</b> ký tự lạ, mã hóa.", "<b>Quan hệ giữa các tập:</b> trùng lặp, rò rỉ."])}
+${H3("Công thức thống kê mô tả")}${F(`trung bình = ${frac("1", "n")} Σ<sub>i</sub> <i>x<sub>i</sub></i> &nbsp;&nbsp;·&nbsp;&nbsp; trung vị = giá trị đứng giữa sau khi sắp xếp &nbsp;&nbsp;·&nbsp;&nbsp; P95 = giá trị mà 95% mẫu nhỏ hơn hoặc bằng`)}
+<p>Trung bình nhạy với giá trị cực lớn; trung vị thì không. Với độ dài văn bản (phân phối lệch phải, đuôi dài), cần báo cả trung vị và P95 để thấy phần đuôi, vì phần đuôi quyết định có bao nhiêu mẫu bị cắt.</p>
+${pc(["Rẻ, làm trước mọi thứ", "Tránh thiết kế sai từ đầu (ví dụ chọn max_length quá nhỏ)"], ["Dễ thành liệt kê số liệu vô mục đích nếu không gắn với câu hỏi thiết kế", "Không thay được việc đo trên mô hình thật"])}`,
+practice: `<p><b>Bài toán:</b> 10 context có độ dài (token): 120, 180, 210, 237, 260, 300, 420, 481, 650, 1.100. Mô hình nhận tối đa 384 token. Mô tả phân phối và ước lượng số context bị cắt.</p>
+${steps(["Trung bình = 3.958 / 10 = <b>395,8</b>.", "Trung vị = trung bình của giá trị thứ 5 và 6 = (260 + 300) / 2 = <b>280</b>.", "Trung bình lớn hơn trung vị nhiều → phân phối lệch phải, kéo bởi giá trị 1.100.", "P95 (nội suy tuyến tính như numpy) ≈ <b>897,5</b>; theo kiểu 'thứ hạng gần nhất' là 1.100. Các cách tính percentile khác nhau, phải ghi rõ đã dùng cách nào.", "Context dài hơn 384: 420, 481, 650, 1.100 → <b>4/10</b> bị cắt nếu chỉ đọc một lần.", "Kết luận thiết kế: nhìn trung bình (395,8) dễ tưởng 384 'gần đủ'; nhìn đuôi mới thấy cần cơ chế đọc nhiều cửa sổ (bài 1.6)."])}`,
+project: `<p><b>GermanQuAD</b> là bộ hỏi đáp trích xuất tiếng Đức trên Wikipedia; mỗi mẫu có <code>id, context, question, answers{text, answer_start}</code>. Đây là bộ dữ liệu của Baseline: huấn luyện reader, tạo dev, test và phần lớn kho văn bản. Project cần EDA để trả lời: chọn max_length bao nhiêu, chấm điểm thế nào khi có nhiều đáp án, chia tập ra sao để không rò rỉ.</p>
+<p>Dòng đầu mỗi context là tên bài Wikipedia (ví dụ „Haushund“, „Recht_der_Vereinigten_Staaten“), một chi tiết dataset card không nói nhưng ảnh hưởng tới BM25 và chia tập theo bài viết.</p>`,
+impl: `${table(["Chỉ số", "Train", "Test"], [["Số mẫu (khớp dataset card)", "11.518", "2.204"], ["Câu hỏi / context rỗng, không đáp án", "0 / 0 / 0", "0 / 0 / 0"], ["Số context khác nhau", "2.540", "474"], ["Câu hỏi trung bình mỗi context", "4,53", "4,65"], ["Số đáp án mỗi câu hỏi", "1", "2 (76 câu), 3 (2.128 câu)"], ["Câu hỏi trùng sau chuẩn hóa", "41", "1"]], {src: "reports/step1_count_check.csv, báo cáo Bảng 3.4"})}
+${table(["Độ dài (token WordPiece)", "Trung bình", "Trung vị", "P95", "Lớn nhất"], [["Câu hỏi train", "12,2", "12", "19", "36"], ["Context train", "264,8", "237", "481", "672"], ["Context test", "413,1", "316", "1.112", "2.202"], ["Đáp án train (tham chiếu đầu)", "14,8", "7", "52", "267"]], {num: 1, src: "báo cáo Bảng 3.5, đo bằng tokenizer của reader"})}
+<p>Với cửa sổ 384 token, stride 128: train có 71,4% câu chỉ cần 1 cửa sổ, 28,3% cần 2; test chỉ 41,9% vừa 1 cửa sổ và 13,1% cần từ 5 cửa sổ trở lên (tối đa 10). Test dài hơn train rõ rệt.</p>
+${files([["scripts/01_download_data.py · count_check, write_manifest", "tải đúng revision, đối chiếu số mẫu"], ["src/germanqa/data/eda.py · schema_report, quad_missing", "schema, dữ liệu thiếu"], ["Lab_EDA_GermanQuAD_GermanDPR.ipynb", "các lab A0–D4"], ["reports/step1_manifest.json", "revision fff05ce… và schema"]])}`,
+eval: `<p><b>Hệ quả thiết kế rút ra:</b> (1) cần cửa sổ trượt cho reader; (2) test có 2–3 đáp án nên phải chấm theo cả tham chiếu đầu và mọi tham chiếu (bài 1.8); (3) nhiều câu hỏi chung context và nhiều context chung bài viết, nên phải chia tập theo nhóm (bài 1.3).</p>
+${pc(["Mọi số đếm đối chiếu được với dataset card", "Đo độ dài bằng đúng tokenizer của reader"], ["EDA nằm rải trong notebook và báo cáo, project chưa có một tệp báo cáo EDA riêng", "Chưa phân tích theo loại câu hỏi (wer/wann/warum) ở bước này"])}`,
+ex: [["Cơ bản", "Vì sao đo độ dài bằng token của tokenizer chứ không bằng số từ?", "Giới hạn của mô hình tính bằng token. Tiếng Đức có nhiều từ ghép dài bị tách thành nhiều token (tỉ lệ khoảng 1,6 token/từ trong GermanQuAD), nên đếm từ sẽ đánh giá thấp độ dài."],
+     ["Vận dụng", "Độ dài: 50, 60, 70, 80, 2.000. Tính trung bình, trung vị. Giá trị nào mô tả 'context điển hình' tốt hơn?", "Trung bình = 452, trung vị = 70. Trung vị mô tả tốt hơn vì trung bình bị một giá trị 2.000 kéo lên."],
+     ["Project", "Test có P95 context 1.112 token, train chỉ 481. Điều này ảnh hưởng gì tới reader và tới thời gian chạy?", "Reader học chủ yếu trên context 1–2 cửa sổ nhưng phải đọc context test dài tới 10 cửa sổ: phân phối lệch giữa train và test, và thời gian đọc mỗi đoạn trên test lâu hơn (reader test 66,4 ms so với dev 57,9 ms trung bình)."]]});
+
+P({id: "l1-prep", grp: "Chương 1 – Baseline", g: S1, n: "1.3", title: "Unicode, chuẩn hóa văn bản và chia tập chống rò rỉ", level: 0,
+pre: `${conn([["l1-eda", "1.2 phát hiện trùng lặp và nhóm"], ["l1-qa", "1.1 offset ký tự"]])}${terms([["Hàm băm (hash)", "biến chuỗi bất kỳ thành một mã cố định độ dài (ví dụ SHA-1); hai chuỗi giống nhau luôn cho cùng mã."], ["Đồ thị", "tập các nút nối với nhau bằng cạnh."]])}`,
+theory: `${H3("1. Chuẩn hóa Unicode")}<p>Cùng một chữ nhìn thấy có thể có nhiều cách mã hóa. „ä“ có thể là một code point U+00E4 (dạng <b>NFC</b>, ghép sẵn) hoặc hai code point „a“ + U+0308 dấu hai chấm kết hợp (dạng <b>NFD</b>, tách rời). Máy so sánh theo code point nên coi hai dạng là khác nhau. <b>Chuẩn hóa</b> đưa mọi văn bản về một dạng chuẩn trước khi so sánh.</p>
+${terms([["NFC", "ghép tối đa; dạng phổ biến trên web."], ["NFD", "tách tối đa."], ["Ký tự zero-width", "ký tự không hiển thị (U+200B, U+200C, U+200D, U+2060, U+FEFF) làm hai chuỗi trông giống mà khác."], ["Chuẩn hóa theo nhiệm vụ", "mỗi nhiệm vụ cần mức chuẩn hóa khác nhau: tìm kiếm từ khóa thường viết thường, còn mô hình phân biệt hoa/thường (cased) thì không."]])}
+${H3("2. Khử trùng lặp")}<p>Trùng lặp chính xác được phát hiện bằng hàm băm: hai văn bản có cùng mã băm (sau chuẩn hóa) coi là một. Khử trùng giúp kho không phình và chỉ số không bị đếm đôi.</p>
+${H3("3. Rò rỉ dữ liệu và chia tập theo nhóm")}<p><b>Rò rỉ</b> (data leakage) là khi thông tin của tập đánh giá lọt vào tập huấn luyện, làm điểm đánh giá cao hơn thực tế. Trong QA, nếu hai câu hỏi về cùng một đoạn văn nằm ở hai tập, mô hình có thể "nhớ" đoạn đó. Giải pháp: gom các mẫu có liên quan thành <b>nhóm</b> và đưa cả nhóm vào cùng một tập.</p>
+${H3("4. Union-Find (Disjoint Set Union)")}<p>Cấu trúc dữ liệu quản lý các nhóm rời nhau với hai phép: <code>find(x)</code> trả về đại diện của nhóm chứa x; <code>union(a, b)</code> gộp hai nhóm. Nối mọi cặp có quan hệ (câu hỏi–đoạn, đoạn–bài viết) thì các thành phần liên thông chính là các nhóm.</p>
+${F(`Độ phức tạp ≈ O(α(n)) mỗi phép, với α là hàm Ackermann ngược (thực tế ≤ 4)`, "khi dùng nén đường đi (path compression)")}
+${pc(["NFC + bỏ zero-width loại hẳn một lớp lỗi so khớp", "Chia theo nhóm chặn rò rỉ ở mức đoạn và bài viết"], ["Chia theo nhóm làm tỉ lệ dev không đúng chính xác như mong muốn", "Trùng 'gần giống' (chỉ khác vài chữ) không bị bắt bởi băm chính xác"])}`,
+practice: `<p><b>Bài toán 1:</b> „Mädchen“ dạng NFC có 7 code point; dạng NFD có 8 (vì „ä“ thành „a“ + dấu). So sánh trực tiếp → khác nhau; sau NFC → giống nhau.</p>
+<p><b>Bài toán 2 (Union-Find):</b> câu hỏi q1, q2 cùng đoạn p1; q3 thuộc đoạn p2; p1 và p2 cùng bài viết d1; q4 thuộc đoạn p3 của bài d2.</p>
+${steps(["Khởi tạo mỗi phần tử là một nhóm.", "union(q1, p1), union(q2, p1) → {q1, q2, p1}.", "union(q3, p2) → {q3, p2}.", "union(p1, d1), union(p2, d1) → gộp: {q1, q2, q3, p1, p2, d1}.", "union(q4, p3), union(p3, d2) → {q4, p3, d2}.", "Kết quả: <b>2 nhóm</b>. Nếu cho nhóm 1 vào dev thì cả q1, q2, q3 vào dev; không câu nào cùng bài d1 ở train."])}`,
+project: `<p>Project có ba nguy cơ: (1) câu hỏi người dùng gõ ở dạng NFD làm BM25 tách „höchste“ thành „ho“ + „chste“ và tìm sai; (2) GermanQuAD có 4,5 câu hỏi mỗi context nên chia ngẫu nhiên từng dòng sẽ rò rỉ; (3) dữ liệu thô có 4 đoạn chứa zero-width, 95 đoạn có gạch nối mềm, 6.609 đoạn có khoảng trắng không ngắt.</p>
+<p>Vì reader và encoder là mô hình cased, project giữ <code>original_text</code> nguyên hoa/thường và chỉ viết thường ở <code>retrieval_text</code> cho BM25.</p>`,
+impl: `${code("py", `_ZERO_WIDTH = re.compile("[\\u200b\\u200c\\u200d\\u2060\\ufeff]")   # ký tự vô hình
+
+def normalize_text(text):
+    """Chuẩn hóa nhẹ: NFC, gộp khoảng trắng, cắt đầu đuôi. KHÔNG đổi chữ hoa/thường."""
+    text = unicodedata.normalize("NFC", text)
+    return _WS.sub(" ", text).strip()
+
+def make_retrieval_text(original_text):
+    """Bản dành cho tìm kiếm. original_text KHÔNG bị sửa."""
+    text = _ZERO_WIDTH.sub("", original_text)
+    return normalize_text(text).lower()`)}
+${code("py", `def make_groups(rows, qrels, doc_of):
+    ...
+            uf.union(q, "p:" + pid)
+            uf.union("p:" + pid, "d:" + doc_of[pid])
+    return {r["question_id"]: uf.find("q:" + r["question_id"]) for r in rows}
+
+def split_train_dev(rows, groups, dev_ratio, seed):
+    """Chia theo NHÓM (không chia từng dòng), cố định bằng seed."""`)}
+${files([["src/germanqa/data/text_utils.py · normalize_text, make_retrieval_text, normalize_question, make_dedup_key", "chuẩn hóa, khóa băm SHA-1, mã đoạn p_ + 16 ký tự"], ["src/germanqa/data/split.py · UnionFind, make_groups, remove_conflicts_with_test, split_train_dev", "chia nhóm, seed 42"], ["src/germanqa/data/build_corpus.py, build_qa.py", "corpus, qrels, gộp đáp án trùng"], ["scripts/02_preprocess.py", "chạy toàn bộ, ghi data/processed/"]])}
+<p><b>Input:</b> dữ liệu thô GermanQuAD + GermanDPR. <b>Output:</b> <code>corpus.jsonl</code> (26.864 đoạn), <code>qa_train/dev/test.jsonl</code> (10.301 / 1.176 / 2.203), <code>qrels_*.json</code>. Bước sau (BM25, reader, dense) chỉ đọc các tệp này.</p>`,
+eval: `${pc(["Câu hỏi lúc chạy dùng đúng quy tắc chuẩn hóa của dữ liệu (normalize_question)", "Dev không chung bài viết với train"], ["Dev chỉ thuộc 46 bài viết nên các câu không độc lập; khoảng tin cậy theo câu hỏi có thể quá hẹp", "Gạch nối mềm vẫn có thể tách đôi từ ghép"])}
+<p><b>Thay thế:</b> chia theo thời gian hoặc theo chủ đề; khử trùng gần giống bằng MinHash. <b>Hướng tiếp:</b> bootstrap theo cụm bài viết.</p>`,
+ex: [["Cơ bản", "Vì sao không viết thường original_text cho mọi mô hình?", "Reader và dense encoder là mô hình cased; viết thường làm mất thông tin (danh từ tiếng Đức viết hoa). Project đo được: viết thường làm top-1 của dense tụt từ 0,84 xuống 0,52 (bài 2.3)."],
+     ["Vận dụng", "Cạnh: (a,b), (c,d), (b,d), (e,f). Có mấy nhóm và gồm những phần tử nào?", "2 nhóm: {a, b, c, d} và {e, f}."],
+     ["Project", "Nếu bỏ make_groups và chia ngẫu nhiên từng câu hỏi, điểm dev của reader sẽ thay đổi thế nào và vì sao?", "Có xu hướng cao hơn thực tế: câu hỏi dev cùng context với câu train, reader đã thấy chính đoạn đó khi học. Dev khi đó không còn đo khả năng trên văn bản mới, việc chọn checkpoint cũng bị lệch."]]});
+
+P({id: "l1-ir", grp: "Chương 1 – Baseline", g: S1, n: "1.4", title: "Truy hồi thông tin và TF-IDF", level: 0,
+pre: `${conn([["l1-prep", "1.3 văn bản đã chuẩn hóa"]])}${terms([["Logarit ln", "ln(x) tăng chậm khi x lớn; ln(1) = 0."], ["Vector", "danh sách số; tích vô hướng của hai vector = tổng tích từng cặp phần tử."]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Truy hồi thông tin</b> (Information Retrieval, IR): cho một truy vấn và một kho tài liệu (<b>corpus</b>), trả về các tài liệu liên quan nhất, sắp theo mức liên quan. Kết quả thường là <b>top-k</b>: k tài liệu điểm cao nhất.</p>
+${H3("Bản chất")}<p>Kho có hàng chục nghìn đến hàng tỷ tài liệu; không thể đưa hết cho một mô hình đắt tiền. IR là bước lọc nhanh để giảm kho xuống vài chục ứng viên.</p>
+${H3("Mô hình túi từ và chỉ mục nghịch đảo")}<p><b>Túi từ</b> (bag-of-words) biểu diễn văn bản bằng các từ nó chứa và số lần xuất hiện, bỏ thứ tự. Vector có một chiều cho mỗi từ trong từ điển, nên rất dài và hầu hết bằng 0, gọi là biểu diễn <b>thưa</b> (sparse). <b>Chỉ mục nghịch đảo</b> lưu, với mỗi từ, danh sách tài liệu chứa nó. Khi truy vấn chỉ cần duyệt danh sách của vài từ trong câu hỏi, không cần quét cả kho.</p>
+${H3("TF-IDF")}<p>Ý tưởng: một từ quan trọng với tài liệu khi nó xuất hiện <i>nhiều trong tài liệu đó</i> (TF) nhưng <i>ít trong kho</i> (IDF). Từ như „der“ có ở mọi nơi nên gần như vô dụng để phân biệt.</p>
+${F(`tf(<i>t</i>, <i>d</i>) = số lần <i>t</i> xuất hiện trong <i>d</i> &nbsp;&nbsp;·&nbsp;&nbsp; idf(<i>t</i>) = ln ${frac("<i>N</i>", "df(<i>t</i>)")} &nbsp;&nbsp;·&nbsp;&nbsp; score(<i>q</i>, <i>d</i>) = Σ<sub><i>t</i> ∈ <i>q</i></sub> tf(<i>t</i>, <i>d</i>) · idf(<i>t</i>)`)}
+${vars([["<i>N</i>", "số tài liệu trong kho"], ["df(<i>t</i>)", "số tài liệu chứa từ <i>t</i> (document frequency)"], ["<i>q</i>, <i>d</i>", "truy vấn và tài liệu"]])}
+<p>Nguồn gốc của idf: nếu chọn ngẫu nhiên một tài liệu, xác suất nó chứa <i>t</i> là df/N; −ln(df/N) = ln(N/df) là "lượng thông tin" (độ bất ngờ) khi gặp <i>t</i>. Từ càng hiếm, càng nhiều thông tin.</p>
+${pc(["Nhanh, không cần huấn luyện, giải thích được", "Mạnh với tên riêng, số, thuật ngữ"], ["Chỉ khớp đúng chữ: không hiểu đồng nghĩa hay cách diễn đạt khác", "TF tăng tuyến tính: lặp từ 10 lần được điểm gấp 10", "Không xét độ dài tài liệu"])}`,
+practice: `<p><b>Kho 3 tài liệu:</b> D1 = „hund bellt laut“, D2 = „katze schläft“, D3 = „hund und katze spielen“. Truy vấn: „hund bellt“.</p>
+${steps(["N = 3. df(hund) = 2 (D1, D3); df(bellt) = 1 (D1).", "idf(hund) = ln(3/2) = <b>0,405</b>; idf(bellt) = ln(3/1) = <b>1,099</b>.", "D1: tf(hund)=1, tf(bellt)=1 → 0,405 + 1,099 = <b>1,504</b>.", "D3: chỉ có hund → <b>0,405</b>. D2: <b>0</b>.", "Xếp hạng: D1 > D3 > D2. „bellt“ hiếm nên đóng góp nhiều hơn „hund“."])}`,
+project: `<p>Project dùng truy hồi thưa làm tầng lọc đầu: kho 26.864 đoạn, reader tốn khoảng 12 ms mỗi đoạn, đọc hết sẽ mất khoảng 5,4 phút mỗi câu hỏi (ước tính). Project không dùng TF-IDF thuần mà dùng biến thể cải tiến BM25 (bài 1.5), sửa đúng hai hạn chế "TF tuyến tính" và "không xét độ dài".</p>`,
+impl: `<p>Tách từ là bước đầu của mọi mô hình túi từ. Project dùng một tokenizer riêng cho truy hồi, khác tokenizer của reader:</p>
+${code("py", `# \\w trong chuỗi Unicode khớp chữ cái có dấu: ä ö ü ß é... nên không làm mất umlaut
+_TOKEN = re.compile(r"\\w+", re.UNICODE)
+
+def tokenize(text, stopwords=None):
+    """Chữ thường, tách theo chữ-số; bỏ stopword nếu được yêu cầu."""
+    tokens = _TOKEN.findall(text.lower())
+    if stopwords:
+        tokens = [t for t in tokens if t not in stopwords]
+    return tokens`)}
+${files([["src/germanqa/retrieval/tokenizer.py · tokenize, GERMAN_STOPWORDS", "tách từ, danh sách ~90 stopword tiếng Đức"], ["src/germanqa/retrieval/bm25.py · BM25.fit", "dựng chỉ mục nghịch đảo (postings)"]])}
+<p><b>Stopword</b> (từ dừng: der, die, wann, wurde…) là biến thể được đo riêng trên dev; cấu hình chọn cuối cùng có bỏ stopword (<code>use_stopwords: true</code>).</p>`,
+eval: `${pc(["Chỉ mục nghịch đảo cho tốc độ dưới 1 ms mỗi câu", "Regex \\w+ giữ được ä, ö, ü, ß"], ["Không tách từ ghép tiếng Đức (Hundefett ≠ Hund + Fett)", "Tiêu đề kiểu Recht_der_Vereinigten_Staaten thành một từ vì \\w khớp cả dấu gạch dưới"])}<p><b>Thay thế:</b> stemming, tách từ ghép (decompounding), n-gram ký tự. <b>Hướng tiếp:</b> truy hồi dày (bài 2.3).</p>`,
+ex: [["Cơ bản", "Vì sao từ xuất hiện ở mọi tài liệu có idf = 0?", "df = N nên idf = ln(N/N) = ln 1 = 0: từ đó không giúp phân biệt tài liệu nào."],
+     ["Vận dụng", "Với kho ở ví dụ, tính điểm TF-IDF của truy vấn „katze spielen“ cho D2 và D3.", "df(katze)=2 → 0,405; df(spielen)=1 → 1,099. D2: 0,405. D3: 0,405 + 1,099 = 1,504. D3 xếp trên."],
+     ["Project", "Gọi tokenize(\"Recht_der_Vereinigten_Staaten\") cho ra gì? Vì sao đó là vấn đề?", "Một token duy nhất „recht_der_vereinigten_staaten“, vì \\w khớp dấu gạch dưới. Câu hỏi có „Vereinigten Staaten“ sẽ không khớp từ này; báo cáo ghi khoảng 60% đoạn có tiêu đề bị gộp như vậy."]]});
+
+P({id: "l1-bm25", grp: "Chương 1 – Baseline", g: S1, n: "1.5", title: "BM25 Okapi", level: 0,
+pre: `${conn([["l1-ir", "1.4 TF, IDF, chỉ mục nghịch đảo"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>BM25</b> (Best Matching 25, hệ Okapi) là hàm chấm điểm túi từ, thường là mốc mạnh nhất của truy hồi thưa. Nó giữ ý tưởng TF × IDF và thêm hai sửa đổi.</p>
+${H3("Bản chất: hai lỗi của TF-IDF")}${steps(["<b>TF tuyến tính:</b> lặp một từ 20 lần không làm tài liệu liên quan gấp 20. Cần một hàm <b>bão hòa</b>: tăng nhanh lúc đầu rồi chững lại.", "<b>Tài liệu dài có lợi:</b> văn bản dài chứa nhiều từ hơn chỉ vì dài. Cần <b>chuẩn hóa độ dài</b>."])}
+${H3("Công thức")}${F(`score(<i>q</i>, <i>d</i>) = Σ<sub><i>t</i>∈<i>q</i></sub> idf(<i>t</i>) · ${frac("tf(<i>t</i>,<i>d</i>) · (<i>k</i><sub>1</sub> + 1)", "tf(<i>t</i>,<i>d</i>) + <i>k</i><sub>1</sub> · (1 − <i>b</i> + <i>b</i> · |<i>d</i>| / avgdl)")}`)}
+${F(`idf(<i>t</i>) = ln ( 1 + ${frac("<i>N</i> − df(<i>t</i>) + 0,5", "df(<i>t</i>) + 0,5")} )`, "dạng idf có cộng 1 để luôn dương (bản Lucene; project dùng đúng dạng này)")}
+${vars([["<i>k</i><sub>1</sub>", "độ bão hòa TF; k1 = 0 bỏ hẳn TF, k1 lớn gần với TF tuyến tính. Thường 1,2–2,0"], ["<i>b</i>", "mức chuẩn hóa độ dài ∈ [0, 1]; b = 0 bỏ qua độ dài, b = 1 chuẩn hóa hoàn toàn. Thường 0,75"], ["|<i>d</i>|", "độ dài tài liệu (số token)"], ["avgdl", "độ dài trung bình trong kho"]])}
+${H3("Đọc công thức")}<p>Khi |d| = avgdl, mẫu số thành tf + k1, và phân số là tf·(k1+1)/(tf+k1): bằng 1 khi tf = 1 và tiến tới k1+1 khi tf → ∞. Đó là bão hòa. Khi tài liệu dài hơn trung bình, mẫu số tăng, điểm giảm: đó là chuẩn hóa độ dài, mạnh yếu theo b.</p>
+${pc(["Hai tham số dễ hiểu, dò lưới nhanh", "Mốc rất mạnh, khó vượt bằng mô hình đơn giản"], ["Vẫn chỉ khớp đúng chữ", "Tham số tối ưu phụ thuộc kho, phải dò lại"])}`,
+practice: `<p><b>Cùng kho bài 1.4</b> (D1 3 từ, D2 2 từ, D3 4 từ, avgdl = 3), k1 = 1,2, b = 0,75, truy vấn „hund bellt“.</p>
+${steps(["idf(hund) = ln(1 + (3 − 2 + 0,5)/(2 + 0,5)) = ln 1,6 = <b>0,470</b>; idf(bellt) = ln(1 + 2,5/1,5) = <b>0,981</b>.", "D1: |d| = avgdl → mẫu chuẩn hóa = 1,2·(0,25 + 0,75·1) = 1,2. Phân số với tf = 1: 1·2,2/(1+1,2) = 1. Điểm = 0,470 + 0,981 = <b>1,451</b>.", "D3: |d| = 4 → 1,2·(0,25 + 0,75·4/3) = 1,5. Phân số: 2,2/2,5 = 0,88. Điểm = 0,470·0,88 = <b>0,414</b>.", "Bão hòa (k1 = 1,2, tài liệu dài trung bình): tf = 1, 2, 3, 4, 5 cho phân số 1; 1,375; 1,571; 1,692; 1,774 → không bao giờ vượt 2,2."])}
+<p>Thử trực tiếp trên kho 4 đoạn tiếng Đức (công thức và stopword giống project):</p>${bm25Widget()}`,
+project: `<p>BM25 là retriever của Baseline (và của cấu hình B0 ở chương 2): nhanh, không cần GPU, mạnh với tên riêng và năm tháng vốn rất nhiều trong câu hỏi GermanQuAD. Project tự cài BM25 bằng numpy thay vì dùng thư viện, để kiểm soát chính xác công thức và lưu chỉ mục có dấu vân tay.</p>`,
+impl: `${code("py", `def fit(self, doc_ids, token_lists):
+    ...
+    lengths = np.array([len(t) for t in token_lists], dtype=np.float64)
+    avgdl = lengths.mean() if n else 0.0
+    ...
+    for term, (idx, tfs) in postings.items():
+        df = len(idx)
+        idf = math.log(1.0 + (n - df + 0.5) / (df + 0.5))
+        norm = self.k1 * (1.0 - self.b + self.b * lengths[idx] / avgdl)
+        self.weights[term] = (idx, idf * tf * (self.k1 + 1.0) / (tf + norm))`)}
+<p>Điểm đóng góp của mỗi (từ, đoạn) được <b>tính sẵn</b> lúc dựng chỉ mục; lúc truy vấn chỉ cộng các mảng → dưới 1 ms mỗi câu.</p>
+${table(["Cấu hình", "Giá trị", "Ý nghĩa"], [["grid k1", "0,5 · 0,7 · 0,9 · 1,2 · 1,5", "dò trên dev"], ["grid b", "0,2 · 0,35 · 0,5 · 0,75", ""], ["select_by", "mrr@10", "chỉ số để chọn"], ["Chọn", "k1 = 0,7 · b = 0,2 · use_stopwords: true", "configs/pipeline.yaml"]])}
+${files([["src/germanqa/retrieval/bm25.py · BM25.fit, scores, top_k; BM25Retriever.retrieve", "chấm điểm, chỉ trả đoạn điểm > 0"], ["src/germanqa/retrieval/bm25_store.py · compute_fingerprint, load_or_build", "SHA-1 của corpus, tham số, stopword; từ chối nạp nếu lệch"], ["scripts/03_bm25_eval.py, 03b_bm25_analysis.py", "dò lưới, phân tích"]])}
+${res([["0,322", "Hit@1 dev"], ["0,638", "Hit@5 dev"], ["0,814", "Hit@20 dev"], ["0,452", "MRR@10 dev"]])}<p class="src">reports/summary_dev.md</p>`,
+eval: `<p>b = 0,2 rất thấp so với mặc định 0,75: trong kho này, chuẩn hóa độ dài mạnh gây hại; đoạn đúng thường dài. b = 0,2 nằm sát biên lưới nên giá trị tối ưu có thể còn thấp hơn.</p>
+${pc(["Nhanh, ổn định, giải thích được", "Có dấu vân tay nên không dùng nhầm chỉ mục cũ"], ["18,6% câu dev không có đoạn đúng trong top-20", "Không xử lý từ ghép, biến cách"])}<p><b>Thay thế:</b> BM25+ , BM25F (trọng số theo trường tiêu đề/nội dung), mở rộng truy vấn. <b>Hướng tiếp trong project:</b> kết hợp với dense (bài 3.3).</p>`,
+ex: [["Cơ bản", "Đặt b = 0 thì công thức BM25 còn phụ thuộc độ dài tài liệu không?", "Không: mẫu số thành tf + k1, không còn |d|/avgdl."],
+     ["Vận dụng", "k1 = 1,2, tài liệu dài bằng avgdl, tf = 10. Tính phân số tf·(k1+1)/(tf+k1·1).", "10·2,2/(10+1,2) = 22/11,2 ≈ 1,964, gần trần 2,2."],
+     ["Project", "Trong widget bài này, kéo b từ 0,2 lên 1. Đoạn nào tụt hạng và vì sao?", "Các đoạn dài hơn avgdl bị phạt mạnh hơn. Đây là lý do b thấp hợp với kho mà đoạn đúng thường dài (đo thêm ngoài tệp project: đoạn đúng của dev dài trung bình 119,8 token so với 96,6 của cả kho)."]]});
+
+P({id: "l1-bert", grp: "Chương 1 – Baseline", g: S1, n: "1.6", title: "Transformer, BERT/GBERT và tokenizer", level: 0,
+pre: `${conn([["l1-eda", "1.2 token, giới hạn độ dài"]])}${terms([["Ma trận", "bảng số; nhân ma trận kết hợp các hàng với các cột."], ["Softmax", "biến một dãy số thực thành xác suất: softmax(z)<sub>i</sub> = e<sup>z<sub>i</sub></sup> / Σ<sub>j</sub> e<sup>z<sub>j</sub></sup>. Số lớn nhất được xác suất lớn nhất, tổng bằng 1."], ["Embedding", "vector số đại diện cho một token."]])}`,
+theory: `${H3("1. Tokenizer và WordPiece")}<p>Mô hình không đọc chữ mà đọc <b>token ID</b>. Tokenizer cắt văn bản thành token theo một từ điển cố định. <b>WordPiece</b> cắt từ chưa biết thành các mảnh có trong từ điển bằng cách <b>khớp dài nhất từ trái sang</b>; mảnh không đứng đầu từ có tiền tố <code>##</code>. Nhờ vậy từ điển hữu hạn vẫn biểu diễn được mọi từ, kể cả từ ghép tiếng Đức.</p>
+${H3("2. Self-attention")}<p>Nghĩa của một từ phụ thuộc ngữ cảnh. <b>Self-attention</b> cho mỗi token "nhìn" mọi token khác và lấy trung bình có trọng số các biểu diễn của chúng.</p>
+${F(`Attention(<i>Q</i>, <i>K</i>, <i>V</i>) = softmax ( ${frac("<i>Q K</i><sup>⊤</sup>", "√<i>d</i>")} ) <i>V</i>`)}
+${vars([["<i>Q</i> (query)", "mỗi token hỏi: tôi cần thông tin gì?"], ["<i>K</i> (key)", "mỗi token quảng bá: tôi chứa gì?"], ["<i>V</i> (value)", "nội dung được truyền đi"], ["<i>d</i>", "số chiều vector; chia √d để điểm không quá lớn làm softmax bão hòa"]])}
+<p>Mỗi hàng của <i>QK</i><sup>⊤</sup> có n điểm (n = số token), nên chi phí là <b>O(n²)</b>: gấp đôi độ dài thì gấp bốn chi phí. Đó là lý do mô hình có <b>giới hạn độ dài</b> (BERT: 512 token).</p>
+${H3("3. BERT, tiền huấn luyện và fine-tuning")}<p><b>BERT</b> là chồng nhiều lớp Transformer encoder (bản base: 12 lớp, vector 768 chiều). Nó được <b>tiền huấn luyện</b> trên văn bản lớn bằng cách đoán từ bị che (masked language model). Sau đó <b>fine-tune</b>: thêm một đầu nhỏ cho nhiệm vụ cụ thể và huấn luyện tiếp toàn bộ trên dữ liệu có nhãn. <b>GBERT</b> là BERT đơn ngữ tiếng Đức của deepset. Mô hình đơn ngữ dành toàn bộ từ điển và dung lượng cho một ngôn ngữ; mô hình đa ngữ cùng cỡ phải chia cho hàng trăm ngôn ngữ ("curse of multilinguality").</p>
+${H3("4. Đầu vào cặp câu")}${terms([["[CLS] câu A [SEP] câu B [SEP]", "định dạng hai đoạn; [CLS] là token đầu, thường dùng làm biểu diễn chung."], ["token_type_ids", "0 cho câu A, 1 cho câu B."], ["attention_mask", "1 cho token thật, 0 cho token đệm (padding)."], ["offset_mapping", "với mỗi token, khoảng ký tự (start, end) trong văn bản gốc: cầu nối giữa vị trí token và vị trí ký tự."]])}
+${H3("5. Cửa sổ trượt")}<p>Văn bản dài hơn giới hạn được chia thành nhiều <b>cửa sổ</b> chồng lấn nhau <i>s</i> token (stride). Chồng lấn đảm bảo một đáp án nằm gần ranh giới vẫn trọn vẹn trong ít nhất một cửa sổ.</p>
+${pc(["Biểu diễn theo ngữ cảnh, mạnh hơn hẳn túi từ", "Tiền huấn luyện một lần, fine-tune nhiều nhiệm vụ"], ["Chi phí O(n²), giới hạn độ dài", "Cần GPU; khó giải thích"])}`,
+practice: `<p><b>Bài toán 1 (WordPiece):</b> từ điển giả định có „bundes“, „##verfassungs“, „##gericht“, „##s“, „verfassung“. Tách „bundesverfassungsgericht“.</p>
+${steps(["Từ vị trí 0, mảnh dài nhất có trong từ điển: „bundes“.", "Phần còn lại „verfassungsgericht“, tìm mảnh ##: „##verfassungs“ dài hơn „##verfassung“ (không có) → chọn „##verfassungs“.", "Còn „gericht“ → „##gericht“. Kết quả: [bundes, ##verfassungs, ##gericht], 1 từ thành 3 token."])}
+<p><b>Bài toán 2 (attention, Q = K = V = X):</b> 3 token, vector 2 chiều: x1 = (1, 0), x2 = (0, 1), x3 = (1, 1). d = 2.</p>
+${steps(["Điểm XX<sup>⊤</sup>/√2: hàng x1 = (1, 0, 1)/1,414 = (0,707; 0; 0,707). Hàng x3 = (1, 1, 2)/1,414 = (0,707; 0,707; 1,414).", "Softmax hàng x1 = (0,401; 0,198; 0,401): x1 chú ý nhiều tới chính nó và x3 (cùng chiều thứ nhất).", "Softmax hàng x3 = (0,248; 0,248; 0,503).", "Đầu ra x1 = 0,401·(1,0) + 0,198·(0,1) + 0,401·(1,1) = <b>(0,802; 0,599)</b>: biểu diễn mới của x1 đã pha thông tin từ x3."])}
+<p><b>Bài toán 3 (cửa sổ trượt):</b> thử thay đổi độ dài:</p>${windowWidget()}`,
+project: `<p>Reader cần hiểu câu hỏi trong ngữ cảnh đoạn văn: đây là việc túi từ không làm được. Project chọn <code>deepset/gbert-base</code> (đơn ngữ tiếng Đức, cỡ base vừa GPU 4 GB). EDA bài 1.2 cho thấy 13,1% câu test cần từ 5 cửa sổ, nên cửa sổ trượt là bắt buộc.</p>`,
+impl: `${code("py", `def _encode(examples, tokenizer, max_length, stride):
+    return tokenizer([e["question"] for e in examples], [e["context"] for e in examples],
+                     truncation="only_second", max_length=max_length, stride=stride,
+                     return_overflowing_tokens=True, return_offsets_mapping=True)`)}
+${table(["Tham số", "Giá trị", "Ý nghĩa"], [["model_name", "deepset/gbert-base", "backbone tiền huấn luyện, chưa học QA"], ["max_length", "384", "token mỗi cửa sổ (gồm [CLS], câu hỏi, [SEP])"], ["stride", "128", "số token chồng lấn"], ["truncation", "only_second", "chỉ cắt context, không cắt câu hỏi"]], {src: "configs/reader.yaml"})}
+${files([["src/germanqa/reader/model_io.py · get_tokenizer, get_model", "nạp đúng tokenizer đi kèm checkpoint"], ["src/germanqa/reader/features.py · _encode", "cắt cửa sổ, offset_mapping"], ["src/germanqa/tokenization.py · load_bert_tokenizer", "WordPiece"]])}
+<p><b>Output:</b> mỗi (câu hỏi, context) thành một hoặc nhiều cửa sổ; 10.301 câu train thành 13.263 cửa sổ. Bài 1.7 gắn nhãn cho từng cửa sổ.</p>`,
+eval: `${pc(["384 thay vì 512: nhanh hơn, vừa bộ nhớ, vẫn đủ cho 71,4% câu train trong 1 cửa sổ", "offset_mapping cho phép cắt đáp án từ văn bản gốc"], ["Câu hỏi bị cắt ở 64 token khi chạy pipeline (hiếm: câu hỏi dài nhất 36 token)", "Một số đáp án dài hơn cửa sổ không học được"])}<p><b>Thay thế:</b> mô hình hỗ trợ văn bản dài (Longformer), mô hình đa ngữ (XLM-R). <b>Hướng tiếp:</b> LoRA để fine-tune mô hình lớn hơn trên 4 GB.</p>`,
+ex: [["Cơ bản", "Vì sao chia cho √d trong attention?", "Tích vô hướng của vector d chiều có độ lớn tăng theo √d; không chia thì điểm rất lớn, softmax gần one-hot, gradient gần 0."],
+     ["Vận dụng", "Context 900 token, câu hỏi 16 token, max_length 384, stride 128. Có bao nhiêu cửa sổ?", "Mỗi cửa sổ chứa 384 − 16 − 3 = 365 token context; bước nhảy 365 − 128 = 237. Cửa sổ bắt đầu ở 0, 237, 474, 711 (711 + 365 ≥ 900) → 4 cửa sổ. Kiểm tra bằng widget."],
+     ["Project", "Nếu dùng tokenizer khác với tokenizer của checkpoint thì chuyện gì xảy ra?", "Token ID không khớp từ điển mô hình đã học: mô hình nhận chuỗi số vô nghĩa, kết quả sai hoàn toàn dù không báo lỗi. Vì vậy model_io nạp tokenizer từ cùng thư mục checkpoint."]]});
+
+P({id: "l1-reader", grp: "Chương 1 – Baseline", g: S1, n: "1.7", title: "Reader trích xuất và fine-tuning", level: 0,
+pre: `${conn([["l1-bert", "1.6 BERT, cặp câu, offset_mapping, cửa sổ"], ["l1-qa", "1.1 span"]])}${terms([["Logit", "điểm thô chưa qua softmax."], ["Gradient", "hướng thay đổi tham số làm mất mát giảm nhanh nhất."]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Reader trích xuất</b> là BERT thêm một lớp tuyến tính cho ra hai số ở mỗi vị trí token i: <b>start logit</b> s<sub>i</sub> và <b>end logit</b> e<sub>i</sub>. Đáp án là cặp (i, j) có s<sub>i</sub> + e<sub>j</sub> lớn nhất với i ≤ j.</p>
+${H3("Huấn luyện")}${F(`<i>p</i><sup>start</sup> = softmax(<i>s</i>), &nbsp; <i>p</i><sup>end</sup> = softmax(<i>e</i>) &nbsp;&nbsp;·&nbsp;&nbsp; <i>L</i> = ½ [ −ln <i>p</i><sup>start</sup><sub><i>a</i></sub> − ln <i>p</i><sup>end</sup><sub><i>b</i></sub> ]`)}
+${vars([["<i>a</i>, <i>b</i>", "vị trí token bắt đầu, kết thúc đúng (nhãn)"], ["−ln p", "cross-entropy: bằng 0 khi mô hình chắc chắn đúng (p = 1), tăng mạnh khi p nhỏ"]])}
+<p>Nếu đáp án không nằm trọn trong cửa sổ, nhãn trỏ về [CLS] (vị trí 0): mô hình học "không có đáp án ở đây".</p>
+${H3("Tối ưu")}${terms([["Mini-batch", "cập nhật tham số sau mỗi lô nhỏ mẫu."], ["AdamW", "Adam (tốc độ học thích nghi từng tham số) với weight decay tách rời để điều chuẩn."], ["Warmup", "tăng tốc độ học từ 0 trong vài phần trăm bước đầu, tránh phá trọng số tiền huấn luyện."], ["Gradient accumulation", "cộng gradient qua nhiều lô nhỏ rồi mới cập nhật: giả lập lô lớn khi thiếu bộ nhớ."], ["Gradient clipping", "chặn độ lớn gradient (ví dụ ≤ 1) tránh bước nhảy quá lớn."], ["Mixed precision (fp16)", "tính bằng số 16 bit cho nhanh và nhẹ."], ["Chọn checkpoint", "đo trên dev sau mỗi epoch, giữ bản tốt nhất."]])}
+${H3("Suy luận: tìm span tốt nhất")}${steps(["Lấy n_best vị trí start và n_best vị trí end điểm cao nhất mỗi cửa sổ.", "Bỏ cặp nằm ngoài context, end trước start, hoặc dài hơn max_answer_tokens.", "Chọn cặp điểm cao nhất trên mọi cửa sổ; đổi token về ký tự bằng offset_mapping."])}
+${pc(["Chính xác cao trên đoạn đúng", "Đáp án luôn là chữ trong văn bản"], ["Điểm giữa các cửa sổ/đoạn khác nhau không cùng thang", "Hay lệch ranh giới span một vài từ"])}`,
+practice: `<p><b>Bài toán:</b> một cửa sổ 7 vị trí (0 = [CLS], 1–6 là context). Start logits s = (1,5; 1,0; 0,2; 3,1; 0,5; −1,0; 0,0), end logits e = (0,0; 0,5; 0,1; 0,4; 2,8; 1,5; −0,5). max_answer_tokens = 3.</p>
+${steps(["Thử các cặp hợp lệ (1 ≤ i ≤ j ≤ 6, j − i + 1 ≤ 3). Lớn nhất: i = 3, j = 4 → 3,1 + 2,8 = <b>5,9</b>.", "Điểm [CLS] = s<sub>0</sub> + e<sub>0</sub> = 1,5. Điểm kiểu minus_cls = 5,9 − 1,5 = <b>4,4</b> (dương: tin có đáp án ở đây hơn là không).", "Softmax(s) = (0,133; 0,081; 0,036; 0,660; 0,049; 0,011; 0,030). Nếu nhãn start = 3: mất mát start = −ln 0,660 = <b>0,416</b>.", "Softmax(e)<sub>4</sub> = 0,614 → mất mát end = −ln 0,614 = <b>0,488</b>. L = (0,416 + 0,488)/2 = <b>0,452</b>."])}`,
+project: `<p>Reader là thành phần duy nhất của Baseline được học từ dữ liệu project: GBERT fine-tune 3 epoch trên 10.301 câu GermanQuAD train. Nó vừa trích đáp án, vừa (ở chương 2) chọn đoạn giữa nhiều đoạn ứng viên.</p>`,
+impl: `${code("py", `def label_window(offsets, seq_ids, start_char, end_char):
+    """Nhãn (start, end) theo chỉ số token trong MỘT cửa sổ.
+    Chỉ gán khi toàn bộ đáp án nằm trong phần context của cửa sổ; ngược lại trả (0, 0) = [CLS]."""
+    ctx = [i for i, s in enumerate(seq_ids) if s == 1]
+    first, last = ctx[0], ctx[-1]
+    if offsets[first][0] > start_char or offsets[last][1] < end_char:
+        return 0, 0
+    start = next(i for i in ctx if offsets[i][1] > start_char)
+    end = next(i for i in reversed(ctx) if offsets[i][0] < end_char)
+    return start, end`)}
+${code("py", `bias = (s_log[0] + e_log[0]) if score_mode == "minus_cls" else 0.0
+for si in np.argsort(s_log[:n])[::-1][:n_best]:
+    for ej in np.argsort(e_log[:n])[::-1][:n_best]:
+        if offs[si] is None or offs[ej] is None:
+            continue
+        if ej < si or ej - si + 1 > max_answer_tokens:
+            continue
+        score = float(s_log[si] + e_log[ej] - bias)`)}
+${table(["Tham số", "Giá trị"], [["lr · epochs", "3e-5 · 3"], ["batch × grad_accum", "8 × 2 = 16 cửa sổ"], ["warmup_ratio · weight_decay · max_grad_norm", "0,1 · 0,01 · 1,0"], ["fp16", "true"], ["n_best", "20"], ["max_answer_tokens", "80 (dò {20, 30, 50, 80} trên dev)"], ["score_mode", "minus_cls"], ["Checkpoint giữ lại", "epoch 2 (EM + F1 dev tốt nhất)"]], {src: "configs/reader.yaml, configs/pipeline.yaml"})}
+${files([["src/germanqa/reader/features.py · label_window, prepare_train_features", "nhãn theo cửa sổ"], ["src/germanqa/reader/trainer.py · train, evaluate, set_all_seeds", "vòng huấn luyện, giữ best"], ["src/germanqa/reader/postprocess.py · best_answers", "tìm span"], ["src/germanqa/reader/inference.py · Reader.read", "đọc nhiều đoạn lúc chạy"], ["scripts/GD4/04c_train_reader.py, 04d_eval_reader.py", ""]])}
+${res([["0,469", "EM dev khi cho sẵn đoạn đúng"], ["0,699", "F1 dev"], ["0,583", "EM test, mọi tham chiếu"]])}`,
+eval: `${pc(["Đạt gần 0,47 EM trên dev chỉ với mô hình base và 3 epoch", "Đáp án luôn cắt từ văn bản gốc"], ["Một seed, chưa đo dao động giữa các lần huấn luyện", "max_answer_tokens = 80 nằm ở biên lưới", "minus_cls chỉ là cách xấp xỉ để so điểm giữa các đoạn"])}<p><b>Thay thế:</b> chuẩn hóa điểm toàn cục trên mọi đoạn (Multi-passage BERT), mô hình lớn hơn. <b>Hướng tiếp:</b> nhiều seed, huấn luyện có đoạn nhiễu.</p>`,
+ex: [["Cơ bản", "Vì sao nhãn trỏ về [CLS] khi đáp án không nằm trọn trong cửa sổ?", "Để mô hình học phân biệt cửa sổ có và không có đáp án; điểm [CLS] cao nghĩa là 'không có đáp án ở đây', và điểm này được dùng trong minus_cls."],
+     ["Vận dụng", "Ở ví dụ trên, nếu max_answer_tokens = 1, đáp án tốt nhất là gì?", "Chỉ xét i = j: s<sub>i</sub> + e<sub>i</sub> lớn nhất ở i = 3 (3,1 + 0,4 = 3,5) hoặc i = 4 (0,5 + 2,8 = 3,3) → chọn i = j = 3, điểm 3,5."],
+     ["Project", "Đọc configs/reader.yaml: lô hiệu dụng là bao nhiêu cửa sổ và vì sao không đặt batch_size = 16?", "8 × 2 = 16. GPU 4 GB không chứa 16 cửa sổ 384 token cùng lúc; grad_accum = 2 giả lập lô 16."]]});
+
+P({id: "l1-eval", grp: "Chương 1 – Baseline", g: S1, n: "1.8", title: "Độ đo truy hồi và đáp án", level: 0,
+pre: `${conn([["l1-ir", "1.4 top-k"], ["l1-qa", "1.1 đáp án tham chiếu"]])}`,
+theory: `${H3("Độ đo truy hồi")}<p>Cho danh sách xếp hạng và tập đoạn đúng (<b>qrels</b>: relevance judgments).</p>
+${F(`Hit@<i>k</i> = 1 nếu có ≥ 1 đoạn đúng trong top-<i>k</i> &nbsp;·&nbsp; Recall@<i>k</i> = ${frac("|đúng ∩ top-<i>k</i>|", "|đúng|")} &nbsp;·&nbsp; MRR@<i>k</i> = ${frac("1", "hạng đoạn đúng đầu tiên")} (0 nếu ngoài top-<i>k</i>)`)}
+<p>Lấy trung bình trên mọi câu hỏi. Hit@k hỏi "có tìm thấy không"; MRR thưởng cho việc đặt đúng lên <i>cao</i>. Khi mỗi câu chỉ có một đoạn đúng, Recall@k = Hit@k.</p>
+${H3("Độ đo đáp án")}${F(`EM = 1 nếu norm(dự đoán) = norm(tham chiếu) &nbsp;·&nbsp; F1 = ${frac("2 · P · R", "P + R")}, &nbsp; P = ${frac("#token chung", "#token dự đoán")}, &nbsp; R = ${frac("#token chung", "#token tham chiếu")}`)}
+<p><b>norm</b> là hàm chuẩn hóa trước khi so (chữ thường, bỏ dấu câu, gộp khoảng trắng). Với nhiều đáp án tham chiếu, lấy <b>max</b> trên các tham chiếu. Chuẩn SQuAD tiếng Anh còn bỏ mạo từ (a, an, the); quy tắc này phải đổi theo ngôn ngữ.</p>
+${H3("Độ trễ")}<p>Báo trung bình, <b>p50</b> (trung vị) và <b>p95</b>: người dùng cảm nhận phần đuôi chậm, không phải trung bình.</p>
+${pc(["EM, F1 tự động, rẻ, so sánh được giữa các hệ", "MRR nhạy với thứ hạng"], ["EM rất nghiêm: thiếu một từ là 0", "Qrels chỉ có đoạn đúng đã biết: đoạn đúng khác bị tính là sai"])}`,
+practice: `<p><b>Bài toán:</b> 3 câu hỏi, mỗi câu một đoạn đúng. Hạng của đoạn đúng: câu A hạng 1, câu B hạng 4, câu C không có trong top-10.</p>
+${steps(["Hit@1 = (1 + 0 + 0)/3 = <b>0,333</b>; Hit@5 = (1 + 1 + 0)/3 = <b>0,667</b>.", "MRR@10 = (1/1 + 1/4 + 0)/3 = <b>0,417</b>.", "Nếu câu B đúng ở hạng 2 thay vì 4: Hit@5 không đổi, MRR tăng lên (1 + 0,5)/3 = 0,5 → MRR phân biệt được thứ hạng."])}
+<p><b>EM/F1:</b> thử với cặp đáp án thật của project:</p>${emWidget()}`,
+project: `<p>Project dùng Hit@k và MRR@k (k = 1, 5, 10, 20) cho truy hồi, chọn cấu hình theo MRR@10; EM và F1 cho đáp án, chọn checkpoint reader theo EM + F1 trên dev. Tập test có 2–3 tham chiếu mỗi câu (bài 1.2) nên báo cả <b>first_ref</b> (chỉ tham chiếu đầu, nghiêm hơn) và <b>all_refs</b> (max trên mọi tham chiếu).</p>
+<p>Project <b>không bỏ mạo từ</b> der/die/das: trong tiếng Đức đó là từ thật, mang giống và cách.</p>`,
+impl: `${code("py", `_PUNCT = set(string.punctuation) | set("„“”‚‘’»«–—…")
+
+def normalize(text):
+    """Chữ thường, bỏ dấu câu, gộp khoảng trắng. KHÔNG bỏ mạo từ (der, die, das là từ thật)."""
+    text = "".join(ch for ch in text.lower() if ch not in _PUNCT)
+    return re.sub(r"\\s+", " ", text).strip()`)}
+${code("py", `def mrr_at_k(ranked, relevant, k):
+    """1 / thứ hạng của đoạn đúng đầu tiên trong top-k; 0 nếu vắng."""
+    for rank, p in enumerate(ranked[:k], start=1):
+        if p in relevant:
+            return 1.0 / rank
+    return 0.0`)}
+${files([["src/germanqa/evaluation/retrieval_metrics.py · hit_at_k, recall_at_k, mrr_at_k, evaluate_run, latency_summary", ""], ["src/germanqa/reader/qa_metrics.py · normalize, exact_match, f1_score, score_answers", "max trên nhiều tham chiếu"], ["configs/baseline.yaml · ks [1, 5, 10, 20], select_by mrr@10", ""]])}`,
+eval: `<p>Trong 226 câu dev reader chọn đúng đoạn nhưng sai span, 157 câu (69%) chỉ lệch ranh giới và 119 câu có F1 ≥ 0,5: EM đánh giá thấp chất lượng thật. 10 câu chỉ khác ở mạo từ đầu.</p>
+${pc(["Thống nhất một bộ độ đo cho mọi giai đoạn", "Quy tắc chuẩn hóa hợp với tiếng Đức"], ["Dev 1 tham chiếu, test 1–4: EM dev và test không so trực tiếp được", "Qrels một đoạn đúng"])}<p><b>Thay thế:</b> nDCG (có mức liên quan), BERTScore, đánh giá bởi người.</p>`,
+ex: [["Cơ bản", "Khi nào Hit@5 bằng nhau nhưng MRR@5 khác nhau? Cho ví dụ.", "Hệ A đặt đoạn đúng ở hạng 1, hệ B ở hạng 5: cả hai Hit@5 = 1 nhưng MRR là 1 và 0,2."],
+     ["Vận dụng", "Dự đoán „Mittelalter bis Neuzeit“, tham chiếu „vom Mittelalter bis in die Neuzeit“. Tính EM, P, R, F1.", "EM = 0. Chung 3 token (mittelalter, bis, neuzeit). P = 3/3 = 1, R = 3/6 = 0,5, F1 = 2·1·0,5/1,5 = 0,667."],
+     ["Project", "Vì sao báo cả first_ref và all_refs trên test?", "Dev chỉ có 1 tham chiếu; test có nhiều. all_refs dễ hơn (được chọn tham chiếu khớp nhất) nên số cao hơn; first_ref gần với cách chấm của dev. Báo cả hai để không chọn cách có lợi."]]});
+
+P({id: "c1-sum", grp: "Chương 1 – Baseline", g: S1, n: "1.9", title: "Tổng kết chương 1", render: () => `
+<div class="eyebrow st1">Chương 1 · tổng kết</div>
+<h1>Đã có đủ thành phần, chưa có hệ thống</h1>
+<div class="widget"><div class="tw">${baselineSVG()}</div></div>
+${table(["Kiến thức", "Thành phần trong project", "Kết quả riêng (dev)"], [["QA trích xuất, offset", "QAResponse", "—"], ["EDA GermanQuAD", "quyết định 384/128, first/all_refs, chia nhóm", "—"], ["Unicode, Union-Find", "corpus 26.864 đoạn, 10.301 / 1.176 / 2.203 câu", "—"], ["TF-IDF, BM25", "BM25Retriever (k1 0,7 · b 0,2)", "Hit@20 0,814 · MRR@10 0,452"], ["Transformer, fine-tuning", "Reader GBERT epoch 2", "EM 0,469 khi cho sẵn đoạn đúng"], ["Độ đo", "evaluate_run, score_answers", "—"]])}
+<h2>Hạn chế dẫn sang chương 2</h2><ul><li>Hai thành phần chưa nối: chưa trả lời được câu hỏi từ đầu đến cuối.</li><li>EM 0,469 là khi <i>cho sẵn</i> đoạn đúng; chưa biết hệ thống thật đạt bao nhiêu.</li><li>BM25 chỉ khớp chữ: 18,6% câu dev mất đoạn đúng ngay từ top-20.</li><li>Chưa có giao diện cho người dùng.</li></ul>`});
+
+/* ================================================================
+   CHƯƠNG 2 – PIPELINE
+   ================================================================ */
+P({id: "c2-intro", grp: "Chương 2 – Pipeline", g: S2, n: "2.0", title: "Hạn chế của Baseline", render: () => `
+<div class="eyebrow st2">Chương 2 · Pipeline · phát triển từ baseline</div>
+<h1>Từ các thành phần rời đến một hệ thống đo được</h1>
+${table(["Hạn chế của Baseline", "Kiến thức mới", "Bài"], [["Reader không đọc nổi cả kho", "Kiến trúc Retriever–Reader, chi phí tầng", `<a href="#l2-arch">2.1</a>`], ["BM25 chỉ khớp chữ; cần hiểu dữ liệu cho truy hồi theo nghĩa", "Dữ liệu huấn luyện truy hồi, nhiễm bẩn", `<a href="#l2-dpr">2.2</a>`], ["Chưa có truy hồi theo nghĩa", "Embedding, dual encoder, FAISS", `<a href="#l2-dense">2.3</a>`], ["Không biết đọc bao nhiêu đoạn, chọn đáp án giữa nhiều đoạn", "Chọn ứng viên, so điểm giữa các đoạn", `<a href="#l2-select">2.4</a>`], ["Một con số không biết chắc đến đâu", "Bootstrap, khoảng tin cậy", `<a href="#l2-boot">2.5</a>`], ["Không biết lỗi ở tầng nào", "Phân rã lỗi", `<a href="#l2-err">2.6</a>`], ["Người dùng chưa hỏi được", "Phục vụ mô hình", `<a href="#l2-serve">2.7</a>`]])}
+<div class="widget"><div class="tw">${archSVG("P", "Pipeline")}</div><p class="src">Pipeline: BM25 là cấu hình B0; dense DPR (xanh, nét đứt) được cắm vào cùng chỗ để đối chiếu.</p></div>`});
+
+P({id: "l2-arch", grp: "Chương 2 – Pipeline", g: S2, n: "2.1", title: "Kiến trúc Retriever–Reader", level: 0,
+pre: `${conn([["l1-bm25", "1.5 retriever"], ["l1-reader", "1.7 reader"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Retriever–Reader</b> (Chen et al., 2017) là kiến trúc hai tầng cho QA miền mở: <b>retriever</b> rẻ chọn vài đoạn từ kho lớn; <b>reader</b> đắt đọc kỹ các đoạn đó và trích đáp án. Đây là một trường hợp của mô hình <b>tầng lọc</b> (cascade) phổ biến trong tìm kiếm và gợi ý.</p>
+${H3("Bản chất: phép tính chi phí")}${F(`Chi phí ≈ <i>N</i> · <i>c</i><sub>ret</sub> + <i>k</i> · <i>c</i><sub>read</sub> &nbsp;&nbsp; với &nbsp; <i>k</i> ≪ <i>N</i>`)}
+${vars([["<i>N</i>", "số đoạn trong kho"], ["<i>c</i><sub>ret</sub>", "chi phí chấm một đoạn ở retriever (rất nhỏ, thường còn nhỏ hơn nhờ chỉ mục)"], ["<i>k</i>", "số đoạn đưa vào reader"], ["<i>c</i><sub>read</sub>", "chi phí reader đọc một đoạn (lớn)"]])}
+${H3("Hệ quả")}<p>Độ chính xác tối đa của hệ bị chặn bởi retriever: nếu đoạn đúng không được lấy lên, reader tốt đến đâu cũng không cứu được. Tách thêm bước <b>Select</b> (cắt top-k trước khi đọc) giúp thấy riêng lỗi "tìm được nhưng không được đọc".</p>
+${pc(["Mở rộng ra kho rất lớn", "Thay từng tầng độc lập"], ["Lỗi tầng trước lan sang tầng sau", "Điểm các tầng không cùng thang"])}`,
+practice: `<p><b>Bài toán:</b> kho 26.864 đoạn, reader 12 ms/đoạn, retriever 1 ms cho cả kho.</p>
+${steps(["Không có retriever: 26.864 × 12 ms ≈ 322 s ≈ <b>5,4 phút</b>/câu.", "Có retriever, đọc 5 đoạn: 1 + 5 × 12 = <b>61 ms</b>.", "Tăng tốc ≈ 5.300 lần; đổi lại hệ chỉ đúng được khi đoạn đúng nằm trong 5 đoạn đó."])}
+${archWidget("B0", "Pipeline B0")}`,
+project: `<p>Đây là bước biến các thành phần của chương 1 thành hệ thống: <code>QAPipeline</code> chạy Retrieve → Select → Read → Aggregate. Cấu hình B0 = BM25 top-20 → top-5 → reader. Lớp chỉ biết retriever qua <code>retrieve(câu hỏi, k)</code> và reader qua <code>read(câu hỏi, các đoạn)</code>, nên bài 2.3 cắm dense vào mà không sửa pipeline.</p>`,
+impl: `${code("py", `def answer(self, question, retrieval_top_k=None, reader_top_k=None, trace=False):
+    ...
+    question = normalize_question(question)
+    hits = self.retriever.retrieve(question, k_ret)
+    if not hits:
+        return self._empty(question, "no_passages", t0, t_retrieval, self._no_trace(trace))
+    ...
+    used = ranked[:k_read]
+    spans = self.reader.read(reader_question, [{"passage_id": h["passage_id"],
+                                                "text": self.passages[h["passage_id"]]} for h in used])`)}
+${files([["src/germanqa/pipeline.py · QAPipeline.answer", "luồng 4 bước, đo thời gian"], ["src/germanqa/pipeline.py · build_retriever, build_pipeline", "dựng từ configs, dùng chung CLI và API"], ["configs/pipeline.yaml", "retrieval_top_k 20 · reader_top_k 5 · checkpoint"], ["scripts/GD5/05_ask.py, 05_run_dev.py", ""]])}
+${res([["0,8 ms", "truy hồi BM25 (dev, TB)"], ["57,9 ms", "reader 5 đoạn"], ["0,236", "EM end-to-end dev"], ["4 / 2.203", "câu test no_passages"]])}`,
+eval: `${pc(["Giao diện retrieve()/read() cho phép thay thành phần", "Đo thời gian từng tầng"], ["Từ 0,469 (reader, đoạn đúng cho sẵn) xuống 0,236 (cả hệ): gần nửa mất ở truy hồi và chọn đoạn"])}<p><b>Thay thế:</b> retriever–reader–reranker (chương 3), hỏi đáp sinh RAG.</p>`,
+ex: [["Cơ bản", "Vì sao độ chính xác của hệ retriever–reader bị chặn bởi retriever?", "Reader chỉ đọc những đoạn retriever đưa lên; nếu đoạn đúng không có trong đó, không có cách nào trích ra đáp án đúng từ nó."],
+     ["Vận dụng", "Reader 12 ms/đoạn. Ngân sách 150 ms, retriever 40 ms. Đọc tối đa bao nhiêu đoạn?", "(150 − 40)/12 ≈ 9,2 → tối đa 9 đoạn."],
+     ["Project", "Chạy <code>python scripts/GD5/05_ask.py</code> với một câu hỏi NFD (ví dụ gõ „ä“ bằng a + U+0308). Vì sao kết quả giờ giống câu NFC?", "QAPipeline.answer gọi normalize_question trước khi truy hồi (thêm 2026-11-13); trước đó BM25 tách sai từ có umlaut dạng NFD."]]});
+
+P({id: "l2-dpr", grp: "Chương 2 – Pipeline", g: S2, n: "2.2", title: "Phân tích dữ liệu: GermanDPR", level: 1,
+pre: `${conn([["l1-eda", "1.2 EDA"], ["l1-prep", "1.3 băm, rò rỉ"]])}${terms([["Positive", "đoạn đúng cho một câu hỏi."], ["Negative", "đoạn không trả lời câu hỏi."]])}`,
+theory: `${H3("Dữ liệu huấn luyện cho truy hồi")}<p>Muốn mô hình học "câu hỏi nào gần đoạn nào", cần các bộ ba (câu hỏi, đoạn đúng, đoạn sai). Có ba loại đoạn sai:</p>
+${terms([["Negative ngẫu nhiên", "đoạn bất kỳ; quá dễ, mô hình học ít."], ["In-batch negative", "đoạn đúng của các câu hỏi khác trong cùng lô; rẻ vì không cần tìm thêm."], ["Hard negative", "đoạn <i>trông</i> liên quan (chung từ khóa, cùng chủ đề) nhưng không trả lời; thường lấy bằng BM25. Dạy mô hình phân biệt tinh."]])}
+${H3("Nhiễm bẩn dữ liệu (contamination)")}<p>Khi dùng một mô hình <b>có sẵn</b> đã huấn luyện trên dữ liệu X, mọi phép đánh giá trên dữ liệu trùng với X đều lạc quan: mô hình có thể đã "nhớ". Phải xác định phần nào của tập đánh giá mô hình đã thấy, và đo riêng phần chưa thấy (<b>held-out</b>).</p>
+${H3("Phương pháp đo trùng lặp")}${steps(["Chuẩn hóa văn bản (NFC, gộp khoảng trắng, chữ thường).", "Băm (SHA-1) từng câu hỏi và từng đoạn.", "So tập mã băm giữa hai bộ dữ liệu → tỉ lệ trùng."])}
+${pc(["Hard negative giúp mô hình dense học mạnh hơn hẳn", "Đo trùng bằng băm rẻ và chính xác"], ["Băm chỉ bắt trùng chính xác", "Hard negative lấy bằng BM25 có thể vô tình là đoạn đúng (false negative)"])}`,
+practice: `<p><b>Bài toán:</b> bộ A có câu hỏi {„Wer baute X?“, „Wann wurde Y gegründet?“, „Wo liegt Z?“}; mô hình M được huấn luyện trên bộ B = {„wer baute x?“, „Wo liegt  Z?“}. Tập dev = bộ A.</p>
+${steps(["Chuẩn hóa: chữ thường, gộp khoảng trắng → B = {„wer baute x?“, „wo liegt z?“}.", "Dev chuẩn hóa: „wer baute x?“ ∈ B ✓, „wann wurde y gegründet?“ ∉ B, „wo liegt z?“ ∈ B ✓.", "2/3 câu dev đã thấy. Tập held-out = {„Wann wurde Y gegründet?“}.", "Báo điểm của M trên cả dev và held-out; nếu chênh nhiều, lợi thế của M một phần là do nhớ."])}`,
+project: `<p><b>GermanDPR</b> là dữ liệu cho truy hồi dày do deepset làm từ GermanQuAD: mỗi câu hỏi có <code>positive_ctxs</code> (1 đoạn), <code>hard_negative_ctxs</code> (3 đoạn từ Wikipedia tiếng Đức), <code>negative_ctxs</code>, <code>answers</code> (không có vị trí). Project cần phân tích bộ này vì retriever dense ở bài 2.3 là checkpoint deepset <i>đã huấn luyện trên chính nó</i>.</p>`,
+impl: `${table(["Chỉ số", "GermanDPR train", "GermanDPR test"], [["Số mẫu (khớp card)", "9.275", "1.025"], ["Câu hỏi có trong GermanQuAD <b>train</b>", "9.275 (100%)", "1.025 (100%)"], ["Câu hỏi có trong GermanQuAD test", "0", "0"], ["Positive là context GermanQuAD train", "100%", "100%"], ["Hard negative", "27.811 (card ghi 27.825; 8 câu thiếu)", ""], ["negative_ctxs", "rỗng ở mọi mẫu", ""]], {src: "báo cáo Bảng 3.1, 3.2; reports/step1_count_check.csv"})}
+${table(["Vai trò trong project", "GermanDPR"], [["Huấn luyện reader / dev / test", "không dùng (câu hỏi trùng QuAD train, không có vị trí đáp án)"], ["Kho văn bản", "góp mọi positive và hard negative"], ["Hard negative", "data/processed/hardneg_train.json (chưa dùng để huấn luyện)"], ["Mô hình dense", "checkpoint deepset đã học GermanDPR"]], {src: "báo cáo Bảng 3.3; configs/baseline.yaml include_dpr_qa: false"})}
+<p><b>Đo nhiễm bẩn:</b> 942/1.176 câu dev có trong GermanDPR train; 1.056/1.176 đoạn đúng của dev (89,8%) từng là positive của encoder. Test: 0/2.203. Từ đó tách <b>dev-unseen</b> = 234 câu.</p>
+${files([["src/germanqa/evaluation/leakage.py · normalize_question, seen_question_flags, unseen_ids", "so khớp câu hỏi"], ["scripts/GD6/06a_leakage_check.py", ""], ["reports/dense_leakage.json, results/dev_unseen_question_ids.json", "kết quả"], ["src/germanqa/data/build_corpus.py", "thêm đoạn GermanDPR vào kho"]])}`,
+eval: `${pc(["Test GermanQuAD sạch hoàn toàn với dense", "Có tập dev-unseen để đo công bằng"], ["Dev-unseen chỉ 234 câu: khoảng tin cậy rộng", "Hard negative có sẵn nhưng chưa dùng; đo thêm ngoài tệp project: 47 đoạn đúng của test nằm trong hard negative train (rủi ro nếu sau này dùng để huấn luyện)"])}`,
+ex: [["Cơ bản", "Hard negative khác negative ngẫu nhiên ở điểm nào và vì sao hữu ích hơn?", "Hard negative trông liên quan (chung từ, chủ đề) nên buộc mô hình học phân biệt tinh; negative ngẫu nhiên quá dễ, mô hình gần như không học thêm."],
+     ["Vận dụng", "Dev 1.000 câu, 800 câu mô hình đã thấy. Điểm Hit@5: toàn dev 0,80, phần chưa thấy 0,60. Ước lượng Hit@5 trên phần đã thấy.", "0,80·1000 = 0,60·200 + x·800 → 800 = 120 + 800x → x = 0,85."],
+     ["Project", "Vì sao project đặt include_dpr_qa: false?", "Câu hỏi GermanDPR trùng 100% với GermanQuAD train và không có vị trí đáp án; thêm vào sẽ nhân đôi câu hỏi (rò rỉ) và không dùng được để huấn luyện reader. Đo thêm ngoài tệp project: bật lên làm test phình từ 2.203 lên 3.228 câu."]]});
+
+P({id: "l2-dense", grp: "Chương 2 – Pipeline", g: S2, n: "2.3", title: "Dense retrieval: embedding, dual encoder, FAISS", level: 1,
+pre: `${conn([["l1-bert", "1.6 BERT, [CLS]"], ["l1-ir", "1.4 truy hồi thưa"], ["l2-dpr", "2.2 dữ liệu huấn luyện, nhiễm bẩn"]])}${terms([["Chuẩn (norm) vector", "‖v‖ = √(Σ v<sub>i</sub>²), độ dài của vector."]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Truy hồi dày</b> biểu diễn câu hỏi và đoạn bằng vector số thực vài trăm chiều (<b>dense</b>: hầu hết khác 0), sao cho đoạn liên quan có vector gần vector câu hỏi. Tìm kiếm trở thành tìm <b>láng giềng gần nhất</b> trong không gian vector.</p>
+${H3("Bản chất")}<p>Túi từ không biết „Hund“ và „Haustier“ liên quan. Mô hình ngôn ngữ đặt các văn bản cùng nghĩa gần nhau dù khác chữ.</p>
+${H3("Dual encoder (bi-encoder), DPR")}<p>Hai encoder riêng: <i>E<sub>Q</sub></i> cho câu hỏi, <i>E<sub>P</sub></i> cho đoạn (mỗi cái là một BERT, lấy vector [CLS]). Vector đoạn tính <b>trước một lần</b>; lúc hỏi chỉ mã hóa câu hỏi rồi tìm.</p>
+${F(`sim(<i>q</i>, <i>p</i>) = <i>E<sub>Q</sub></i>(<i>q</i>) · <i>E<sub>P</sub></i>(<i>p</i>) &nbsp;&nbsp;(tích vô hướng) &nbsp;&nbsp;·&nbsp;&nbsp; cos(<i>q</i>, <i>p</i>) = ${frac("<i>q</i> · <i>p</i>", "‖<i>q</i>‖ ‖<i>p</i>‖")}`)}
+${H3("Huấn luyện tương phản")}${F(`<i>L</i> = −ln ${frac("exp(<i>q</i>·<i>p</i><sup>+</sup>)", "exp(<i>q</i>·<i>p</i><sup>+</sup>) + Σ<sub><i>j</i></sub> exp(<i>q</i>·<i>p</i><sup>−</sup><sub><i>j</i></sub>)")}`)}
+<p>Kéo câu hỏi gần đoạn đúng <i>p</i><sup>+</sup>, đẩy xa các đoạn sai <i>p</i><sup>−</sup> (in-batch và hard negative, bài 2.2). Mô hình được huấn luyện với độ đo nào thì phải dùng đúng độ đo đó khi tìm: DPR học bằng tích vô hướng, không chuẩn hóa vector.</p>
+${H3("FAISS: tìm chính xác và xấp xỉ")}<p><b>FAISS</b> là thư viện tìm láng giềng gần. <b>Flat index</b> so câu hỏi với <i>mọi</i> vector: chính xác, O(N·d) mỗi truy vấn. Chỉ mục xấp xỉ (ANN: IVF, HNSW, PQ) nhanh hơn nhiều với kho hàng triệu nhưng có thể bỏ sót. Với vài chục nghìn đoạn, Flat là đủ nhanh.</p>
+${pc(["Hiểu nghĩa, cách diễn đạt khác", "Tìm nhanh khi vector đã tính sẵn"], ["Phụ thuộc dữ liệu huấn luyện; yếu với tên riêng hiếm", "Phải mã hóa lại cả kho khi đổi mô hình", "Đoạn dài bị cắt ở giới hạn token"])}`,
+practice: `<p><b>Bài toán:</b> q = (1, 2, 0); p1 = (2, 1, 0), p2 = (6, 0, 0), p3 = (0, 1, 2).</p>
+${steps(["Tích vô hướng: q·p1 = 2 + 2 = <b>4</b>; q·p2 = <b>6</b>; q·p3 = <b>2</b> → thứ tự p2, p1, p3.", "Chuẩn: ‖q‖ = √5 ≈ 2,236; ‖p1‖ = √5; ‖p2‖ = 6; ‖p3‖ = √5.", "Cosine: p1 = 4/5 = <b>0,800</b>; p2 = 6/(2,236·6) = <b>0,447</b>; p3 = 2/5 = <b>0,400</b> → thứ tự p1, p2, p3.", "Hai độ đo cho thứ tự khác nhau vì p2 có độ dài lớn. Dùng sai độ đo với mô hình đã huấn luyện sẽ đổi kết quả."])}
+<p><b>Mất mát tương phản:</b> q·p<sup>+</sup> = 4, hai negative 2 và 6: L = −ln(e<sup>4</sup>/(e<sup>4</sup> + e<sup>2</sup> + e<sup>6</sup>)) = <b>2,143</b> (lớn vì một negative điểm cao hơn positive). Nếu negative là 2 và 1: L = <b>0,170</b>.</p>`,
+project: `<p>BM25 bỏ sót đoạn đúng ở 18,6% câu dev vì chỉ khớp chữ. Project cắm một retriever dense vào <b>cùng pipeline</b>, thay chỗ BM25, giữ nguyên Select, reader, đầu ra, để so công bằng. Dùng checkpoint có sẵn của deepset (<code>gbert-base-germandpr</code> ctx/question encoder), không tự huấn luyện. B0 vẫn là cấu hình BM25; dense ở chương này là bản đối chiếu.</p>
+<div class="widget"><div class="tw">${archSVG("P", "Dense cắm vào khâu Retrieve")}</div></div>`,
+impl: `${code("py", `def build_index(vectors):
+    import faiss
+    index = faiss.IndexFlatIP(vectors.shape[1])
+    ...`)}
+${table(["Tham số", "Giá trị", "Vì sao"], [["ctx_encoder / question_encoder", "deepset/gbert-base-germandpr-*", "dual encoder đã huấn luyện trên GermanDPR"], ["passage_field", "original_text", "viết thường làm top-1 tụt 0,84 → 0,52 (phép thử định dạng 6.1)"], ["similarity", "dot", "DPR học bằng tích vô hướng, không chuẩn hóa"], ["passage_max_length (bản đầu)", "256", "32,6% đoạn bị cắt"], ["question_max_length", "64", ""]], {src: "configs/dense.yaml, reports/dense_format_probe.json"})}
+${table(["Tập · retriever (cùng pipeline)", "Hit@5", "Hit@20", "MRR@10", "EM"], [["Dev 1.176 · BM25", "0,638", "0,814", "0,452", "0,236"], ["Dev 1.176 · Dense 256", "0,816", "0,949", "0,625", "0,338"], ["Dev-unseen 234 · BM25", "0,645", "0,838", "0,494", "0,171"], ["Dev-unseen 234 · Dense 256", "0,752", "0,927", "0,568", "0,201"]], {num: 1, src: "results/eval_dev_dense_20261104T121120Z_57716bd8.json"})}
+${files([["src/germanqa/retrieval/dense.py · DPREncoder, build_index, exact_topk, DenseRetriever", ""], ["dense.py · check_manifest_compat", "từ chối artifact lệch cấu hình"], ["scripts/GD6/06b_encode_corpus.py … 06f_format_probe.py", "mã hóa, kiểm tra chỉ mục, thử định dạng"]])}`,
+eval: `<p>Trên dev đầy đủ, dense hơn BM25: EM +0,101 [0,078; 0,128]. Trên dev-unseen: EM +0,030 [−0,017; 0,077], khoảng tin cậy chứa 0. Phần lớn lợi thế trên dev có thể đến từ dữ liệu encoder đã thấy. Ở top-5 dev, 337 câu chỉ dense tìm được, 128 câu chỉ BM25 tìm được: hai bên bổ trợ nhau (bài 3.3).</p>
+${pc(["Hiểu diễn đạt khác", "Cắm vào pipeline không sửa code"], ["Nhiễm bẩn dev", "Cắt đoạn ở 256 token", "Không tự fine-tune"])}<p><b>Hướng tiếp:</b> tăng độ dài (bài 3.2), kết hợp với BM25 (3.3–3.4), fine-tune với hard negative (chưa làm).</p>`,
+ex: [["Cơ bản", "Vì sao vector đoạn được tính trước còn vector câu hỏi tính lúc chạy?", "Kho cố định nên mã hóa một lần; câu hỏi chỉ biết khi người dùng gõ. Đây là ưu điểm tốc độ của bi-encoder so với cross-encoder (bài 3.5)."],
+     ["Vận dụng", "q = (1, 1), a = (3, 0), b = (1, 1). Xếp hạng theo dot và theo cosine.", "Dot: a = 3, b = 2 → a trước. Cosine: a = 3/(1,414·3) = 0,707; b = 2/(1,414·1,414) = 1 → b trước."],
+     ["Project", "Nếu đổi similarity sang cosine (chuẩn hóa vector) mà không huấn luyện lại, điều gì có thể xảy ra?", "Thứ tự có thể đổi vì vector đoạn có độ dài khác nhau và mô hình học bằng dot. Ghi chú đo thêm (không có trong tệp project): rerank top-100 bằng cosine trên tập chọn không khác biệt đáng kể, nhưng project giữ dot đúng như cách huấn luyện."]]});
+
+P({id: "l2-select", grp: "Chương 2 – Pipeline", g: S2, n: "2.4", title: "Chọn ứng viên và tổng hợp nhiều đoạn", level: 1,
+pre: `${conn([["l2-arch", "2.1 Select, Aggregate"], ["l1-reader", "1.7 điểm span, [CLS]"]])}`,
+theory: `${H3("Chọn ứng viên (candidate selection)")}<p>Giữa retriever và reader là một bước cắt: chỉ k đoạn đầu được đọc. k lớn tăng khả năng có đoạn đúng (recall) nhưng tốn thời gian và thêm nhiễu cho reader; k nhỏ thì ngược lại. Không có công thức đóng; phải đo đánh đổi trên dev.</p>
+${H3("Tổng hợp nhiều đoạn")}<p>Reader đọc mỗi đoạn riêng và trả một span + điểm. Câu trả lời cuối là span có điểm cao nhất (<b>argmax</b>). Vấn đề: điểm này có <b>so sánh được</b> giữa các đoạn không?</p>
+${terms([["Chuẩn hóa cục bộ", "softmax trong từng cửa sổ: xác suất chỉ có nghĩa trong cửa sổ đó. Đoạn dễ (mọi token điểm thấp) và đoạn khó không cùng mốc."], ["Chuẩn hóa toàn cục", "softmax trên mọi token của mọi đoạn cùng câu hỏi (Multi-passage BERT, Wang et al., 2019): điểm so sánh được nhưng phải huấn luyện theo cách đó."], ["Trừ điểm 'không có đáp án'", "lấy điểm span trừ điểm [CLS] của chính cửa sổ: xấp xỉ rẻ để đưa các cửa sổ về một mốc."]])}
+${H3("Bất biến")}<p>Một <b>bất biến</b> là điều kiện luôn phải đúng; vi phạm nghĩa là có lỗi lập trình. Với QA trích xuất: văn bản tại [start, end) phải đúng bằng đáp án trả về.</p>`,
+practice: `<p><b>Bài toán:</b> hai đoạn, điểm span và điểm [CLS] của cửa sổ chứa span.</p>
+${table(["Đoạn", "Điểm span (s+e)", "Điểm [CLS]", "minus_cls"], [["P1", "6,0", "5,5", "0,5"], ["P2", "4,0", "0,5", "3,5"]], {num: 1})}
+${steps(["Chọn theo điểm thô: P1 (6,0 > 4,0).", "Nhưng ở P1, chính mô hình cũng tin mạnh 'không có đáp án' (CLS 5,5): span chỉ nhỉnh hơn một chút.", "Chọn theo minus_cls: P2 (3,5 > 0,5) vì mô hình tin có đáp án ở P2 hơn hẳn mức nền."])}`,
+project: `<p>Project chọn <b>k = 5</b> trong 20 đoạn truy hồi và tổng hợp bằng điểm <b>minus_cls</b>. Reader vì thế còn làm việc <b>chọn đoạn</b>: đoạn có span thắng trở thành bằng chứng.</p>`,
+impl: `${table(["So sánh (ghép cặp, dev 1.176)", "Chênh EM [CI 95%]", "Chênh F1 [CI 95%]"], [["5 đoạn vs 3", "+0,013 [0,000; 0,025]", "+0,024 [0,008; 0,038]"], ["10 đoạn vs 5", "+0,017 [0,004; 0,029]", "+0,021 [0,009; 0,033]"]], {src: "reports/paired_comparisons_dev.json"})}
+${code("py", `valid = [(s, h) for s, h in zip(spans, used) if s["start"] >= 0]
+if not valid:
+    return self._empty(question, "no_valid_span", t0, t_retrieval, info)
+span, hit = max(valid, key=lambda sh: sh[0]["score"])       # hòa: giữ đoạn hạng cao hơn
+passage_text = self.passages[hit["passage_id"]]
+if passage_text[span["start"]:span["end"]] != span["text"]:
+    raise ValueError("đáp án không khớp văn bản gốc tại offset")`)}
+${files([["src/germanqa/pipeline.py · QAPipeline.answer", "Select (ranked[:k_read]), Aggregate (max), bất biến"], ["src/germanqa/reader/postprocess.py · best_answers(score_mode='minus_cls')", ""], ["scripts/GD7/07c_paired_dev.py", "so k bằng bootstrap ghép cặp"]])}`,
+eval: `<p>k = 5 là điểm cân bằng chi phí, <b>không phải</b> tối ưu độ chính xác (10 đoạn còn tốt hơn có ý nghĩa). Đoạn đúng ở hạng 6–20 bị bỏ mà không có cơ chế cứu: 17,3% câu dev. minus_cls là xấp xỉ: 21,5% câu dev reader chọn nhầm đoạn dù đoạn đúng đã ở top-5.</p><p><b>Hướng tiếp:</b> xếp lại trước khi cắt (bài 3.5), chuẩn hóa điểm toàn cục.</p>`,
+ex: [["Cơ bản", "Vì sao điểm softmax trong từng cửa sổ không so sánh được giữa các đoạn?", "Softmax chuẩn hóa trong cửa sổ, tổng luôn bằng 1 dù cửa sổ có đáp án hay không; một span 'tốt nhất trong đoạn dở' có thể có xác suất cao như span tốt nhất trong đoạn đúng."],
+     ["Vận dụng", "P3 có span 5,0, CLS −1,0. So với P1, P2 ở ví dụ, minus_cls chọn đoạn nào?", "P3: 5,0 − (−1,0) = 6,0 > 3,5 > 0,5 → chọn P3."],
+     ["Project", "Chạy <code>python scripts/GD7/07c_paired_dev.py</code> rồi đọc reports/paired_comparisons_dev.json. Nếu đổi reader_top_k thành 10, thời gian reader tăng khoảng bao nhiêu?", "Reader đọc từng đoạn riêng nên thời gian gần như tăng tuyến tính: khoảng gấp đôi (từ ~58 ms lên ~115 ms trên dev). Đây là suy luận từ cấu trúc cài đặt; project chưa đo riêng thời gian theo k."]]});
+
+P({id: "l2-boot", grp: "Chương 2 – Pipeline", g: S2, n: "2.5", title: "Bootstrap và khoảng tin cậy", level: 1,
+pre: `${conn([["l1-eval", "1.8 EM, Hit@k"]])}${terms([["Mẫu", "tập câu hỏi ta có, là một phần của mọi câu hỏi có thể gặp."], ["Lấy mẫu có hoàn lại", "rút ngẫu nhiên, rút xong bỏ lại, nên một phần tử có thể được rút nhiều lần."]])}`,
+theory: `${H3("Bản chất")}<p>EM = 0,236 trên 1.176 câu dev. Nếu đổi sang 1.176 câu khác cùng loại, con số sẽ khác. <b>Khoảng tin cậy</b> (CI) cho biết con số có thể dao động trong khoảng nào.</p>
+${H3("Bootstrap phân vị")}${steps(["Từ n câu hỏi, rút ngẫu nhiên n câu <i>có hoàn lại</i> → một tập mới.", "Tính độ đo trên tập mới.", "Lặp B lần (ví dụ 1.000) → B giá trị.", "CI 95% = [phân vị 2,5%; phân vị 97,5%] của B giá trị."])}
+${H3("Bootstrap ghép cặp")}<p>So hai hệ A và B <i>trên cùng các câu</i>. Mỗi lần rút, dùng <b>cùng</b> chỉ số câu cho cả hai và tính hiệu A − B. Câu khó với cả hai hệ được tính cho cả hai, nên nhiễu triệt tiêu và CI của hiệu hẹp hơn nhiều so với so hai CI riêng.</p>
+${F(`Δ<sup>(b)</sup> = ${frac("1", "n")} Σ<sub><i>i</i> ∈ mẫu b</sub> ( <i>a<sub>i</sub></i> − <i>b<sub>i</sub></i> ) &nbsp;&nbsp;·&nbsp;&nbsp; CI = [ P<sub>2,5</sub>(Δ), P<sub>97,5</sub>(Δ) ]`)}
+<p>Nếu CI của hiệu không chứa 0, ta nói chênh lệch có ý nghĩa thống kê ở mức 95%. Ý nghĩa thống kê khác ý nghĩa thực tế: một chênh +0,002 có thể có ý nghĩa thống kê mà vô giá trị.</p>
+${pc(["Không cần giả định phân phối", "Áp dụng cho mọi độ đo"], ["Giả định các câu độc lập; nếu câu theo cụm (cùng bài viết) CI bị hẹp quá", "Tốn tính toán (B lần)"])}`,
+practice: `<p><b>Bài toán:</b> 10 câu, EM của hệ = (1, 0, 1, 1, 0, 0, 1, 0, 1, 0), trung bình 0,5.</p>
+${steps(["Một lần rút (chỉ số): 3, 3, 7, 1, 10, 2, 5, 9, 4, 3 → giá trị 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 → trung bình 0,7.", "Lặp 1.000 lần, sắp xếp 1.000 trung bình, lấy giá trị thứ 25 và 975.", "Với n = 10, CI rất rộng (khoảng [0,2; 0,8]): 10 câu quá ít để kết luận gì."])}
+<div class="widget" id="bootw"><div class="ctl"><label>n câu <select id="bn"><option>10</option><option selected>200</option><option>1176</option></select></label><label>EM thật <select id="bp"><option>0.236</option><option selected>0.5</option></select></label><button class="btn" id="bgo">Chạy 1.000 lần</button></div><div id="bout" class="src">Bấm để mô phỏng.</div><p class="toy">Dữ liệu 0/1 sinh ngẫu nhiên với seed cố định; minh họa CI hẹp lại khi n tăng.</p></div>`,
+project: `<p>Mọi bảng kết quả của project báo CI 95% bằng bootstrap 1.000 lần, seed 42. Mọi so sánh giữa hai cấu hình dùng bootstrap <b>ghép cặp theo question_id</b>.</p>`,
+impl: `${code("py", `def paired_bootstrap_by_id(scores_a, scores_b, n_boot=1000, confidence=0.95, seed=42):
+    ...`)}
+${table(["Dev (1.176)", "EM [CI 95%]", "F1 [CI 95%]"], [["Reader, đoạn đúng cho sẵn", "0,469 [0,441; 0,497]", "0,699 [0,679; 0,719]"], ["End-to-end B0", "0,236 [0,213; 0,261]", "0,380 [0,359; 0,404]"]], {src: "reports/summary_dev.md"})}
+${files([["src/germanqa/evaluation/bootstrap.py · bootstrap_ci, paired_bootstrap", "bản gốc (khóa SHA trong 15_freeze)"], ["src/germanqa/evaluation/paired.py · paired_bootstrap_by_id, retrieval_ci", "ghép theo question_id, CI cho Hit/MRR"], ["configs/evaluation.yaml", "bootstrap_samples 1000 · confidence 0.95"], ["scripts/GD7/07a_run_split.py, 07e_retrieval_ci.py", ""]])}`,
+eval: `<p>Dev chỉ thuộc 46 bài viết; câu cùng bài không độc lập, nên CI theo câu hỏi có thể hẹp hơn mức bất định thật (báo cáo ghi nhận). Đo thêm ngoài project: CI ghép cặp dense − BM25 trên dev rộng 0,049 so với 0,073 nếu không ghép.</p><p><b>Thay thế:</b> bootstrap theo cụm bài viết, kiểm định hoán vị.</p>`,
+ex: [["Cơ bản", "Vì sao bootstrap phải rút có hoàn lại?", "Rút không hoàn lại n từ n chỉ cho lại đúng tập ban đầu (đổi thứ tự), không tạo được biến thiên."],
+     ["Vận dụng", "CI ghép cặp của A − B là [−0,005; 0,020]. Kết luận gì?", "Chứa 0: chưa đủ bằng chứng A khác B ở mức 95%."],
+     ["Project", "Trong bảng chọn k (bài 2.4), '5 vs 3' có EM [0,000; 0,025]. Nên đọc thế nào?", "Cận dưới chạm 0: chênh EM ở ranh giới ý nghĩa; F1 [0,008; 0,038] thì tăng có ý nghĩa."]]});
+
+P({id: "l2-err", grp: "Chương 2 – Pipeline", g: S2, n: "2.6", title: "Phân rã lỗi theo tầng", level: 1,
+pre: `${conn([["l2-arch", "2.1 các tầng"], ["l2-select", "2.4 select, aggregate"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Phân rã lỗi</b> gán mỗi lỗi của hệ nhiều tầng vào tầng <i>đầu tiên</i> làm hỏng nó. Với retriever–reader:</p>
+${steps(["<b>Truy hồi:</b> đoạn đúng không có trong top-K (K = số đoạn truy hồi).", "<b>Chọn ứng viên:</b> có trong top-K nhưng không trong top-k được đọc.", "<b>Reader chọn nhầm đoạn:</b> có trong top-k nhưng đáp án lấy từ đoạn khác.", "<b>Reader sai span:</b> đúng đoạn, sai ranh giới."])}
+${H3("Bản chất")}<p>Mỗi tầng có cách sửa riêng. Nếu 70% lỗi ở reader thì đổi retriever chỉ cứu tối đa 30%. Phân rã cho biết <b>trần</b> của từng hướng cải tiến.</p>
+${H3("Khoảng Wilson")}<p>Khi đọc tay một mẫu nhỏ (ví dụ 40 câu mỗi loại) để tìm nguyên nhân, tỉ lệ trong mẫu cần khoảng tin cậy. Khoảng Wilson ổn định hơn công thức p ± 1,96·√(p(1−p)/n) khi n nhỏ hoặc p gần 0, 1.</p>`,
+practice: `<p><b>Bài toán:</b> top-K = 20, top-k = 5. Bốn câu sai:</p>
+${table(["Câu", "Hạng đoạn đúng", "Đoạn reader chọn", "Tầng"], [["A", "không có", "—", "truy hồi"], ["B", "8", "—", "chọn ứng viên"], ["C", "2", "đoạn hạng 1", "reader chọn nhầm đoạn"], ["D", "1", "đoạn hạng 1", "reader sai span"]])}`,
+project: `<p>B0 trên dev: reader đạt 0,469 khi có đoạn đúng nhưng hệ chỉ 0,236. Phân rã chỉ ra phần mất nằm ở đâu, và quyết định hướng cải tiến ở chương 3.</p>`,
+impl: `${code("py", `def stage(retrieved_ids, selected_pid, gold_pids, reader_top_k=5, retrieval_top_k=20):
+    gold = set(gold_pids)
+    if not gold & set(retrieved_ids[:retrieval_top_k]):
+        return "retrieval_failure"
+    if not gold & set(retrieved_ids[:reader_top_k]):
+        return "selection_failure"
+    return "wrong_span_gold_passage" if selected_pid in gold else "wrong_passage"`)}
+<div class="bars">${[["Đúng EM", 278, "var(--good)"], ["Truy hồi", 216, "var(--c2)"], ["Chọn ứng viên", 203, "var(--c2)"], ["Reader chọn nhầm đoạn", 253, "var(--c1)"], ["Reader sai span", 226, "var(--c1)"]].map(([l, v, c]) => `<div class="brow"><span>${l}</span><div class="btrack" title="${l}: ${v} câu"><i style="width:${(100 * v / 1176).toFixed(1)}%;background:${c}"></i></div><span style="text-align:right;font-variant-numeric:tabular-nums">${v} · ${fmt(100 * v / 1176, 1)}%</span></div>`).join("")}</div>
+<p class="src">B0, dev 1.176 câu (reports/error_analysis_dev.json). Lỗi trước khi reader thấy đoạn đúng: 35,6%; lỗi của reader: 40,7%.</p>
+${files([["src/germanqa/evaluation/errors.py · stage, classify, relation, wilson_ci, count_labels", ""], ["scripts/GD7/07b_error_analysis.py, 07d_count_labels.py", "rút mẫu dev đọc tay, đếm nhãn"]])}`,
+eval: `<p>Lỗi trải đều 4 tầng. Trên test B0 (1.476 câu sai), reader chiếm 69,6% lỗi; trên dev 53,3%. Mẫu đọc tay 160 câu đã rút nhưng nhãn nguyên nhân chưa được điền.</p><p><b>Hướng tiếp:</b> chương 3 nhắm hai tầng đầu (hybrid, rerank) và giữ reader cố định để đo đúng tác động.</p>`,
+ex: [["Cơ bản", "Vì sao gán lỗi vào tầng đầu tiên chứ không phải mọi tầng có vấn đề?", "Để mỗi câu chỉ thuộc một loại, tổng các loại bằng số câu sai, và mỗi loại đọc được như 'trần cứu được nếu sửa tầng này'."],
+     ["Vận dụng", "Hit@20 = 0,90, Hit@5 = 0,75. Tối thiểu bao nhiêu % câu thuộc lỗi chọn ứng viên (nếu mọi câu trong top-5 đều được trả lời đúng)?", "Đúng 15% câu có đoạn đúng ở hạng 6–20; nếu không đúng EM vì lý do đó, lỗi chọn ứng viên = 15%."],
+     ["Project", "Mở reports/error_analysis_dev.json, tìm số câu wrong_span có F1 ≥ 0,5. Điều đó nói gì về EM?", "119/226: hơn một nửa câu 'sai' EM thực ra gần đúng; EM đánh giá thấp chất lượng ranh giới."]]});
+
+P({id: "l2-serve", grp: "Chương 2 – Pipeline", g: S2, n: "2.7", title: "Phục vụ mô hình: API và giao diện", level: 2,
+pre: `${conn([["l2-arch", "2.1 pipeline"], ["l1-qa", "1.1 offset UTF-16"]])}${terms([["HTTP API", "giao diện để chương trình khác gửi yêu cầu và nhận phản hồi qua mạng."], ["Độ trễ, thông lượng", "thời gian một yêu cầu; số yêu cầu xử lý mỗi giây."]])}`,
+theory: `${H3("Các nguyên tắc phục vụ mô hình")}${terms([["Nạp một lần", "mô hình nặng nạp lúc khởi động, không nạp lại mỗi yêu cầu."], ["Live vs ready", "'sống' (tiến trình chạy) khác 'sẵn sàng' (mô hình đã nạp xong); bộ cân bằng tải chỉ gửi yêu cầu khi ready."], ["Backpressure", "khi quá tải, từ chối sớm (HTTP 503) thay vì xếp hàng vô hạn."], ["Timeout", "giới hạn thời gian chờ (HTTP 504)."], ["Hợp đồng lỗi", "mọi lỗi cùng một dạng JSON để client xử lý thống nhất."], ["Kiểm tra đầu vào ở cửa", "chặn câu hỏi quá dài (HTTP 422) trước khi tốn GPU."]])}
+${H3("Định luật Little")}${F(`<i>L</i> = λ · <i>W</i>`)}${vars([["<i>L</i>", "số yêu cầu đang ở trong hệ trung bình"], ["λ", "tốc độ yêu cầu đến (req/s)"], ["<i>W</i>", "thời gian trung bình một yêu cầu ở trong hệ (s)"]])}`,
+practice: `<p><b>Bài toán:</b> 10 req/s, mỗi yêu cầu 0,15 s. Giới hạn đồng thời 8.</p>
+${steps(["L = 10 × 0,15 = <b>1,5</b> yêu cầu đồng thời trung bình: dưới giới hạn 8.", "Nếu GPU chỉ chạy một yêu cầu mỗi lúc, thông lượng tối đa ≈ 1/0,15 ≈ 6,7 req/s < 10: hàng đợi sẽ dài dần → cần từ chối khi vượt 8."])}`,
+project: `<p>Hệ thống phải dùng được qua giao diện. GPU 4 GB chỉ chạy được một yêu cầu mô hình mỗi lúc, nên cần hàng đợi có giới hạn. API và dòng lệnh dùng chung <code>build_pipeline</code> để cùng cấu hình.</p>`,
+impl: `${table(["Endpoint", "Việc"], [["POST /api/v1/qa", "hỏi đáp; chọn retriever và cờ rerank"], ["POST /api/v1/retrieve", "chỉ truy hồi"], ["GET /health/live, /health/ready", ""], ["GET /api/v1/experiments, /api/v1/matrix", "số đo đã lưu"]])}
+${table(["Cấu hình (configs/api.yaml)", "Giá trị"], [["max_question_chars", "500 → 422"], ["max_inflight", "8 → 503"], ["request_timeout_s", "30 → 504"], ["default_retriever", "hybrid (sau chương 3)"], ["warmup_question", "„Wer war Konrad Adenauer?“"]])}
+${res([["≈ 19 s", "sẵn sàng"], ["0/100", "khác biệt API so với CLI (BM25, dense)"], ["12,9–14,4", "req/s với BM25"], ["9,2–9,4", "req/s với dense"]])}
+${files([["src/germanqa/api/app.py, runner.py, loader.py, errors.py, schemas.py", ""], ["frontend/src/pages/AskPage.tsx, BenchmarkPage.tsx · lib/highlight.ts", "React, tô sáng UTF-16"], ["scripts/GD8/08_serve.py, 08b_measure.py", ""]])}`,
+eval: `${pc(["Kết quả API trùng CLI", "Lỗi thống nhất, chặn quá tải"], ["Chưa đóng gói Docker", "Chưa đo VRAM và parity cho hybrid + rerank", "Timeout không hủy được tác vụ đang chạy trên GPU"])}`,
+ex: [["Cơ bản", "Vì sao cần phân biệt /health/live và /health/ready?", "Tiến trình có thể đang chạy nhưng mô hình chưa nạp xong (mất ~19 s); gửi yêu cầu lúc đó sẽ lỗi hoặc rất chậm."],
+     ["Vận dụng", "λ = 5 req/s, W = 0,7 s (có rerank). L = ? Có vượt giới hạn 8 không?", "L = 3,5, chưa vượt. Nhưng nếu GPU xử lý tuần tự, thông lượng tối đa ≈ 1,4 req/s < 5 → hàng đợi đầy nhanh, nhiều yêu cầu nhận 503."],
+     ["Project", "Vì sao API giới hạn câu hỏi 500 ký tự trong khi reader đã cắt ở 64 token?", "Chặn ở cửa rẻ và rõ hơn: không tốn thời gian mã hóa và truy hồi cho câu hỏi bất thường, và người dùng nhận lỗi rõ ràng thay vì kết quả bị cắt âm thầm."]]});
+
+P({id: "c2-sum", grp: "Chương 2 – Pipeline", g: S2, n: "2.8", title: "Tổng kết chương 2", render: () => `
+<div class="eyebrow st2">Chương 2 · tổng kết</div>
+<h1>Pipeline chạy được và đã chỉ ra chỗ nghẽn</h1>
+<div class="widget"><div class="tw">${archSVG("P", "Pipeline")}</div></div>
+${table(["", "Baseline", "Pipeline"], [["Đơn vị đánh giá", "từng thành phần", "câu hỏi → đáp án"], ["Retriever", "BM25", "BM25 (B0) hoặc dense DPR (đối chiếu)"], ["EM dev", "0,469 (đoạn đúng cho sẵn)", "0,236 BM25 · 0,338 dense 256"], ["Người dùng hỏi được", "không", "có (API + React)"]])}
+${res([["0,793", "Hit@5 test B0"], ["0,222 / 0,330", "EM test first / all"], ["63,8 ms", "p50 B0"]])}
+<h2>Vấn đề dẫn sang chương 3</h2><ul><li>18,4% câu dev: đoạn đúng ngoài top-20; 17,3%: bị cắt ở top-5.</li><li>Dense trông tốt trên dev nhưng 89,8% đoạn đúng dev encoder đã thấy.</li><li>BM25 và dense tìm được những đoạn khác nhau (hợp Hit@5 dev 0,924) nhưng pipeline mỗi lần dùng một.</li></ul>`});
+
+/* ================================================================
+   CHƯƠNG 3 – IMPROVEMENTS
+   ================================================================ */
+P({id: "c3-intro", grp: "Chương 3 – Improvements", g: S3, n: "3.0", title: "Phân tích Pipeline", render: () => `
+<div class="eyebrow st3">Chương 3 · Improvements</div>
+<h1>Cải tiến đúng chỗ nghẽn, đo có kiểm soát</h1>
+${table(["Câu hỏi", "Câu trả lời từ dữ liệu", "Bài"], [["Kết quả cải tiến có đáng tin không?", "Dev bị nhiễm bẩn, dev dùng cả để chọn lẫn báo cáo", `<a href="#l3-design">3.1</a>`], ["Dense có thật tốt hơn?", "Cần tập chưa thấy; đoạn bị cắt ở 256", `<a href="#l3-contam">3.2</a>`], ["Hai retriever có bổ trợ?", "Có: mỗi bên cứu câu bên kia bỏ sót", `<a href="#l3-hybrid">3.3</a>`], ["Kết hợp thế nào khi điểm khác thang?", "Hợp nhất theo hạng", `<a href="#l3-rrf">3.4</a>`], ["Đoạn đúng bị cắt ở top-5?", "Xếp lại trước khi cắt", `<a href="#l3-rerank">3.5</a>`], ["Thứ hạng tốt hơn có thành đáp án tốt hơn?", "Không tự động", `<a href="#l3-trade">3.6</a>`]])}
+${table(["Mã", "Truy hồi và xếp hạng"], [["B0", "BM25 top-20"], ["B1", "Dense DPR 384 top-20"], ["H0", "BM25 100 + dense 100 → RRF (c = 10) → 20"], ["H1", "H0 + cross-encoder bge-reranker-v2-m3"]], {src: "baselines/*.json"})}<p>Giữ chung: reader epoch 2, top-5, max_answer_tokens 80, minus_cls.</p>`});
+
+P({id: "l3-design", grp: "Chương 3 – Improvements", g: S3, n: "3.1", title: "Thiết kế thí nghiệm có kiểm soát", level: 1,
+pre: `${conn([["l2-boot", "2.5 bootstrap ghép cặp"], ["l1-prep", "1.3 rò rỉ"]])}`,
+theory: `${H3("Vấn đề: lời nguyền người thắng")}<p>Thử nhiều cấu hình rồi báo điểm của cấu hình tốt nhất <i>trên cùng tập đã dùng để chọn</i> thì con số bị thổi phồng: cấu hình thắng một phần nhờ may mắn với mẫu đó (<b>winner's curse</b>). Càng thử nhiều, càng phồng.</p>
+${H3("Các nguyên tắc")}${terms([["Ba vai của dữ liệu", "tập <b>chọn</b> (dò tham số), tập <b>xác nhận</b> (kiểm tra một lần), tập <b>test</b> (báo cáo, mở một lần)."], ["Kiểm soát (ablation)", "mỗi bước chỉ đổi một yếu tố, giữ mọi thứ khác cố định, để quy chênh lệch cho đúng yếu tố đó."], ["Ghi trước (pre-registration)", "viết quy tắc chọn và giả thuyết vào tệp trước khi thấy kết quả."], ["Báo số cấu hình đã thử", "để người đọc hiểu mức thổi phồng có thể có."], ["Tái lập", "seed, mã thí nghiệm, băm mọi đầu vào."]])}
+${pc(["Kết luận có thể kiểm chứng", "Kết quả âm cũng được báo"], ["Chậm hơn: phải chia dữ liệu, viết quy tắc trước", "Tập xác nhận nhỏ → CI rộng"])}`,
+practice: `<p><b>Mô phỏng:</b> 14 cấu hình có độ chính xác <i>thật</i> bằng nhau (0,50), mỗi cấu hình đo trên 200 câu. Chọn cái cao nhất.</p>
+<div class="widget" id="wcw"><div class="ctl"><label>Số cấu hình <select id="wck"><option>1</option><option>4</option><option selected>14</option><option>50</option></select></label><button class="btn" id="wcgo">Chạy 500 lần</button></div><div id="wcout" class="src">Bấm để mô phỏng.</div><p class="toy">Mô phỏng seed cố định; độ chính xác thật luôn 0,50.</p></div>
+<p>Kết quả: điểm của "người thắng" trung bình cao hơn 0,50 dù không cấu hình nào thật sự tốt hơn. Vì vậy phải xác nhận trên tập khác.</p>`,
+project: `<p>Ở chương 3 project thử nhiều cấu hình (tối đa 14 cho RRF, 6 cho reranker). Dev đã bị dùng để chọn ở chương 1–2 và bị nhiễm bẩn với dense. Nên project dựng quy trình: chọn trên <b>train-select</b> (1.989 câu), xác nhận một lần trên <b>dev-unseen</b> (234), mở <b>test</b> một lần cho B1, H0, H1.</p>`,
+impl: `${table(["Bước", "Tệp"], [["Ghi trước RRF", "results/13_prereg.json"], ["Chọn / quét", "results/13_selection.json, rrf_sweep.json"], ["Xác nhận", "results/13_confirmation.json"], ["Ghi trước reranker + đính chính", "results/14_prereg.json, 14_erratum.md"], ["Giả thuyết test HA/HB/HC", "results/15_hypotheses.json, 15_hypotheses_addendum.json"], ["Đóng băng SHA-1 40 tệp", "results/15_freeze.json"], ["Kết quả", "results/final_test_matrix.json"]])}
+${code("py", `def require_test_access(script, purpose, confirm, kind="metric_run", files=(), codes=(), ledger_path=None):
+    ...`)}
+${files([["src/germanqa/experiment_rules.py · require_test_access, append_ledger, write_once, baseline_id", "rào chắn test, sổ ghi, tệp ghi-một-lần"], ["results/test_exposure_ledger.jsonl", "10 dòng; 5 dòng đầu dựng lại sau (B0 chạm test 4 lần ở chương 2, trước quy tắc)"], ["docs/experiment_rules.md, baselines/*.json", ""]])}`,
+eval: `${pc(["Mọi kết luận truy được về quy tắc viết trước", "Kết quả âm (H1 làm EM giảm) được báo đúng"], ["Dev-unseen nhỏ", "B0 đã chạm test trước khi có quy tắc (được ghi trung thực)"])}`,
+ex: [["Cơ bản", "Vì sao không dùng test để chọn c của RRF?", "Test khi đó thành tập chọn: điểm báo cáo bị thổi phồng bởi winner's curse và không còn tập nào đo khách quan."],
+     ["Vận dụng", "Bạn thử 3 giá trị k1 và 4 giá trị b của BM25. Số cấu hình đã thử là bao nhiêu? Cần báo con số này ở đâu?", "12. Báo cùng kết quả chọn (như configs_tried trong results/14_selection.json)."],
+     ["Project", "Đọc results/test_exposure_ledger.jsonl. Những dòng nào có trường caveat và vì sao?", "5 dòng đầu được dựng lại từ thời gian sửa tệp (11a_backfill_ledger.py) cho các lần chạy test trước khi có sổ; caveat cảnh báo giờ thực có thể sớm hơn."]]});
+
+P({id: "l3-contam", grp: "Chương 3 – Improvements", g: S3, n: "3.2", title: "Nhiễm bẩn benchmark và phân tích độ nhạy", level: 1,
+pre: `${conn([["l2-dpr", "2.2 nhiễm bẩn"], ["l2-dense", "2.3 dense, cắt token"], ["l3-design", "3.1 quy tắc nhận"]])}`,
+theory: `${H3("Nhiễm bẩn benchmark")}<p>Khi mô hình có sẵn đã thấy dữ liệu đánh giá, điểm cao không đo khả năng tổng quát. Cách xử lý: đo trên tập <b>held-out</b> chắc chắn chưa thấy và so với tập đầy đủ; khoảng cách giữa hai con số là ước lượng mức "nhớ".</p>
+${H3("Phân tích độ nhạy")}<p>Đổi một tham số theo vài mức (ví dụ độ dài đoạn 256, 384, 512), giữ mọi thứ khác, đo thay đổi. Kèm <b>quy tắc nhận</b> viết trước: chỉ nhận khi cải thiện có cận dưới CI dương và không làm hỏng chỉ số khác quá ngưỡng.</p>
+${H3("Cắt cụt (truncation)")}<p>Encoder chỉ đọc tối đa L token; phần sau bị bỏ. Đoạn có thông tin quan trọng ở cuối sẽ không bao giờ được tìm thấy. Tăng L giảm cắt nhưng tăng chi phí mã hóa, và chưa chắc tốt hơn nếu mô hình được huấn luyện với độ dài ngắn hơn.</p>`,
+practice: `<p><b>Bài toán:</b> đoạn 300 token, câu trả lời nằm ở token 280–290.</p>
+${steps(["L = 256: encoder chỉ thấy token 0–255 → vector đoạn không chứa thông tin đáp án.", "L = 384: thấy toàn bộ → có thể khớp câu hỏi.", "L = 512: không thêm gì cho đoạn này, nhưng với mô hình học ở độ dài ngắn, đoạn rất dài có thể bị 'pha loãng' biểu diễn → có khi kém hơn."])}`,
+project: `<p>Hai lý do không tin ngay số dev của dense: nhiễm bẩn (bài 2.2) và 32,6% đoạn bị cắt ở 256. Project tách dev-unseen và thử 256/384/512 trên tập chọn.</p>`,
+impl: `${table(["So sánh", "Kết quả", "Quyết định"], [["384 vs 256", "Hit@5 +0,0148 [+0,0058; +0,0242]; cận dưới Hit@20 −0,0049 ≥ −0,01", "nhận 384"], ["512 vs 384", "Hit@5 −0,0450; 116 câu 384 đúng mà 512 sai, 16 câu ngược lại", "không nhận"]], {src: "results/12a_metrics*.json, 12g_512_vs_384.json"})}
+${files([["configs/dense.yaml · passage_max_length 384, artifact_dir artifacts/dense/text384", ""], ["scripts/GD12/12a_dense_select.py … 12g_compare_512.py", ""], ["results/12g_512_vs_384.json · if_adopted_must_redo", "liệt kê mọi thứ phải làm lại nếu đổi"]])}
+<p><b>Kết quả trên test (sạch):</b> B1 (dense 384) Hit@5 0,709 &lt; BM25 0,793. Dense một mình không phải cải tiến.</p>`,
+eval: `<p>Dev đầy đủ khiến dense trông vượt trội; test sạch cho thấy ngược lại. Đây là ví dụ thực tế của nhiễm bẩn benchmark. Giá trị của dense nằm ở việc <b>bổ trợ</b> BM25 (bài 3.3).</p>`,
+ex: [["Cơ bản", "Vì sao tăng độ dài từ 384 lên 512 có thể làm kém đi?", "Mô hình được huấn luyện với đoạn ngắn hơn; đoạn rất dài làm biểu diễn [CLS] pha loãng thông tin, khớp câu hỏi kém hơn."],
+     ["Vận dụng", "Dev đầy đủ Hit@5 0,82, held-out 0,75, phần đã thấy chiếm 80%. Ước lượng Hit@5 phần đã thấy.", "0,82 = 0,2·0,75 + 0,8·x → x = 0,8375."],
+     ["Project", "Đọc mục if_adopted_must_redo trong results/12g_512_vs_384.json. Vì sao đổi độ dài dense lại kéo theo làm lại RRF và reranker?", "Hybrid dựa trên danh sách dense; đổi dense thì pool RRF và 20 đoạn đưa vào reranker đều đổi, nên mọi lựa chọn sau đó phải làm lại."]]});
+
+P({id: "l3-hybrid", grp: "Chương 3 – Improvements", g: S3, n: "3.3", title: "Hybrid retrieval và hợp nhất điểm", level: 1,
+pre: `${conn([["l1-bm25", "1.5 BM25"], ["l2-dense", "2.3 dense"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Hybrid retrieval</b> chạy song song truy hồi thưa và dày, rồi <b>hợp nhất</b> (fusion) hai danh sách.</p>
+${H3("Bản chất: tính bổ trợ")}<p>Hai phương pháp sai ở những câu khác nhau: thưa mạnh với tên riêng, số, thuật ngữ hiếm; dày mạnh với diễn đạt khác. "Không phương pháp nào thắng mọi truy vấn." Khi lỗi ít trùng nhau, hợp nhất có thể vượt cả hai.</p>
+${H3("Hợp nhất điểm và vấn đề thang đo")}<p>Cách tự nhiên là cộng điểm: score = α·s<sub>BM25</sub> + (1−α)·s<sub>dense</sub>. Nhưng hai thang khác nhau: BM25 không bị chặn, phụ thuộc độ dài câu hỏi; dense là tích vô hướng quanh một mức cao. Phải <b>chuẩn hóa</b> trước:</p>
+${F(`min-max: &nbsp; ${frac("<i>s</i> − min", "max − min")} &nbsp;&nbsp;·&nbsp;&nbsp; z-score: &nbsp; ${frac("<i>s</i> − μ", "σ")}`)}
+<p>Cả hai nhạy với phân phối điểm của từng truy vấn và với giá trị ngoại lai. Hợp nhất theo <b>hạng</b> (bài 3.4) tránh hẳn vấn đề này.</p>`,
+practice: `<p><b>Bài toán:</b> BM25 cho (12,0; 9,5; 3,1) và dense cho (78,2; 77,9; 77,5) cho ba đoạn A, B, C.</p>
+${steps(["Cộng thô: dense chiếm ưu thế tuyệt đối (≈ 78) dù chênh nhau rất ít; BM25 gần như không ảnh hưởng.", "Min-max: BM25 → (1; 0,719; 0); dense → (1; 0,571; 0). Chênh dense 0,7 điểm bị kéo giãn thành cả thang [0, 1].", "Nếu dense có thêm đoạn D = 60 (ngoại lai), min-max của A, B, C co lại gần 1 → thứ tự hợp nhất đổi chỉ vì một đoạn khác.", "Hạng thì không đổi: A hạng 1, B hạng 2, C hạng 3 ở cả hai bên."])}`,
+project: `<p>Ở top-5 dev, 337 câu chỉ dense tìm được và 128 câu chỉ BM25 tìm được; hợp hai bên đạt Hit@5 0,924. Project chọn hybrid với hợp nhất theo hạng để khai thác tính bổ trợ mà không phải chuẩn hóa điểm.</p>`,
+impl: `${code("py", `b_rows = self.bm25.retrieve(question, self.bm25_top_k)
+d_rows = self.dense.retrieve(question, self.dense_top_k)
+fused = rrf({"bm25": [r["passage_id"] for r in b_rows],
+             "dense": [r["passage_id"] for r in d_rows]},
+            c=self.rrf_c, top_k=k, weights={"dense": self.w_dense})`)}
+${table(["Nhóm câu (tập chọn, top-5)", "Số câu", "Hybrid tìm được"], [["Cả hai tìm thấy", "1.214", "1.214"], ["Chỉ dense", "599", "512"], ["Chỉ BM25", "233", "212"], ["Không bên nào", "177", "52"]], {num: 1, src: "results/13c_analysis.json (2.223 câu)"})}
+${files([["src/germanqa/retrieval/hybrid.py · HybridRetriever.retrieve", "đo thời gian từng nhánh"], ["configs/hybrid.yaml", "bm25_top_k 100 · dense_top_k 100 · fusion_top_k 20"], ["scripts/GD13/13c_analyze.py", ""]])}`,
+eval: `<p>Thời gian dev mỗi câu: BM25 0,97 ms, dense 32,04 ms, RRF 0,39 ms. Hybrid tăng thời gian so với BM25 chủ yếu vì dense.</p>${pc(["Kết hợp được ưu điểm cả hai", "Không cần huấn luyện bộ kết hợp"], ["Chạy hai retriever", "Trọng số cố định cho mọi câu hỏi"])}`,
+ex: [["Cơ bản", "Vì sao cộng thẳng điểm BM25 và điểm dense là sai?", "Hai thang khác nhau về độ lớn và phân phối; bên có thang lớn hoặc ít biến thiên sẽ lấn át hoặc bị bỏ qua mà không liên quan gì tới mức liên quan thật."],
+     ["Vận dụng", "Bảng bổ trợ: cả hai 600, chỉ A 100, chỉ B 50, không bên nào 250 (tổng 1.000). Hit@5 của A, B và trần hợp nhất?", "A = 0,70; B = 0,65; trần = (600 + 100 + 50)/1.000 = 0,75."],
+     ["Project", "Trong bảng 13c, hybrid cứu được 52 câu mà không bên nào có trong top-5. Vì sao điều đó có thể?", "Mỗi nhánh lấy 100 đoạn; đoạn đúng ở hạng 6–100 của cả hai nhánh có thể cộng điểm RRF đủ cao để lên top-5 sau hợp nhất."]]});
+
+P({id: "l3-rrf", grp: "Chương 3 – Improvements", g: S3, n: "3.4", title: "Reciprocal Rank Fusion", level: 1,
+pre: `${conn([["l3-hybrid", "3.3 vấn đề thang điểm"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>RRF</b> (Cormack et al., 2009) hợp nhất nhiều danh sách xếp hạng chỉ bằng thứ hạng.</p>
+${F(`RRF(<i>d</i>) = Σ<sub><i>r</i> ∈ <i>R</i></sub> ${frac("<i>w<sub>r</sub></i>", "<i>c</i> + rank<sub><i>r</i></sub>(<i>d</i>)")}`)}
+${vars([["<i>R</i>", "tập các danh sách (nhánh)"], ["rank<sub><i>r</i></sub>(<i>d</i>)", "hạng của d trong nhánh r, bắt đầu từ 1; vắng mặt → không đóng góp"], ["<i>c</i>", "hằng số làm trơn (gốc: 60); <b>không phải</b> top-k"], ["<i>w<sub>r</sub></i>", "trọng số nhánh (mặc định 1)"]])}
+${H3("Vai trò của c")}<p>Tỉ lệ điểm hạng 1 so với hạng 10 là (c + 10)/(c + 1). Với c = 10: 20/11 = <b>1,82</b> lần; với c = 60: 70/61 = <b>1,15</b> lần. c nhỏ ưu tiên mạnh các hạng đầu; c lớn làm phẳng, coi trọng việc được nhiều nhánh cùng nhắc tới.</p>
+${H3("Vì sao hiệu quả")}<p>Hạng có cùng thang ở mọi nhánh; không cần huấn luyện; bền với điểm ngoại lai. Đoạn được nhiều nhánh xếp cao cộng dồn điểm.</p>
+${pc(["Không tham số học, gần như không cần dò", "Bền vững với thang điểm"], ["Bỏ thông tin độ chênh điểm (hạng 1 vượt xa hay sát hạng 2)", "Cần chọn độ sâu mỗi nhánh và c"])}`,
+practice: `<p><b>Tính tay:</b> BM25 = (A, B, C), dense = (C, A, D), c = 10.</p>
+${steps(["A: 1/(10+1) + 1/(10+2) = 0,0909 + 0,0833 = <b>0,1742</b>.", "C: 1/13 + 1/11 = 0,0769 + 0,0909 = <b>0,1678</b>.", "B: 1/12 = 0,0833; D: 1/13 = 0,0769.", "Thứ tự: A, C, B, D. C lên hạng 2 dù chỉ hạng 3 ở BM25, nhờ hạng 1 ở dense."])}
+${rrfWidget()}`,
+project: `<p>Project dùng RRF để hợp nhất BM25 và dense trong H0. Tham số chọn trên train-select theo quy tắc ghi trước: lưới độ sâu {20, 50, 100} × c {10, 20, 60, 100}, thăm dò w_dense {1,5; 2,0}.</p>`,
+impl: `${code("py", `def rrf(ranked_lists, c=60, top_k=None, weights=None):
+    ...
+    for name, ids in ranked_lists.items():
+        w = float(weights.get(name, 1.0))
+        seen = set()
+        for pos, pid in enumerate(ids, start=1):
+            if pid in seen:
+                continue
+            seen.add(pid)
+            score[pid] = score.get(pid, 0.0) + w / (c + pos)
+            sources.setdefault(pid, {})[name] = pos
+    order = sorted(score, key=lambda p: (-score[p], min(sources[p].values()), p))`)}
+${table(["Cấu hình (train-select 1.989)", "Hit@5", "Hit@20"], [["BM25", "0,6516", "0,8240"], ["Dense 384", "0,8215", "0,9417"], ["RRF mặc định (50, c 60)", "0,8658", "0,9759"], {hl: 1, c: ["RRF chọn (100, c 10)", "0,8959", "0,9784"]}, ["w_dense 1,5 (không nhận, CI chứa 0)", "0,9035", "0,9809"]], {num: 1, src: "results/rrf_sweep.json, 13_selection.json"})}
+<p>Xác nhận dev-unseen: hybrid Hit@5 0,8889 so với dense 0,7650 (+0,1239 [+0,0684; +0,1752]) và BM25 0,6453.</p>
+${files([["src/germanqa/retrieval/rrf.py · rrf", "phá hòa tất định"], ["scripts/GD13/13_prereg.py, 13a_sweep.py, 13b_run_H0.py", ""], ["src/germanqa/evaluation/fusion_select.py", "quy tắc chọn"]])}`,
+eval: `<p>Trên test, H0 vượt B0 ở mọi chỉ số: Hit@5 +0,127 [0,112; 0,141], EM first_ref +0,039 [0,027; 0,050]. H0 trở thành cấu hình mặc định của API.</p><p><b>Thay thế:</b> học trọng số theo truy vấn, CombSUM có chuẩn hóa.</p>`,
+ex: [["Cơ bản", "c có phải số đoạn giữ lại không?", "Không. c là hằng số làm trơn trong mẫu số; số đoạn giữ lại là fusion_top_k (20)."],
+     ["Vận dụng", "BM25 = (X, Y), dense = (Y, Z), c = 60. Tính điểm và thứ tự.", "X = 1/61 = 0,01639; Y = 1/62 + 1/61 = 0,01613 + 0,01639 = 0,03252; Z = 1/62 = 0,01613. Thứ tự Y, X, Z."],
+     ["Project", "Trong lưới, c = 10 cho Hit@5 cao nhất ở cả ba độ sâu. Điều này nói gì về dữ liệu?", "Hạng đầu của từng nhánh đáng tin: nên ưu tiên mạnh hạng 1–3 thay vì làm phẳng; câu hỏi GermanQuAD thường có một đoạn đúng được ít nhất một nhánh đặt rất cao."]]});
+
+P({id: "l3-rerank", grp: "Chương 3 – Improvements", g: S3, n: "3.5", title: "Cross-encoder reranking", level: 1,
+pre: `${conn([["l1-bert", "1.6 cặp câu, attention"], ["l2-dense", "2.3 bi-encoder"], ["l2-select", "2.4 chọn ứng viên"]])}`,
+theory: `${H3("Định nghĩa")}<p><b>Reranking</b> chấm lại một tập ứng viên nhỏ để sắp xếp lại. <b>Cross-encoder</b> đưa câu hỏi và đoạn vào <i>cùng</i> một Transformer: [CLS] q [SEP] p [SEP]; attention nối trực tiếp từng từ của câu hỏi với từng từ của đoạn; đầu ra là một logit liên quan.</p>
+${H3("Bi-encoder và cross-encoder")}${table(["", "Bi-encoder (dense)", "Cross-encoder"], [["Tương tác q–p", "chỉ qua tích vô hướng cuối", "ở mọi lớp attention"], ["Tính trước đoạn", "có", "không: phải chạy cho từng cặp"], ["Chi phí mỗi truy vấn", "1 lần mã hóa câu hỏi + tìm vector", "k lần chạy mô hình đầy đủ"], ["Dùng cho", "tìm trên toàn kho", "xếp lại vài chục ứng viên"]])}
+${F(`Chi phí ≈ <i>k</i> · <i>w</i> · <i>c</i><sub>model</sub>(<i>L</i>)`)}${vars([["<i>k</i>", "số ứng viên"], ["<i>w</i>", "số cửa sổ trung bình mỗi ứng viên"], ["<i>c</i><sub>model</sub>(<i>L</i>)", "chi phí một lượt mô hình với L token, tăng theo L²"]])}
+${H3("Đoạn dài: cắt hay chia cửa sổ")}<p><b>Truncate:</b> chỉ đọc phần đầu. <b>Windows:</b> chia cửa sổ chồng lấn, điểm đoạn = <b>max</b> điểm cửa sổ (giả định: đoạn liên quan khi có ít nhất một phần trả lời câu hỏi).</p>
+${H3("Giới hạn")}<p>Reranker không tạo được ứng viên mới: trần của nó là Recall của pool. Nó tối ưu thứ tự (Hit@1, MRR), không trực tiếp tối ưu đáp án cuối.</p>`,
+practice: `<p><b>Bài toán:</b> pool 5 đoạn (A, B, C, D, E), đoạn đúng là D ở hạng 4. Reranker cho điểm A 1,2; B −0,3; C 0,8; D 3,5; E 0,1.</p>
+${steps(["Thứ tự mới: D (3,5), A (1,2), C (0,8), E (0,1), B (−0,3).", "Hit@1: 0 → 1; MRR: 1/4 = 0,25 → 1.", "Hit@5 không đổi (D vốn đã trong 5): reranker chỉ giúp Hit@5 nếu pool lớn hơn số đoạn được giữ.", "Chi phí: 5 cặp × (ví dụ) 1,2 cửa sổ = 6 lượt mô hình mỗi câu hỏi."])}`,
+project: `<p>17,3% câu dev có đoạn đúng ở top-20 nhưng không ở top-5. Project xếp lại đúng 20 đoạn của H0 bằng cross-encoder rồi mới cắt top-5 (H1). Ba ứng viên được so: mmarco (118M), gbert_dpr (110M, đã học GermanDPR), <b>BAAI/bge-reranker-v2-m3</b> (568M, đa ngữ, dựng trên nền BGE-M3). Project chỉ dùng BGE-M3 dưới dạng reranker này, không dùng làm embedding truy hồi.</p>`,
+impl: `${code("py", `for j, o in enumerate(owner):            # các cửa sổ của một đoạn liền nhau, cửa sổ đầu trước
+    best[o] = max(best[o], win_scores[j])
+    count[o] += 1
+    if first[o] is None:
+        first[o] = win_scores[j]`)}
+${table(["Mô hình", "Đoạn dài", "Hit@1", "Hit@5", "MRR@10"], [["mmarco", "windows", "0,7039", "0,9492", "0,8074"], ["gbert_dpr", "truncate", "0,5777", "0,9080", "0,7149"], ["bge_m3", "truncate", "0,7592", "0,9673", "0,8513"], {hl: 1, c: ["bge_m3 (chọn)", "windows", "0,7617", "0,9678", "0,8530"]}], {num: 2, src: "results/14_selection.json (6 cấu hình, nền H0 Hit@5 0,8959)"})}
+<p>13,79% cặp vượt 512 token; truncate làm mất đáp án ở 23/2.176 câu. Rào chắn nhiễm bẩn: trên 816 câu mà đoạn đúng chưa từng ở GermanDPR train, chênh Hit@5 +0,0931 [+0,0723; +0,1152]. Xác nhận dev-unseen: Hit@5 0,8889 → 0,9615, Hit@1 0,5342 → 0,7265, nhưng EM 0,2094 → 0,2051.</p>
+${files([["src/germanqa/rerank/cross_encoder.py · CrossEncoderReranker.score_detail, rerank, stable_rank", ""], ["src/germanqa/rerank/exposure.py, pool.py, select.py", "rào chắn, pool H0, quy tắc chọn"], ["configs/rerank.yaml", "commit đã ghim, max_length 512, windows, stride 128, pool 20"], ["docs/reranker_model_cards.md, results/14_erratum.md", ""]])}`,
+eval: `<p>gbert_dpr, mô hình đã học GermanDPR, lại kém nhất: tiếp xúc dữ liệu không tự tạo lợi thế. Reranker chiếm 583,5 ms trong 720,8 ms tổng của H1. Xem bài 3.6 vì sao Hit@5 tăng mà EM không tăng.</p><p><b>Thay thế:</b> reranker nhỏ hơn (mmarco), late interaction (ColBERT). <b>Hướng tiếp:</b> fine-tune reranker, distillation.</p>`,
+ex: [["Cơ bản", "Vì sao không dùng cross-encoder để tìm trên toàn kho?", "Phải chạy mô hình đầy đủ cho từng cặp: 26.864 lượt mỗi câu hỏi, quá chậm. Nó chỉ hợp để xếp lại vài chục ứng viên."],
+     ["Vận dụng", "Pool 20 đoạn, trung bình 1,15 cửa sổ/đoạn, mỗi lượt 25 ms (lô 16 song song tính như tuần tự). Thời gian rerank?", "20 × 1,15 × 25 ≈ 575 ms, cùng cỡ 583,5 ms đo được."],
+     ["Project", "Trần Hit@20 của H1 là bao nhiêu trên test và vì sao?", "0,977, bằng Hit@20 của H0: reranker chỉ xếp lại 20 đoạn của H0, không thêm đoạn mới."]]});
+
+P({id: "l3-trade", grp: "Chương 3 – Improvements", g: S3, n: "3.6", title: "Nút thắt và đánh đổi chất lượng–tốc độ", level: 1,
+pre: `${conn([["l2-err", "2.6 phân rã lỗi"], ["l3-rerank", "3.5 reranker"], ["l2-boot", "2.5 CI ghép cặp"]])}`,
+theory: `${H3("Phân rã xác suất thành công")}${F(`P(đúng) = P(đoạn đúng ở top-<i>k</i>) × P(reader đúng | đoạn đúng ở top-<i>k</i>)`)}
+<p>Cải thiện thừa số thứ nhất chỉ có ích nếu thừa số thứ hai không giảm. Nếu bước mới đưa nhiều đoạn <i>gần đúng</i> vào top-k, reader có thể bị nhiễu hơn và thừa số thứ hai giảm.</p>
+${H3("Tối ưu chỉ số trung gian")}<p>Chỉ số trung gian (Hit@5) chỉ là đại diện cho mục tiêu (EM). Tối ưu mạnh một đại diện có thể làm nó lệch khỏi mục tiêu (định luật Goodhart). Luôn đo cả mục tiêu cuối.</p>
+${H3("Ngân sách độ trễ")}<p>Mỗi thành phần thêm vào tốn thời gian. Đánh giá theo p50 và p95, và so cùng một lần đo vì máy và nhiệt độ GPU làm số dao động.</p>`,
+practice: `<p><b>Bài toán (số thật dev-unseen, 234 câu):</b></p>
+${steps(["H0: đoạn đúng ở top-5: 208/234 = 0,889; reader đúng khi có: 49/208 = 0,236 → EM = 0,889 × 0,236 = <b>0,209</b>.", "H1: 225/234 = 0,962; 48/225 = 0,213 → EM = <b>0,205</b>.", "Thừa số 1 tăng 0,073 nhưng thừa số 2 giảm 0,023 → EM gần như không đổi, hơi giảm."])}`,
+project: `<p>Project phải chọn cấu hình mặc định cho API: H0 hay H1. Bài này dùng kết quả cuối trên test và phân tích dev-unseen.</p>`,
+impl: `${table(["Dev-unseen (234)", "B0", "B1", "H0", "H1"], [["Ngoài top-20", "38", "17", "4", "4"], ["Trong top-20, ngoài top-5", "45", "38", "22", "5"], ["Đoạn đúng ở top-5", "151", "179", "208", "225"], ["Reader chọn đúng đoạn", "103 (68,2%)", "130 (72,6%)", "136 (65,4%)", "136 (60,4%)"], ["Câu đúng EM", "40", "46", "49", "48"]], {num: 1, src: "results/15_dev_matrix.json, 14j_error_breakdown.json"})}
+${table(["Thời gian (ms, trung vị, cùng tiến trình)", "Truy hồi", "Rerank", "Reader", "Tổng"], [["B0", "1,3", "0", "73,5", "75,1"], ["H0", "43,9", "0", "68,9", "113,8"], ["H1", "57,0", "583,5", "73,9", "720,8"]], {num: 1, src: "results/15_stage_timing.json"})}
+${table(["Test, ghép cặp", "Hit@5", "EM first_ref", "EM all_refs"], [["H0 − B0", "+0,127 [0,112; 0,141]", "+0,039 [0,027; 0,050]", "+0,053 [0,039; 0,066]"], ["H1 − H0", "+0,050 [0,040; 0,060]", "−0,011 [−0,022; −0,001]", "−0,022 [−0,035; −0,009]"]], {src: "results/final_test_matrix.json"})}
+<p><b>Quyết định:</b> <code>configs/api.yaml</code>: <code>default_retriever: hybrid</code>, <code>reranker: null</code>. H1 bật theo yêu cầu khi ưu tiên thứ tự bằng chứng (Hit@1 0,870 so với 0,673).</p>`,
+eval: `<p>Nút thắt hiện tại là reader: ngay khi đoạn đúng ở top-5, H0 vẫn sai 160/208 câu dev-unseen. Hướng tiếp: cải thiện reader (chuẩn hóa điểm toàn cục, nhiều seed), hard-negative mining cho dense, đánh giá theo nhóm câu hỏi và độ bền (chưa làm).</p>`,
+ex: [["Cơ bản", "Vì sao Hit@5 tăng mà EM có thể giảm?", "EM = P(đoạn đúng ở top-5) × P(reader đúng | có). Nếu bước mới làm top-5 nhiễu hơn với reader, thừa số thứ hai giảm nhiều hơn mức thừa số thứ nhất tăng."],
+     ["Vận dụng", "Hệ X: P(top-5) = 0,80, P(reader | có) = 0,30. Hệ Y: 0,90 và 0,26. Hệ nào EM cao hơn?", "X: 0,240; Y: 0,234 → X cao hơn dù Hit@5 thấp hơn."],
+     ["Project", "Nếu sau này cải thiện reader để chọn đúng đoạn tốt hơn, cấu hình nào có thể trở nên tốt nhất và vì sao?", "H1: nó đưa đoạn đúng vào top-5 nhiều nhất (225/234). Nếu reader tận dụng được, thừa số thứ nhất cao hơn sẽ thành EM cao hơn. Báo cáo ghi rõ đây chưa phải kết quả của project."]]});
+
+P({id: "c3-sum", grp: "Chương 3 – Improvements", g: S3, n: "3.7", title: "Tổng kết chương 3", render: () => `
+<div class="eyebrow st3">Chương 3 · tổng kết</div>
+<h1>Hybrid thắng; reranker giúp thứ hạng, không giúp đáp án</h1>
+<h3>Trước: Pipeline</h3>${archSVG("P", "Pipeline")}
+<h3>Sau: H0 mặc định, H1 tùy chọn</h3>${archSVG("H1", "H0 và H1")}
+<p class="src">Dense chuyển từ lựa chọn thay thế sang chạy song song với BM25 (mở rộng 256 → 384). Khối xanh: thêm mới hoặc mở rộng.</p>
+${res([["+0,039", "EM first_ref H0 − B0"], ["+0,127", "Hit@5 H0 − B0"], ["−0,011", "EM first_ref H1 − H0"], ["141,9 / 743,6 ms", "p50 H0 / H1"]])}
+<h2>Chưa làm (báo cáo mục 6.2.6, 6.3)</h2><ul><li>Hard-negative mining, contrastive learning cho dense.</li><li>Đánh giá theo nhóm câu hỏi, kiểm thử độ bền.</li><li>Fine-tune reranker; đóng gói Docker; đo VRAM và parity API cho hybrid + rerank.</li><li>Hỏi đáp sinh.</li></ul>`});
+
+/* ---------- so sánh & đánh giá (giữ từ bản trước) ---------- */
+
+/* ---------- so sánh & đánh giá ---------- */
+P({id: "compare", grp: "Tổng hợp", n: "A", title: "Architecture Comparison", render: () => `
+<div class="eyebrow st0">So sánh hai giai đoạn</div>
+<h1>Chọn hai cấu hình để so</h1>
+<div class="widget"><div class="ctl"><span>Bên trái</span><span id="cmpL"></span><span>Bên phải</span><span id="cmpR"></span></div>
+<div id="cmpOut"></div></div>`, after: () => {
+  const sys = {B0: {r: "BM25 top-20", hit5: "0,793", emf: "0,222", ema: "0,330", p50: "63,8"}, B1: {r: "Dense 384 top-20", hit5: "0,709", emf: "0,220", ema: "0,316", p50: "116,1"}, H0: {r: "BM25 + Dense → RRF", hit5: "0,919", emf: "0,261", ema: "0,383", p50: "141,9"}, H1: {r: "H0 + cross-encoder", hit5: "0,969", emf: "0,250", ema: "0,361", p50: "743,6"}};
+  const parts = {B0: ["BM25"], B1: ["Dense 384"], H0: ["BM25", "Dense 384", "RRF"], H1: ["BM25", "Dense 384", "RRF", "Cross-encoder"]};
+  let L = "B0", Rr = "H0";
+  const btns = (el, get, set) => { el.innerHTML = Object.keys(sys).map(k => `<button class="btn ${get() === k ? "on" : ""}" data-k="${k}">${k}</button>`).join(" ");
+    el.querySelectorAll("button").forEach(b => b.onclick = () => { set(b.dataset.k); draw(); }); };
+  const svgFor = k => k === "B1" ? archSVG("B0", "B1").replace("Retrieve: BM25", "Retrieve: Dense 384").replace('class="nd " data-id="bm25B0"', 'class="nd new" data-id="bm25B0"') : archSVG(k);
+  function draw() {
+    btns($("#cmpL"), () => L, v => L = v); btns($("#cmpR"), () => Rr, v => Rr = v);
+    const add = parts[Rr].filter(x => !parts[L].includes(x)), rem = parts[L].filter(x => !parts[Rr].includes(x));
+    $("#cmpOut").innerHTML = `<h3>${L}</h3><div class="tw">${svgFor(L)}</div><h3>${Rr}</h3><div class="tw">${svgFor(Rr)}</div>
+    <p><b>Từ ${L} sang ${Rr}:</b> thêm ${add.length ? add.join(", ") : "không có"} · bỏ ${rem.length ? rem.join(", ") : "không có"}. Select top-5, reader và đầu ra không đổi.</p>
+    ${table(["Test, 2.203 câu", L, Rr], [["Truy hồi", sys[L].r, sys[Rr].r], ["Hit@5", sys[L].hit5, sys[Rr].hit5], ["EM first_ref", sys[L].emf, sys[Rr].emf], ["EM all_refs", sys[L].ema, sys[Rr].ema], ["p50 tổng (ms)", sys[L].p50, sys[Rr].p50]], {num: 1, src: "results/final_test_matrix.json"})}`;
+  }
+  draw();
+}});
+
+P({id: "final", grp: "Tổng hợp", n: "B", title: "Final Evaluation", render: () => `
+<div class="eyebrow st0">Đánh giá cuối · tập test 2.203 câu, mở một lần cho B1/H0/H1</div>
+<h1>Truy hồi tốt hơn không tự động thành đáp án tốt hơn</h1>
+<h3>Hit@5 và EM theo cấu hình</h3>
+<div class="chart-box"><canvas id="ch1" aria-label="Biểu đồ Hit@5, EM first_ref, EM all_refs của B0, B1, H0, H1"></canvas></div>
+<h3>Thời gian tổng p50 (ms)</h3>
+<div class="chart-box" style="height:220px"><canvas id="ch2" aria-label="Biểu đồ thời gian p50 của B0, B1, H0, H1"></canvas></div>
+${table(["Cấu hình", "Hit@1", "Hit@5", "Hit@20", "MRR@10", "EM first", "F1 first", "EM all", "F1 all", "p50 ms", "p95 ms"], [
+  ["B0", "0,605", "0,793", "0,887", "0,686", "0,222", "0,397", "0,330", "0,456", "63,8", "104,7"],
+  ["B1", "0,379", "0,709", "0,874", "0,516", "0,220", "0,379", "0,316", "0,432", "116,1", "162,2"],
+  {hl: 1, c: ["H0", "0,673", "0,919", "0,977", "0,777", "0,261", "0,454", "0,383", "0,517", "141,9", "206,2"]},
+  ["H1", "0,870", "0,969", "0,977", "0,914", "0,250", "0,433", "0,361", "0,492", "743,6", "1.047,8"]], {num: 1, src: "results/final_test_matrix.json"})}
+<h2>Chênh lệch ghép cặp [CI 95%]</h2>
+${table(["So sánh", "Hit@5", "EM first_ref", "EM all_refs", "Đọc thế nào"], [
+  ["B1 − B0", "−0,084 [−0,108; −0,059]", "−0,002 [−0,020; 0,013]", "−0,014 [−0,034; 0,005]", "dense một mình kém BM25 ở truy hồi, EM không khác rõ"],
+  ["H0 − B0", "+0,127 [0,112; 0,141]", "+0,039 [0,027; 0,050]", "+0,053 [0,039; 0,066]", "hybrid thắng ở mọi chỉ số"],
+  ["H0 − B1", "+0,210 [0,192; 0,230]", "+0,041 [0,027; 0,057]", "+0,067 [0,051; 0,084]", "HB: hybrid hơn dense"],
+  ["H1 − H0", "+0,050 [0,040; 0,060]", "−0,011 [−0,022; −0,001]", "−0,022 [−0,035; −0,009]", "rerank tăng thứ hạng, EM giảm có ý nghĩa"]], {src: "results/final_test_matrix.json (paired)"})}
+<div class="note">Kết luận cấu hình: <b>H0 mặc định</b> (configs/api.yaml: default_retriever hybrid, reranker null). H1 bật khi cần thứ tự đoạn bằng chứng tốt nhất, chấp nhận chậm khoảng 5 lần.</div>`, after: () => {
+  if (!window.Chart) { $("#ch1").parentElement.innerHTML = "<p class='src'>Không tải được Chart.js; xem bảng bên dưới.</p>"; $("#ch2").parentElement.remove(); return; }
+  const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
+  const ink = v("--muted"), grid = v("--line");
+  Chart.defaults.font.family = v("--f-body"); Chart.defaults.color = ink;
+  const base = {responsive: true, maintainAspectRatio: false, plugins: {legend: {position: "top", labels: {boxWidth: 12, color: v("--fg")}}, tooltip: {callbacks: {label: c => `${c.dataset.label}: ${fmt(c.parsed.y ?? c.parsed.x, 3)}`}}}};
+  const ds = (l, d, c) => ({label: l, data: d, backgroundColor: c, borderRadius: 4, borderSkipped: "bottom", maxBarThickness: 34});
+  window._c1 && window._c1.destroy(); window._c2 && window._c2.destroy();
+  window._c1 = new Chart($("#ch1"), {type: "bar", data: {labels: ["B0", "B1", "H0", "H1"], datasets: [ds("Hit@5", [.793, .709, .919, .969], v("--c1")), ds("EM first_ref", [.222, .220, .261, .250], v("--c2")), ds("EM all_refs", [.330, .316, .383, .361], v("--c3"))]},
+    options: {...base, scales: {y: {min: 0, max: 1, grid: {color: grid}, ticks: {color: ink}}, x: {grid: {display: false}, ticks: {color: v("--fg")}}}}});
+  window._c2 = new Chart($("#ch2"), {type: "bar", data: {labels: ["B0", "B1", "H0", "H1"], datasets: [ds("p50 tổng (ms)", [63.8, 116.1, 141.9, 743.6], v("--c1"))]},
+    options: {...base, indexAxis: "y", plugins: {...base.plugins, legend: {display: false}, tooltip: {callbacks: {label: c => `p50: ${fmt(c.parsed.x, 1)} ms`}}}, scales: {x: {grid: {color: grid}, ticks: {color: ink}}, y: {grid: {display: false}, ticks: {color: v("--fg")}}}}});
+}});
+
+/* ================= render ================= */
+const LEVEL = [["lv0", "nền tảng"], ["lv1", "nâng cao"], ["lv2", "tham khảo"]];
+const store = {get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+               set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }};
+let seen = new Set(store.get("gqa3-seen", [])), done = new Set(store.get("gqa3-done", []));
+let viewMode = store.get("gqa3-mode", "both");
+
+function renderLesson(p) {
+  const k = {g1: "k1", g2: "k2", g3: "k3"}[p.g], st = {g1: "st1", g2: "st2", g3: "st3"}[p.g];
+  const lv = LEVEL[p.level || 0];
+  const sec = (n, title, body, cls = "") => `<section class="part ${k} ${cls}" id="m${n}"><div class="lbl"><b>MỤC ${n}</b><span>${title}</span></div>${body}</section>`;
+  const exs = (p.ex || []).map(([lvl, q, a], i) => `<div class="exq"><div class="exh"><span class="tag ${lvl === "Project" ? "new" : lvl === "Vận dụng" ? "ext" : "p1"}">${lvl}</span></div><p>${q}</p>
+    <textarea id="ans-${p.id}-${i}" rows="2" placeholder="Viết lời giải của bạn trước khi mở đáp án…" aria-label="Lời giải bài ${i + 1}"></textarea>
+    <details class="sol"><summary>Xem lời giải</summary><div>${a}</div></details></div>`).join("");
+  return `<div class="eyebrow ${st}">${esc(p.grp)} · Bài ${p.n}</div><h1>${esc(p.title)}</h1>
+  <div class="tags"><span class="tag ${lv[0]}">${lv[1]}</span></div>
+  <div class="modebar" role="group" aria-label="Chế độ xem"><span>Xem:</span>
+    <button class="btn ${viewMode === "both" ? "on" : ""}" data-mode="both">Cả hai phần</button>
+    <button class="btn ${viewMode === "theory" ? "on" : ""}" data-mode="theory">Chỉ lý thuyết (A)</button>
+    <button class="btn ${viewMode === "project" ? "on" : ""}" data-mode="project">Chỉ project (B)</button></div>
+  <nav class="toc-in">${[["m1", "1 Tiên quyết"], ["m2", "2 Lý thuyết"], ["m3", "3 Thực hành"], ["m4", "4 Liên hệ"], ["m5", "5 Triển khai"], ["m6", "6 Đánh giá"], ["m7", "7 Bài tập"]].map(([a, t]) => `<button class="lnk" data-jump="${a}">${t}</button>`).join("")}</nav>
+  <div class="partA"><div class="phead pa"><b>PHẦN A · LÝ THUYẾT</b><span>đọc độc lập, không cần project</span></div>
+  ${sec(1, "Kiến thức tiên quyết", p.pre)}${sec(2, "Lý thuyết chi tiết", p.theory)}${sec(3, "Ví dụ thực hành độc lập", p.practice)}</div>
+  <div class="partB"><div class="phead pb"><b>PHẦN B · ÁP DỤNG VÀO PROJECT</b><span>vì sao và bằng cách nào project dùng kiến thức này</span></div>
+  ${sec(4, "Liên hệ với project", p.project)}${sec(5, "Phân tích triển khai", p.impl)}${sec(6, "Đánh giá và mở rộng", p.eval)}</div>
+  ${sec(7, "Bài tập tự học", `<p class="src">Tự làm trước, rồi mới mở lời giải. Ghi chú được lưu trên trình duyệt này.</p>${exs}`)}
+  <div class="donebar"><button class="btn ${done.has(p.id) ? "on" : ""}" id="doneBtn">${done.has(p.id) ? "✓ Đã học xong bài này" : "Đánh dấu đã học xong"}</button></div>`;
+}
+function applyMode() {
+  document.body.classList.toggle("only-theory", viewMode === "theory");
+  document.body.classList.toggle("only-project", viewMode === "project");
+}
+function toc(cur) {
+  let html = "", g = null;
+  for (const p of PAGES) {
+    if (p.grp !== g) { g = p.grp; html += `<div class="grp ${p.g || ""}">${esc(g)}</div>`; }
+    html += `<a class="it ${p.id === cur ? "on" : ""} ${done.has(p.id) ? "done" : seen.has(p.id) ? "seen" : ""}" href="#${p.id}"><span class="n">${p.n}</span><span>${esc(p.title)}</span></a>`;
+  }
+  $("#toc").innerHTML = html;
+  const lessons = PAGES.filter(p => p.theory).length, nd = PAGES.filter(p => p.theory && done.has(p.id)).length;
+  $("#progtxt").textContent = `${nd}/${lessons} bài đã học xong`;
+  $("#progbar").style.width = (100 * nd / lessons) + "%";
+}
+function initExtra() {
+  // mô phỏng bootstrap
+  const bw = $("#bootw");
+  if (bw) $("#bgo", bw).onclick = () => {
+    const n = +$("#bn", bw).value, pr = +$("#bp", bw).value; let seed = 42;
+    const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+    const x = Array.from({length: n}, () => rnd() < pr ? 1 : 0), m = x.reduce((a, b) => a + b, 0) / n;
+    const bs = []; for (let b = 0; b < 1000; b++) { let s = 0; for (let i = 0; i < n; i++) s += x[Math.floor(rnd() * n)]; bs.push(s / n); }
+    bs.sort((a, b) => a - b);
+    $("#bout", bw).innerHTML = `Mẫu n = ${n}: trung bình <b>${fmt(m, 3)}</b>, CI 95% = [<b>${fmt(bs[24], 3)}</b>; <b>${fmt(bs[974], 3)}</b>], độ rộng ${fmt(bs[974] - bs[24], 3)}.`;
+  };
+  // mô phỏng lời nguyền người thắng
+  const ww = $("#wcw");
+  if (ww) $("#wcgo", ww).onclick = () => {
+    const K = +$("#wck", ww).value; let seed = 7;
+    const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+    let tot = 0; for (let r = 0; r < 500; r++) { let best = 0; for (let k = 0; k < K; k++) { let s = 0; for (let i = 0; i < 200; i++) s += rnd() < 0.5 ? 1 : 0; best = Math.max(best, s / 200); } tot += best; }
+    $("#wcout", ww).innerHTML = `Chọn cái tốt nhất trong <b>${K}</b> cấu hình: điểm của người thắng trung bình <b>${fmt(tot / 500, 3)}</b> (thật: 0,500). Phồng thêm <b>${fmt(tot / 500 - 0.5, 3)}</b>.`;
+  };
+}
+function show() {
+  const id = (location.hash || "#overview").slice(1);
+  const i = Math.max(0, PAGES.findIndex(p => p.id === id)), p = PAGES[i];
+  const prev = PAGES[i - 1], next = PAGES[i + 1];
+  $("#page").innerHTML = (p.render ? p.render() : renderLesson(p)) +
+    `<div class="navbtns">${prev ? `<a href="#${prev.id}"><small>← Trước</small>${esc(prev.n + " · " + prev.title)}</a>` : "<span></span>"}${next ? `<a class="nx" href="#${next.id}"><small>Tiếp →</small>${esc(next.n + " · " + next.title)}</a>` : "<span></span>"}</div>`;
+  if (p.after) p.after();
+  if (!p.render) {
+    document.querySelectorAll(".modebar .btn").forEach(b => b.onclick = () => { viewMode = b.dataset.mode; store.set("gqa3-mode", viewMode); applyMode();
+      document.querySelectorAll(".modebar .btn").forEach(x => x.classList.toggle("on", x.dataset.mode === viewMode)); });
+    document.querySelectorAll(".toc-in .lnk").forEach(b => b.onclick = () => { const t = document.getElementById(b.dataset.jump); if (t) t.scrollIntoView({behavior: "smooth", block: "start"}); });
+    document.querySelectorAll(".exq textarea").forEach(t => { t.value = store.get("gqa3-" + t.id, ""); t.oninput = () => store.set("gqa3-" + t.id, t.value); });
+    $("#doneBtn").onclick = () => { done.has(p.id) ? done.delete(p.id) : done.add(p.id); store.set("gqa3-done", [...done]);
+      $("#doneBtn").classList.toggle("on", done.has(p.id)); $("#doneBtn").textContent = done.has(p.id) ? "✓ Đã học xong bài này" : "Đánh dấu đã học xong"; toc(p.id); };
+  }
+  initExtra(); applyMode();
+  seen.add(p.id); store.set("gqa3-seen", [...seen]);
+  toc(p.id); window.scrollTo(0, 0);
+  $("#side").classList.remove("open"); $("#menuBtn").setAttribute("aria-expanded", "false");
+}
+window.addEventListener("hashchange", show);
+document.addEventListener("keydown", e => {
+  if (e.target.closest("input,select,textarea")) return;
+  const id = (location.hash || "#overview").slice(1), i = PAGES.findIndex(p => p.id === id);
+  if (e.key === "ArrowRight" && PAGES[i + 1]) location.hash = PAGES[i + 1].id;
+  if (e.key === "ArrowLeft" && i > 0) location.hash = PAGES[i - 1].id;
+});
+$("#menuBtn").onclick = () => { const o = $("#side").classList.toggle("open"); $("#menuBtn").setAttribute("aria-expanded", String(o)); };
+show();
+</script>
+
+</body>
+</html>

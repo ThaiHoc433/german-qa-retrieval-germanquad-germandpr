@@ -1,0 +1,82 @@
+﻿[
+    {
+        "Step":  1,
+        "File":  "01_cau_truc_project.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1603277,
+        "SHA256":  "040E2E4E33B5D6B5F57ACF4C63D65F50507A46E53F29A522E57D30A37E0E0FA2"
+    },
+    {
+        "Step":  2,
+        "File":  "02_du_lieu_va_corpus.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1756555,
+        "SHA256":  "DF299D9353EF4C87BFD72762D94ABB7C39A39D6D429535B5EE35C54589F4DF4C"
+    },
+    {
+        "Step":  3,
+        "File":  "03_bm25_va_metrics.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1723035,
+        "SHA256":  "CAF702D727C966559E1E18C730D8A7DAB38B9B8001B002C86BC8EBF231F20818"
+    },
+    {
+        "Step":  4,
+        "File":  "04_extractive_reader.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1733776,
+        "SHA256":  "9AD0F19F215EDA7815C784A9567144EF8CD2F7873ED6AC88FDFF517F7AC3949E"
+    },
+    {
+        "Step":  5,
+        "File":  "05_pipeline_bm25_reader.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1781423,
+        "SHA256":  "6DEDD0E880F5FEA697BAA5B71F51E58861396EACAB4425C989CA661E7A62CA90"
+    },
+    {
+        "Step":  6,
+        "File":  "06_dense_retriever_faiss.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1640899,
+        "SHA256":  "501C536337D3C9A998DBD11AC9AA0FC8A3828C4E51A5FCCFC3DD454F09A293F8"
+    },
+    {
+        "Step":  7,
+        "File":  "07_danh_gia_va_reranking.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1711312,
+        "SHA256":  "31088643CC5ADF81C367CB65A2EA876007FED40865454059C368A6B511BCEB8E"
+    },
+    {
+        "Step":  8,
+        "File":  "08_fastapi_backend.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1690495,
+        "SHA256":  "CB12243328D462B0490DE7152BE2CD3A2F70F07E6C6828B69C5B7B9E778489F4"
+    },
+    {
+        "Step":  9,
+        "File":  "09_react_frontend.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1666871,
+        "SHA256":  "1219901E7755F8D68101B4A5120B190155002E8E0EA10877F1F0715C54709A50"
+    },
+    {
+        "Step":  10,
+        "File":  "10_docker_deploy.png",
+        "Width":  1448,
+        "Height":  1086,
+        "Bytes":  1674157,
+        "SHA256":  "C2BEC69D8EF1D0F5F9EC063FC7CE5AA9D8EFACA6E8AEC02178F8ADBBDC26ED01"
+    }
+]

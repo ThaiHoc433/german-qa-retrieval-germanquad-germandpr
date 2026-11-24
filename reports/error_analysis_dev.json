@@ -1,0 +1,70 @@
+{
+  "by_coarse_stage": {
+    "reader": 479,
+    "retrieval": 216,
+    "selection": 203
+  },
+  "by_stage": {
+    "retrieval_failure": 216,
+    "selection_failure": 203,
+    "wrong_passage": 253,
+    "wrong_span_gold_passage": 226
+  },
+  "flags": {
+    "retrieval_failure": {
+      "answer_in_other_retrieved": 37,
+      "answer_in_selected_passage": 7,
+      "article_only": 0,
+      "f1_at_least_0.5": 9
+    },
+    "selection_failure": {
+      "answer_in_other_retrieved": 51,
+      "answer_in_selected_passage": 9,
+      "article_only": 1,
+      "f1_at_least_0.5": 8
+    },
+    "wrong_passage": {
+      "answer_in_other_retrieved": 77,
+      "answer_in_selected_passage": 25,
+      "article_only": 1,
+      "f1_at_least_0.5": 23
+    },
+    "wrong_span_gold_passage": {
+      "answer_in_other_retrieved": 22,
+      "answer_in_selected_passage": 0,
+      "article_only": 8,
+      "f1_at_least_0.5": 119
+    }
+  },
+  "stage_x_relation": {
+    "retrieval_failure": {
+      "contains_gold": 2,
+      "disjoint": 156,
+      "empty": 0,
+      "inside_gold": 3,
+      "partial_overlap": 55
+    },
+    "selection_failure": {
+      "contains_gold": 5,
+      "disjoint": 133,
+      "empty": 0,
+      "inside_gold": 2,
+      "partial_overlap": 63
+    },
+    "wrong_passage": {
+      "contains_gold": 9,
+      "disjoint": 125,
+      "empty": 0,
+      "inside_gold": 11,
+      "partial_overlap": 108
+    },
+    "wrong_span_gold_passage": {
+      "contains_gold": 69,
+      "disjoint": 31,
+      "empty": 0,
+      "inside_gold": 88,
+      "partial_overlap": 38
+    }
+  },
+  "wrong": 898
+}

@@ -1,0 +1,116 @@
+{
+  "bm25": {
+    "fingerprint_parts": {
+      "b": 0.2,
+      "corpus_sha1": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+      "format": 1,
+      "k1": 0.7,
+      "scoring_probe_sha1": "9d31a183e40ffd75ae1b34ffcec0e3ca944bfce3",
+      "stopwords_sha1": "d6772d55fed4c574405ee31548b48bfbf6632334",
+      "tokenization_probe_sha1": "4a9aef53a3df4622ff2bc8fcad3b8f58f8ca938a",
+      "use_stopwords": true
+    },
+    "fingerprint_sha1": "5c86b0fa90822d3e1de5ce66032b553dd9c9ac97",
+    "index_npz_sha1": "7502814475f560047ab2078b8b46f917dd7f5126",
+    "n_terms": 284585,
+    "params": {
+      "b": 0.2,
+      "k1": 0.7,
+      "use_stopwords": true
+    },
+    "store": "artifacts/bm25",
+    "store_fingerprint_matches": true
+  },
+  "code": "B0",
+  "config_id": "B0_8037d4f8",
+  "data": {
+    "corpus.jsonl": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+    "select_question_ids.json": "f25b6eb2c08211e391c192a52021592d3dd9b620",
+    "splits": {
+      "qa_dev.jsonl": "b7c5d4e4b9aa4c8a65ae80899cde2ebcf100e2c3",
+      "qa_test.jsonl": "6b2dec4efc18fef386bf03559a21c347dafd9340",
+      "qa_train.jsonl": "720b58322bacb307148df4975d1b0b909987b6bf",
+      "qrels_dev.json": "d0f1bfa1eb466fb9f22b223a58b7bf1e174c08ba",
+      "qrels_test.json": "100519ab719f886380e038225c3c537152b6cc19",
+      "qrels_train.json": "f28f5917ad805feeffdc1b86f48426899e7888d4"
+    }
+  },
+  "effective_config": {
+    "code": "B0",
+    "pipeline": {
+      "bm25": {
+        "b": 0.2,
+        "k1": 0.7,
+        "use_stopwords": true
+      },
+      "pipeline": {
+        "checkpoint": "models/reader_20261101T213758Z_96717e35",
+        "reader_top_k": 5,
+        "retrieval_top_k": 20
+      },
+      "reader": {
+        "max_answer_tokens": 80,
+        "score_mode": "minus_cls"
+      }
+    },
+    "reader_runtime": {
+      "eval_batch_size": 32,
+      "max_length": 384,
+      "n_best": 20,
+      "stride": 128
+    },
+    "retriever": "bm25"
+  },
+  "environment": {
+    "PyYAML": "6.0.3",
+    "cuda_available": true,
+    "cuda_runtime": "12.6",
+    "faiss-cpu": "1.15.1",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_gb": 4.0,
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": {
+      "dense_fp16": null,
+      "reader_fp16": true
+    },
+    "python": "3.13.3",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.19.0"
+  },
+  "frozen_on": "2026-11-08",
+  "reader": {
+    "checkpoint": "models/reader_20261101T213758Z_96717e35",
+    "d5_max_answer_tokens": {
+      "effective_max_answer_tokens": 80,
+      "note": "reader.yaml (30) chỉ là mặc định lúc huấn luyện; pipeline dùng giá trị trong pipeline.yaml. Không sửa reader.yaml hay reader_config.json.",
+      "reader_gold_context_chosen": 80,
+      "reader_yaml_max_answer_tokens": 30,
+      "source": "configs/pipeline.yaml"
+    },
+    "sha1": {
+      "config.json": "08b92c0df38bacdb2fb5d4758a5bcec7f0f02a83",
+      "model.safetensors": "ad62c06d73e0a733ce91da82ab8a0e84b57bdb99",
+      "reader_config.json": "f5875bbbc96f19b3d1edf75a0ef6eaeaece2f24f",
+      "vocab.txt": "21a14c9929ee463fb8061a7fa0ea7bec4b067fc3"
+    }
+  },
+  "reference_dev_run": {
+    "end_to_end_all_refs": {
+      "em": 0.23639455782312926,
+      "f1": 0.38002539984298556,
+      "queries": 1176
+    },
+    "file": "results/eval_dev_20261103T163556Z_cb4749bc.json",
+    "note": "toàn bộ dev, mọi đáp án tham chiếu",
+    "retrieval": {
+      "hit@20": 0.8137755102040817,
+      "hit@5": 0.6377551020408163
+    },
+    "sha1": "84f7ed378e33952b33bcce81aa336b80eb9ad51f",
+    "split": "dev"
+  },
+  "seed": 42,
+  "status": "ĐÃ ĐÓNG BĂNG: BM25 (k1=0.7, b=0.2, stopwords) + reader minus_cls, max_answer_tokens=80"
+}

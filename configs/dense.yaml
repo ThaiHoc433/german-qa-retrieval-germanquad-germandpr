@@ -1,0 +1,13 @@
+# Cấu hình dense retriever V1 (GĐ6). Định dạng chốt bằng phép thử 6.1 (script 06f); max_length chốt trên dev ở 6.6.
+dense:
+  ctx_encoder: deepset/gbert-base-germandpr-ctx_encoder
+  question_encoder: deepset/gbert-base-germandpr-question_encoder
+  passage_field: original_text     # PHẢI là original_text: chữ thường làm top-1 của phép thử 6.1 tụt từ 0,84 còn 0,52
+  passage_input: text              # text: chỉ văn bản đoạn (đã có tiêu đề ở dòng đầu); title_text: cặp (title, text)
+  passage_max_length: 384          # token, gồm cả [CLS]/[SEP]; đoạn dài hơn bị cắt và được đếm trong manifest
+  question_max_length: 64
+  encode_batch_size: 32
+  fp16: true                       # autocast trên GPU; vector lưu float32
+  similarity: dot                  # DPR huấn luyện bằng tích vô hướng, KHÔNG chuẩn hóa vector
+  artifact_dir: artifacts/dense/text384   # GĐ12.3: Hit@5 +0,0148 [+0,0058; +0,0242] so với text256, Hit@20 cận dưới -0,0049 ≥ -0,01
+  top_k: 20

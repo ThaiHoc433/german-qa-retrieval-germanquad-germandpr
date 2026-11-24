@@ -1,0 +1,20 @@
+# Cấu hình API (GĐ8). Không lặp lại BM25/reader/pipeline: phần đó lấy từ pipeline.yaml, reader.yaml, dense.yaml
+# qua build_pipeline, để API và CLI luôn dùng CÙNG cấu hình.
+api:
+  default_retriever: hybrid      # GĐ15: H0 (BM25 + dense + RRF) cho đáp án tốt nhất trên test; request không nêu thì dùng cái này
+  retrievers: [hybrid, bm25, dense]   # thử nạp lúc khởi động; cái nào không nạp được thì báo "không khả dụng", API vẫn chạy. hybrid dùng chung BM25 và dense đã nạp
+  reranker: null                 # null (mặc định, không nạp) | bge_m3 | mmarco. GĐ15: reranker tăng Hit@5 nhưng làm EM giảm và chậm ~5 lần, nên mặc định tắt. Bật khi chạy: 08_serve.py --reranker bge_m3. Chỉ dùng sau hybrid (H1)
+  reranker_models:               # cách dựng từng reranker; bge_m3 dùng khối rerank của configs/rerank.yaml
+    bge_m3: {config: rerank}
+    mmarco: {checkpoint: models/rerank_mmarco_1427fd65, max_length: 512, batch_size: 16, fp16: true, relevant_label: null, overflow: windows, stride: 128}
+  max_rerank_pool: 20            # số đoạn tối đa đưa vào reranker (retrieval_top_k khi rerank phải <= số này); pool đã đo là 20
+  checkpoint: null               # null -> lấy trong pipeline.yaml
+  max_context_chars: 20000      # /read: đoạn văn người dùng tự nhập; reader tự chia cửa sổ 384 token nên dài vẫn chạy, chỉ chậm hơn
+  max_question_chars: 500        # dài hơn thì 422 (reader chỉ cắt ở 64 token; chặn ở cửa rẻ và rõ hơn)
+  max_retrieval_top_k: 50
+  max_reader_top_k: 10
+  request_timeout_s: 30          # tính từ lúc nhận request, gồm cả thời gian xếp hàng
+  max_inflight: 8                # số request đang chờ + đang chạy; quá thì 503 "busy"
+  warmup_question: "Wer war Konrad Adenauer?"
+  cors_origins: ["http://localhost:5173", "http://127.0.0.1:5173"]   # React dev server (GĐ9)
+  results_dir: results           # /experiments chỉ đọc thư mục này

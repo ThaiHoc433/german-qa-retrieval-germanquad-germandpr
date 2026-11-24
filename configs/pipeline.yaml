@@ -1,0 +1,15 @@
+
+# Cấu hình pipeline end-to-end V1 (GĐ5). Giá trị lấy từ kết quả đã đo ở GĐ3 và GĐ4, không chọn lại ở đây.
+pipeline:
+  retrieval_top_k: 20        # truy hồi 20 đoạn: để đo và phân tích (Hit@20 là trần)
+  reader_top_k: 5            # chỉ 5 đoạn đầu vào reader, để giữ thời gian ngắn
+  checkpoint: models/reader_20261101T213758Z_96717e35
+
+bm25:                        # cấu hình tốt nhất trên dev ở GĐ3 (results/bm25_*.json)
+  k1: 0.7
+  b: 0.2
+  use_stopwords: true
+
+reader:                      # chọn trên dev ở GĐ4 (reports/reader_gold_context.json)
+  score_mode: minus_cls
+  max_answer_tokens: 80

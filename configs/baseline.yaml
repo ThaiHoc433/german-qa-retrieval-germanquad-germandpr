@@ -1,0 +1,17 @@
+# Cấu hình baseline V1. Đổi tham số ở đây, không sửa trong mã.
+# (SEED và DEV_RATIO nằm ở src/config.py, đúng một nơi.)
+
+preprocess:
+  include_dpr_qa: false    # false: test = QuAD test; DPR chỉ góp đoạn văn và hard negative
+
+bm25:
+  k1: 1.5                  # giá trị mặc định thường gặp; GĐ3 sẽ chọn lại trên dev
+  b: 0.75
+  use_stopwords: false     # biến thể, đo riêng trên dev
+  grid:                    # lưới dò trên dev (GĐ3)
+    k1: [0.5, 0.7, 0.9, 1.2, 1.5]
+    b: [0.2, 0.35, 0.5, 0.75]
+
+evaluation:
+  ks: [1, 5, 10, 20]       # Hit/Recall/MRR@k
+  select_by: "mrr@10"      # chọn cấu hình theo chỉ số này, trên dev

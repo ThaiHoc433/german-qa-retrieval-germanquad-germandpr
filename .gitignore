@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- project-specific (large / generated) ---
+venv/
+.venv/
+models/
+artifacts/
+data/
+results/
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.pytest_cache/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.faiss
+*.npy

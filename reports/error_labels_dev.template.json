@@ -1,0 +1,2737 @@
+{
+  "codebook": {
+    "answer_in_unlabeled_passage": "đoạn ngoài qrels cũng chứa đáp án đúng (qrels thiếu)",
+    "article_or_format": "chỉ khác mạo từ, dấu câu hoặc cách viết",
+    "compound_or_inflection": "từ ghép hoặc biến cách tiếng Đức làm lệch từ khóa",
+    "distractor_passage": "đoạn khác có ứng viên trông hợp lý hơn, reader bị đánh lừa",
+    "lexical_mismatch": "câu hỏi và đoạn đúng diễn đạt bằng từ khác (đồng nghĩa, diễn đạt lại)",
+    "other": "không thuộc nhóm nào, ghi rõ ở note",
+    "question_ambiguous_or_label_noise": "câu hỏi mơ hồ hoặc nhãn vàng có vấn đề",
+    "same_article_wrong_passage": "tìm/chọn đúng bài nhưng sai đoạn",
+    "span_too_long": "dự đoán chứa đáp án nhưng thừa chữ",
+    "span_too_short": "dự đoán nằm trong đáp án nhưng thiếu chữ",
+    "wrong_entity": "chọn sai thực thể/con số trong đúng đoạn"
+  },
+  "labels": [
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Ampel und Ampelos",
+      "primary": null,
+      "question": "In welchem Museum wird der Lykurgosbecher ausgestellt?",
+      "question_id": "q_b36bb1b26d5b7736",
+      "refs": [
+        "Britischen Museums"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "historisch lange Zeit",
+      "primary": null,
+      "question": "Ab wann gehörte das Elsass zu Deutschland?",
+      "question_id": "q_1d0166047bd34102",
+      "refs": [
+        "Nach dem kapitulationsähnlichen Waffenstillstand von Compiègne (22. Juni 1940)"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Golf von Aden",
+      "primary": null,
+      "question": "Was grenzt südlich an das tibetanische Hochland?",
+      "question_id": "q_06707195d352a935",
+      "refs": [
+        "Himalaya-Gebirge"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "um Ebenen für durchkontaktierte Leiterplatten einzusparen oder um bestimmte Voreinstellungen für Schaltungen zu bilden",
+      "primary": null,
+      "question": "Wozu verwendet man Leiterplatten?",
+      "question_id": "q_d0e7906c58c07a50",
+      "refs": [
+        "Sie dient der mechanischen Befestigung und elektrischen Verbindung."
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.065,
+      "note": "",
+      "prediction": "Die Römer übernahmen die Trinkgelage von den Griechen, aber ohne spirituelle Elemente. Es ging um das Vergnügen beim Trinken.\nDie Germanen waren ein Volk der Bier- und Mettrinker",
+      "primary": null,
+      "question": "Wer waren die Götter der Gymnasik bei den Griechen?",
+      "question_id": "q_433a19aea72bfe70",
+      "refs": [
+        " Herakles und Hermes"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Meist ermöglichen sie es, Computergrafik-Dokumente abzuspeichern oder mit externen Programmen darzustellen",
+      "primary": null,
+      "question": "Was ist ein Browser?",
+      "question_id": "q_3a317af06adb5532",
+      "refs": [
+        "die Benutzeroberfläche für Webanwendungen "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Ende 1214",
+      "primary": null,
+      "question": "Wann starb Johann Ohneland?",
+      "question_id": "q_34a5d67e6925df29",
+      "refs": [
+        "in der Nacht zum 19. Oktober 1216"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Am 23. Februar 1945",
+      "primary": null,
+      "question": "Wann erklärte Frankreich Deutschland im 2. Weltkrieg den Krieg?",
+      "question_id": "q_22ddfdd7a0ad471d",
+      "refs": [
+        "3. September 1939"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.065,
+      "note": "",
+      "prediction": "der Ingenieur Hugo Junkers, der Philosoph Hans Jonas, die ehemaligen Formel-1-Fahrer Nick Heidfeld und Heinz-Harald Frentzen sowie die Fußballer Jupp Heynckes und Günter Netzer",
+      "primary": null,
+      "question": "Welche eritreischen Radsportler haben international Bekanntheit erlangt?",
+      "question_id": "q_d0e16eeb61114929",
+      "refs": [
+        "Daniel Teklehaimanot, Natnael Berhane und Merhawi Kudus"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "wegen des weltweit niedrigeren Meeresspiegels vollständig trocken. Die heutigen Bahamas sind also nur ein Teil der damals existierenden Inseln. Als die Bänke der Erdatmosphäre ausgesetzt waren, unterlagen die Kalksteine der für sie typischen chemischen Verwitterung, die zu Karstformen wie Höhlen und Schlucklöchern führten",
+      "primary": null,
+      "question": "Was versuchte das Absinken des Meeresniveaus während der Eiszeiten?",
+      "question_id": "q_1961ab35a367482b",
+      "refs": [
+        "Durch das massive Binden von Wasser in Form von Eis auf Landflächen"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Namen oder Sprüchen",
+      "primary": null,
+      "question": "Welchen Namen haben Gläser, die kolloidal gefärbt wurden?",
+      "question_id": "q_bb8f1037df0399b7",
+      "refs": [
+        "''(echte) Rubingläser''"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.286,
+      "note": "",
+      "prediction": "im nördlichen Teil",
+      "primary": null,
+      "question": "In welchem Teil von Tibet sind Minustemperaturen oft zu beobachten?",
+      "question_id": "q_fb2aabefad2048b0",
+      "refs": [
+        "in der nördlichen Hälfte"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Im Süden Somalias",
+      "primary": null,
+      "question": "In welchen Gebieten wohnen manche Nachkommen von Schwarzafrikanern, die als Sklaven in die Türkei gebracht wurden?",
+      "question_id": "q_96780ce9c0cfad06",
+      "refs": [
+        "zwischen Antalya und dem Istanbul"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.182,
+      "note": "",
+      "prediction": "eine lokale HTML-Seite",
+      "primary": null,
+      "question": "Was stellt meist die Startseite von Browsern dar?",
+      "question_id": "q_18320eb44328c0ac",
+      "refs": [
+        "z. B. um ein Internetportal oder eine Internetsuchmaschine"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "44.500 und im Jahr 1935 mit Nebenausgaben 150.000 Exemplare",
+      "primary": null,
+      "question": "Welche Tageszeitung in Straßburg hat die höchste Auflage?",
+      "question_id": "q_a2bb2277f8ef28ed",
+      "refs": [
+        "Dernières Nouvelles d’Alsace"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.25,
+      "note": "",
+      "prediction": "am 21. Januar 1953",
+      "primary": null,
+      "question": "Wann wurde Eisenhower zum US-Präsidenten wiedergewählt?",
+      "question_id": "q_7600016f3b3655b9",
+      "refs": [
+        "am 6. November 1956"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Cesàro-Mittel beziehungsweise der Cesàro-Konvergenz auf Reihen, das heißt auf die Folge der Partialsummen einer Reihe. Zu einer Folge  sind die Partialsummen der Reihe  definiert als:\nZu dieser Folge  bildet man nun die Cesàro-Mittel",
+      "primary": null,
+      "question": "Wie nennt man das Mittel, das zur Glasentfärbung genutzt wird?",
+      "question_id": "q_0788ed235979fc51",
+      "refs": [
+        "Glasmacherseifen (auch ''Glasseifen'')"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.154,
+      "note": "",
+      "prediction": "im Bereich weniger Pikofarad bis zu etwa 100 Mikrofarad",
+      "primary": null,
+      "question": "Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?",
+      "question_id": "q_06fc8f8eb910f9d5",
+      "refs": [
+        "2000 bis 4000 s"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.074,
+      "note": "",
+      "prediction": "Womöglich stand der Brauch ursprünglich im Zusammenhang mit der jeweils im Mai stattfindenden öffentlichen Vorlesung und Beschwörung der städtischen Satzungen am Maiengeding",
+      "primary": null,
+      "question": "Woher kommt das Fechten ursprünglich?",
+      "question_id": "q_1851c3414bcd2eb4",
+      "refs": [
+        "Überreste der alten ritterlichen Gymnastik"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Elsass und Lothringen",
+      "primary": null,
+      "question": "Wer regierte über Straßburg als es zu Deutschland gehörte?",
+      "question_id": "q_332473bd1d8805e7",
+      "refs": [
+        "Robert Wagner"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "148",
+      "primary": null,
+      "question": "Wie viele Windräder zur Stromproduktion gibt es auch St. Helena?",
+      "question_id": "q_36b1161c832dbc40",
+      "refs": [
+        " zwölf "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.25,
+      "note": "",
+      "prediction": "in den Jura abgedrängt worden war und bei Goumois den Doubs überquerte",
+      "primary": null,
+      "question": "Wo waren zum Ende des Zweiten Weltkriegs viele der gefangenen deutschen Soldaten interniert?",
+      "question_id": "q_8a8092a73fcd0a1c",
+      "refs": [
+        "in den sogenannten Rheinwiesenlagern"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "„''Bere'' (groß) ''Meta''“ (schwarz)",
+      "primary": null,
+      "question": "Was ist ein anderer Name für Völkermond?",
+      "question_id": "q_a81c427100ae0504",
+      "refs": [
+        "Genozid"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Zubereitungen unter Verwendung von Hundeknochen oder Marmor",
+      "primary": null,
+      "question": "Was ersetzten Hundeknochen bei der Medizin im Mittelalter?",
+      "question_id": "q_fc0de6a6278dcf13",
+      "refs": [
+        "das wertvollere, aus gebranntem Elfenbein hergestellte Spodium"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Der Mensch Jesus von Nazaret",
+      "primary": null,
+      "question": "Wer ist der Gott der Zeugen Jehovas?",
+      "question_id": "q_9bc219e5f462aad4",
+      "refs": [
+        "Jehova"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.127,
+      "note": "",
+      "prediction": "Deshalb waren sie im Gegensatz zu den Besitzungen der meisten englischen Barone 1204 nicht durch Frankreich beschlagnahmt worden, als der französische König die Normandie im Krieg mit Johann Ohneland erobert hatte.",
+      "primary": null,
+      "question": "Warum wurde Johann Ohneland Ohneland benannt?",
+      "question_id": "q_2fc3aed3c1886821",
+      "refs": [
+        " weil er 1169 von seinem Vater bei der mit dem französischen König in Montmirail vereinbarten Erbteilung unter den Söhnen keinerlei Berücksichtigung fand, während seine drei älteren Brüder mit eigenen Erbteilen bedacht wurden."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.074,
+      "note": "",
+      "prediction": "Österreich, Böhmen und Ungarn. Von 1438 bis 1806 gehörten nahezu alle Kaiser des Heiligen Römischen Reichs Deutscher Nation dem Haus Habsburg an. Im 16. und 17. Jahrhundert herrschte das Geschlecht auch über die Königreiche Spanien und Portugal, im 18. und 19. Jahrhundert über das Großherzogtum Toskana und andere Teile Oberitaliens",
+      "primary": null,
+      "question": "Welche Staaten herrschten im 19. Jahrhundert jeweils über Teile des heutigen Polen?",
+      "question_id": "q_cb085ac2503d20d8",
+      "refs": [
+        "Österreich, Preußen und Russland"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "der Bundesgerichtshof",
+      "primary": null,
+      "question": "Wer hat den Begriff Völkermord rechtlich definiert?",
+      "question_id": "q_b4be876de451e6a0",
+      "refs": [
+        "Raphael Lemkin"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Etwa 3.000",
+      "primary": null,
+      "question": "Wie viele deutsche Soldaten wurden im Deutsch-Französischen Krieg verletzt?",
+      "question_id": "q_c3a6ad8a4d73dbfc",
+      "refs": [
+        "99.566"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "in den tropischen Regenwäldern",
+      "primary": null,
+      "question": "Wo haben Sammler die von ihnen gesammelten Nahrungsmitteln gelagert?",
+      "question_id": "q_ec8d68354a3af65a",
+      "refs": [
+        "nutzten die Menschen zum Beispiel ausgehöhlte Kürbisse sowie Häute und Felle von erjagten Tieren. Sie begannen aber auch, aus Gras und Binsen Körbe und sonstige Behälter zu flechten und zu weben."
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "1191",
+      "primary": null,
+      "question": "Ab wann wurde Johann Ohneland Ohneland genannt?",
+      "question_id": "q_75f02eb87f3da583",
+      "refs": [
+        "als Kleinkind"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Thomas Edison",
+      "primary": null,
+      "question": "Welcher Ingenieur hat die ersten in Lynn von General Electric gebaute Autos entworfen?",
+      "question_id": "q_33f592f393c5415f",
+      "refs": [
+        "Elihu Thomson"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.066,
+      "note": "",
+      "prediction": "Die gemeinsame Versammlungsstätte befindet sich seitdem in Tornesch",
+      "primary": null,
+      "question": "Wie sieht eine Versammlung von Zeugen Jehovas am Wochenende aus?",
+      "question_id": "q_7d93bc018734ab7c",
+      "refs": [
+        "Die Zusammenkunft am Wochenende beginnt mit einem Lied und einem Gebet, es schließt ein halbstündiger Vortrag an, dem ein weiteres Lied folgt. Danach wird für eine Stunde ein Artikel aus der Studienausgabe der Zeitschrift Der Wachtturm in Form von Fragen und Antworten besprochen, und mit Lied und Gebet schließt man den Gottesdienst ab."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Saintes und die Saintonge sowie die Île d’Oléron",
+      "primary": null,
+      "question": "Wo wurden Johann Ohneland seine Grundbesitze aberkannt?",
+      "question_id": "q_a2ae26dfe7f2d70d",
+      "refs": [
+        "Auf der Ratsversammlung in Nottingham im Mai 1194"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "fünf",
+      "primary": null,
+      "question": "Wie viele Geschwister hat Elisabeth 2.?",
+      "question_id": "q_443f7794ccdfa6e5",
+      "refs": [
+        "Die einzige Schwester"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.286,
+      "note": "",
+      "prediction": "zur Erstellung dynamischer Webseiten oder Webanwendungen",
+      "primary": null,
+      "question": "Wozu werden Browser hauptsächlich verwendet?",
+      "question_id": "q_025f7654dcd162a2",
+      "refs": [
+        "zur Darstellung von Webseiten im ''World Wide Web'' "
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.08,
+      "note": "",
+      "prediction": "von den Maßen des Kondensators und den Bedingungen auf der Leiterplatte und der Umgebung",
+      "primary": null,
+      "question": "Wovon hängt die Ladezeit eines Kondensators ab?",
+      "question_id": "q_272996b12bc8fbdc",
+      "refs": [
+        "Je weiter der Kondensator während dieses Vorgangs bereits aufgeladen ist, desto stärker ist das bereits zwischen seinen Platten herrschende elektrische Feld , desto mehr Kraft wird ausgeübt, um die Ladung von einer Platte zur anderen zu bringen."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.154,
+      "note": "",
+      "prediction": "Stattdessen kommt es auf den vom Webserver übergebenen content-type an.",
+      "primary": null,
+      "question": "Wie kann man prüfen, ob ein Browser standardkonform ist?",
+      "question_id": "q_c2f17a4092326a9d",
+      "refs": [
+        "mit den Acid-Tests "
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "in der St.-Eduard-Kapelle in der Westminster-Abtei",
+      "primary": null,
+      "question": "Wo befindet sich der Krönungsstuhl aus der Westminster Abbey aktuell?",
+      "question_id": "q_e3db56e20f6cba1d",
+      "refs": [
+        "im Schloss von Edinburgh"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "retrieval",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "SAR-Lupe 1",
+      "primary": null,
+      "question": "Wie hieß der erste Satellit, der in den Kosmos befördert wurde?",
+      "question_id": "q_5bf0b589d6d563b6",
+      "refs": [
+        "Sputnik "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "retrieval_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "die Eisenhower-Doktrin",
+      "primary": null,
+      "question": "Was veröffentlichte Eisenhower in seiner Rede am 05.01.1957?",
+      "question_id": "q_604ccf2e58358def",
+      "refs": [
+        "nach ihm benannten Doktrin"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Ulugh Muztagh",
+      "primary": null,
+      "question": "Welches Gebirge liegt in Tibet?",
+      "question_id": "q_3594d65ea2a14bd1",
+      "refs": [
+        "Himalaya-Gebirges"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "''IEOpera''",
+      "primary": null,
+      "question": "Wie hieß Firefox zuerst?",
+      "question_id": "q_4b476abc25646010",
+      "refs": [
+        "''Phoenix''"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "2015",
+      "primary": null,
+      "question": "Seit wann es eine Eisenbahn durch die Appalachen?",
+      "question_id": "q_f1c8f3ab2c32c89e",
+      "refs": [
+        "1853 "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "mit Hausbesuchen",
+      "primary": null,
+      "question": "Wie missionieren die Zeugen Jehovas?",
+      "question_id": "q_719ac467b216baca",
+      "refs": [
+        "durch das Anbieten kostenloser Bibelkurse und das Verteilen der Zeitschriften ''Der Wachtturm'' und ''Erwachet!'"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.069,
+      "note": "",
+      "prediction": "Störungen in den Brutkolonien",
+      "primary": null,
+      "question": "Aus welchen Gruppen bestehen die Touristen in Eritrea?",
+      "question_id": "q_2347f61c4e41d980",
+      "refs": [
+        "wenigen Individualurlaubern, im Ausland lebenden eritreischen Bürgern auf Heimatbesuch und einer kleinen Anzahl ausländischer Reiseveranstalter, die mit in der Regel kleinen Gruppen das Land bereisen"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.143,
+      "note": "",
+      "prediction": "hohe Spannungen im Bereich von 2 kV bis zu 100 kV",
+      "primary": null,
+      "question": "Welche Selbstentladungszeitkonstante ist für Kondensatoren in Klasse 2 aus Keramik vorgeschrieben?",
+      "question_id": "q_1a4ddddf100829d3",
+      "refs": [
+        "mindestens 100 s"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.286,
+      "note": "",
+      "prediction": "mit dem besetzten Kaiserreich Abessinien, der Kolonie Italienisch-Somaliland und dem Gebiet Oltre Giuba in das italienische Kolonialgebiet Italienisch-Ostafrika",
+      "primary": null,
+      "question": "Welchem Staat wurde Eritrea nach dem Zweiten Weltkrieg zugeordnet?",
+      "question_id": "q_800113fd0f5096ad",
+      "refs": [
+        "dem Kaiserreich Abessinien"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Roy McFarland",
+      "primary": null,
+      "question": "Wer folgte auf Rioch als Trainer beim FC Arsenal?",
+      "question_id": "q_223d4e8da0c56141",
+      "refs": [
+        "Stewart Houston"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "1. Juli 1991",
+      "primary": null,
+      "question": "Wann wurde der Warschauer Pakt geschlossen?",
+      "question_id": "q_749194f747f2cab6",
+      "refs": [
+        "1955"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Mit dem \"Emerging Senegal Plan",
+      "primary": null,
+      "question": "Durch was sollte unter Eisenhower die Wirtschaft angekurbelt werden?",
+      "question_id": "q_73466960274e1796",
+      "refs": [
+        "Zu diesem Zweck trieb er eine Anti-Trust-Gesetzgebung voran. In seiner Amtszeit wurden die Lohn-Preis-Kontrollen aufgehoben sowie Marktregulierungen zurückgefahren."
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "1920",
+      "primary": null,
+      "question": "Wann wurde das Königreich Italien gegründet?",
+      "question_id": "q_c18b5b588f745cc5",
+      "refs": [
+        "1861"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "renommierte Pharma- und Biotechfirmen",
+      "primary": null,
+      "question": "Welche Unis gibt es in Cork?",
+      "question_id": "q_584313ce69e8912a",
+      "refs": [
+        "das University College Cork, das Cork Institute of Technology"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "dem britischen Wellcome Trust und der Open Society Foundations von George Soros",
+      "primary": null,
+      "question": "Was ist das größte Projekt der Gates Stiftung?",
+      "question_id": "q_0dd16082c79bd99b",
+      "refs": [
+        "die Alliance for a Green Revolution in Africa"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.062,
+      "note": "",
+      "prediction": "In der Magna Carta musste Johann Ohneland 1215 im Artikel 59 zustimmen, dass die beiden Schwestern zurück in ihre Heimat durften",
+      "primary": null,
+      "question": "Wohin musste Johann Ohneland Ende 1202 zurück weichen?",
+      "question_id": "q_e81ee8e161fc601e",
+      "refs": [
+        "aus dem nördlichen Poitou, dem Anjou, Maine und der Grafschaft Tours"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "C1 und C2",
+      "primary": null,
+      "question": "Welche Kondensatoren werden immer noch ohne fertige Bauelementen gebaut?",
+      "question_id": "q_97cee7d55d54ca9f",
+      "refs": [
+        "Beispielsweise die Flachbandanschlüsse von Folienkondensatoren für eine hohe Impuls-Strombelastbarkeit, die Schraubanschlüsse großer Aluminium-Elektrolytkondensatoren für hohe Strombelastbarkeit oder spezielle Bauformen für zum Beispiel Durchführungskondensatoren"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.25,
+      "note": "",
+      "prediction": "Rus“ oder „russisches Land“ ()",
+      "primary": null,
+      "question": "Wie nennen die Russen das Kiewer Reich?",
+      "question_id": "q_af280d657ab6b0e4",
+      "refs": [
+        "einheitliches ostslawisches (russisches) Reich"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "im Alter von 10 Monaten",
+      "primary": null,
+      "question": "Wann hatte Eisenhower einen Myokardinfarkt?",
+      "question_id": "q_2c9510263a885809",
+      "refs": [
+        "1955"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Der Piezoeffekt bestimmter Keramiken kann dann zu den als „Mikrofonie“ bekannten induzierten Wechselspannungen an den Kondensatoren führen.",
+      "primary": null,
+      "question": "Wie wirkt sich eine Temperaturänderung bei Keramikkondensatoren aus?",
+      "question_id": "q_7dca969369571e0d",
+      "refs": [
+        "Für Keramikkondensatoren gibt es paraelektrische Dielektrika mit positivem, negativem und nahe null betragendem Temperaturkoeffizienten"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Bei Sonneneinstrahlung erwärmen sich die thermochromen Gläser und färben sich ein. Lässt die Sonneneinstrahlung nach, kühlen sich die thermochromen Gläser wieder ab",
+      "primary": null,
+      "question": "Wie kann man Glas entfärben?",
+      "question_id": "q_16c735cfad2ef1be",
+      "refs": [
+        "sowohl chemisch, als auch physikalisch"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.143,
+      "note": "",
+      "prediction": "Es gibt Zufallskämpfe, die dem Digimon-Team Erfahrung bringen, Level aufsteigen und neue Techniken erlernen lässt",
+      "primary": null,
+      "question": "Was ist das Ziel des Videospiels Digimon World?",
+      "question_id": "q_b4858b1b026e41ad",
+      "refs": [
+        "die Hauptaufgabe des Spielers, sein Digimon wie ein Tamagotchi aufzuziehen, indem man es füttert, trainiert, pflegt und sogar zur Toilette begleitet, um eine starke Digitation zu bewirken"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.4,
+      "note": "",
+      "prediction": "dem 9. Jahrhundert",
+      "primary": null,
+      "question": "Wann war der Klimax von Kiewer Rus",
+      "question_id": "q_62ef8a433b70d07c",
+      "refs": [
+        "10. Jahrhundert"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Rasensport-Club Straßburg''",
+      "primary": null,
+      "question": "Wie hieß Straßburg bei der Gründung?",
+      "question_id": "q_c64bd2b5611523bd",
+      "refs": [
+        "''Argentorate,''"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Die Zeugen Jehovas mussten ab 1940 das Lager mit aufbauen. Sie blieben ihrem Glauben treu. Von 200 Häftlingen überlebte nur die Hälfte.",
+      "primary": null,
+      "question": "Was hängt bei den Zeugen Jehovas eng mit dem Glauben zusammen?",
+      "question_id": "q_c4eff6f1b482980c",
+      "refs": [
+        "seiner Verkündigung"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Disruptive Innovations",
+      "primary": null,
+      "question": "Welche Firma entwickelte Mozilla?",
+      "question_id": "q_769fd9d9496dd495",
+      "refs": [
+        "Netscape "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "selection",
+      "f1": 0.909,
+      "note": "",
+      "prediction": "die ''Compagnie des transports strasbourgeois'' (CTS)",
+      "primary": null,
+      "question": "Welches Unternehmen betreibt die Straßenbahn in Straßburg?",
+      "question_id": "q_b8b1c287f34cd7d3",
+      "refs": [
+        "Compagnie des transports strasbourgeois (CTS)"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.048,
+      "note": "",
+      "prediction": "Vulkanismus oder geothermale Quellen",
+      "primary": null,
+      "question": "Wann kommt es zur Ablation von Gletschern?",
+      "question_id": "q_46bc5b8ce87050d1",
+      "refs": [
+        "Dies ist der Fall, wenn beispielsweise bei einem Gebirgsgletscher Eis über eine steile Felskante stürzt oder eine Inlandeismasse bis an eine Küste heranwächst und sich dort kein Schelfeis ausbilden kann, sondern der Gletscher hier zum Abkalben gezwungen ist."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Darkot",
+      "primary": null,
+      "question": "Welcher Fluss fließt durch Straßburg?",
+      "question_id": "q_12d5d7cd7e9beeed",
+      "refs": [
+        "Ill"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.118,
+      "note": "",
+      "prediction": "zu Ehren-Vorsitzenden der Kuratoriums ernannt",
+      "primary": null,
+      "question": "Wie fand die US-amerikanische Bevölkerung den Präsidenten Eisenhower?",
+      "question_id": "q_ec6e1fd87da4e3bf",
+      "refs": [
+        "Eine Umfrage unter Amerikanern von 1962 platzierte ihn in der unteren Hälfte der beliebtesten Präsidenten. Sein öffentliches Ansehen begann jedoch in den Jahrzehnten nach seinem Tod signifikant zu steigen."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.057,
+      "note": "",
+      "prediction": "Im Akkumulationsgebiet (Nährgebiet) des Gletschers nimmt sie im Allgemeinen zu, im Ablationsgebiet (Zehrgebiet) dagegen wieder ab, die oberen Schichten des Eises bewegen sich zudem schneller als das Eis nahe dem Felsbett.",
+      "primary": null,
+      "question": "Was versteht man unter einem Nährgebiet der Gletscher?",
+      "question_id": "q_d9a471649e382dac",
+      "refs": [
+        "der Entstehungsbereich eines Gletschers"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Dwight D.",
+      "primary": null,
+      "question": "Wer folgte Eisenhower als US-Präsident?",
+      "question_id": "q_4ede0cc04b1ec8d6",
+      "refs": [
+        "Kennedy"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Anders als in den vorherigen ''Digimon World'' Spielen erscheinen wilde Digimon in ''Zufallskämpfen'' und das Kampfsystem ist rundenbasiert, ähnlich der Final Fantasy Spielreihe",
+      "primary": null,
+      "question": "Warum sieht Digimon Animes ähnlich?",
+      "question_id": "q_62e02f7a09a28d5f",
+      "refs": [
+        "Die Grafik des Spiels besitzt Cel-Shading-Animationen, wodurch eine nahe Verbindung zum Anime besteht"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "2014",
+      "primary": null,
+      "question": "Bis zu welchem Jahr hatte irländische Cork keine Eisenbahn?",
+      "question_id": "q_e3e9c5d13fa0e0c3",
+      "refs": [
+        "1849 "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "vier Hauptcharakteren wählen, von denen jeder seinen eigenen Digimon-Partner besitzt",
+      "primary": null,
+      "question": "Welchen Charakter spielt man im Videospiel Digimon World?",
+      "question_id": "q_501a9c2543231350",
+      "refs": [
+        "die Rolle eines Jungen, der völlig verrückt nach dem Digimon-Spiel ist"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "von einer sehr kleinen Einheit mit 11 Kampfschiffen, 145 Offizieren und 1674 Mann bis zum Kriegsende",
+      "primary": null,
+      "question": "Wann wurde die kanadische Marine gegründet?",
+      "question_id": "q_224e0f10e3401ea6",
+      "refs": [
+        "1910"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.75,
+      "note": "",
+      "prediction": "Edwin Lutyens und Herbert Baker",
+      "primary": null,
+      "question": "Welche Architekten haben große Teile von Neu-Delhi entworfen?",
+      "question_id": "q_f90dcc44fc398056",
+      "refs": [
+        "Lutyens und Baker"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Die Sudan Tribune berichtete, dass sich die Bewohner Badmes im Januar 2005 in Listen für die äthiopischen Wahlen eintrugen",
+      "primary": null,
+      "question": "Wie ist es dazu gekommen, dass die eritreische Bevölkerung an den Wahlen in Äthiopien beteiligt war?",
+      "question_id": "q_fe25c8320d22cb5c",
+      "refs": [
+        "Da Eritrea ab 1952 Teil von Äthiopien war"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Bleiglas (bleioxidhaltiges Glas, sogenanntes „Bleikristall“), und normale Trinkgläser sind in der Altglassammlung unerwünscht, da sie die Glaszusammensetzung langfristig verändern, da sie meist chemische Zusätze zur Verbesserung der optischen Eigenschaften enthalten",
+      "primary": null,
+      "question": "Aus welchem Glas werden Trinkgläser gemacht?",
+      "question_id": "q_9770673b20da1ded",
+      "refs": [
+        "hauptsächlich aus Siliciumdioxid"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.074,
+      "note": "",
+      "prediction": "Sie kann Stimmung und Psyche positiv wie negativ beeinflussen. Auch auf die physische Gesundheit kann sie Einfluss haben. Architektur hat also für jeden Menschen eine sehr konkrete Bedeutung und bestimmt das alltägliche Leben viel stärker als Musik, Literatur oder Malerei",
+      "primary": null,
+      "question": "In welchen Objekten können Einflüsse der Architektur sichtbar sein?",
+      "question_id": "q_c771b111a5c3b35a",
+      "refs": [
+        "in einem einzelnen Gebäude, einem Gebäudekomplex, einer Siedlungsstruktur oder auch in einer gesamten Stadtanlage"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "selection",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Charlie Nicholas",
+      "primary": null,
+      "question": "Wer erzielte den Anschlusstreffer für Arsenal im Europapokalfinale 1995?",
+      "question_id": "q_76ae39ab22a8b477",
+      "refs": [
+        "John Hartson "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "selection_failure"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.154,
+      "note": "",
+      "prediction": "Residenzen, Tageszentren und häuslicher Pflege für ältere Menschen",
+      "primary": null,
+      "question": "Über welche Residenzen verfügt Elisabeth 2.?",
+      "question_id": "q_32beaa81ccf8cbb7",
+      "refs": [
+        "Sandringham House und Balmoral Castle"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.069,
+      "note": "",
+      "prediction": "Je höher die relative Permittivität  ist, desto mehr Energie kann in dem elektrischen Feld zwischen den Platten eines Kondensators gespeichert werden. Die relative Permittivität des ausgewählten Isolierstoffes sagt also aus, um das Wievielfache sich die Kapazität eines Kondensators gegenüber Vakuum (bzw. Luft) als Isolierstoff erhöht",
+      "primary": null,
+      "question": "Wie hoch ist die Permittivität in einem nichtlinearen Kondensator?",
+      "question_id": "q_67c14f145c3f0510",
+      "refs": [
+        "nicht konstant, sondern ist als Funktion der am Kondensator anliegenden Spannung  zu betrachten"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Ulysses S. Grant",
+      "primary": null,
+      "question": "Unter welchem US-Präsident trat die Beschränkung der Präsidentschaft auf zwei Wahlperioden in kraft?",
+      "question_id": "q_6591eb2f2692b0e4",
+      "refs": [
+        "Eisenhower"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.143,
+      "note": "",
+      "prediction": "Bei der Einordnung dieser Dialektgruppe herrscht unter den Slawisten",
+      "primary": null,
+      "question": "Wo wird darüber gestritten ob die Serbokroatischen Sprachen von einer einzigen abstammen oder nicht?",
+      "question_id": "q_3bb40474d0353b12",
+      "refs": [
+        "sowohl in der Sprachwissenschaft (vor allem an Lehrstühlen innerhalb der betroffenen Länder) als auch unter manchen Sprechern selbst umstritten"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.2,
+      "note": "",
+      "prediction": "Die Grabinschrift „Aus Schatten und Bildern zur Wahrheit“",
+      "primary": null,
+      "question": "Welche \"Rede gegen die Arianer\" von Athanasius der Große bezog sich auf die christlich Orthodoxe Kirche?",
+      "question_id": "q_b5a5ed5e21a069ea",
+      "refs": [
+        "die vierte"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.188,
+      "note": "",
+      "prediction": "Alstom konzentriert sich künftig auf den Transportbereich und übernimmt für 700 Millionen Euro die Bahnsignalsparte von General Electric.",
+      "primary": null,
+      "question": "Was war das Ergebnis des Kaufs des Energiegeschäftes des französischen Alstom-Konzerns durch General Electric?",
+      "question_id": "q_4bbf093442676c4e",
+      "refs": [
+        "Daraufhin versuchte die französische Politik eine europäische Lösung für den Teilverkauf der Alstom-Sparten durchzusetzen."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.125,
+      "note": "",
+      "prediction": "Bei Polymer-Elektrolytkondensatoren ist der Effekt einerseits für die dielektrischen Verluste bei Wechselspannungsbetrieb und andererseits für das Auftreten einer Spannung am Kondensator nach dem Abschalten und Entladen",
+      "primary": null,
+      "question": "Was sind Elektrolytkondensatoren?",
+      "question_id": "q_bb536f1f414f0cba",
+      "refs": [
+        "gepolte Kondensatoren, deren Anoden-Elektrode aus einem Metall (Aluminium, Tantal und Niob) besteht, auf dem durch Elektrolyse (anodische Oxidation, Formierung) eine äußerst dünne, elektrisch isolierende Schicht aus dem Oxid des Anodenmetalls erzeugt wird, die das Dielektrikum des Kondensators bildet"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.102,
+      "note": "",
+      "prediction": "wodurch sich die seitliche Bewegungsfreiheit erhöht, aber die Bildqualität (horizontale Bildauflösung) entsprechend sinkt. Sie funktionieren ähnlich wie Wackelbilder, bei diesen Systemen können mehrere Benutzer das 3D-Bild sehen. Außerdem ist es möglich, ein wenig um Objekte „herumzuschauen“. Dabei entsteht ein hologrammähnlicher Bildeindruck.",
+      "primary": null,
+      "question": "Warum können Hunde bewegende Objekte besser sehen?",
+      "question_id": "q_f780579f425de203",
+      "refs": [
+        "Der Grund dürfte darin liegen, dass die Beute des Wolfes optisch selektiert werden muss, da sie sich bewegt"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.053,
+      "note": "",
+      "prediction": "Massenverlust durch Ablation größer als der Zuwachs an Gletschereis. Im oberhalb liegenden Nährgebiet (Akkumulationsgebiet) wird mehr Gletschereis gebildet als durch Ablation verloren geht.",
+      "primary": null,
+      "question": "Was passiert bei der Ablation eines Gletschers?",
+      "question_id": "q_b94ec2f981ddee27",
+      "refs": [
+        "Dabei brechen Teile des Eises heraus und können daraufhin als Eisberge über das Meer treiben."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "ein für den Mittleren Westen der USA typisches boreales, vollfeuchtes Festlandsklima (Effektive Klimaklassifikation Dfa), das von den umliegenden Großen Seen geprägt ist.",
+      "primary": null,
+      "question": "Wie sieht die Landschaft von Ann Arbor aus?",
+      "question_id": "q_a61380d17735f8f1",
+      "refs": [
+        "leicht hügelig und liegt zwischen 230 und 300 m über NN"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.5,
+      "note": "",
+      "prediction": "2009",
+      "primary": null,
+      "question": "Wann wurden die Zeugen Jehovas in Österreich eine Religionsgemeinschaft?",
+      "question_id": "q_15db2199120f8a33",
+      "refs": [
+        "7. Mai 2009 "
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.941,
+      "note": "",
+      "prediction": "Der Grund dafür ist, dass der Begriff „Kiewer Rus“ den Beginn der Staatlichkeit in Nowgorod unter Rjurik vor der Verlegung der Hauptstadt nach Kiew im Jahre 882 traditionell zwar mitumfasst, aber vom Namen her nicht berücksichtigt",
+      "primary": null,
+      "question": "Warum wird der Name \"Kiewer Rus\" heute nicht gerne von der russischen Wissenschaft verwendet?",
+      "question_id": "q_991c9120dd7f6511",
+      "refs": [
+        "dass der Begriff „Kiewer Rus“ den Beginn der Staatlichkeit in Nowgorod unter Rjurik vor der Verlegung der Hauptstadt nach Kiew im Jahre 882 traditionell zwar mitumfasst, aber vom Namen her nicht berücksichtigt"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.16,
+      "note": "",
+      "prediction": "Ein letztmaliges Absinken der Temperaturen in der jüngeren Dryaszeit verschlechterte das Nahrungsangebot wieder und zwang die Menschen, die nicht mehr zur nomadisierenden Lebensweise zurückkehren konnten oder wollten, nach Alternativen zu suchen",
+      "primary": null,
+      "question": "Wozu führte die ausreichende Versorgung der im fruchtbaren Halbmond lebenden Menschen am Ende der Eiszeit mit Nahrung?",
+      "question_id": "q_9f463f4ad8bf9362",
+      "refs": [
+        "begünstigten den Übergang zu Sesshaftigkeit, Ackerbau und Viehhaltung, den fundamentalen Wendepunkt in der Urgeschichte vom Pleistozän zum Holozän (Nacheiszeitalter)"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.8,
+      "note": "",
+      "prediction": "etwa 550",
+      "primary": null,
+      "question": "Wie viele Menschen waren Teil der Zeugen Jehovas 1938 in Österreich?",
+      "question_id": "q_32ebfbe23adb855b",
+      "refs": [
+        "etwa 550 aktive"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "im Mai 1986",
+      "primary": null,
+      "question": "Wann wurde die Zeitung The Times dem News Corporation verkauft?",
+      "question_id": "q_88eeb85bc518f460",
+      "refs": [
+        "am 13. Februar 1981"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "zumeist ein Bedeutungsunterschied einhergeht, beispielsweise ''akrivos'' (‚genau‘) ''akriva'' (‚teuer‘)",
+      "primary": null,
+      "question": "Welche Eigenschaft haben die meisten tschechischen Adverbien, die von Adjektiven abgeleitet werden?",
+      "question_id": "q_c1e2f2f1ca43cf89",
+      "refs": [
+        "die Endung -e,-ě"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.16,
+      "note": "",
+      "prediction": "da sie die Kommerzialisierung dieser Anlässe ablehnen und annehmen, dass viele Weihnachts- und Osterbräuche im Heidentum wurzeln",
+      "primary": null,
+      "question": "Warum feiern die Zeugen Jehovas keine christlichen Feiertage?",
+      "question_id": "q_43bfadfe4c0c1b8c",
+      "refs": [
+        "wegen der heidnischen Wurzeln dieser Feste als „Götzendienst“"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "In-Circuit-Test",
+      "primary": null,
+      "question": "wie prüft ein Prüfautomat Leiterplatten?",
+      "question_id": "q_fe9823cbfb1aea52",
+      "refs": [
+        "sämtliche Signalwege kontaktiert und prüft"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "skandinavische Namen",
+      "primary": null,
+      "question": "Zu welchem Stamm gehörten die Brüder Rurik, Truwor und Sineus?",
+      "question_id": "q_79ead0a5b270c291",
+      "refs": [
+        "„Rus“ (Русь)"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "An einem solchen Kondensator tritt eine Phasenverschiebung",
+      "primary": null,
+      "question": "Wie verhalten sich Spannung und Strom in einem Kondensator zueinander?",
+      "question_id": "q_69d0290b8c8736ce",
+      "refs": [
+        "Die Spannung ist proportional zum zeitlichen Integral des Stroms"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.2,
+      "note": "",
+      "prediction": "zwischen 10 und 360 Millionen Jahre",
+      "primary": null,
+      "question": "Seit wann gibt es das Kettengebirge Appalachen?",
+      "question_id": "q_4ea753da9b0b63af",
+      "refs": [
+        "rund 300 Millionen Jahren"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "1958",
+      "primary": null,
+      "question": "Wann wurde die Vorläuferorganisation der Zeugen Jehovas gegründet?",
+      "question_id": "q_a1e8fbfc8aac15c1",
+      "refs": [
+        " im ausgehenden 19. Jahrhundert"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.059,
+      "note": "",
+      "prediction": "Die Skiausrüstung kann man für 16 USD pro Tag mieten.",
+      "primary": null,
+      "question": "Wie kann man in Straßburg ein Fahrrad mieten?",
+      "question_id": "q_b9645320339a881c",
+      "refs": [
+        "An mehreren innerstädtischen Stationen können kommunale Fahrräder gemietet werden. Zusätzlich bietet die Stadt auch einen Fahrradverleih vor dem EU-Parlament während der monatlichen Plenarsitzungen an."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Rjurik",
+      "primary": null,
+      "question": "Mit wem betrieb der Kiewer Rus Handel?",
+      "question_id": "q_8c1dae923609ab3a",
+      "refs": [
+        "Konstantinopel"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.19,
+      "note": "",
+      "prediction": "insbesondere die weltweite Verbesserung der Gesundheitsversorgung und Bekämpfung von extremer Armut sowie die Ermöglichung des Zugangs zu Bildung und Informationstechnologie",
+      "primary": null,
+      "question": "Was für Projekte hat die Bill und Melinda Gates Foundation?",
+      "question_id": "q_3dd4e8c17a35876e",
+      "refs": [
+        "Dazu gehören Projekte zur Versorgung von AIDS-Kranken in Botswana und die Bereitstellung von Geld für Impfprogramme von Kindern in Indien und Afrika"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.078,
+      "note": "",
+      "prediction": "Russland bleibt damit von der Rezeption des römischen Rechts unbeeinflusst und nimmt am Prozess der Verwissenschaftlichung des Rechts nicht teil.",
+      "primary": null,
+      "question": "Warum sieht sich Russland als direkter Nachfolger der Kiewer Rus?",
+      "question_id": "q_b95e19ecd3a6c215",
+      "refs": [
+        "Zu ihnen gehört zum einen die direkte dynastische Herrschaftsfolge zwischen dem Kiewer und Moskauer Reich. Die rurikidischen Moskauer Großfürsten und Zaren sahen sich als einzig verbliebenen legitimen Erben der Kiewer Fürsten, nachdem auf den anderen Gebieten der Kiewer Rus, die vom Großfürstentum Litauen und Königreich Polen einverleibt wurden, eine eigene Staatlichkeit sowie die Dynastie der Rurikiden erloschen waren. Zum anderen verlegte Metropolit Maximos den Hauptsitz der Russischen-Orthodoxen Kirche bereits 1299 von Kiew nach Wladimir, wenig später im Jahr 1321 kam dieser nach Moskau."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.082,
+      "note": "",
+      "prediction": "Von 1957 bis 1963 wurden Fliegerkräfte von der Sowjetunion mit den damals modernen Jagdflugzeugen vom Typ MiG-19 und Abfangjägern MiG-21 ausgestattet.",
+      "primary": null,
+      "question": "Wie sah der Kriegsplan 1964 vom Warschauer Pakt aus?",
+      "question_id": "q_5b8eb84e0e9b0f07",
+      "refs": [
+        "Ab etwa 1964 habe der Warschauer Pakt einen begrenzten präventiven Nuklearkrieg mit über 1000 Nuklearwaffen gegen Westeuropa geplant. Konventionelle Truppen hätten später Westeuropa innerhalb weniger Tage besetzen sollen."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.25,
+      "note": "",
+      "prediction": "durch atomare Umstrukturierung in den Molekülen der Kunststofffolie",
+      "primary": null,
+      "question": "Durch was entsteht der Nachladeeffekt eines Kondensators?",
+      "question_id": "q_e38f4754b445496d",
+      "refs": [
+        "Ursache in den nicht idealen Eigenschaften des Dielektrikums"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.1,
+      "note": "",
+      "prediction": "am 14. Nisan nach Sonnenuntergang",
+      "primary": null,
+      "question": "An welchem Tag feiern die Zeugen Jehovas das Abendmahl?",
+      "question_id": "q_c6ac00086f5e97ed",
+      "refs": [
+        "Bei der Festsetzung des Tages orientieren sich Zeugen Jehovas am jüdischen Mondkalender, wie er ihrer Meinung nach in biblischer Zeit in Verwendung war, sodass der Tag der Abendmahlsfeier im gregorianischen Kalender kein festes Datum hat."
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.889,
+      "note": "",
+      "prediction": "Keramik-, Kunststoff-Folien-, Aluminium- und Tantal- Elektrolytkondensatoren und Superkondensatoren",
+      "primary": null,
+      "question": "Was sind die wichtigsten Festkondensatoren, welche industriell produziert werden?",
+      "question_id": "q_c7e62ecbd95fd55e",
+      "refs": [
+        "Keramik-, Kunststoff-Folien-, Aluminium- und Tantal- Elektrolytkondensatoren und Superkondensatoren, früher „Doppelschichtkondensatoren“"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "2009",
+      "primary": null,
+      "question": "Seit wann sind die Zeugen Jehovas in Österreich?",
+      "question_id": "q_11dc79eb483a0653",
+      "refs": [
+        "1911 "
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "1953",
+      "primary": null,
+      "question": "Wann hat Eisenhower seine Stelle des Präsidenten verlassen?",
+      "question_id": "q_3e468820853b1080",
+      "refs": [
+        "1961"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.133,
+      "note": "",
+      "prediction": "Präpositionen und vor allem Adverbien sind die typischen Mittel zum Ausdruck adverbieller Funktionen und benötigen hierfür keine zusätzlichen grammatischen Markierungen. Die genaue Abgrenzung zwischen Präpositionen und Adverbien ist nicht immer klar, und es gibt auch Vorschläge, wonach zumindest manche Adverbien nichts anderes seien als intransitive Präpositionen",
+      "primary": null,
+      "question": "Welche Arten von Adverbien unterschiedet man im Tschechischen?",
+      "question_id": "q_d99b92edaf38ed96",
+      "refs": [
+        "lokale Adverbien, Adverbien der Zeit, unbestimmte und verneinende Adverbien sowie von Adjektiven abgeleitete Adverbien"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Im 7. Jahrhundert",
+      "primary": null,
+      "question": "Wann wurde in Cork ein Kloster auf der Insel des Flusses gebaut?",
+      "question_id": "q_080c3df0926fa9b0",
+      "refs": [
+        "Der Legende zufolge soll durch den Heiligen Finbarr in der Zeit zwischen 500 und 600 – die Stadt Cork nennt selbst das Jahr 606"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Umsatz, Nettogewinn, Aktiva und Marktwert",
+      "primary": null,
+      "question": "Wie ordnet Forbes den Marktwert des FC Arsenal ein?",
+      "question_id": "q_d30e7bb0dcd87fcd",
+      "refs": [
+        "auf den vierten Rang der weltweit lukrativsten Fußballvereine"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Seitdem ist der Gebrauch des Sorbischen weiter stark zurückgegangen.",
+      "primary": null,
+      "question": "Warum ist die Einwohnerzahl von Cork Mitte des 14.Jhds. stark gesunken?",
+      "question_id": "q_572d0b342c3b6a06",
+      "refs": [
+        "Durch eine Beulenpestepidemie"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "indem in der Zelle einer von zwei möglichen Zustände abgespeichert wird",
+      "primary": null,
+      "question": "Was hat die Speicherzelle einer DRAMs?",
+      "question_id": "q_70b974fa8e9e8f5c",
+      "refs": [
+        "einem Kondensator mit zugehörigem Transistor"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": true,
+      "coarse": "reader",
+      "f1": 0.811,
+      "note": "",
+      "prediction": "als ein Kreis aus 144 Stützsäulen und einem darüber liegenden Stockwerk mit einer zentralen Kuppel",
+      "primary": null,
+      "question": "Wie sieht das Parlamentsgebäude in Neu-Delhi von außen aus?",
+      "question_id": "q_fc820599ac5c31b9",
+      "refs": [
+        "Das Sansad Bhavan präsentiert sich von außen als ein Kreis aus 144 Stützsäulen und einem darüber liegenden Stockwerk mit einer zentralen Kuppel."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.061,
+      "note": "",
+      "prediction": "RNA",
+      "primary": null,
+      "question": "Was ist ein Genom?",
+      "question_id": "q_14712efd659934ee",
+      "refs": [
+        "die Gesamtheit der materiellen Träger der vererbbaren Informationen einer Zelle oder eines Viruspartikels: Chromosomen, Desoxyribonukleinsäure (DNS = DNA) oder Ribonukleinsäure (RNS = RNA) bei RNA-Viren, bei denen RNA anstelle von DNA als Informationsträger dient"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Er ist bei Raumtemperatur, bezogen auf die gespeicherte Ladungsmenge, so gering, dass üblicherweise die Selbstentladung des Kondensators als Ladungsverlust oder als Spannungsverlust für eine bestimmte Zeit spezifiziert wird.",
+      "primary": null,
+      "question": "Wie verhalten sich die Werte der Selbstentladung eines Kondensator mit der Temperatur?",
+      "question_id": "q_3cdaf13b7b318c30",
+      "refs": [
+        "sinkt mit steigender Temperatur"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.667,
+      "note": "",
+      "prediction": "der Radsport",
+      "primary": null,
+      "question": "Was ist die wichtigste Sportart in Eritrea?",
+      "question_id": "q_9ed858174441a339",
+      "refs": [
+        "Radsport"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.333,
+      "note": "",
+      "prediction": "Durch die Politik der 1970er und 1980er Jahre und das Bevölkerungswachstum bei den tibetischen Viehhirten und den dadurch ausgeweiteten Bestand an Tieren werden die vorhandenen Steppen schwer belastet und ihre Qualität sinkt in bedenklichem Ausmaß. Um die Steppen zu entlasten, wird nach alternativen Arbeitsplätzen für einen Teil der Viehzüchter gesucht.",
+      "primary": null,
+      "question": "Was macht man gegen schwer belastete Steppen in Tibet?",
+      "question_id": "q_ff002f19dd65e3ec",
+      "refs": [
+        "wird nach alternativen Arbeitsplätzen für einen Teil der Viehzüchter gesucht"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Modern Republicanism",
+      "primary": null,
+      "question": "Was wurde unter Eisenhower als Dynamic Conservatism bezeichnet?",
+      "question_id": "q_c8e4e3c20576a91f",
+      "refs": [
+        "seine Wirtschaftspolitik"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.3,
+      "note": "",
+      "prediction": "die Lötflächen aus blanken Kupfer, welche die Kontakte zu den elektronischen Bauelementen darstellen, vor Umwelteinflüssen wie Korrosion",
+      "primary": null,
+      "question": "Was sollten Leiterplatten bei Lagerung und Transport nicht ausgesetzt werden?",
+      "question_id": "q_52ed86782694aab2",
+      "refs": [
+        "Umwelteinflüssen wie Korrosion"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.125,
+      "note": "",
+      "prediction": "zum Major",
+      "primary": null,
+      "question": "Zu welchen Positionen wurde Eisenhower gleich nach seinem Abschluss befördert?",
+      "question_id": "q_3c01e0f33eb4d138",
+      "refs": [
+        "1915 wurde er zum Second Lieutenant, 1916 zum First Lieutenant und 1917 zum Captain"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.889,
+      "note": "",
+      "prediction": "Badeurlaub wird auch mangels einer geeigneten touristischen Infrastruktur",
+      "primary": null,
+      "question": "Wie ist das Badeurlaub Angebot Eritreas?",
+      "question_id": "q_b9da73070ae3d7bf",
+      "refs": [
+        "Badeurlaub wird auch mangels einer geeigneten touristischen Infrastruktur kaum angeboten"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.381,
+      "note": "",
+      "prediction": "durch die Europabrücke für den Straßenverkehr sowie eine Eisenbahn- und eine Fußgängerbrücke",
+      "primary": null,
+      "question": "Wie ist Straßburg mit der deutschen Stadt Kehl verbunden?",
+      "question_id": "q_8bf5d0d7ab5c7291",
+      "refs": [
+        "Beide Städte sind durch die Europabrücke für den Straßenverkehr sowie eine Eisenbahn- und eine Fußgängerbrücke verbunden. Seit dem 29. April 2017 besteht auch eine Straßenbahnverbindung zwischen Straßburg und Kehl: Die Linie D der Straßenbahn Straßburg verbindet das Kehler Rathaus mit dem Zentrum Straßburgs und überquert dabei den Rhein über die Beatus-Rhenanus-Brücke."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.5,
+      "note": "",
+      "prediction": "der jeweilige Verteidigungsminister",
+      "primary": null,
+      "question": "Wer ist für die Verteidigungspolitik Kanadas verantwortlich?",
+      "question_id": "q_678e1bc708a2acd7",
+      "refs": [
+        "Verteidigungsminister"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.038,
+      "note": "",
+      "prediction": "55 % der Weißen und 61 % der Hispanics als „Mischling“ anstatt als Schwarzer, nachdem sie darauf hingewiesen wurden, dass seine Mutter Weiße ist. Dahingegen bezeichneten 66 % der schwarzen Wähler Obama als schwarz. Eine weitere Umfrage des gleichen Instituts ergab, dass 42 % der afroamerikanischen Wähler Tiger Woods als Schwarzen beschrieben, wohingegen dies nur 7 %",
+      "primary": null,
+      "question": "Wie viel Prozent der Weißen in den USA bezeichneten Tiger Woods in einer Umfrage als Schwarz?",
+      "question_id": "q_b75e8108ac65ee5d",
+      "refs": [
+        " 7 %"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.561,
+      "note": "",
+      "prediction": "nicht nur durch den Unterschied zwischen ijekavischer und ekavischer Aussprache und durch den Gebrauch der beiden Alphabete, sondern vor allem durch den Wortschatz",
+      "primary": null,
+      "question": "Inwiefern unterscheiden sich unterschiedliche Standardvarietäten des Serbokroatischen?",
+      "question_id": "q_7eca36b5b7bc5e08",
+      "refs": [
+        "Zu allen Zeiten unterschieden und unterscheiden sich die Varietäten des Serbokroatischen nicht nur durch den Unterschied zwischen ijekavischer und ekavischer Aussprache und durch den Gebrauch der beiden Alphabete, sondern vor allem durch den Wortschatz (vgl. Unterschiede zwischen den serbokroatischen Standardvarietäten; die Feststellung, dass zwei Varietäten gleichermaßen ijekavisch und lateinisch geschrieben seien, bedeutet also keineswegs, dass sie damit identisch seien."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.957,
+      "note": "",
+      "prediction": "Die erste, die von der Beschäftigung mit den Methoden empirischer Wissenschaft geprägt war; und die zweite, in der er sich mit metaphysischen Fragestellungen auseinandersetzte",
+      "primary": null,
+      "question": "In welche Teile kann man Karl Poppers Werk aufteilen?",
+      "question_id": "q_2d314f4ab8329794",
+      "refs": [
+        "die von der Beschäftigung mit den Methoden empirischer Wissenschaft geprägt war; und die zweite, in der er sich mit metaphysischen Fragestellungen auseinandersetzte"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.737,
+      "note": "",
+      "prediction": "durch eine geplante Hochzeit einer Tochter Wilhelms I.",
+      "primary": null,
+      "question": "Wie wollte der schottische König Wilhelm I. ein Bündnis mit Frankreich schließen?",
+      "question_id": "q_496e7dd67f119727",
+      "refs": [
+        "eine geplante Hochzeit einer Tochter Wilhelms I. mit dem französischen König"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.385,
+      "note": "",
+      "prediction": "Becher, Schalen, Kannen und Flaschen",
+      "primary": null,
+      "question": "Welche Gefäße wurden aus dem venezianischen Glas gemacht?",
+      "question_id": "q_2c66874877ea8670",
+      "refs": [
+        "Es handelt sich größtenteils um Becher, Schalen, Kannen und Flaschen, die aus hohl geblasenen Balustern zusammengesetzte Schäfte mit flachen Füßen hatten."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.632,
+      "note": "",
+      "prediction": "die Folgen der dort begangenen kriminellen Taten zur Verwendung in den Nürnberger Kriegsverbrecherprozessen",
+      "primary": null,
+      "question": "Für was ließ Eisenhower die KZ der Nazis dokumentieren?",
+      "question_id": "q_444b6042d96093c2",
+      "refs": [
+        " zur Verwendung in den Nürnberger Kriegsverbrecherprozessen"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.889,
+      "note": "",
+      "prediction": "''In-Circuit-Tester'' und dem ''Flying-Prober''",
+      "primary": null,
+      "question": "Welche Arten von Prüfautomaten für Leiterplatten gibt es?",
+      "question_id": "q_d16cf9326ae93ae9",
+      "refs": [
+        "dem ''In-Circuit-Tester'' und dem ''Flying-Prober''"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.786,
+      "note": "",
+      "prediction": "die Festigung der afroamerikanischen Gemeinschaft und die Erhaltung einer afrikanischen Identität",
+      "primary": null,
+      "question": "welchen Einfluss hatte die one-drop rule auf die afroamerikanische Community?",
+      "question_id": "q_9ca2f7a8306e9775",
+      "refs": [
+        "Ein Resultat der ''one-drop rule'' war die Festigung der afroamerikanischen Gemeinschaft und die Erhaltung einer afrikanischen Identität"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.571,
+      "note": "",
+      "prediction": "bis zu 15 Jahren erreichen, in Ausnahmefällen gar 20 Jahre",
+      "primary": null,
+      "question": "Wie lange leben Dackel?",
+      "question_id": "q_9a7ba18aa5d03eaf",
+      "refs": [
+        "bis zu 15 Jahren"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.143,
+      "note": "",
+      "prediction": "gemäß dem Versailler Vertrag",
+      "primary": null,
+      "question": "Nach welchem Gesetz wurde Elsass-Lothringen Frankreich 1919 zugesprochen?",
+      "question_id": "q_f024572c5ec69ca1",
+      "refs": [
+        "gemäß den 14 Punkten von US-Präsident Woodrow Wilson ohne Volksabstimmung"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.943,
+      "note": "",
+      "prediction": "zum einen eine starke Verbreitung beider Browser. Andererseits führte die Konkurrenz zwischen Microsoft und Netscape dazu, dass die beiden Firmen in ihrem Wettkampf um Marktanteile eine Vielzahl selbsterfundener Erweiterungen in ihre Programme integrierten, die vom jeweiligen Konkurrenzprodukt zunächst nicht unterstützt wurden",
+      "primary": null,
+      "question": "Was war das Ergebnis des Wettbewerbs der Browser-Hersteller Microsoft und Netscape?",
+      "question_id": "q_d1b16cd7d314c5ae",
+      "refs": [
+        "Eine Folge dieses Wettbewerbs war zum einen eine starke Verbreitung beider Browser. Andererseits führte die Konkurrenz zwischen Microsoft und Netscape dazu, dass die beiden Firmen in ihrem Wettkampf um Marktanteile eine Vielzahl selbsterfundener Erweiterungen in ihre Programme integrierten, die vom jeweiligen Konkurrenzprodukt zunächst nicht unterstützt wurden."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.468,
+      "note": "",
+      "prediction": "Nachdem aber der Gebrauch des Schießpulvers die Kriegsführung ganz umgestaltet hatte",
+      "primary": null,
+      "question": "Warum verloren ritterliche Gymnastikübungen bei Karusselle spielen an Bedeutung?",
+      "question_id": "q_a54e84550f36e564",
+      "refs": [
+        "Nachdem aber der Gebrauch des Schießpulvers die Kriegsführung ganz umgestaltet hatte, kamen jene ritterlich-gymnastischen Übungen und Spiele, die ihre Bedeutung als Vorbereitungen zum ernsten Krieg und als Nachahmungen desselben verloren hatten, mehr und mehr außer Gebrauch"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.6,
+      "note": "",
+      "prediction": "in der Innenstadt",
+      "primary": null,
+      "question": "Wo ist der Straßburger Weihnachtsmarkt?",
+      "question_id": "q_7090a5a645eea446",
+      "refs": [
+        "auf mehrere Standorte in der Innenstadt verteilt"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.941,
+      "note": "",
+      "prediction": "Beim Danner-Verfahren fließt eine Glasschmelze als Band auf einen schräg nach unten geneigten, rotierenden keramischen Hohlzylinder – die ''Dannerpfeife''.",
+      "primary": null,
+      "question": "Wie ist der von Danner entwickelte Mechanismus zur Herstellung von Glasrohren aufgebaut?",
+      "question_id": "q_e139d074652cd206",
+      "refs": [
+        "Beim Danner-Verfahren fließt eine Glasschmelze als Band auf einen schräg nach unten geneigten, rotierenden keramischen Hohlzylinder "
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.5,
+      "note": "",
+      "prediction": "66,83 %",
+      "primary": null,
+      "question": "Wie viel Aktienanteile am FC Arsenal besitzt Kroenke?",
+      "question_id": "q_67b9b9d7a91d858e",
+      "refs": [
+        "66,83 % der Anteile "
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": true,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.5,
+      "note": "",
+      "prediction": "''Ferner'' (vgl. Firn)",
+      "primary": null,
+      "question": "Wie werden Gletscher in einigen Regionen der Ostalpen bezeichnet?",
+      "question_id": "q_5f708671e6a6c003",
+      "refs": [
+        "''Ferner''"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.359,
+      "note": "",
+      "prediction": "zwischen zwei (beim Pferdespulwurm) und mehreren hundert",
+      "primary": null,
+      "question": "Wie viele Chromosomen haben Eukaryoten?",
+      "question_id": "q_3e566fef2369a456",
+      "refs": [
+        "Die Anzahl der Chromosomen ist artspezifisch verschieden und kann zwischen zwei (beim Pferdespulwurm) und mehreren hundert (bei manchen Farnen) variieren. Außerdem ändert sich die Chromosomenzahl beim Wechsel der Kernphase (Meiose und Karyogamie)."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.263,
+      "note": "",
+      "prediction": "neben einer Sammlung königlicher Begräbnisgegenstände",
+      "primary": null,
+      "question": "Aus welchen Gegenständen besteht die Sammlung der Westminster Abbey?",
+      "question_id": "q_efbe9d98ae029301",
+      "refs": [
+        "Die Sammlungen des Museums enthalten neben einer Sammlung königlicher Begräbnisgegenstände (z. B. Begräbnissattel, Helm und Schild Heinrichs V.), einer Reihe mittelalterlicher Gläser, Skulpturfragmenten aus dem 12. Jahrhundert auch den Krönungsstuhl Königin Marys II."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.0,
+      "note": "",
+      "prediction": "Rupert Murdoch",
+      "primary": null,
+      "question": "Wer war der Inhaber von The Times vor 1981?",
+      "question_id": "q_921a01a02d6f8717",
+      "refs": [
+        "Thomson-Gruppe"
+      ],
+      "relation": "disjoint",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.909,
+      "note": "",
+      "prediction": "qualitativ hochwertigem (industriell gefertigtem) Hundefutter",
+      "primary": null,
+      "question": "Was ist die beste Fütterung für Hunde?",
+      "question_id": "q_895ef1577b40a18a",
+      "refs": [
+        "mit qualitativ hochwertigem (industriell gefertigtem) Hundefutter"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.479,
+      "note": "",
+      "prediction": "Der Spieler hat die Auswahl zwischen einem der sieben verfügbaren Digimon, die jeweils ihren eigenen Tamer besitzen.",
+      "primary": null,
+      "question": "Worum geht es im Spiel Digimon: Battle Spirit?",
+      "question_id": "q_23deef41b22877f6",
+      "refs": [
+        "Ein unbekanntes und immens starkes Digimon taucht auf und richtet Unheil in der Digiwelt an, da es fähig ist, andere Digimon zu löschen. Eine Widerstandsgruppe, bestehend aus sieben bekannten Digimon aus den Anime-Serien, geht gegen es vor. Der Spieler hat die Auswahl zwischen einem der sieben verfügbaren Digimon, die jeweils ihren eigenen Tamer besitzen."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.5,
+      "note": "",
+      "prediction": "ANSI/IEEE Std 91a–1991 ''IEEE Graphic Symbols for Logic Functions",
+      "primary": null,
+      "question": "Welche Normen werden in den USA für Schaltzeichen der Kondensatoren benutzt?",
+      "question_id": "q_d24484e451025038",
+      "refs": [
+        "ANSI/IEEE Std 91a–1991 ''IEEE Graphic Symbols for Logic Functions'', IEEE Std 315–1986 (Reaffirmed 1993) / ANSI Y32.2–1975 (Reaffirmed 1989) / CSA Z99–1975 ''Graphic Symbols for Electrical and Electronics Diagrams''"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.941,
+      "note": "",
+      "prediction": "durch Trennung (''segregation'') und nicht durch Interaktion (''interaction'')",
+      "primary": null,
+      "question": "Wie war der Kontakt zwischen den Briten und den Indianern ab 1763 vorgeschrieben?",
+      "question_id": "q_1508eadfd92fb477",
+      "refs": [
+        "durch Trennung (''segregation'') und nicht durch Interaktion (''interaction'') bestimmt"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.182,
+      "note": "",
+      "prediction": "Holzbau-Tradition",
+      "primary": null,
+      "question": "Aus was bauten die Kiewer Rus ihre bekannten Gebäude bis ins 10. Jhd.?",
+      "question_id": "q_2874c65f48aeaaa1",
+      "refs": [
+        "keine monumentalen Bauwerke aus Stein, aber gab eine entwickelte Holzbau-Tradition"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.96,
+      "note": "",
+      "prediction": "zur Entwicklung nährstoffangereicherter Pflanzen sowie Projekte zur Entwicklung trockentoleranter Mais- und rostresistenter Weizensorten",
+      "primary": null,
+      "question": "Was macht das Harvest Plus-Programm der Gates Stiftung?",
+      "question_id": "q_30bf197404aeb283",
+      "refs": [
+        "Entwicklung nährstoffangereicherter Pflanzen sowie Projekte zur Entwicklung trockentoleranter Mais- und rostresistenter Weizensorten"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.561,
+      "note": "",
+      "prediction": "Hintergrund ist, dass durch die Endung ''-ová'' des Nachnamens einer Frau angegeben wird, wem sie „gehört“",
+      "primary": null,
+      "question": "Warum werden weibliche Nachnamen im Tschechischen meistens durch eine Endung ''-ová'' gekennzeichnet?",
+      "question_id": "q_b0d61a5162a5e6a5",
+      "refs": [
+        "Hintergrund ist, dass durch die Endung ''-ová'' des Nachnamens einer Frau angegeben wird, wem sie „gehört“. Es handelt sich bei dem auf ''-ová'' endenden Wort ursprünglich um ein durch Anhängen eines ''-ův'', ''-ova'' oder ''-ovo'' an ein maskulines Substantiv gebildetes Possessiv-Adjektiv."
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.8,
+      "note": "",
+      "prediction": "gegen den Act of Union 1707",
+      "primary": null,
+      "question": "Auf welcher Grundlage wurde die Queen in Schottland wegen ihrem Namen verklagt?",
+      "question_id": "q_30d7d7ef411c17a2",
+      "refs": [
+        "da dies gegen den Act of Union 1707 verstoße"
+      ],
+      "relation": "inside_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.333,
+      "note": "",
+      "prediction": "am 24. Juli 1934",
+      "primary": null,
+      "question": "In welchem Monat herrscht in Ann Arbor die höchste Durschnittstermperatur?",
+      "question_id": "q_bed3f5a9a38b71ce",
+      "refs": [
+        "Im Juli"
+      ],
+      "relation": "partial_overlap",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.636,
+      "note": "",
+      "prediction": "Die Versammlungsstätten ''(Königreichssäle, Kongresssäle)'' und Zweigniederlassungen mit Druckereigebäuden werden überwiegend von den Mitgliedern selbst erbaut.",
+      "primary": null,
+      "question": "Wo kommt die Immobilien der Zeugen Jehovas her?",
+      "question_id": "q_70748e607815252f",
+      "refs": [
+        "werden überwiegend von den Mitgliedern selbst erbaut"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.667,
+      "note": "",
+      "prediction": "wegen des walisischen Aufstands",
+      "primary": null,
+      "question": "Weshalb schickte Johann Ohneland seine Truppen 1212 nach Chester?",
+      "question_id": "q_aa4243479cd8a929",
+      "refs": [
+        "walisischen Aufstands"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.345,
+      "note": "",
+      "prediction": "der Löwe anstatt der Leoparden doppelt abgebildet ist; zu den Unterschieden gehören u. a. der Helmschmuck, vertauschte Schildhalter und der Wahlspruch des schottischen Distelordens",
+      "primary": null,
+      "question": "Welcher Text ist auf der schottischen variante des britischen Königswappen abgebildet?",
+      "question_id": "q_195cff6e4b3774a2",
+      "refs": [
+        "der Wahlspruch des schottischen Distelordens"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    },
+    {
+      "answer_in_other_retrieved": false,
+      "answer_in_selected_passage": false,
+      "coarse": "reader",
+      "f1": 0.222,
+      "note": "",
+      "prediction": "am 12. Januar 1951 in Kraft trat. Die Bundesrepublik Deutschland ratifizierte die Konvention im Februar 1955",
+      "primary": null,
+      "question": "Wann wurde die UN-Konvention gegen Völkermord in Deutschland in Kraft gesetzt?",
+      "question_id": "q_64d510d0be0e99a6",
+      "refs": [
+        "Februar 1955"
+      ],
+      "relation": "contains_gold",
+      "secondary": [],
+      "stage": "wrong_span_gold_passage"
+    }
+  ]
+}

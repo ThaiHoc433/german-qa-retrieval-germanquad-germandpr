@@ -1,0 +1,148 @@
+{
+  "code": "B1",
+  "config_id": "B1_0d907b95",
+  "data": {
+    "corpus.jsonl": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+    "select_question_ids.json": "f25b6eb2c08211e391c192a52021592d3dd9b620",
+    "splits": {
+      "qa_dev.jsonl": "b7c5d4e4b9aa4c8a65ae80899cde2ebcf100e2c3",
+      "qa_test.jsonl": "6b2dec4efc18fef386bf03559a21c347dafd9340",
+      "qa_train.jsonl": "720b58322bacb307148df4975d1b0b909987b6bf",
+      "qrels_dev.json": "d0f1bfa1eb466fb9f22b223a58b7bf1e174c08ba",
+      "qrels_test.json": "100519ab719f886380e038225c3c537152b6cc19",
+      "qrels_train.json": "f28f5917ad805feeffdc1b86f48426899e7888d4"
+    }
+  },
+  "dense": {
+    "artifact": {
+      "ctx_encoder": {
+        "repo": "deepset/gbert-base-germandpr-ctx_encoder",
+        "revision": "5c13387b5f87efc8b2363f86416b2f2d980e19c7"
+      },
+      "dir": "artifacts/dense/text384",
+      "passage_input": "text",
+      "question_encoder": {
+        "repo": "deepset/gbert-base-germandpr-question_encoder",
+        "revision": "c5b8d88c45320a0f8ba714c286ff3bc0af4d72fa"
+      },
+      "sha1": {
+        "embeddings.npy": "3026b36f18bcbf9edafc3ba0918c4ac11db8f19f",
+        "index.faiss": "e437047fc4fa377ceb33e41ede0cb06c8ee2045d",
+        "manifest.json": "8b7c24582ab288cdccae0549b0e2c963a34d8208",
+        "passage_ids.json": "6a956b4b72bd966748e0826a37a772fb80772b76"
+      },
+      "truncation": {
+        "frac_truncated": 0.10880732578916022,
+        "max_length": 384,
+        "n_truncated": 2923,
+        "tokens_max": 2204,
+        "tokens_mean": 236.2431134603931,
+        "tokens_p95": 454.0
+      }
+    },
+    "config": {
+      "artifact_dir": "artifacts/dense/text384",
+      "ctx_encoder": "deepset/gbert-base-germandpr-ctx_encoder",
+      "encode_batch_size": 32,
+      "fp16": true,
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "passage_max_length": 384,
+      "question_encoder": "deepset/gbert-base-germandpr-question_encoder",
+      "question_max_length": 64,
+      "similarity": "dot",
+      "top_k": 20
+    }
+  },
+  "effective_config": {
+    "code": "B1",
+    "dense": {
+      "artifact_dir": "artifacts/dense/text384",
+      "ctx_encoder": "deepset/gbert-base-germandpr-ctx_encoder",
+      "encode_batch_size": 32,
+      "fp16": true,
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "passage_max_length": 384,
+      "question_encoder": "deepset/gbert-base-germandpr-question_encoder",
+      "question_max_length": 64,
+      "similarity": "dot",
+      "top_k": 20
+    },
+    "pipeline": {
+      "bm25": {
+        "b": 0.2,
+        "k1": 0.7,
+        "use_stopwords": true
+      },
+      "pipeline": {
+        "checkpoint": "models/reader_20261101T213758Z_96717e35",
+        "reader_top_k": 5,
+        "retrieval_top_k": 20
+      },
+      "reader": {
+        "max_answer_tokens": 80,
+        "score_mode": "minus_cls"
+      }
+    },
+    "reader_runtime": {
+      "eval_batch_size": 32,
+      "max_length": 384,
+      "n_best": 20,
+      "stride": 128
+    },
+    "retriever": "dense"
+  },
+  "environment": {
+    "PyYAML": "6.0.3",
+    "cuda_available": true,
+    "cuda_runtime": "12.6",
+    "faiss-cpu": "1.15.1",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_gb": 4.0,
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": {
+      "dense_fp16": true,
+      "reader_fp16": true
+    },
+    "python": "3.13.3",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.19.0"
+  },
+  "frozen_on": "2026-11-09",
+  "reader": {
+    "checkpoint": "models/reader_20261101T213758Z_96717e35",
+    "d5_max_answer_tokens": {
+      "effective_max_answer_tokens": 80,
+      "note": "reader.yaml (30) chỉ là mặc định lúc huấn luyện; pipeline dùng giá trị trong pipeline.yaml. Không sửa reader.yaml hay reader_config.json.",
+      "reader_gold_context_chosen": 80,
+      "reader_yaml_max_answer_tokens": 30,
+      "source": "configs/pipeline.yaml"
+    },
+    "sha1": {
+      "config.json": "08b92c0df38bacdb2fb5d4758a5bcec7f0f02a83",
+      "model.safetensors": "ad62c06d73e0a733ce91da82ab8a0e84b57bdb99",
+      "reader_config.json": "f5875bbbc96f19b3d1edf75a0ef6eaeaece2f24f",
+      "vocab.txt": "21a14c9929ee463fb8061a7fa0ea7bec4b067fc3"
+    }
+  },
+  "reference_dev_run": {
+    "end_to_end_all_refs": {
+      "em": 0.3392857142857143,
+      "f1": 0.50875979643938,
+      "queries": 1176
+    },
+    "file": "results/eval_dev_dense_20261107T072837Z_b97b5c1e.json",
+    "note": "toàn bộ dev, mọi đáp án tham chiếu",
+    "retrieval": {
+      "hit@20": 0.9532312925170068,
+      "hit@5": 0.8163265306122449
+    },
+    "sha1": "4bcae3f5132467b9f01a348d759d044a3ce67b4a",
+    "split": "dev"
+  },
+  "seed": 42,
+  "status": "B1.v2: manifest đầy đủ thay cho B1.json (GĐ12.5) vốn thiếu SHA-1 reader, khối D5 và mã cấu hình. Số đo tham chiếu giống hệt B1.json (cùng tệp eval_dev_dense_20261107T072837Z_b97b5c1e). B1.json được giữ nguyên."
+}

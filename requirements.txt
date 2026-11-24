@@ -1,0 +1,14 @@
+datasets        # tải dataset từ Hugging Face Hub
+huggingface_hub # lấy commit hash (revision) của dataset
+pandas
+numpy
+matplotlib
+transformers    # dùng ở Bước 4 để đếm token
+pyyaml          # (tuỳ chọn) nếu muốn đưa config ra YAML
+pytest          # chạy tests/
+torch 
+faiss-cpu       # chỉ mục tìm kiếm vector cho dense retriever (GĐ6)
+fastapi
+uvicorn
+httpx
+psutil

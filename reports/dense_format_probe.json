@@ -1,0 +1,29 @@
+{
+  "cases": {
+    "chỉ text viết thường, 256": {
+      "top1": 0.52,
+      "top5": 0.81
+    },
+    "chỉ text, 256": {
+      "top1": 0.84,
+      "top5": 0.9766666666666667
+    },
+    "chỉ text, 512": {
+      "top1": 0.85,
+      "top5": 0.97
+    },
+    "chỉ title, 256": {
+      "top1": 0.18,
+      "top5": 0.32666666666666666
+    },
+    "cặp (title, text), token_type_ids 0/1 của tokenizer, 256": {
+      "top1": 0.4866666666666667,
+      "top5": 0.7
+    },
+    "cặp (title, text), token_type_ids toàn 0, 256": {
+      "top1": 0.8233333333333334,
+      "top5": 0.97
+    }
+  },
+  "n_pairs": 300
+}

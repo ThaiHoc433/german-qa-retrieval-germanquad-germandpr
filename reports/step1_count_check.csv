@@ -1,0 +1,5 @@
+﻿dataset,split,expected,actual,diff,status
+germanquad,train,11518,11518,0,Ổn
+germanquad,test,2204,2204,0,Ổn
+germandpr,train,9275,9275,0,Ổn
+germandpr,test,1025,1025,0,Ổn

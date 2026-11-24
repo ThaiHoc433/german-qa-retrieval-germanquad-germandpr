@@ -1,0 +1,902 @@
+{
+  "cases": {
+    "A": [
+      {
+        "H0_answer": "Durch das massive Binden von Wasser in Form von Eis auf Landflächen",
+        "H0_em": 1.0,
+        "H1_answer": "Das Inlandeis über Skandinavien",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 0.48095703125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 2,
+        "gold_rank_before": 4,
+        "gold_rerank_score": -0.129638671875,
+        "gold_text_head": "Gletscher\n\n== Glazialeustasie ==\nDurch das massive Binden von Wasser in Form von Eis auf Landflächen sank in den Kaltzeiten der Meeresspiegel und lag bis zu 150 Meter niedriger als heute. Dadurch fiel u. a. die heutige Nordsee trocken und bildete eine Landbrücke zwischen Europa und Britannien. Maas ",
+        "question": "Was versuchte das Absinken des Meeresniveaus während der Eiszeiten?",
+        "question_id": "q_1961ab35a367482b",
+        "refs": [
+          "Durch das massive Binden von Wasser in Form von Eis auf Landflächen"
+        ]
+      },
+      {
+        "H0_answer": "Warren Buffett",
+        "H0_em": 1.0,
+        "H1_answer": "Rockefeller-Stiftung",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.296875,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 4.296875,
+        "gold_text_head": "Bill___Melinda_Gates_Foundation\n\n== Zustiftung von Warren Buffett ==\nAm 25. Juni 2006 kündigte Warren Buffett eine Zustiftung von Berkshire Hathaway B Aktien an, die zu diesem Zeitpunkt 32,5 Milliarden US-Dollar wert waren. In einem Interview mit dem US-Business-Magazin Fortune hatte der zeitweise r",
+        "question": "Wer förderte die Gates Foundation 2006 mit Aktien im Wert von mehreren Milliarden Dolalr?",
+        "question_id": "q_51c04d6c1b95b8aa",
+        "refs": [
+          "Warren Buffett"
+        ]
+      },
+      {
+        "H0_answer": "Ihre Faltengürtel sind deutlich älter und hingen ursprünglich mit ähnlich alten Faltengürteln in Nordwestafrika sowie West- und Mitteleuropa zusammen, die heute teilweise ebenfalls in Form von Bergländern (z. B. dem Antiatlas in Marokko und dem Zentralmassiv in Frankreich) zutage treten (siehe unten).",
+        "H0_em": 1.0,
+        "H1_answer": "Zu den geographischen Besonderheiten, die zumeist der Region zugeordnet werden, gehören die Regenwälder des Nordwestens, die hohen Gebirgsketten wie beispielsweise die Rocky Mountains, die Sierra Nevada und die Cascade Range, verschiedene Gletscher sowie die westlichen Gebiete der Great Plains. Außerdem gehört ein Großteil der Wüstenfläche der USA zum Westen des Landes.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.765625,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 3,
+        "gold_rerank_score": 4.765625,
+        "gold_text_head": "Appalachen\n\n== Geographische Einordnung ==\nDie Appalachen begrenzen den Nordamerikanischen Kraton (Laurentia) bzw. die Nordamerikanische Plattform nach Südosten. Sie sind damit eine Art morphologisches Gegenstück zur Nordamerikanischen Kordillere, die den Kraton nach Westen begrenzt. Die geologische",
+        "question": "Inwiefern unterscheidet sich die Geologie der Appalachen von Bergen im Westen der USA?",
+        "question_id": "q_7c0ddc6825dabab4",
+        "refs": [
+          "Ihre Faltengürtel sind deutlich älter und hingen ursprünglich mit ähnlich alten Faltengürteln in Nordwestafrika sowie West- und Mitteleuropa zusammen, die heute teilweise ebenfalls in Form von Bergländern (z. B. dem Antiatlas in Marokko und dem Zentralmassiv in Frankreich) zutage treten (siehe unten)."
+        ]
+      },
+      {
+        "H0_answer": "indem er sich mit einem handschriftlichen Brief an die Entführer wandte",
+        "H0_em": 1.0,
+        "H1_answer": "Während der Entführung des früheren italienischen Ministerpräsidenten Aldo Moro im April 1978, der mit Mincuzzi und dessen Familie befreundet war, appellierten er und andere italienische Bischöfe an die Roten Brigaden, um eine gewaltfreie Lösung des Konfliktes zu erreichen",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 3.42578125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 3.42578125,
+        "gold_text_head": "Paul_VI.\n\n=== Letzte Monate und Tod ===\nGrablege Papst Pauls VI. in den vatikanischen Grotten der Petersbasilika\nAm 16. März 1978 wurde der christdemokratische Politiker Aldo Moro von den Roten Brigaden entführt. Dieser und Montini waren seit Moros Studienzeit befreundet, er war ab 1939 in der Leitu",
+        "question": "Wie versuchte Papst Paul VI. die Entführung von Also Moro zu beenden?",
+        "question_id": "q_9049bcdc2503cb39",
+        "refs": [
+          "indem er sich mit einem handschriftlichen Brief an die Entführer wandte"
+        ]
+      },
+      {
+        "H0_answer": "143 Millionen Pfund",
+        "H0_em": 1.0,
+        "H1_answer": "etwa 500.000 Euro (£ 420,000) bis 800.000 Euro",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 2.455078125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 2,
+        "gold_rerank_score": 2.455078125,
+        "gold_text_head": "FC_Arsenal\n\n== Finanzsituation/Eigentümerschaft ==\nAls Muttergesellschaft von Arsenal operiert die „Arsenal Holdings plc“ als Limited company, wobei sich die Eigentumsverhältnisse enorm von denen anderer Fußballvereine unterscheiden. Arsenal hat lediglich 62.217 Aktienanteile ausgegeben, die zudem n",
+        "question": "Welche Summe gab der FC Arsenal 2012 für die Gehälter von Spielern und Angestellten aus?",
+        "question_id": "q_a0f1268df0f4dc27",
+        "refs": [
+          "143 Millionen Pfund"
+        ]
+      },
+      {
+        "H0_answer": "nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik",
+        "H0_em": 1.0,
+        "H1_answer": "das Zurückdrängen der HD",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 0.82080078125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 6,
+        "gold_rank_before": 2,
+        "gold_rerank_score": -1.59765625,
+        "gold_text_head": "Haushund\n\n=== Urtümliche Hunde ===\nIn vielen Ländern existieren Hunderassen, die phänotypisch weitgehend den ersten domestizierten Hunden entsprechen. Nach einer Unterteilung der Gesellschaft für Haustierforschung gehören dazu die Paria- bzw. Schensihunde, wie sie zum Beispiel in der Äquatorialgegen",
+        "question": "nach welchen Kriterien wurde die Zucht von Hunden betrieben?",
+        "question_id": "q_a796bf03a8fff66a",
+        "refs": [
+          "nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik"
+        ]
+      },
+      {
+        "H0_answer": "Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind",
+        "H0_em": 1.0,
+        "H1_answer": "In Tibet sind 92,77 % der Bevölkerung Tibeter, in Qinghai 22,53 %, in Gansu 1,76 % und in Sichuan 1,54 %.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": -0.2220458984375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 10,
+        "gold_rank_before": 2,
+        "gold_rerank_score": -4.63671875,
+        "gold_text_head": "Tibet\n\n=== Klima ===\nIn Tibet herrscht Hochlandklima mit großen Tagestemperaturschwankungen und viel Sonnenschein. Auch sind die Temperaturunterschiede zwischen dem Süden Tibets und dem Norden beträchtlich.\nDas angenehmste Klima herrscht in den tieferen Lagen des Südostens Tibets. Dort liegen auch d",
+        "question": "Wie ist die geographische Verteilung der Bevölkerung Tibets?",
+        "question_id": "q_de1abed50a7b6e76",
+        "refs": [
+          "Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind."
+        ]
+      },
+      {
+        "H0_answer": "1993",
+        "H0_em": 1.0,
+        "H1_answer": "am 24. Mai 1993",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 6.74609375,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 5,
+        "gold_rank_before": 7,
+        "gold_rerank_score": 4.12109375,
+        "gold_text_head": "Eritrea\nEritrea (; , ) ist ein Staat im nordöstlichen Afrika. Er grenzt im Nordwesten an den Sudan, im Süden an Äthiopien, im Südosten an Dschibuti und im Nordosten an das Rote Meer. Der Landesname leitet sich von seinem griechischen Namen  ab, der auf die Bezeichnung , zurückgeht und früher als ''E",
+        "question": "Wann erlangte Eritrea seine Unabhängigkeit?",
+        "question_id": "q_e2bc9c2127866835",
+        "refs": [
+          "1993"
+        ]
+      }
+    ],
+    "B": [
+      {
+        "H0_answer": "Die Zeugen Jehovas sind in Amerika, Europa, Afrika südlich der Sahara und Australien relativ gleichmäßig stark, in den islamisch dominierten Staaten und vielen anderen asiatischen Ländern hingegen nur schwach vertreten",
+        "H0_em": 0.0,
+        "H1_answer": "Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 3.875,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 10,
+        "gold_rerank_score": 3.875,
+        "gold_text_head": "Zeugen_Jehovas\n\n=== Ehe und Familie ===\nDie Ehe wird als heilig angesehen. Scheidungen sind nur bei Ehebruch zulässig. Ob ein Ehepaar sich scheiden lässt oder sich trennt, entscheiden die Partner nach ihrem Gewissen. Der Mann gilt nach  als Oberhaupt der Familie, die Frau soll sich ihm unterordnen. ",
+        "question": "Dürfen die Zeugen Jehovas Menschen heiraten, die nicht zu ihrer Religionsgemeinschaft gehören?",
+        "question_id": "q_0165d5d67e98b5e5",
+        "refs": [
+          "Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten."
+        ]
+      },
+      {
+        "H0_answer": "Brecht",
+        "H0_em": 0.0,
+        "H1_answer": "August Graf von Platen",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 0.30712890625,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 0.30712890625,
+        "gold_text_head": "Völkermord\n\n=== 19. Jahrhundert ===\nDer Ausdruck ''Völkermord'' taucht zum ersten Mal bei dem deutschen Lyriker August Graf von Platen (1796–1835) in seinen „Polenliedern“ auf, und zwar in der 1831 entstandenen Ode ''Der künftige Held''. Er wendet sich gegen die Auflösung des polnischen Staates, den",
+        "question": "Von wem stammen die \"Polenlieder\"?",
+        "question_id": "q_1aa58551b6b12bc5",
+        "refs": [
+          "August Graf von Platen"
+        ]
+      },
+      {
+        "H0_answer": "die Umwandlung seines Lebensraums in landwirtschaftlich genutzte Flächen, Brände in den Sumpfgebieten, der Einsatz von Pestiziden und vor allem die Einfuhr der Braunen Nachtbaumnatter (''Boiga irregularis'') auf Guam",
+        "H0_em": 0.0,
+        "H1_answer": "Aufgrund der vielfältigen und teils schwer abzusehenden, potenziellen Schäden an Ökosystemen, Nicht-Zielorganismen und Mensch ist der Einsatz von Pestiziden teils ein umstrittenes Politikum.",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 6.49609375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 6.49609375,
+        "gold_text_head": "Pestizid\n\n== Alternativen zum Einsatz von Pestiziden ==\nAufgrund der vielfältigen und teils schwer abzusehenden, potenziellen Schäden an Ökosystemen, Nicht-Zielorganismen und Mensch ist der Einsatz von Pestiziden teils ein umstrittenes Politikum. Die Frage nach den Alternativen ist auch deshalb wich",
+        "question": "Warum ist es wichtig nach Alternativen zum Einsatz von Pestiziden zu suchen?",
+        "question_id": "q_1f8fb11c1ee14bfb",
+        "refs": [
+          "Aufgrund der vielfältigen und teils schwer abzusehenden, potenziellen Schäden an Ökosystemen, Nicht-Zielorganismen und Mensch ist der Einsatz von Pestiziden teils ein umstrittenes Politikum."
+        ]
+      },
+      {
+        "H0_answer": "unterstützt vom Adel, sich scheiden zu lassen",
+        "H0_em": 0.0,
+        "H1_answer": "Im Falle einer Ziviltrauung wäre von Margaret erwartet worden, ihr Recht auf die Thronfolge aufzugeben",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 2.412109375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 2.412109375,
+        "gold_text_head": "Elisabeth_II.\n\n==== Krönung und zunehmende Bedeutung des Massenmediums Fernsehen ====\nInmitten der Vorbereitungen für die Krönung informierte Prinzessin Margaret ihre Schwester, dass sie Peter Townsend heiraten wolle, einen 16 Jahre älteren geschiedenen Jagdflieger mit zwei Söhnen aus erster Ehe. Di",
+        "question": "Wozu war Prinzessin Margaret verpflichtet, wenn sie Peter Townsend doch heiraten würde?",
+        "question_id": "q_53accd02b064f394",
+        "refs": [
+          "Im Falle einer Ziviltrauung wäre von Margaret erwartet worden, ihr Recht auf die Thronfolge aufzugeben."
+        ]
+      },
+      {
+        "H0_answer": "dreißigjährigen Unabhängigkeitskrieg gegen Äthiopien wird die Eigenständigkeit Eritreas stark betont, was zum Teil als Isolationismus bezeichnet wird. Es kam in der jungen Geschichte des Landes zu mehreren Grenzkonflikten, insbesondere zum erneuten Krieg gegen Äthiopien 1998–2000",
+        "H0_em": 0.0,
+        "H1_answer": "1991",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 6.328125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 6.328125,
+        "gold_text_head": "Eritrea\n\n=== Im 20. Jahrhundert ===\nFlagge Eritreas als autonome Region des Kaiserreichs Äthiopiens bis 1961\nNach dem Überfall Italiens auf Äthiopien wurde Eritrea 1936 in das neu gegründete Italienisch-Ostafrika eingegliedert. Es erhielt große Gebiete Nordäthiopiens dazu, so wurde der größte Teil T",
+        "question": "Wann endete der Kampf um die Unabhängigkeit Eritreas von Äthiopien?",
+        "question_id": "q_c104edc3deecf828",
+        "refs": [
+          "1991"
+        ]
+      },
+      {
+        "H0_answer": "North Delhi, South Delhi, East Delhi, Neu-Delhi und Delhi Cantonment",
+        "H0_em": 0.0,
+        "H1_answer": "Delhi",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 6.3359375,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 4,
+        "gold_rank_before": 15,
+        "gold_rerank_score": 4.484375,
+        "gold_text_head": "Neu-Delhi\n\n== Definition ==\nNeu-Delhi ist ein Teil der Metropole Delhi, die als ''Delhi National Capital Territory'' („Nationales Hauptstadtterritorium Delhi“) direkt der indischen Zentralregierung unterstellt ist. Im engeren Sinn bezeichnet ''Neu-Delhi'' nur das während der britischen Kolonialzeit ",
+        "question": "Zu welcher Stadt gehört Neu-Delhi?",
+        "question_id": "q_dd57fe38d8d1c5e9",
+        "refs": [
+          "Delhi"
+        ]
+      },
+      {
+        "H0_answer": "1985",
+        "H0_em": 0.0,
+        "H1_answer": "1837",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": -0.4931640625,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 14,
+        "gold_rerank_score": -0.4931640625,
+        "gold_text_head": "Elisabeth_II.\n\n=== Wappen ===\nSeit ihrer Thronbesteigung führt Elisabeth als Symbol der königlichen Herrschaft das Wappen des britischen Monarchen, das seit 1837 in dieser Form existiert. Auf dem Wappenschild abgebildet sind drei Leoparden für England (doppelt), ein Löwe für Schottland und eine Harf",
+        "question": "Wann wurde das aktuelle britische Thronwappen festgelegt?",
+        "question_id": "q_ed2a782e9e323871",
+        "refs": [
+          "1837"
+        ]
+      }
+    ],
+    "C": [
+      {
+        "H0_answer": "nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik",
+        "H0_em": 1.0,
+        "H1_answer": "das Zurückdrängen der HD",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 0.82080078125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 6,
+        "gold_rank_before": 2,
+        "gold_rerank_score": -1.59765625,
+        "gold_text_head": "Haushund\n\n=== Urtümliche Hunde ===\nIn vielen Ländern existieren Hunderassen, die phänotypisch weitgehend den ersten domestizierten Hunden entsprechen. Nach einer Unterteilung der Gesellschaft für Haustierforschung gehören dazu die Paria- bzw. Schensihunde, wie sie zum Beispiel in der Äquatorialgegen",
+        "question": "nach welchen Kriterien wurde die Zucht von Hunden betrieben?",
+        "question_id": "q_a796bf03a8fff66a",
+        "refs": [
+          "nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik"
+        ]
+      },
+      {
+        "H0_answer": "Arthur",
+        "H0_em": 0.0,
+        "H1_answer": "Ludwig VIII.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 3.2265625,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 6,
+        "gold_rank_before": 3,
+        "gold_rerank_score": 1.3310546875,
+        "gold_text_head": "Johann_Ohneland\n\n=== Erfolglose Feldzüge nach Frankreich ===\nJohanns Halbbruder William Longespée konnte in der Seeschlacht bei Damme am 30. Mai 1213 einen Teil der französischen Flotte zerstören, so dass die Gefahr einer französischen Invasion zunächst gebannt war. Im Juni gab Johann den Befehl, in",
+        "question": "Wer war König von Frankreich während Johann Ohnelands Feldzug nach Frankreich?",
+        "question_id": "q_b0523fa384ee40b9",
+        "refs": [
+          "Philipp II."
+        ]
+      },
+      {
+        "H0_answer": "Lyndon B. Johnson",
+        "H0_em": 0.0,
+        "H1_answer": "Präsident Franklin D. Roosevelt",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.33203125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 7,
+        "gold_rank_before": 3,
+        "gold_rerank_score": -0.72216796875,
+        "gold_text_head": "Dwight_D._Eisenhower\n\n==== Wirtschafts- und Sozialpolitik ====\nInnenpolitisch verfolgte Eisenhower einen gemäßigten Kurs und grenzte sich somit von den konservativen Republikanern ab. Eine Kooperation mit den Demokraten war ohnehin unumgänglich, da die Republikaner nur in den ersten zwei seiner acht",
+        "question": "Unter welchem Präsidenten wurde der New Deal umgesetzt?",
+        "question_id": "q_b9a762ec5cb521f3",
+        "refs": [
+          "unter Franklin D. Roosevelt"
+        ]
+      },
+      {
+        "H0_answer": "mit dem ehemaligen Kaiserreich Abessinien",
+        "H0_em": 0.0,
+        "H1_answer": "mit dem ehemaligen Kaiserreich Abessinien",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 2.3046875,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 6,
+        "gold_rank_before": 3,
+        "gold_rerank_score": 1.4345703125,
+        "gold_text_head": "Eritrea\n\n=== Im 20. Jahrhundert ===\nFlagge Eritreas als autonome Region des Kaiserreichs Äthiopiens bis 1961\nNach dem Überfall Italiens auf Äthiopien wurde Eritrea 1936 in das neu gegründete Italienisch-Ostafrika eingegliedert. Es erhielt große Gebiete Nordäthiopiens dazu, so wurde der größte Teil T",
+        "question": "Durch welche Gebiete wurde Eritrea als italienische Kolonie erweitert?",
+        "question_id": "q_d4ff6c5f4495d329",
+        "refs": [
+          "große Gebiete Nordäthiopiens"
+        ]
+      },
+      {
+        "H0_answer": "Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind",
+        "H0_em": 1.0,
+        "H1_answer": "In Tibet sind 92,77 % der Bevölkerung Tibeter, in Qinghai 22,53 %, in Gansu 1,76 % und in Sichuan 1,54 %.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": -0.2220458984375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": false
+        },
+        "gold_rank_after": 10,
+        "gold_rank_before": 2,
+        "gold_rerank_score": -4.63671875,
+        "gold_text_head": "Tibet\n\n=== Klima ===\nIn Tibet herrscht Hochlandklima mit großen Tagestemperaturschwankungen und viel Sonnenschein. Auch sind die Temperaturunterschiede zwischen dem Süden Tibets und dem Norden beträchtlich.\nDas angenehmste Klima herrscht in den tieferen Lagen des Südostens Tibets. Dort liegen auch d",
+        "question": "Wie ist die geographische Verteilung der Bevölkerung Tibets?",
+        "question_id": "q_de1abed50a7b6e76",
+        "refs": [
+          "Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind."
+        ]
+      }
+    ],
+    "D": [
+      {
+        "H0_answer": "Die Zeugen Jehovas sind in Amerika, Europa, Afrika südlich der Sahara und Australien relativ gleichmäßig stark, in den islamisch dominierten Staaten und vielen anderen asiatischen Ländern hingegen nur schwach vertreten",
+        "H0_em": 0.0,
+        "H1_answer": "Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 3.875,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 10,
+        "gold_rerank_score": 3.875,
+        "gold_text_head": "Zeugen_Jehovas\n\n=== Ehe und Familie ===\nDie Ehe wird als heilig angesehen. Scheidungen sind nur bei Ehebruch zulässig. Ob ein Ehepaar sich scheiden lässt oder sich trennt, entscheiden die Partner nach ihrem Gewissen. Der Mann gilt nach  als Oberhaupt der Familie, die Frau soll sich ihm unterordnen. ",
+        "question": "Dürfen die Zeugen Jehovas Menschen heiraten, die nicht zu ihrer Religionsgemeinschaft gehören?",
+        "question_id": "q_0165d5d67e98b5e5",
+        "refs": [
+          "Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten."
+        ]
+      },
+      {
+        "H0_answer": "Seit etwa fünf Millionen Jahren, im Pliozän",
+        "H0_em": 0.0,
+        "H1_answer": "dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.8642578125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 1.8642578125,
+        "gold_text_head": "Gletscher\n\n== Glazialisostasie ==\nKontinentalplatten befinden sich normalerweise in einem Zustand des Gleichgewichts zwischen der durch ihre Masse und die Gravitation bedingte Kraft und dem Auftrieb durch den Erdmantel. Dieses Gleichgewicht ist die Isostasie. Es kann jedoch dadurch gestört werden, d",
+        "question": "Wann kommt es zum Verlust des Gleichgewichtes der Kontinentalplatten?",
+        "question_id": "q_050b885214d88006",
+        "refs": [
+          " Es kann jedoch dadurch gestört werden, dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern."
+        ]
+      },
+      {
+        "H0_answer": "τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C",
+        "H0_em": 0.0,
+        "H1_answer": "τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 6.26953125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 8,
+        "gold_rerank_score": 6.26953125,
+        "gold_text_head": "Kondensator__Elektrotechnik_\n\n=== Isolationswiderstand und Selbstentladung ===\nEin auf eine Gleichspannung  aufgeladener realer Kondensator entlädt sich mit der Zeit von selbst. Dieser Effekt kann durch einen endlichen ''Isolationswiderstand''  des Dielektrikums beschrieben werden, der zu einem idea",
+        "question": "Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?",
+        "question_id": "q_06fc8f8eb910f9d5",
+        "refs": [
+          "2000 bis 4000 s"
+        ]
+      },
+      {
+        "H0_answer": "bei Nennspannung einen Abfall der Kapazität von bis zu 90 % gegenüber der genormten Messspannung von 0,5 oder 1 V",
+        "H0_em": 0.0,
+        "H1_answer": "Klasse-1-Kondensatoren, die sich für Hochfrequenz- und Filteranwendungen eignen, und Klasse-2-Kondensatoren, die als Energiespeicher und Siebkondensator eingesetzt werden",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 5.73046875,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 8,
+        "gold_rerank_score": 5.73046875,
+        "gold_text_head": "Kondensator__Elektrotechnik_\n\n=== Isolationswiderstand und Selbstentladung ===\nEin auf eine Gleichspannung  aufgeladener realer Kondensator entlädt sich mit der Zeit von selbst. Dieser Effekt kann durch einen endlichen ''Isolationswiderstand''  des Dielektrikums beschrieben werden, der zu einem idea",
+        "question": "Welche Selbstentladungszeitkonstante ist für Kondensatoren in Klasse 2 aus Keramik vorgeschrieben?",
+        "question_id": "q_1a4ddddf100829d3",
+        "refs": [
+          "mindestens 100 s"
+        ]
+      },
+      {
+        "H0_answer": "Brecht",
+        "H0_em": 0.0,
+        "H1_answer": "August Graf von Platen",
+        "H1_em": 1.0,
+        "H1_top1_rerank_score": 0.30712890625,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 0.30712890625,
+        "gold_text_head": "Völkermord\n\n=== 19. Jahrhundert ===\nDer Ausdruck ''Völkermord'' taucht zum ersten Mal bei dem deutschen Lyriker August Graf von Platen (1796–1835) in seinen „Polenliedern“ auf, und zwar in der 1831 entstandenen Ode ''Der künftige Held''. Er wendet sich gegen die Auflösung des polnischen Staates, den",
+        "question": "Von wem stammen die \"Polenlieder\"?",
+        "question_id": "q_1aa58551b6b12bc5",
+        "refs": [
+          "August Graf von Platen"
+        ]
+      },
+      {
+        "H0_answer": "Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z. B. der Bentley State Limousine verwendet.",
+        "H0_em": 0.0,
+        "H1_answer": "Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z. B. der Bentley State Limousine verwendet.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.30078125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 2,
+        "gold_rank_before": 11,
+        "gold_rerank_score": 0.65576171875,
+        "gold_text_head": "Elisabeth_II.\n\n=== Wappen ===\nSeit ihrer Thronbesteigung führt Elisabeth als Symbol der königlichen Herrschaft das Wappen des britischen Monarchen, das seit 1837 in dieser Form existiert. Auf dem Wappenschild abgebildet sind drei Leoparden für England (doppelt), ein Löwe für Schottland und eine Harf",
+        "question": "Was ist der Text im britischen Königswappen?",
+        "question_id": "q_1eaf5ccf58942ed8",
+        "refs": [
+          "Wahlspruch des Hosenbandordens"
+        ]
+      },
+      {
+        "H0_answer": "die Stadt Agordat",
+        "H0_em": 0.0,
+        "H1_answer": "in Asmara geschlagen geben mussten",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.40234375,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 3,
+        "gold_rank_before": 11,
+        "gold_rerank_score": 3.357421875,
+        "gold_text_head": "Eritrea\nEritrea (; , ) ist ein Staat im nordöstlichen Afrika. Er grenzt im Nordwesten an den Sudan, im Süden an Äthiopien, im Südosten an Dschibuti und im Nordosten an das Rote Meer. Der Landesname leitet sich von seinem griechischen Namen  ab, der auf die Bezeichnung , zurückgeht und früher als ''E",
+        "question": "Was war Eritrea bevor es von den Italiener eingenommen wurde?",
+        "question_id": "q_2259f809ce293de5",
+        "refs": [
+          "eine osmanische und ägyptische Kolonie"
+        ]
+      },
+      {
+        "H0_answer": "von der Spannung und von der Temperatur",
+        "H0_em": 0.0,
+        "H1_answer": "von der Spannung und von der Temperatur",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.720703125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 4,
+        "gold_rank_before": 9,
+        "gold_rerank_score": 1.2587890625,
+        "gold_text_head": "Kondensator__Elektrotechnik_\n\n=== Feldenergie ===\nEin geladener Kondensator speichert elektrische Energie in dem elektrischen Feld, das ''zwischen'' den geladenen Platten besteht. Ist ein Kondensator der Kapazität  auf die Spannung  geladen, so enthält sein Feld die Energie  gemäß:\nZum Laden eines K",
+        "question": "Wovon hängt die Ladezeit eines Kondensators ab?",
+        "question_id": "q_272996b12bc8fbdc",
+        "refs": [
+          "Je weiter der Kondensator während dieses Vorgangs bereits aufgeladen ist, desto stärker ist das bereits zwischen seinen Platten herrschende elektrische Feld , desto mehr Kraft wird ausgeübt, um die Ladung von einer Platte zur anderen zu bringen."
+        ]
+      },
+      {
+        "H0_answer": "1196",
+        "H0_em": 0.0,
+        "H1_answer": "im April 1209",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.4990234375,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 4,
+        "gold_rank_before": 8,
+        "gold_rerank_score": -0.888671875,
+        "gold_text_head": "Johann_Ohneland\n\n=== Erfolglose Feldzüge nach Frankreich ===\nJohanns Halbbruder William Longespée konnte in der Seeschlacht bei Damme am 30. Mai 1213 einen Teil der französischen Flotte zerstören, so dass die Gefahr einer französischen Invasion zunächst gebannt war. Im Juni gab Johann den Befehl, in",
+        "question": "Für wie lange schloss Johann Ohneland mit dem französischen König Frieden?",
+        "question_id": "q_2b2c44c3aec9f656",
+        "refs": [
+          "einen fünfjährigen Waffenstillstand"
+        ]
+      },
+      {
+        "H0_answer": "etwa 15 Meter",
+        "H0_em": 0.0,
+        "H1_answer": "bis zu 150 Meter",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.5908203125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 8,
+        "gold_rerank_score": 1.5908203125,
+        "gold_text_head": "Gletscher\n\n== Glazialeustasie ==\nDurch das massive Binden von Wasser in Form von Eis auf Landflächen sank in den Kaltzeiten der Meeresspiegel und lag bis zu 150 Meter niedriger als heute. Dadurch fiel u. a. die heutige Nordsee trocken und bildete eine Landbrücke zwischen Europa und Britannien. Maas ",
+        "question": "Um wie viel war das Meeresniveau tiefer während der Eiszeiten?",
+        "question_id": "q_3ca83111f23bdd3c",
+        "refs": [
+          "bis zu 150 Meter niedriger als heute"
+        ]
+      },
+      {
+        "H0_answer": "Vertretung und Unterstützung konfessionsloser und nichtreligiöser Menschen",
+        "H0_em": 0.0,
+        "H1_answer": "Festlegungen ihrer nationalen Mitgliedsorganisationen zu Rassestandards koordiniert und publiziert sowie Regeln zur Zucht festlegt",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 5.4453125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 5.4453125,
+        "gold_text_head": "Haushund\n\n== Zucht ==\nIm Verlauf der Mensch-Hund-Beziehung haben sich, regional und nach den Umwelt- und Lebensbedingungen, unterschiedliche Hunderassen herausgebildet. Die Spannweite der Körpergrößen ist so groß wie bei keinem anderen Landwirbeltier. Der Mensch hat es verstanden, den Hund für unter",
+        "question": "Welche Aufgabe hat die Federation Cynologique Internationale?",
+        "question_id": "q_506ea50f9caef511",
+        "refs": [
+          " Rassestandards koordiniert und publiziert sowie Regeln zur Zucht festlegt"
+        ]
+      },
+      {
+        "H0_answer": "bis zum Lebensende 95 Prozent seines Vermögens an sie abzugeben.",
+        "H0_em": 0.0,
+        "H1_answer": "nicht ausreichend zu prüfen, ob die von ihr geförderten Unternehmen umweltverschmutzend agieren oder teure AIDS-Medikamente verkaufen („blind-eye investing“).",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.875,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 4.875,
+        "gold_text_head": "Bill___Melinda_Gates_Foundation\n\n== Kritik ==\nIm Januar 2007 veröffentlichten Journalisten der Los Angeles Times einen Bericht, in dem sie der Stiftung vorwarfen, nicht ausreichend zu prüfen, ob die von ihr geförderten Unternehmen umweltverschmutzend agieren oder teure AIDS-Medikamente verkaufen („b",
+        "question": "Aus welchem Grund wurde die Bill & Melinda Gates Stiftung 2007 kritisiert?",
+        "question_id": "q_5a84ee8991cf44c6",
+        "refs": [
+          "Im Januar 2007 veröffentlichten Journalisten der Los Angeles Times einen Bericht, in dem sie der Stiftung vorwarfen, nicht ausreichend zu prüfen, ob die von ihr geförderten Unternehmen umweltverschmutzend agieren oder teure AIDS-Medikamente verkaufen („blind-eye investing“)."
+        ]
+      }
+    ],
+    "E": [
+      {
+        "H0_answer": "eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.",
+        "H0_em": 0.0,
+        "H1_answer": "eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 2.96484375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 3,
+        "gold_rerank_score": 2.96484375,
+        "gold_text_head": "St._Helena__Insel_\n\n=== Flughafen ===\nSt. Helena erhielt 2016 erstmals einen Flughafen. Der Flugbetrieb beendet seit Oktober 2017 die Rolle der RMS ''St Helena'' als einziger Verkehrsverbindung zur Außenwelt. Starke Scherwinde erschweren aber das Anfliegen des Flughafens durch größere Flugzeuge, sod",
+        "question": "Welche abgehenden Flugverbindungen gibt es von der Insel St. Helena?",
+        "question_id": "q_02d2154e47d17a48",
+        "refs": [
+          "Es besteht eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190."
+        ]
+      },
+      {
+        "H0_answer": "die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay",
+        "H0_em": 0.0,
+        "H1_answer": "die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 5.1328125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 5.1328125,
+        "gold_text_head": "Schwarze\n\n==== Melanesien ====\nEs gibt zahlreiche Gruppen von dunkelhäutigen Menschen die in verschiedenen Teilen Asiens, Australiens und Ozeaniens leben und die manchmal als Schwarze bezeichnet werden. Diese umfassen die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölker",
+        "question": "Welche dunkelhäutigen Völker leben in Melanesien?",
+        "question_id": "q_03218fb2c6a0aef1",
+        "refs": [
+          "Diese umfassen die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay."
+        ]
+      },
+      {
+        "H0_answer": "Seit etwa fünf Millionen Jahren, im Pliozän",
+        "H0_em": 0.0,
+        "H1_answer": "dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.8642578125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 6,
+        "gold_rerank_score": 1.8642578125,
+        "gold_text_head": "Gletscher\n\n== Glazialisostasie ==\nKontinentalplatten befinden sich normalerweise in einem Zustand des Gleichgewichts zwischen der durch ihre Masse und die Gravitation bedingte Kraft und dem Auftrieb durch den Erdmantel. Dieses Gleichgewicht ist die Isostasie. Es kann jedoch dadurch gestört werden, d",
+        "question": "Wann kommt es zum Verlust des Gleichgewichtes der Kontinentalplatten?",
+        "question_id": "q_050b885214d88006",
+        "refs": [
+          " Es kann jedoch dadurch gestört werden, dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern."
+        ]
+      },
+      {
+        "H0_answer": "τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C",
+        "H0_em": 0.0,
+        "H1_answer": "τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 6.26953125,
+        "gold_in_top5": {
+          "H0": false,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 8,
+        "gold_rerank_score": 6.26953125,
+        "gold_text_head": "Kondensator__Elektrotechnik_\n\n=== Isolationswiderstand und Selbstentladung ===\nEin auf eine Gleichspannung  aufgeladener realer Kondensator entlädt sich mit der Zeit von selbst. Dieser Effekt kann durch einen endlichen ''Isolationswiderstand''  des Dielektrikums beschrieben werden, der zu einem idea",
+        "question": "Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?",
+        "question_id": "q_06fc8f8eb910f9d5",
+        "refs": [
+          "2000 bis 4000 s"
+        ]
+      },
+      {
+        "H0_answer": "395 Regionalverbände mit über 170.000",
+        "H0_em": 0.0,
+        "H1_answer": "395 Regionalverbände mit über 170.000",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 6.09765625,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 6.09765625,
+        "gold_text_head": "Zeugen_Jehovas\n\n=== Zeugen Jehovas in Russland ===\nDie Religionsgemeinschaft wurde in der Sowjetunion verfolgt – so wurden in der Operation Nord im Jahr 1951 über 8500 Zeugen nach Sibirien verbannt – und erst 1991 anerkannt. Im Jahr 2017 existieren in Russland 395 Regionalverbände mit über 170.000 M",
+        "question": "Wie viele Zeugen jehovas leben in Russland?",
+        "question_id": "q_07eef073230ce400",
+        "refs": [
+          "170.000 "
+        ]
+      },
+      {
+        "H0_answer": "tief liegende Küstengebiete und -städte sowie Inseln",
+        "H0_em": 0.0,
+        "H1_answer": "tief liegende Küstengebiete und -städte sowie Inseln",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 3.5390625,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 2,
+        "gold_rank_before": 4,
+        "gold_rerank_score": 3.0546875,
+        "gold_text_head": "Gletscher\n\n== Glazialeustasie ==\nDurch das massive Binden von Wasser in Form von Eis auf Landflächen sank in den Kaltzeiten der Meeresspiegel und lag bis zu 150 Meter niedriger als heute. Dadurch fiel u. a. die heutige Nordsee trocken und bildete eine Landbrücke zwischen Europa und Britannien. Maas ",
+        "question": "Welche Länder wären durch einen Anstieg des Meeresspiegels besonders betroffen?",
+        "question_id": "q_0d9c8c5d91553983",
+        "refs": [
+          "sehr tief liegende Länder wie Bangladesch oder die Depressionsgebiete in den Niederlanden"
+        ]
+      },
+      {
+        "H0_answer": "eine Ausweitung der Sozialversicherungen und eine Erhöhung des Mindestlohns",
+        "H0_em": 0.0,
+        "H1_answer": "eine Ausweitung der Sozialversicherungen und eine Erhöhung des Mindestlohns",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.95703125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 2,
+        "gold_rerank_score": 1.95703125,
+        "gold_text_head": "Dwight_D._Eisenhower\n\n==== Wirtschafts- und Sozialpolitik ====\nInnenpolitisch verfolgte Eisenhower einen gemäßigten Kurs und grenzte sich somit von den konservativen Republikanern ab. Eine Kooperation mit den Demokraten war ohnehin unumgänglich, da die Republikaner nur in den ersten zwei seiner acht",
+        "question": "Welche Positionierung nahm Eisenhower innerhalb der republikanischen Partei ein?",
+        "question_id": "q_0e3e20fe6b58d7e7",
+        "refs": [
+          " zum moderaten Flügel seiner Partei"
+        ]
+      },
+      {
+        "H0_answer": "süße, salzige und saure Nahrung",
+        "H0_em": 0.0,
+        "H1_answer": "süße, salzige und saure Nahrung",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 4.59375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 2,
+        "gold_rerank_score": 4.59375,
+        "gold_text_head": "Haushund\n\n=== Geschmackssinn ===\nHunde besitzen Geschmacksknospen auf den Papillen der Zunge, aber auch auf dem Gaumendach und am Eingang des Schlundes. Insgesamt verfügt der Haushund über 1700 solcher Geschmacksknospen (der Mensch hat 9000). Um Geschmack wahrnehmen zu können, müssen Moleküle im Spe",
+        "question": "Welche Geschmacksrichtungen nehmen die seitlichen Bereiche der Zunge beim Hund wahr?",
+        "question_id": "q_115067c093397656",
+        "refs": [
+          "auf süße, salzige und saure Nahrung"
+        ]
+      },
+      {
+        "H0_answer": "zwei Einhorne",
+        "H0_em": 0.0,
+        "H1_answer": "welfischen Löwen und Leoparden",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 1.7294921875,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 2,
+        "gold_rank_before": 4,
+        "gold_rerank_score": 1.3193359375,
+        "gold_text_head": "Elisabeth_II.\n\n=== Wappen ===\nSeit ihrer Thronbesteigung führt Elisabeth als Symbol der königlichen Herrschaft das Wappen des britischen Monarchen, das seit 1837 in dieser Form existiert. Auf dem Wappenschild abgebildet sind drei Leoparden für England (doppelt), ein Löwe für Schottland und eine Harf",
+        "question": "Welche Tiere halten den Schild im Wappen der englischen Krone?",
+        "question_id": "q_122bf8b002810480",
+        "refs": [
+          "Löwe und Einhorn"
+        ]
+      },
+      {
+        "H0_answer": "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt",
+        "H0_em": 0.0,
+        "H1_answer": "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 7.58203125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 7.58203125,
+        "gold_text_head": "Gletscher\n\n== Etymologie und Synonyme ==\nDas ursprünglich schweizerdeutsche Wort ''Gletscher'' entwickelte sich aus romanischen Dialektformen (vgl. heutiges ''glačer'' im Wallis), die von vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („E",
+        "question": "Welche Etymologie hat das Wort Gletscher?",
+        "question_id": "q_14c5fc7bf93b15eb",
+        "refs": [
+          "Das ursprünglich schweizerdeutsche Wort ''Gletscher'' entwickelte sich aus romanischen Dialektformen (vgl. heutiges ''glačer'' im Wallis), die von vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt."
+        ]
+      },
+      {
+        "H0_answer": "dreißigjährigen",
+        "H0_em": 0.0,
+        "H1_answer": "dreißigjährigen",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 6.89453125,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 3,
+        "gold_rank_before": 5,
+        "gold_rerank_score": 1.1953125,
+        "gold_text_head": "Eritrea\n\n=== Im 20. Jahrhundert ===\nFlagge Eritreas als autonome Region des Kaiserreichs Äthiopiens bis 1961\nNach dem Überfall Italiens auf Äthiopien wurde Eritrea 1936 in das neu gegründete Italienisch-Ostafrika eingegliedert. Es erhielt große Gebiete Nordäthiopiens dazu, so wurde der größte Teil T",
+        "question": "Wie lange dauerte der Unabhängigkeitskampf in Eritrea?",
+        "question_id": "q_1695ce71f0bcacd0",
+        "refs": [
+          "dreißig Jahren"
+        ]
+      },
+      {
+        "H0_answer": "Weilt die Königin in Schottland, gelangt eine unterschiedliche Royal Standard zur Anwendung, auf der statt des englischen Wappensymbols das schottische doppelt abgebildet ist. Wenn sie Australien, Barbados, Jamaika, Kanada oder Neuseeland besucht",
+        "H0_em": 0.0,
+        "H1_answer": "Weilt die Königin in Schottland, gelangt eine unterschiedliche Royal Standard zur Anwendung, auf der statt des englischen Wappensymbols das schottische doppelt abgebildet ist. Wenn sie Australien, Barbados, Jamaika, Kanada oder Neuseeland besucht",
+        "H1_em": 0.0,
+        "H1_top1_rerank_score": 0.89990234375,
+        "gold_in_top5": {
+          "H0": true,
+          "H1": true
+        },
+        "gold_rank_after": 1,
+        "gold_rank_before": 1,
+        "gold_rerank_score": 0.89990234375,
+        "gold_text_head": "Elisabeth_II.\n\n=== Flaggen ===\nDie Royal Standard ist die Flagge der Königin in ihrer Funktion als Staatsoberhaupt. Darauf abgebildet ist der Wappenschild des königlichen Wappens, womit es sich bei der Flagge eigentlich um ein Banner handelt. Sie wird auf königlichen Residenzen gehisst, in denen die",
+        "question": "Wann gelangt die Royal Standard zur Anwendung?",
+        "question_id": "q_181ca2b37db2ead4",
+        "refs": [
+          "Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z. B. der Bentley State Limousine verwendet."
+        ]
+      }
+    ]
+  },
+  "group_sizes_full": {
+    "A": 8,
+    "B": 7,
+    "C": 5,
+    "D": 22,
+    "E": 177
+  },
+  "note": "mỗi nhóm cắt còn 12 ca đầu theo question_id"
+}

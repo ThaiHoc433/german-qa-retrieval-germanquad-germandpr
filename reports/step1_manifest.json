@@ -1,0 +1,56 @@
+{
+  "download_time": "2026-10-14T18:18:48.346083+00:00",
+  "datasets": {
+    "germanquad": {
+      "repo_id": "deepset/germanquad",
+      "revision_sha": "fff05ceaf2ffbe5b65c7e0c57e678f7b7e1a0581",
+      "splits": {
+        "train": 11518,
+        "test": 2204
+      },
+      "columns": {
+        "train": {
+          "id": "Value('int32')",
+          "context": "Value('string')",
+          "question": "Value('string')",
+          "answers": "{'text': List(Value('string')), 'answer_start': List(Value('int32'))}"
+        },
+        "test": {
+          "id": "Value('int32')",
+          "context": "Value('string')",
+          "question": "Value('string')",
+          "answers": "{'text': List(Value('string')), 'answer_start': List(Value('int32'))}"
+        }
+      }
+    },
+    "germandpr": {
+      "repo_id": "deepset/germandpr",
+      "revision_sha": "5129d02422a66be600ac89cd3e8531b4f97d347d",
+      "splits": {
+        "train": 9275,
+        "test": 1025
+      },
+      "columns": {
+        "train": {
+          "question": "Value('string')",
+          "answers": "List(Value('string'))",
+          "positive_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}",
+          "negative_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}",
+          "hard_negative_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}"
+        },
+        "test": {
+          "question": "Value('string')",
+          "answers": "List(Value('string'))",
+          "positive_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}",
+          "negative_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}",
+          "hard_negative_ctxs": "{'title': List(Value('string')), 'text': List(Value('string')), 'passage_id': List(Value('string'))}"
+        }
+      }
+    }
+  },
+  "library_versions": {
+    "datasets": "5.0.1",
+    "huggingface_hub": "1.31.0",
+    "python": "3.13.3"
+  }
+}

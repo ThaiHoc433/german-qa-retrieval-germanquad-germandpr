@@ -1,0 +1,13 @@
+# Cấu hình reranker V1 (GĐ14). Do 14d chọn trên train-select theo results/14_prereg.json, xác nhận ở results/14_confirmation.json.
+rerank:
+  model: bge_m3
+  repo: BAAI/bge-reranker-v2-m3
+  commit: 953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+  checkpoint: models/rerank_bge_m3_976fb4ad     # bản sao có SHA-1 khớp prereg (không dựa vào cache HuggingFace)
+  relevant_label: null              # model một đầu ra: điểm = logit
+  max_length: 512
+  batch_size: 16
+  fp16: true
+  overflow: windows                 # chia cửa sổ, điểm đoạn = điểm cửa sổ lớn nhất
+  stride: 128
+  pool: 20                          # xếp lại đúng 20 đoạn của H0, reader nhận reader_top_k = 5 đầu

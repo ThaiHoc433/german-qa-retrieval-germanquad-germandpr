@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "gold_passage": {
+      "as_dpr_train_positive": 1056,
+      "in_dpr_train_any_role": 1068
+    },
+    "in_dpr_test": 113,
+    "in_dpr_train": 942,
+    "questions": 1176,
+    "unseen_question": 234
+  },
+  "test": {
+    "gold_passage": {
+      "as_dpr_train_positive": 0,
+      "in_dpr_train_any_role": 186
+    },
+    "in_dpr_test": 0,
+    "in_dpr_train": 0,
+    "questions": 2203,
+    "unseen_question": 2203
+  },
+  "train": {
+    "gold_passage": {
+      "as_dpr_train_positive": 9275,
+      "in_dpr_train_any_role": 9485
+    },
+    "in_dpr_test": 912,
+    "in_dpr_train": 8312,
+    "questions": 10301,
+    "unseen_question": 1989
+  }
+}

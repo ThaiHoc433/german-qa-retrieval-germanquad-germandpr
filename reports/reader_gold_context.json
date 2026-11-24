@@ -1,0 +1,109 @@
+{
+  "checkpoint": "models/reader_20261101T213758Z_96717e35",
+  "chosen": {
+    "max_answer_tokens": 80,
+    "score_mode": "minus_cls"
+  },
+  "dev": {
+    "em": 0.46938775510204084,
+    "f1": 0.698895438003166,
+    "queries": 1176
+  },
+  "dev_by_windows": {
+    "1 cửa sổ": {
+      "em": 0.4903614457831325,
+      "f1": 0.7243916407891235,
+      "queries": 830
+    },
+    "2 cửa sổ": {
+      "em": 0.42028985507246375,
+      "f1": 0.6379552745738516,
+      "queries": 345
+    },
+    "3+ cửa sổ": {
+      "em": 0.0,
+      "f1": 0.5614035087719299,
+      "queries": 1
+    }
+  },
+  "dev_trials": [
+    {
+      "em": 0.42772108843537415,
+      "f1": 0.6514251757977012,
+      "max_answer_tokens": 20,
+      "queries": 1176,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.44982993197278914,
+      "f1": 0.6792638820199869,
+      "max_answer_tokens": 30,
+      "queries": 1176,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.4642857142857143,
+      "f1": 0.691182984686467,
+      "max_answer_tokens": 50,
+      "queries": 1176,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.4651360544217687,
+      "f1": 0.6976771237114794,
+      "max_answer_tokens": 80,
+      "queries": 1176,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.4302721088435374,
+      "f1": 0.6524958219221653,
+      "max_answer_tokens": 20,
+      "queries": 1176,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.4549319727891156,
+      "f1": 0.6804060302721708,
+      "max_answer_tokens": 30,
+      "queries": 1176,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.4685374149659864,
+      "f1": 0.6914046027827329,
+      "max_answer_tokens": 50,
+      "queries": 1176,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.46938775510204084,
+      "f1": 0.698895438003166,
+      "max_answer_tokens": 80,
+      "queries": 1176,
+      "score_mode": "minus_cls"
+    }
+  ],
+  "test": {
+    "em": 0.5828415796640944,
+    "f1": 0.7537126917698412,
+    "queries": 2203
+  },
+  "test_by_windows": {
+    "1 cửa sổ": {
+      "em": 0.6428571428571429,
+      "f1": 0.8072247585005478,
+      "queries": 924
+    },
+    "2 cửa sổ": {
+      "em": 0.57,
+      "f1": 0.7435768001003451,
+      "queries": 600
+    },
+    "3+ cửa sổ": {
+      "em": 0.5125184094256259,
+      "f1": 0.689848752657212,
+      "queries": 679
+    }
+  }
+}

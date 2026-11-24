@@ -1,0 +1,9 @@
+# Cấu hình hybrid retriever V1 (GĐ13): BM25 + dense hợp nhất bằng RRF.
+# Giá trị do 13a_sweep.py chọn trên 1.989 câu train theo quy tắc ghi trước (results/13_prereg.json);
+# lý do và số liệu: results/rrf_sweep.json. Chưa xác nhận trên dev-unseen khi file này được ghi.
+hybrid:
+  bm25_top_k: 100        # số đoạn lấy từ BM25 đưa vào RRF (độ sâu của nhánh)
+  dense_top_k: 100       # số đoạn lấy từ dense đưa vào RRF
+  fusion_top_k: 20      # số đoạn trả về sau RRF (khớp pipeline.retrieval_top_k; reader chỉ đọc reader_top_k = 5 đầu)
+  rrf_c: 10             # hằng số làm trơn của RRF; KHÔNG phải top-k
+  w_dense: 1.0          # trọng số nhánh dense (BM25 luôn 1); 1.0 = RRF thường

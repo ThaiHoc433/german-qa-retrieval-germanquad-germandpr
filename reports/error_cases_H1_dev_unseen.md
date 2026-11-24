@@ -1,0 +1,192 @@
+# Ca đọc tay H1 (dev-unseen)
+
+## A. H0 đúng EM, H1 sai — 8 ca (hiện 8)
+
+- **q_1961ab35a367482b** Was versuchte das Absinken des Meeresniveaus während der Eiszeiten?
+  - đáp án chuẩn: ['Durch das massive Binden von Wasser in Form von Eis auf Landflächen']
+  - H0: 'Durch das massive Binden von Wasser in Form von Eis auf Landflächen' | H1: 'Das Inlandeis über Skandinavien'
+  - đoạn đúng: hạng 4 -> 2 (điểm -0.129638671875)
+- **q_51c04d6c1b95b8aa** Wer förderte die Gates Foundation 2006 mit Aktien im Wert von mehreren Milliarden Dolalr?
+  - đáp án chuẩn: ['Warren Buffett']
+  - H0: 'Warren Buffett' | H1: 'Rockefeller-Stiftung'
+  - đoạn đúng: hạng 1 -> 1 (điểm 4.296875)
+- **q_7c0ddc6825dabab4** Inwiefern unterscheidet sich die Geologie der Appalachen von Bergen im Westen der USA?
+  - đáp án chuẩn: ['Ihre Faltengürtel sind deutlich älter und hingen ursprünglich mit ähnlich alten Faltengürteln in Nordwestafrika sowie West- und Mitteleuropa zusammen, die heute teilweise ebenfalls in Form von Bergländern (z.\xa0B. dem Antiatlas in Marokko und dem Zentralmassiv in Frankreich) zutage treten (siehe unten).']
+  - H0: 'Ihre Faltengürtel sind deutlich älter und hingen ursprünglich mit ähnlich alten Faltengürteln in Nordwestafrika sowie West- und Mitteleuropa zusammen, die heute teilweise ebenfalls in Form von Bergländern (z.\xa0B. dem Antiatlas in Marokko und dem Zentralmassiv in Frankreich) zutage treten (siehe unten).' | H1: 'Zu den geographischen Besonderheiten, die zumeist der Region zugeordnet werden, gehören die Regenwälder des Nordwestens, die hohen Gebirgsketten wie beispielsweise die Rocky Mountains, die Sierra Nevada und die Cascade Range, verschiedene Gletscher sowie die westlichen Gebiete der Great Plains. Außerdem gehört ein Großteil der Wüstenfläche der USA zum Westen des Landes.'
+  - đoạn đúng: hạng 3 -> 1 (điểm 4.765625)
+- **q_9049bcdc2503cb39** Wie versuchte Papst Paul VI. die Entführung von Also Moro zu beenden?
+  - đáp án chuẩn: ['indem er sich mit einem handschriftlichen Brief an die Entführer wandte']
+  - H0: 'indem er sich mit einem handschriftlichen Brief an die Entführer wandte' | H1: 'Während der Entführung des früheren italienischen Ministerpräsidenten Aldo Moro im April 1978, der mit Mincuzzi und dessen Familie befreundet war, appellierten er und andere italienische Bischöfe an die Roten Brigaden, um eine gewaltfreie Lösung des Konfliktes zu erreichen'
+  - đoạn đúng: hạng 1 -> 1 (điểm 3.42578125)
+- **q_a0f1268df0f4dc27** Welche Summe gab der FC Arsenal 2012 für die Gehälter von Spielern und Angestellten aus?
+  - đáp án chuẩn: ['143 Millionen Pfund']
+  - H0: '143 Millionen Pfund' | H1: 'etwa 500.000\xa0Euro (£ 420,000) bis 800.000\xa0Euro'
+  - đoạn đúng: hạng 2 -> 1 (điểm 2.455078125)
+- **q_a796bf03a8fff66a** nach welchen Kriterien wurde die Zucht von Hunden betrieben?
+  - đáp án chuẩn: ['nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik']
+  - H0: 'nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik' | H1: 'das Zurückdrängen der HD'
+  - đoạn đúng: hạng 2 -> 6 (điểm -1.59765625)
+- **q_de1abed50a7b6e76** Wie ist die geographische Verteilung der Bevölkerung Tibets?
+  - đáp án chuẩn: ['Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind.']
+  - H0: 'Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind' | H1: 'In Tibet sind 92,77 % der Bevölkerung Tibeter, in Qinghai 22,53 %, in Gansu 1,76 % und in Sichuan 1,54 %.'
+  - đoạn đúng: hạng 2 -> 10 (điểm -4.63671875)
+- **q_e2bc9c2127866835** Wann erlangte Eritrea seine Unabhängigkeit?
+  - đáp án chuẩn: ['1993']
+  - H0: '1993' | H1: 'am 24. Mai 1993'
+  - đoạn đúng: hạng 7 -> 5 (điểm 4.12109375)
+
+## B. H0 sai EM, H1 đúng — 7 ca (hiện 7)
+
+- **q_0165d5d67e98b5e5** Dürfen die Zeugen Jehovas Menschen heiraten, die nicht zu ihrer Religionsgemeinschaft gehören?
+  - đáp án chuẩn: ['Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten.']
+  - H0: 'Die Zeugen Jehovas sind in Amerika, Europa, Afrika südlich der Sahara und Australien relativ gleichmäßig stark, in den islamisch dominierten Staaten und vielen anderen asiatischen Ländern hingegen nur schwach vertreten' | H1: 'Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten'
+  - đoạn đúng: hạng 10 -> 1 (điểm 3.875)
+- **q_1aa58551b6b12bc5** Von wem stammen die "Polenlieder"?
+  - đáp án chuẩn: ['August Graf von Platen']
+  - H0: 'Brecht' | H1: 'August Graf von Platen'
+  - đoạn đúng: hạng 6 -> 1 (điểm 0.30712890625)
+- **q_1f8fb11c1ee14bfb** Warum ist es wichtig nach Alternativen zum Einsatz von Pestiziden zu suchen?
+  - đáp án chuẩn: ['Aufgrund der vielfältigen und teils schwer abzusehenden, potenziellen Schäden an Ökosystemen, Nicht-Zielorganismen und Mensch ist der Einsatz von Pestiziden teils ein umstrittenes Politikum.']
+  - H0: "die Umwandlung seines Lebensraums in landwirtschaftlich genutzte Flächen, Brände in den Sumpfgebieten, der Einsatz von Pestiziden und vor allem die Einfuhr der Braunen Nachtbaumnatter (''Boiga irregularis'') auf Guam" | H1: 'Aufgrund der vielfältigen und teils schwer abzusehenden, potenziellen Schäden an Ökosystemen, Nicht-Zielorganismen und Mensch ist der Einsatz von Pestiziden teils ein umstrittenes Politikum.'
+  - đoạn đúng: hạng 1 -> 1 (điểm 6.49609375)
+- **q_53accd02b064f394** Wozu war Prinzessin Margaret verpflichtet, wenn sie Peter Townsend doch heiraten würde?
+  - đáp án chuẩn: ['Im Falle einer Ziviltrauung wäre von Margaret erwartet worden, ihr Recht auf die Thronfolge aufzugeben.']
+  - H0: 'unterstützt vom Adel, sich scheiden zu lassen' | H1: 'Im Falle einer Ziviltrauung wäre von Margaret erwartet worden, ihr Recht auf die Thronfolge aufzugeben'
+  - đoạn đúng: hạng 1 -> 1 (điểm 2.412109375)
+- **q_c104edc3deecf828** Wann endete der Kampf um die Unabhängigkeit Eritreas von Äthiopien?
+  - đáp án chuẩn: ['1991']
+  - H0: 'dreißigjährigen Unabhängigkeitskrieg gegen Äthiopien wird die Eigenständigkeit Eritreas stark betont, was zum Teil als Isolationismus bezeichnet wird. Es kam in der jungen Geschichte des Landes zu mehreren Grenzkonflikten, insbesondere zum erneuten Krieg gegen Äthiopien 1998–2000' | H1: '1991'
+  - đoạn đúng: hạng 1 -> 1 (điểm 6.328125)
+- **q_dd57fe38d8d1c5e9** Zu welcher Stadt gehört Neu-Delhi?
+  - đáp án chuẩn: ['Delhi']
+  - H0: 'North Delhi, South Delhi, East Delhi, Neu-Delhi und Delhi Cantonment' | H1: 'Delhi'
+  - đoạn đúng: hạng 15 -> 4 (điểm 4.484375)
+- **q_ed2a782e9e323871** Wann wurde das aktuelle britische Thronwappen festgelegt?
+  - đáp án chuẩn: ['1837']
+  - H0: '1985' | H1: '1837'
+  - đoạn đúng: hạng 14 -> 1 (điểm -0.4931640625)
+
+## C. đoạn đúng rời top-5 — 5 ca (hiện 5)
+
+- **q_a796bf03a8fff66a** nach welchen Kriterien wurde die Zucht von Hunden betrieben?
+  - đáp án chuẩn: ['nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik']
+  - H0: 'nach gewünschtem Verhalten und wesentlich später auch nach Ästhetik' | H1: 'das Zurückdrängen der HD'
+  - đoạn đúng: hạng 2 -> 6 (điểm -1.59765625)
+- **q_b0523fa384ee40b9** Wer war König von Frankreich während Johann Ohnelands Feldzug nach Frankreich?
+  - đáp án chuẩn: ['Philipp II.']
+  - H0: 'Arthur' | H1: 'Ludwig VIII.'
+  - đoạn đúng: hạng 3 -> 6 (điểm 1.3310546875)
+- **q_b9a762ec5cb521f3** Unter welchem Präsidenten wurde der New Deal umgesetzt?
+  - đáp án chuẩn: ['unter Franklin D. Roosevelt']
+  - H0: 'Lyndon B. Johnson' | H1: 'Präsident Franklin D. Roosevelt'
+  - đoạn đúng: hạng 3 -> 7 (điểm -0.72216796875)
+- **q_d4ff6c5f4495d329** Durch welche Gebiete wurde Eritrea als italienische Kolonie erweitert?
+  - đáp án chuẩn: ['große Gebiete Nordäthiopiens']
+  - H0: 'mit dem ehemaligen Kaiserreich Abessinien' | H1: 'mit dem ehemaligen Kaiserreich Abessinien'
+  - đoạn đúng: hạng 3 -> 6 (điểm 1.4345703125)
+- **q_de1abed50a7b6e76** Wie ist die geographische Verteilung der Bevölkerung Tibets?
+  - đáp án chuẩn: ['Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind.']
+  - H0: 'Die meisten Einwohner Tibets leben im Gebiet zwischen Lhasa und Shigatse sowie am Ostrand des tibetischen Hochlands, während der Norden, der Zentralbereich wie auch der Westen Tibets nahezu unbewohnbar sind' | H1: 'In Tibet sind 92,77 % der Bevölkerung Tibeter, in Qinghai 22,53 %, in Gansu 1,76 % und in Sichuan 1,54 %.'
+  - đoạn đúng: hạng 2 -> 10 (điểm -4.63671875)
+
+## D. đoạn đúng vào top-5 — 22 ca (hiện 12)
+
+- **q_0165d5d67e98b5e5** Dürfen die Zeugen Jehovas Menschen heiraten, die nicht zu ihrer Religionsgemeinschaft gehören?
+  - đáp án chuẩn: ['Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten.']
+  - H0: 'Die Zeugen Jehovas sind in Amerika, Europa, Afrika südlich der Sahara und Australien relativ gleichmäßig stark, in den islamisch dominierten Staaten und vielen anderen asiatischen Ländern hingegen nur schwach vertreten' | H1: 'Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten'
+  - đoạn đúng: hạng 10 -> 1 (điểm 3.875)
+- **q_050b885214d88006** Wann kommt es zum Verlust des Gleichgewichtes der Kontinentalplatten?
+  - đáp án chuẩn: [' Es kann jedoch dadurch gestört werden, dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern.']
+  - H0: 'Seit etwa fünf Millionen Jahren, im Pliozän' | H1: 'dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern'
+  - đoạn đúng: hạng 6 -> 1 (điểm 1.8642578125)
+- **q_06fc8f8eb910f9d5** Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?
+  - đáp án chuẩn: ['2000 bis 4000\xa0s']
+  - H0: 'τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C' | H1: 'τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C'
+  - đoạn đúng: hạng 8 -> 1 (điểm 6.26953125)
+- **q_1a4ddddf100829d3** Welche Selbstentladungszeitkonstante ist für Kondensatoren in Klasse 2 aus Keramik vorgeschrieben?
+  - đáp án chuẩn: ['mindestens 100\xa0s']
+  - H0: 'bei Nennspannung einen Abfall der Kapazität von bis zu 90 % gegenüber der genormten Messspannung von 0,5 oder 1\xa0V' | H1: 'Klasse-1-Kondensatoren, die sich für Hochfrequenz- und Filteranwendungen eignen, und Klasse-2-Kondensatoren, die als Energiespeicher und Siebkondensator eingesetzt werden'
+  - đoạn đúng: hạng 8 -> 1 (điểm 5.73046875)
+- **q_1aa58551b6b12bc5** Von wem stammen die "Polenlieder"?
+  - đáp án chuẩn: ['August Graf von Platen']
+  - H0: 'Brecht' | H1: 'August Graf von Platen'
+  - đoạn đúng: hạng 6 -> 1 (điểm 0.30712890625)
+- **q_1eaf5ccf58942ed8** Was ist der Text im britischen Königswappen?
+  - đáp án chuẩn: ['Wahlspruch des Hosenbandordens']
+  - H0: 'Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z.\xa0B. der Bentley State Limousine verwendet.' | H1: 'Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z.\xa0B. der Bentley State Limousine verwendet.'
+  - đoạn đúng: hạng 11 -> 2 (điểm 0.65576171875)
+- **q_2259f809ce293de5** Was war Eritrea bevor es von den Italiener eingenommen wurde?
+  - đáp án chuẩn: ['eine osmanische und ägyptische Kolonie']
+  - H0: 'die Stadt Agordat' | H1: 'in Asmara geschlagen geben mussten'
+  - đoạn đúng: hạng 11 -> 3 (điểm 3.357421875)
+- **q_272996b12bc8fbdc** Wovon hängt die Ladezeit eines Kondensators ab?
+  - đáp án chuẩn: ['Je weiter der Kondensator während dieses Vorgangs bereits aufgeladen ist, desto stärker ist das bereits zwischen seinen Platten herrschende elektrische Feld , desto mehr Kraft wird ausgeübt, um die Ladung von einer Platte zur anderen zu bringen.']
+  - H0: 'von der Spannung und von der Temperatur' | H1: 'von der Spannung und von der Temperatur'
+  - đoạn đúng: hạng 9 -> 4 (điểm 1.2587890625)
+- **q_2b2c44c3aec9f656** Für wie lange schloss Johann Ohneland mit dem französischen König Frieden?
+  - đáp án chuẩn: ['einen fünfjährigen Waffenstillstand']
+  - H0: '1196' | H1: 'im April 1209'
+  - đoạn đúng: hạng 8 -> 4 (điểm -0.888671875)
+- **q_3ca83111f23bdd3c** Um wie viel war das Meeresniveau tiefer während der Eiszeiten?
+  - đáp án chuẩn: ['bis zu 150 Meter niedriger als heute']
+  - H0: 'etwa 15 Meter' | H1: 'bis zu 150 Meter'
+  - đoạn đúng: hạng 8 -> 1 (điểm 1.5908203125)
+- **q_506ea50f9caef511** Welche Aufgabe hat die Federation Cynologique Internationale?
+  - đáp án chuẩn: [' Rassestandards koordiniert und publiziert sowie Regeln zur Zucht festlegt']
+  - H0: 'Vertretung und Unterstützung konfessionsloser und nichtreligiöser Menschen' | H1: 'Festlegungen ihrer nationalen Mitgliedsorganisationen zu Rassestandards koordiniert und publiziert sowie Regeln zur Zucht festlegt'
+  - đoạn đúng: hạng 6 -> 1 (điểm 5.4453125)
+- **q_5a84ee8991cf44c6** Aus welchem Grund wurde die Bill & Melinda Gates Stiftung 2007 kritisiert?
+  - đáp án chuẩn: ['Im Januar 2007 veröffentlichten Journalisten der Los Angeles Times einen Bericht, in dem sie der Stiftung vorwarfen, nicht ausreichend zu prüfen, ob die von ihr geförderten Unternehmen umweltverschmutzend agieren oder teure AIDS-Medikamente verkaufen („blind-eye investing“).']
+  - H0: 'bis zum Lebensende 95 Prozent seines Vermögens an sie abzugeben.' | H1: 'nicht ausreichend zu prüfen, ob die von ihr geförderten Unternehmen umweltverschmutzend agieren oder teure AIDS-Medikamente verkaufen („blind-eye investing“).'
+  - đoạn đúng: hạng 6 -> 1 (điểm 4.875)
+
+## E. H1 có đoạn đúng trong top-5 nhưng sai đáp án — 177 ca (hiện 12)
+
+- **q_02d2154e47d17a48** Welche abgehenden Flugverbindungen gibt es von der Insel St. Helena?
+  - đáp án chuẩn: ['Es besteht eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.']
+  - H0: 'eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.' | H1: 'eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.'
+  - đoạn đúng: hạng 3 -> 1 (điểm 2.96484375)
+- **q_03218fb2c6a0aef1** Welche dunkelhäutigen Völker leben in Melanesien?
+  - đáp án chuẩn: ['Diese umfassen die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay.']
+  - H0: 'die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay' | H1: 'die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay'
+  - đoạn đúng: hạng 1 -> 1 (điểm 5.1328125)
+- **q_050b885214d88006** Wann kommt es zum Verlust des Gleichgewichtes der Kontinentalplatten?
+  - đáp án chuẩn: [' Es kann jedoch dadurch gestört werden, dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern.']
+  - H0: 'Seit etwa fünf Millionen Jahren, im Pliozän' | H1: 'dass sich auf eine Kontinentalplatte oder Teile davon große Mächtigkeiten einer Inlandvereisung anlagern'
+  - đoạn đúng: hạng 6 -> 1 (điểm 1.8642578125)
+- **q_06fc8f8eb910f9d5** Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?
+  - đáp án chuẩn: ['2000 bis 4000\xa0s']
+  - H0: 'τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C' | H1: 'τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C'
+  - đoạn đúng: hạng 8 -> 1 (điểm 6.26953125)
+- **q_07eef073230ce400** Wie viele Zeugen jehovas leben in Russland?
+  - đáp án chuẩn: ['170.000 ']
+  - H0: '395 Regionalverbände mit über 170.000' | H1: '395 Regionalverbände mit über 170.000'
+  - đoạn đúng: hạng 1 -> 1 (điểm 6.09765625)
+- **q_0d9c8c5d91553983** Welche Länder wären durch einen Anstieg des Meeresspiegels besonders betroffen?
+  - đáp án chuẩn: ['sehr tief liegende Länder wie Bangladesch oder die Depressionsgebiete in den Niederlanden']
+  - H0: 'tief liegende Küstengebiete und -städte sowie Inseln' | H1: 'tief liegende Küstengebiete und -städte sowie Inseln'
+  - đoạn đúng: hạng 4 -> 2 (điểm 3.0546875)
+- **q_0e3e20fe6b58d7e7** Welche Positionierung nahm Eisenhower innerhalb der republikanischen Partei ein?
+  - đáp án chuẩn: [' zum moderaten Flügel seiner Partei']
+  - H0: 'eine Ausweitung der Sozialversicherungen und eine Erhöhung des Mindestlohns' | H1: 'eine Ausweitung der Sozialversicherungen und eine Erhöhung des Mindestlohns'
+  - đoạn đúng: hạng 2 -> 1 (điểm 1.95703125)
+- **q_115067c093397656** Welche Geschmacksrichtungen nehmen die seitlichen Bereiche der Zunge beim Hund wahr?
+  - đáp án chuẩn: ['auf süße, salzige und saure Nahrung']
+  - H0: 'süße, salzige und saure Nahrung' | H1: 'süße, salzige und saure Nahrung'
+  - đoạn đúng: hạng 2 -> 1 (điểm 4.59375)
+- **q_122bf8b002810480** Welche Tiere halten den Schild im Wappen der englischen Krone?
+  - đáp án chuẩn: ['Löwe und Einhorn']
+  - H0: 'zwei Einhorne' | H1: 'welfischen Löwen und Leoparden'
+  - đoạn đúng: hạng 4 -> 2 (điểm 1.3193359375)
+- **q_14c5fc7bf93b15eb** Welche Etymologie hat das Wort Gletscher?
+  - đáp án chuẩn: ["Das ursprünglich schweizerdeutsche Wort ''Gletscher'' entwickelte sich aus romanischen Dialektformen (vgl. heutiges ''glačer'' im Wallis), die von vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt."]
+  - H0: "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt" | H1: "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt"
+  - đoạn đúng: hạng 1 -> 1 (điểm 7.58203125)
+- **q_1695ce71f0bcacd0** Wie lange dauerte der Unabhängigkeitskampf in Eritrea?
+  - đáp án chuẩn: ['dreißig Jahren']
+  - H0: 'dreißigjährigen' | H1: 'dreißigjährigen'
+  - đoạn đúng: hạng 5 -> 3 (điểm 1.1953125)
+- **q_181ca2b37db2ead4** Wann gelangt die Royal Standard zur Anwendung?
+  - đáp án chuẩn: ['Sie wird auf königlichen Residenzen gehisst, in denen die Monarchin sich gerade aufhält, und wird auch auf offiziellen Fahrzeugen wie z.\xa0B. der Bentley State Limousine verwendet.']
+  - H0: 'Weilt die Königin in Schottland, gelangt eine unterschiedliche Royal Standard zur Anwendung, auf der statt des englischen Wappensymbols das schottische doppelt abgebildet ist. Wenn sie Australien, Barbados, Jamaika, Kanada oder Neuseeland besucht' | H1: 'Weilt die Königin in Schottland, gelangt eine unterschiedliche Royal Standard zur Anwendung, auf der statt des englischen Wappensymbols das schottische doppelt abgebildet ist. Wenn sie Australien, Barbados, Jamaika, Kanada oder Neuseeland besucht'
+  - đoạn đúng: hạng 1 -> 1 (điểm 0.89990234375)

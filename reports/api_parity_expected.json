@@ -1,0 +1,1910 @@
+{
+  "expected": {
+    "bm25": [
+      {
+        "answer": "sowohl die Gesamtkapazität als auch die Strombelastbarkeit der Schaltung",
+        "end": 498,
+        "passage_id": "p_550259f83d28e94d",
+        "reader_score": 20.326171875,
+        "retrieval_score": 20.26315564757588,
+        "start": 426,
+        "status": "ok"
+      },
+      {
+        "answer": "Derzeit werden die Zeugen Jehovas in ihrer Religionsausübung in Nigeria nicht behindert, nur in wenigen Fällen kam es zu religiös motivierten Diskriminierungen oder Übergriffen.",
+        "end": 1083,
+        "passage_id": "p_e1c3cc832bb49204",
+        "reader_score": -3.2373046875,
+        "retrieval_score": 28.531063031618483,
+        "start": 906,
+        "status": "ok"
+      },
+      {
+        "answer": "Bill & Melinda Gates Foundation",
+        "end": 491,
+        "passage_id": "p_0469e5057eebbfec",
+        "reader_score": 21.373046875,
+        "retrieval_score": 24.631968425210072,
+        "start": 460,
+        "status": "ok"
+      },
+      {
+        "answer": "4.284",
+        "end": 682,
+        "passage_id": "p_551530a746864513",
+        "reader_score": 23.48046875,
+        "retrieval_score": 14.56750140049919,
+        "start": 677,
+        "status": "ok"
+      },
+      {
+        "answer": "O’Shea’s Limited (Opel)",
+        "end": 556,
+        "passage_id": "p_e53988f3387d31bd",
+        "reader_score": 19.765625,
+        "retrieval_score": 19.783396192858245,
+        "start": 533,
+        "status": "ok"
+      },
+      {
+        "answer": "zur Erstellung dynamischer Webseiten oder Webanwendungen",
+        "end": 151,
+        "passage_id": "p_6f620a4d5e25189b",
+        "reader_score": 16.119140625,
+        "retrieval_score": 14.633907210209184,
+        "start": 95,
+        "status": "ok"
+      },
+      {
+        "answer": "−30,3 °C",
+        "end": 1053,
+        "passage_id": "p_b80c16d9ab0e21e9",
+        "reader_score": 15.9921875,
+        "retrieval_score": 19.323204312923906,
+        "start": 1045,
+        "status": "ok"
+      },
+      {
+        "answer": "2006",
+        "end": 1519,
+        "passage_id": "p_bd70f502244e2124",
+        "reader_score": 14.69189453125,
+        "retrieval_score": 28.871865979631913,
+        "start": 1515,
+        "status": "ok"
+      },
+      {
+        "answer": "Neben einigen Kreuzfahrtschiffen, die an der Insel anlegen, gab es eine regelmäßige Verbindung im Drei-Wochen-Takt von und nach Kapstadt mit dem Postschiff ''St Helena''",
+        "end": 326,
+        "passage_id": "p_af6f1d922c7fa78b",
+        "reader_score": 13.1943359375,
+        "retrieval_score": 19.844566078891653,
+        "start": 157,
+        "status": "ok"
+      },
+      {
+        "answer": "die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay",
+        "end": 425,
+        "passage_id": "p_2c319cc8807d82b8",
+        "reader_score": 22.171875,
+        "retrieval_score": 26.756560593693592,
+        "start": 218,
+        "status": "ok"
+      },
+      {
+        "answer": "von 1929 bis 1933",
+        "end": 1078,
+        "passage_id": "p_8cbc38dc3c51e8e8",
+        "reader_score": 27.4609375,
+        "retrieval_score": 19.552518447407238,
+        "start": 1061,
+        "status": "ok"
+      },
+      {
+        "answer": "wonach die USA alle Länder im Nahen Osten mit allen zur Verfügung stehenden Mitteln verteidigen werden, falls diese einer Aggression des internationalen Kommunismus anheimfallen sollten",
+        "end": 382,
+        "passage_id": "p_fbef1f0699c8137e",
+        "reader_score": 22.2734375,
+        "retrieval_score": 14.26028903778051,
+        "start": 197,
+        "status": "ok"
+      },
+      {
+        "answer": "vor allem Rohstoffe, Handelswaren (beispielsweise Commodities) oder Investitionsgüter (Maschinen)",
+        "end": 1248,
+        "passage_id": "p_e5fe56978973f431",
+        "reader_score": 13.8759765625,
+        "retrieval_score": 16.6913612941946,
+        "start": 1151,
+        "status": "ok"
+      },
+      {
+        "answer": "Hugh de Balliol",
+        "end": 142,
+        "passage_id": "p_a269c4a7d27b2d4e",
+        "reader_score": 15.4609375,
+        "retrieval_score": 17.77459275136787,
+        "start": 127,
+        "status": "ok"
+      },
+      {
+        "answer": "Explosionsgefahr) und können schon bei geringer Überspannung zerstört werden.",
+        "end": 1366,
+        "passage_id": "p_75a1137fbf352242",
+        "reader_score": 8.78564453125,
+        "retrieval_score": 20.807025799738753,
+        "start": 1289,
+        "status": "ok"
+      },
+      {
+        "answer": "vier",
+        "end": 123,
+        "passage_id": "p_374fb051147ab1c9",
+        "reader_score": 23.23828125,
+        "retrieval_score": 13.10463110362579,
+        "start": 119,
+        "status": "ok"
+      },
+      {
+        "answer": "''General Electric'', ''Westinghouse Electric Corporation'' und ''United Fruit Company''",
+        "end": 667,
+        "passage_id": "p_457e7860a628b18e",
+        "reader_score": 19.51171875,
+        "retrieval_score": 22.890042351082702,
+        "start": 579,
+        "status": "ok"
+      },
+      {
+        "answer": "bei typischen Aufbauten im Bereich von 3 pF bis 9 pF",
+        "end": 893,
+        "passage_id": "p_f000e723c6d2edef",
+        "reader_score": 11.0888671875,
+        "retrieval_score": 17.647255314708467,
+        "start": 841,
+        "status": "ok"
+      },
+      {
+        "answer": "etwa ein Viertel kam in der Haft um oder wurde hingerichtet",
+        "end": 843,
+        "passage_id": "p_8b64517935a100e3",
+        "reader_score": 19.75,
+        "retrieval_score": 34.9625438341572,
+        "start": 784,
+        "status": "ok"
+      },
+      {
+        "answer": "Nominalzins, Realzins und erwarteter Inflationsrate",
+        "end": 617,
+        "passage_id": "p_fff32fa40fdf4dc2",
+        "reader_score": -0.322265625,
+        "retrieval_score": 9.649020523316787,
+        "start": 566,
+        "status": "ok"
+      },
+      {
+        "answer": "bis 1960",
+        "end": 339,
+        "passage_id": "p_e6cec8e36605887e",
+        "reader_score": 26.01953125,
+        "retrieval_score": 16.358653354316786,
+        "start": 331,
+        "status": "ok"
+      },
+      {
+        "answer": "bestand Delhi nur aus der ummauerten Altstadt, Alt-Delhi",
+        "end": 584,
+        "passage_id": "p_438e0ef12e224b34",
+        "reader_score": 28.2109375,
+        "retrieval_score": 27.184032163088954,
+        "start": 528,
+        "status": "ok"
+      },
+      {
+        "answer": "Millionen von Menschen in Großbritannien",
+        "end": 944,
+        "passage_id": "p_b097bcb23fd1cd9e",
+        "reader_score": 6.69189453125,
+        "retrieval_score": 15.937218720732805,
+        "start": 904,
+        "status": "ok"
+      },
+      {
+        "answer": "Zur ersten Steinkirche des Reiches wurde die Desjatynna-Kirche in Kiew",
+        "end": 879,
+        "passage_id": "p_c5c43796a06114c5",
+        "reader_score": 12.326904296875,
+        "retrieval_score": 29.980569001981515,
+        "start": 809,
+        "status": "ok"
+      },
+      {
+        "answer": "Golf von Aden",
+        "end": 448,
+        "passage_id": "p_3049d99dc40c6b0a",
+        "reader_score": 19.517578125,
+        "retrieval_score": 17.631039967617014,
+        "start": 435,
+        "status": "ok"
+      },
+      {
+        "answer": "im Bereich weniger Pikofarad bis zu etwa 100 Mikrofarad",
+        "end": 983,
+        "passage_id": "p_68087d187740c0a1",
+        "reader_score": 17.34375,
+        "retrieval_score": 22.558052986737906,
+        "start": 928,
+        "status": "ok"
+      },
+      {
+        "answer": "Spanien und Portugal, aber auch anderen europäischen sowie nahöstlichen Ländern",
+        "end": 273,
+        "passage_id": "p_597dc1267ac33aa4",
+        "reader_score": 22.203125,
+        "retrieval_score": 18.338923110773646,
+        "start": 194,
+        "status": "ok"
+      },
+      {
+        "answer": "Cesàro-Mittel beziehungsweise der Cesàro-Konvergenz auf Reihen, das heißt auf die Folge der Partialsummen einer Reihe. Zu einer Folge  sind die Partialsummen der Reihe  definiert als:\nZu dieser Folge  bildet man nun die Cesàro-Mittel",
+        "end": 322,
+        "passage_id": "p_9fd3d1ee6bc15525",
+        "reader_score": 2.804443359375,
+        "retrieval_score": 11.325314922774737,
+        "start": 89,
+        "status": "ok"
+      },
+      {
+        "answer": "Die robuste Natur des Hokkaido",
+        "end": 584,
+        "passage_id": "p_43543925ece97e98",
+        "reader_score": 17.0869140625,
+        "retrieval_score": 14.295461022312562,
+        "start": 554,
+        "status": "ok"
+      },
+      {
+        "answer": "am 2. September 1998",
+        "end": 249,
+        "passage_id": "p_a0655f2c854e0857",
+        "reader_score": 24.71875,
+        "retrieval_score": 31.99453215701692,
+        "start": 229,
+        "status": "ok"
+      },
+      {
+        "answer": "395 Regionalverbände mit über 170.000",
+        "end": 298,
+        "passage_id": "p_7a57df5a259e91ec",
+        "reader_score": 18.587890625,
+        "retrieval_score": 21.404970725607217,
+        "start": 261,
+        "status": "ok"
+      },
+      {
+        "answer": "sieben bis fünfzehn",
+        "end": 747,
+        "passage_id": "p_fc5cc2790ee4601b",
+        "reader_score": 18.431640625,
+        "retrieval_score": 18.44347896930875,
+        "start": 728,
+        "status": "ok"
+      },
+      {
+        "answer": "vom Mittelalter bis in die Neuzeit",
+        "end": 610,
+        "passage_id": "p_c25e144a863973b9",
+        "reader_score": 26.8125,
+        "retrieval_score": 9.94206080392713,
+        "start": 576,
+        "status": "ok"
+      },
+      {
+        "answer": "Im 7. Jahrhundert",
+        "end": 57,
+        "passage_id": "p_ba7731b74af33f8e",
+        "reader_score": 27.5,
+        "retrieval_score": 19.11765111098704,
+        "start": 40,
+        "status": "ok"
+      },
+      {
+        "answer": "Poets’ Corner – deutsch: ''Dichterecke'' – mit einem Denkmal für William Shakespeare",
+        "end": 716,
+        "passage_id": "p_f7e597e678b74ae3",
+        "reader_score": 22.41015625,
+        "retrieval_score": 20.809787199079665,
+        "start": 632,
+        "status": "ok"
+      },
+      {
+        "answer": "in den Kaltzeiten (Eiszeitalter) des Pleistozäns",
+        "end": 804,
+        "passage_id": "p_9f048e1e45866148",
+        "reader_score": 21.314453125,
+        "retrieval_score": 24.059992245916202,
+        "start": 756,
+        "status": "ok"
+      },
+      {
+        "answer": "trockene Regionen wie die Trockensavanne und Wüstengebiete",
+        "end": 697,
+        "passage_id": "p_e2c5a28cf52f9f18",
+        "reader_score": 23.24609375,
+        "retrieval_score": 18.182491482617138,
+        "start": 639,
+        "status": "ok"
+      },
+      {
+        "answer": "eine Oberflächenbehandlung basierend auf organischen Substanzen wie Benzotriazol, Imidazol oder Benzimidazol welche mit der obersten Kupferschicht eine einige 100 nm dicke metallorganische koordinative Bindung eingehen und so das Kupfer vor Oxidation schützen",
+        "end": 296,
+        "passage_id": "p_5cc43d2271d78dd5",
+        "reader_score": 17.337890625,
+        "retrieval_score": 19.68753694986299,
+        "start": 37,
+        "status": "ok"
+      },
+      {
+        "answer": "Afar neben acht anderen „Nationalsprachen“ offiziell anerkannt, ''de facto'' werden aber hauptsächlich Tigrinya und Arabisch",
+        "end": 484,
+        "passage_id": "p_ade00f71364f8450",
+        "reader_score": 20.57421875,
+        "retrieval_score": 30.779003771151388,
+        "start": 360,
+        "status": "ok"
+      },
+      {
+        "answer": "insulinähnlichen Wachstumsfaktors 1 (IGF-1)",
+        "end": 535,
+        "passage_id": "p_3f27ceb73329fe1a",
+        "reader_score": 17.9794921875,
+        "retrieval_score": 18.28922453593136,
+        "start": 492,
+        "status": "ok"
+      },
+      {
+        "answer": "ein Park",
+        "end": 1592,
+        "passage_id": "p_b80c16d9ab0e21e9",
+        "reader_score": 13.086669921875,
+        "retrieval_score": 34.69786185995749,
+        "start": 1584,
+        "status": "ok"
+      },
+      {
+        "answer": "von Cumberland (Maryland) nach Vandalia (Illinois)",
+        "end": 241,
+        "passage_id": "p_24ce4b460a5e2810",
+        "reader_score": 23.85546875,
+        "retrieval_score": 21.821472548658267,
+        "start": 191,
+        "status": "ok"
+      },
+      {
+        "answer": "der Buttertee",
+        "end": 92,
+        "passage_id": "p_7bfd0973b51ebd9b",
+        "reader_score": 19.91796875,
+        "retrieval_score": 13.13116425956971,
+        "start": 79,
+        "status": "ok"
+      },
+      {
+        "answer": "„Elsässischen Neuesten Nachrichten“",
+        "end": 622,
+        "passage_id": "p_73ddf3808f3bb71f",
+        "reader_score": 26.74609375,
+        "retrieval_score": 16.88886942872531,
+        "start": 587,
+        "status": "ok"
+      },
+      {
+        "answer": "die Fähigkeiten und Stärken der beiden ursprünglichen erhält",
+        "end": 1041,
+        "passage_id": "p_094ba83d39b2b667",
+        "reader_score": 2.90887451171875,
+        "retrieval_score": 10.999401146505807,
+        "start": 981,
+        "status": "ok"
+      },
+      {
+        "answer": "Im 19. Jahrhundert",
+        "end": 385,
+        "passage_id": "p_3fbb982f4cc19984",
+        "reader_score": 21.3125,
+        "retrieval_score": 13.071207604178529,
+        "start": 367,
+        "status": "ok"
+      },
+      {
+        "answer": "1980",
+        "end": 665,
+        "passage_id": "p_981239239eade599",
+        "reader_score": 22.34765625,
+        "retrieval_score": 25.697894837344208,
+        "start": 661,
+        "status": "ok"
+      },
+      {
+        "answer": "wegen der höheren Abschreckungswirkung",
+        "end": 279,
+        "passage_id": "p_a72686619ce0661a",
+        "reader_score": 25.484375,
+        "retrieval_score": 14.752737051873666,
+        "start": 241,
+        "status": "ok"
+      },
+      {
+        "answer": "18",
+        "end": 152,
+        "passage_id": "p_0a5c0600295a326e",
+        "reader_score": 17.724609375,
+        "retrieval_score": 24.463861645921163,
+        "start": 150,
+        "status": "ok"
+      },
+      {
+        "answer": "5072 m über NN",
+        "end": 1033,
+        "passage_id": "p_cdf7106d77749934",
+        "reader_score": 17.87890625,
+        "retrieval_score": 19.591251237459943,
+        "start": 1019,
+        "status": "ok"
+      },
+      {
+        "answer": "Eheannullierungen",
+        "end": 250,
+        "passage_id": "p_06518de5b43ba1c1",
+        "reader_score": 21.8515625,
+        "retrieval_score": 17.489126327175654,
+        "start": 233,
+        "status": "ok"
+      },
+      {
+        "answer": "tief liegende Küstengebiete und -städte sowie Inseln",
+        "end": 790,
+        "passage_id": "p_66e9692cda4fe326",
+        "reader_score": 23.19921875,
+        "retrieval_score": 30.800812769912604,
+        "start": 738,
+        "status": "ok"
+      },
+      {
+        "answer": "Rjurik begründete die Rus von Nowgorod",
+        "end": 185,
+        "passage_id": "p_fe1167a1b1d30917",
+        "reader_score": 17.59375,
+        "retrieval_score": 18.38805382276179,
+        "start": 147,
+        "status": "ok"
+      },
+      {
+        "answer": "Durch die Ähnlichkeit beider Sprachen, die gemeinsame Geschichte seit der Kodifizierung der beiden Sprachen und die Verbindung in der Tschechoslowakei",
+        "end": 266,
+        "passage_id": "p_3de5d87a74c9bffd",
+        "reader_score": 20.1015625,
+        "retrieval_score": 28.148026241863143,
+        "start": 116,
+        "status": "ok"
+      },
+      {
+        "answer": "vor allem bei temperierten Gletschern mit Basis-Temperaturen knapp unter 0 °C auf, da an der Basis ein Film von flüssigem Wasser existiert, auf dem das Eis gleitet",
+        "end": 220,
+        "passage_id": "p_8be127c07e2c9055",
+        "reader_score": 19.5546875,
+        "retrieval_score": 20.217685218681222,
+        "start": 57,
+        "status": "ok"
+      },
+      {
+        "answer": "Art. V",
+        "end": 231,
+        "passage_id": "p_db35e451d90672b5",
+        "reader_score": 13.4638671875,
+        "retrieval_score": 25.167361871195588,
+        "start": 225,
+        "status": "ok"
+      },
+      {
+        "answer": "dem britischen Wellcome Trust und der Open Society Foundations von George Soros",
+        "end": 401,
+        "passage_id": "p_d482bef953c60903",
+        "reader_score": 16.5087890625,
+        "retrieval_score": 21.0506969782571,
+        "start": 322,
+        "status": "ok"
+      },
+      {
+        "answer": "im rechtlichen Sinne „weiß“ (weniger als 25 % afrikanische Abstammung) und „schwarz“ (Mutter aus Afrika, d. h. 50 % afrikanische Abstammung) waren",
+        "end": 641,
+        "passage_id": "p_d240b1ab76c47e48",
+        "reader_score": 10.728515625,
+        "retrieval_score": 33.84091415783227,
+        "start": 495,
+        "status": "ok"
+      },
+      {
+        "answer": "Robert Tor Russell",
+        "end": 294,
+        "passage_id": "p_a0ddcd1c67e5bb6e",
+        "reader_score": 22.8828125,
+        "retrieval_score": 31.40944637541395,
+        "start": 276,
+        "status": "ok"
+      },
+      {
+        "answer": "Als linksrheinische Fleischhühnerzüchter am Anfang des 20. Jhd. den Niederrheiner erzüchteten, haben sie das Nordholländische Huhn als Basis genommen",
+        "end": 240,
+        "passage_id": "p_6fdf0c53174e4927",
+        "reader_score": -5.37109375,
+        "retrieval_score": 14.773190870118237,
+        "start": 91,
+        "status": "ok"
+      },
+      {
+        "answer": "Haushohe Gesteinsblöcke sind manchmal bis auf den Kern in einzelne Teile gespalten.\nKernsprünge traten auch an großen Geschiebefelsen auf, die in Kaltzeiten von den Gletschern transportiert wurden. Oft nahm das Eis die zerbrochenen Steine mit, wobei die Ecken abgerundet wurden.",
+        "end": 605,
+        "passage_id": "p_6e19fd7ac31981c2",
+        "reader_score": 16.826171875,
+        "retrieval_score": 19.333488110082545,
+        "start": 327,
+        "status": "ok"
+      },
+      {
+        "answer": "eine Ausweitung der Sozialversicherungen und eine Erhöhung des Mindestlohns",
+        "end": 914,
+        "passage_id": "p_eafa28f36e60d444",
+        "reader_score": 22.00390625,
+        "retrieval_score": 20.436026557875334,
+        "start": 839,
+        "status": "ok"
+      },
+      {
+        "answer": "bläuliche, seltener auch leicht grünliche",
+        "end": 730,
+        "passage_id": "p_6d78fd6e817e3f04",
+        "reader_score": 25.1796875,
+        "retrieval_score": 24.100287496892054,
+        "start": 689,
+        "status": "ok"
+      },
+      {
+        "answer": "Musik, Architektur, Medizin, Kunst und des Rechts",
+        "end": 523,
+        "passage_id": "p_2fb20cc0b6c676d0",
+        "reader_score": 13.54833984375,
+        "retrieval_score": 10.10818060042515,
+        "start": 474,
+        "status": "ok"
+      },
+      {
+        "answer": "General Douglas MacArthur",
+        "end": 1203,
+        "passage_id": "p_8cbc38dc3c51e8e8",
+        "reader_score": 25.662109375,
+        "retrieval_score": 33.63841784147625,
+        "start": 1178,
+        "status": "ok"
+      },
+      {
+        "answer": "die Neue-Welt-Übersetzung der Heiligen Schrift",
+        "end": 542,
+        "passage_id": "p_6074a93da45f416a",
+        "reader_score": 23.62890625,
+        "retrieval_score": 24.284301053317233,
+        "start": 496,
+        "status": "ok"
+      },
+      {
+        "answer": "Textilindustrie",
+        "end": 92,
+        "passage_id": "p_2d9be53314b670f0",
+        "reader_score": 25.98828125,
+        "retrieval_score": 16.74400652824683,
+        "start": 77,
+        "status": "ok"
+      },
+      {
+        "answer": "37 Grad",
+        "end": 281,
+        "passage_id": "p_0a77c4372b405548",
+        "reader_score": 12.6982421875,
+        "retrieval_score": 17.740394126711415,
+        "start": 274,
+        "status": "ok"
+      },
+      {
+        "answer": "Neonwerbung für ''American Express'', ''Wimpy'', Fluggesellschaften und Hotels",
+        "end": 359,
+        "passage_id": "p_316a24044fc067bc",
+        "reader_score": 24.72265625,
+        "retrieval_score": 30.95875377931991,
+        "start": 281,
+        "status": "ok"
+      },
+      {
+        "answer": "die USA und die Sowjetunion",
+        "end": 757,
+        "passage_id": "p_2c8fdf87409327ba",
+        "reader_score": 22.01953125,
+        "retrieval_score": 14.174092784771128,
+        "start": 730,
+        "status": "ok"
+      },
+      {
+        "answer": "Neu-Delhi innerhalb der Grenzen von Delhi",
+        "end": 89,
+        "passage_id": "p_aa4649393736b167",
+        "reader_score": 18.1015625,
+        "retrieval_score": 22.20919989604515,
+        "start": 48,
+        "status": "ok"
+      },
+      {
+        "answer": "Als temperierte Gletscher oder warme Gletscher werden Gletscher bezeichnet, deren Eistemperatur sich überall am Druckschmelzpunkt befindet, mit Ausnahme der  durchschnittlich etwa 15 Meter starken oberflächennahen Schichten, die saisonalen Schwankungen unterworfen sind",
+        "end": 292,
+        "passage_id": "p_17d0998497ad967a",
+        "reader_score": 14.2158203125,
+        "retrieval_score": 8.74800980461646,
+        "start": 23,
+        "status": "ok"
+      },
+      {
+        "answer": "Debarwa",
+        "end": 793,
+        "passage_id": "p_52198b85bf278b77",
+        "reader_score": 28.0859375,
+        "retrieval_score": 20.443847212767224,
+        "start": 786,
+        "status": "ok"
+      },
+      {
+        "answer": "Aufgrund des Erfolgs des ''Netscape Navigators''",
+        "end": 86,
+        "passage_id": "p_200391b520ef56cf",
+        "reader_score": 17.0966796875,
+        "retrieval_score": 18.32968843821211,
+        "start": 38,
+        "status": "ok"
+      },
+      {
+        "answer": "16",
+        "end": 249,
+        "passage_id": "p_9f9ae170b15e9b24",
+        "reader_score": 25.11328125,
+        "retrieval_score": 15.989617723997355,
+        "start": 247,
+        "status": "ok"
+      },
+      {
+        "answer": "L. Sanches-Vello",
+        "end": 1092,
+        "passage_id": "p_cb9297fa39098120",
+        "reader_score": 17.2020263671875,
+        "retrieval_score": 11.113337330109127,
+        "start": 1076,
+        "status": "ok"
+      },
+      {
+        "answer": "süß, sauer, salzig, bitter und umami)",
+        "end": 463,
+        "passage_id": "p_20e055863e5f2d26",
+        "reader_score": 18.2900390625,
+        "retrieval_score": 29.032983035950476,
+        "start": 426,
+        "status": "ok"
+      },
+      {
+        "answer": "2009",
+        "end": 1249,
+        "passage_id": "p_0805130fcea48807",
+        "reader_score": 23.744140625,
+        "retrieval_score": 22.186554628632166,
+        "start": 1245,
+        "status": "ok"
+      },
+      {
+        "answer": "elektrisch nichtleitend oder leitfähig, isotrop oder anisotrop",
+        "end": 835,
+        "passage_id": "p_6172b424f0bb8d23",
+        "reader_score": 20.12890625,
+        "retrieval_score": 14.670639589654932,
+        "start": 773,
+        "status": "ok"
+      },
+      {
+        "answer": "zwei Einhorne",
+        "end": 525,
+        "passage_id": "p_31520c79181f6718",
+        "reader_score": 18.51953125,
+        "retrieval_score": 24.281492582404486,
+        "start": 512,
+        "status": "ok"
+      },
+      {
+        "answer": "das Ideal des Menschen",
+        "end": 442,
+        "passage_id": "p_140e5d9e990a94e5",
+        "reader_score": 30.08984375,
+        "retrieval_score": 16.59285409682183,
+        "start": 420,
+        "status": "ok"
+      },
+      {
+        "answer": "Die Wirkung der Gletscher beruht vor allem auf dem von ihnen mitgeführten Moränenmaterial.",
+        "end": 572,
+        "passage_id": "p_d95ddce912d4bc7b",
+        "reader_score": 17.673828125,
+        "retrieval_score": 14.104110496779235,
+        "start": 482,
+        "status": "ok"
+      },
+      {
+        "answer": "Darkot",
+        "end": 616,
+        "passage_id": "p_e5cfc9daab303a54",
+        "reader_score": 16.92578125,
+        "retrieval_score": 13.698617722596587,
+        "start": 610,
+        "status": "ok"
+      },
+      {
+        "answer": "nicht nur die britische Monarchin als Staatsoberhaupt, sondern war auch deren Vertreter als Oberbefehlshaber",
+        "end": 458,
+        "passage_id": "p_90d79cd0076b198a",
+        "reader_score": 21.21484375,
+        "retrieval_score": 17.260078846215748,
+        "start": 350,
+        "status": "ok"
+      },
+      {
+        "answer": "der vergleichsweise hohe Prozessaufwand und damit verbundene Kosten",
+        "end": 614,
+        "passage_id": "p_e705585b98400e0c",
+        "reader_score": 23.1875,
+        "retrieval_score": 30.82018787111324,
+        "start": 547,
+        "status": "ok"
+      },
+      {
+        "answer": "die Isostasie",
+        "end": 258,
+        "passage_id": "p_18386321b10e84d0",
+        "reader_score": 24.09375,
+        "retrieval_score": 18.471301511776474,
+        "start": 245,
+        "status": "ok"
+      },
+      {
+        "answer": "in den 1930er Jahren verstärkt Einwanderungsgesetze erlassen wurden. So beschränkte der ''Immigration Act'' von 1924",
+        "end": 840,
+        "passage_id": "p_b83a05b739195d93",
+        "reader_score": 17.6171875,
+        "retrieval_score": 18.148858947840715,
+        "start": 724,
+        "status": "ok"
+      },
+      {
+        "answer": "wegen des Permafrosts und geringem Wassergehalt im Boden",
+        "end": 682,
+        "passage_id": "p_07525c8453f445cc",
+        "reader_score": 25.6015625,
+        "retrieval_score": 18.839142129143706,
+        "start": 626,
+        "status": "ok"
+      },
+      {
+        "answer": "Nicht tödliche Handlungen einer Regierung, die auf die Vernichtung einer Kultur abzielen",
+        "end": 478,
+        "passage_id": "p_fdbde15ca2246d3c",
+        "reader_score": 30.07421875,
+        "retrieval_score": 9.086341233253416,
+        "start": 390,
+        "status": "ok"
+      },
+      {
+        "answer": "Einen Regierungsposten lehnte Dewey nach Eisenhowers Amtsantritt ab",
+        "end": 734,
+        "passage_id": "p_bc79f65d4e40ac2c",
+        "reader_score": 11.91943359375,
+        "retrieval_score": 16.327040845649357,
+        "start": 667,
+        "status": "ok"
+      },
+      {
+        "answer": "RNA",
+        "end": 128,
+        "passage_id": "p_d5d9739f7e1e998a",
+        "reader_score": 25.4765625,
+        "retrieval_score": 9.668776783274636,
+        "start": 125,
+        "status": "ok"
+      },
+      {
+        "answer": "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt",
+        "end": 313,
+        "passage_id": "p_509a3971205b62dc",
+        "reader_score": 15.662109375,
+        "retrieval_score": 17.961680070138506,
+        "start": 188,
+        "status": "ok"
+      },
+      {
+        "answer": "354",
+        "end": 1030,
+        "passage_id": "p_d6d7c5a8f7b468dc",
+        "reader_score": 25.13671875,
+        "retrieval_score": 21.178296393004036,
+        "start": 1027,
+        "status": "ok"
+      },
+      {
+        "answer": "durch Trennung (''segregation'') und nicht durch Interaktion (''interaction'')",
+        "end": 528,
+        "passage_id": "p_95ec08daa066328f",
+        "reader_score": 24.7578125,
+        "retrieval_score": 16.552866970187857,
+        "start": 450,
+        "status": "ok"
+      },
+      {
+        "answer": "für einen Gefechtsfeldeinsatz der US-Infanterie",
+        "end": 490,
+        "passage_id": "p_e1a1f2d9f1024414",
+        "reader_score": 13.0078125,
+        "retrieval_score": 27.649400077554283,
+        "start": 443,
+        "status": "ok"
+      },
+      {
+        "answer": "2009",
+        "end": 1249,
+        "passage_id": "p_0805130fcea48807",
+        "reader_score": 24.341796875,
+        "retrieval_score": 29.785999637834983,
+        "start": 1245,
+        "status": "ok"
+      },
+      {
+        "answer": "an öffentlichen Schulen wird katholischer und protestantischer Religionsunterricht erteilt",
+        "end": 802,
+        "passage_id": "p_a6a932b9cc169aee",
+        "reader_score": 9.7763671875,
+        "retrieval_score": 11.586488022110693,
+        "start": 712,
+        "status": "ok"
+      },
+      {
+        "answer": "durch eine von der Momentanspannung  abhängige Dielektrizitätszahl",
+        "end": 461,
+        "passage_id": "p_f3453f6fbf937f8c",
+        "reader_score": 27.5390625,
+        "retrieval_score": 18.209115664837217,
+        "start": 395,
+        "status": "ok"
+      },
+      {
+        "answer": "bis Mai 1991",
+        "end": 429,
+        "passage_id": "p_0a4aeeda3e674058",
+        "reader_score": 16.701171875,
+        "retrieval_score": 13.677255057002053,
+        "start": 417,
+        "status": "ok"
+      },
+      {
+        "answer": "Bei Sonneneinstrahlung erwärmen sich die thermochromen Gläser und färben sich ein. Lässt die Sonneneinstrahlung nach, kühlen sich die thermochromen Gläser wieder ab",
+        "end": 357,
+        "passage_id": "p_03fa64c3db060889",
+        "reader_score": 13.6953125,
+        "retrieval_score": 15.25104354885482,
+        "start": 193,
+        "status": "ok"
+      }
+    ],
+    "dense": [
+      {
+        "answer": "sowohl die Gesamtkapazität als auch die Strombelastbarkeit der Schaltung",
+        "end": 498,
+        "passage_id": "p_550259f83d28e94d",
+        "reader_score": 20.326171875,
+        "retrieval_score": 217.460205078125,
+        "start": 426,
+        "status": "ok"
+      },
+      {
+        "answer": "Von Eheschließungen mit Personen, die keine Zeugen Jehovas sind, wird abgeraten",
+        "end": 571,
+        "passage_id": "p_a89b30635b3cc451",
+        "reader_score": 12.693359375,
+        "retrieval_score": 182.83978271484375,
+        "start": 492,
+        "status": "ok"
+      },
+      {
+        "answer": "''William H. Gates Foundation''",
+        "end": 784,
+        "passage_id": "p_d482bef953c60903",
+        "reader_score": 17.560546875,
+        "retrieval_score": 213.21017456054688,
+        "start": 753,
+        "status": "ok"
+      },
+      {
+        "answer": "4.284",
+        "end": 682,
+        "passage_id": "p_551530a746864513",
+        "reader_score": 23.48046875,
+        "retrieval_score": 155.12548828125,
+        "start": 677,
+        "status": "ok"
+      },
+      {
+        "answer": "Apple",
+        "end": 1036,
+        "passage_id": "p_2d9be53314b670f0",
+        "reader_score": 25.83984375,
+        "retrieval_score": 230.06134033203125,
+        "start": 1031,
+        "status": "ok"
+      },
+      {
+        "answer": "zur Darstellung von Webseiten im ''World Wide Web'' oder allgemein von Dokumenten und Daten",
+        "end": 237,
+        "passage_id": "p_d4a6a607b69c0b76",
+        "reader_score": 20.95703125,
+        "retrieval_score": 139.95114135742188,
+        "start": 146,
+        "status": "ok"
+      },
+      {
+        "answer": "−30,3 °C",
+        "end": 1053,
+        "passage_id": "p_b80c16d9ab0e21e9",
+        "reader_score": 15.9921875,
+        "retrieval_score": 182.37171936035156,
+        "start": 1045,
+        "status": "ok"
+      },
+      {
+        "answer": "22. Juli 2006",
+        "end": 196,
+        "passage_id": "p_0f3bb5fc09bb8e3b",
+        "reader_score": 25.072265625,
+        "retrieval_score": 187.00936889648438,
+        "start": 183,
+        "status": "ok"
+      },
+      {
+        "answer": "eine wöchentliche Flugverbindung über Windhoek nach Johannesburg und Kapstadt sowie ab dem 18. November 2017 eine monatliche Flugverbindung nach Ascension mit einem Flugzeug des Typs Embraer E-190.",
+        "end": 625,
+        "passage_id": "p_0cc1c9727178a8f5",
+        "reader_score": 17.939453125,
+        "retrieval_score": 175.80555725097656,
+        "start": 428,
+        "status": "ok"
+      },
+      {
+        "answer": "die Aborigines und die Melanesier (nun geteilt in austronesisch-sprachige Bevölkerungen, Papua und andere Gruppen aus Neuguinea), die Semang der Malaien-Halbinsel, die Aeta aus Luzon, sowie die Ati aus Panay",
+        "end": 425,
+        "passage_id": "p_2c319cc8807d82b8",
+        "reader_score": 22.171875,
+        "retrieval_score": 226.01011657714844,
+        "start": 218,
+        "status": "ok"
+      },
+      {
+        "answer": "1961",
+        "end": 121,
+        "passage_id": "p_a1a22f4b28225bad",
+        "reader_score": 12.705078125,
+        "retrieval_score": 158.36907958984375,
+        "start": 117,
+        "status": "ok"
+      },
+      {
+        "answer": "Mit der nach ihm benannten Doktrin von 1957 modifizierte Eisenhower die Containment-Politik seines Amtsvorgängers Truman insofern, als die bislang eher defensiven Eindämmungspläne gegen etwaige stalinistische Expansionsbestrebungen nun durch die aggressivere Politik des Rollback ersetzt werden sollten.",
+        "end": 400,
+        "passage_id": "p_498bba659cf4eb6a",
+        "reader_score": 14.52734375,
+        "retrieval_score": 166.45594787597656,
+        "start": 97,
+        "status": "ok"
+      },
+      {
+        "answer": "Salz, Eisen und Wein",
+        "end": 967,
+        "passage_id": "p_a45eb7eeb5f23c82",
+        "reader_score": 30.10546875,
+        "retrieval_score": 243.38497924804688,
+        "start": 947,
+        "status": "ok"
+      },
+      {
+        "answer": "vierter Sohn des Königs",
+        "end": 144,
+        "passage_id": "p_a4cc6a09d0fd4042",
+        "reader_score": 20.7421875,
+        "retrieval_score": 164.8588104248047,
+        "start": 121,
+        "status": "ok"
+      },
+      {
+        "answer": "Bekommt in einer Parallelschaltung von Kondensatoren ein Exemplar einen Kurzschluss, so entlädt sich die gesamte Energie aller Kondensatoren über diese Fehlstelle.",
+        "end": 301,
+        "passage_id": "p_df50f0039824206b",
+        "reader_score": 11.943359375,
+        "retrieval_score": 196.6384735107422,
+        "start": 138,
+        "status": "ok"
+      },
+      {
+        "answer": "14",
+        "end": 808,
+        "passage_id": "p_93b3179ab21d28fb",
+        "reader_score": 25.12890625,
+        "retrieval_score": 198.0606689453125,
+        "start": 806,
+        "status": "ok"
+      },
+      {
+        "answer": "ABB, Siemens, Philips und Alstom, das US-Unternehmen Emerson sowie japanische Großunternehmen wie Hitachi oder Mitsubishi",
+        "end": 351,
+        "passage_id": "p_31df0f182b2ac122",
+        "reader_score": 16.88671875,
+        "retrieval_score": 195.3394775390625,
+        "start": 230,
+        "status": "ok"
+      },
+      {
+        "answer": "vor allem bei hohen Frequenzen",
+        "end": 349,
+        "passage_id": "p_819496a7341d8380",
+        "reader_score": 8.2548828125,
+        "retrieval_score": 185.8659210205078,
+        "start": 319,
+        "status": "ok"
+      },
+      {
+        "answer": "vier",
+        "end": 674,
+        "passage_id": "p_75472f948de5ca68",
+        "reader_score": 9.00390625,
+        "retrieval_score": 207.3673553466797,
+        "start": 670,
+        "status": "ok"
+      },
+      {
+        "answer": "Seit etwa fünf Millionen Jahren, im Pliozän",
+        "end": 531,
+        "passage_id": "p_a3d08dd34c464c05",
+        "reader_score": 12.33203125,
+        "retrieval_score": 165.86248779296875,
+        "start": 488,
+        "status": "ok"
+      },
+      {
+        "answer": "Die erste Hälfte des 19. Jahrhunderts",
+        "end": 103,
+        "passage_id": "p_4c13f8bf622d4b6a",
+        "reader_score": 21.234375,
+        "retrieval_score": 237.36337280273438,
+        "start": 66,
+        "status": "ok"
+      },
+      {
+        "answer": "28,125 Millionen Einwohnern",
+        "end": 242,
+        "passage_id": "p_0c3ed57b15943304",
+        "reader_score": 18.61328125,
+        "retrieval_score": 210.65975952148438,
+        "start": 215,
+        "status": "ok"
+      },
+      {
+        "answer": "rund 8.000",
+        "end": 1415,
+        "passage_id": "p_21ef0b02253759a7",
+        "reader_score": 6.80078125,
+        "retrieval_score": 193.35916137695312,
+        "start": 1405,
+        "status": "ok"
+      },
+      {
+        "answer": "ca. 989",
+        "end": 358,
+        "passage_id": "p_5c033d2a01aeab27",
+        "reader_score": 23.78125,
+        "retrieval_score": 248.78155517578125,
+        "start": 351,
+        "status": "ok"
+      },
+      {
+        "answer": "die Ebene von Duar, eine schmale Niederung, die zu den Ausläufern des Ganges-Brahmaputra-Tieflandes gehört. Nördlich davon steigt das Land steil an. Die 2000 bis 3000 m hohen Berge des Vorderhimalaya sind das Hauptsiedlungsgebiet. An der Grenze zu Tibet liegt die Hochgebirgsregion Lunana",
+        "end": 814,
+        "passage_id": "p_182c159198c05a1b",
+        "reader_score": 20.46875,
+        "retrieval_score": 232.31040954589844,
+        "start": 526,
+        "status": "ok"
+      },
+      {
+        "answer": "τisol ergibt sich aus der Multiplikation des Isolationswiderstandes mit der Kapazität des Kondensators τisol = Risol·C",
+        "end": 428,
+        "passage_id": "p_8c35bf342740f256",
+        "reader_score": 18.3671875,
+        "retrieval_score": 178.16624450683594,
+        "start": 310,
+        "status": "ok"
+      },
+      {
+        "answer": "Indien zweitausend bis dreitausend Jahre zurückdatieren, scheinen identisch mit der umgebenden Bevölkerung der Tamilen",
+        "end": 915,
+        "passage_id": "p_5f6d6a56cbb789d1",
+        "reader_score": 22.97265625,
+        "retrieval_score": 175.40756225585938,
+        "start": 797,
+        "status": "ok"
+      },
+      {
+        "answer": "''(echte) Rubingläser''",
+        "end": 138,
+        "passage_id": "p_99b246c2f21a6f0d",
+        "reader_score": 14.369140625,
+        "retrieval_score": 171.37149047851562,
+        "start": 115,
+        "status": "ok"
+      },
+      {
+        "answer": "Da die Nase (ähnlich wie beim Sehen) rechts und links differenzieren kann, können Hunde räumlich riechen. Auf diese Weise ist der Hund fähig, der Richtung einer Spur zu folgen.",
+        "end": 998,
+        "passage_id": "p_f6d85fe9f5fb93cb",
+        "reader_score": 4.314208984375,
+        "retrieval_score": 178.89889526367188,
+        "start": 822,
+        "status": "ok"
+      },
+      {
+        "answer": "21. November 1947",
+        "end": 731,
+        "passage_id": "p_2dd16e361a618f35",
+        "reader_score": 15.080078125,
+        "retrieval_score": 190.09799194335938,
+        "start": 714,
+        "status": "ok"
+      },
+      {
+        "answer": "77,8 % Ukrainer, 17,3 % Russen und über 100 weitere Ethnien. Eine staatlich nicht anerkannte Minderheit sind die Russinen Transkarpatiens",
+        "end": 466,
+        "passage_id": "p_d56e2daf2c021641",
+        "reader_score": 10.775390625,
+        "retrieval_score": 213.72352600097656,
+        "start": 329,
+        "status": "ok"
+      },
+      {
+        "answer": "sieben bis fünfzehn",
+        "end": 747,
+        "passage_id": "p_fc5cc2790ee4601b",
+        "reader_score": 18.431640625,
+        "retrieval_score": 127.50747680664062,
+        "start": 728,
+        "status": "ok"
+      },
+      {
+        "answer": "vom Mittelalter bis in die Neuzeit",
+        "end": 610,
+        "passage_id": "p_c25e144a863973b9",
+        "reader_score": 26.80859375,
+        "retrieval_score": 168.2720947265625,
+        "start": 576,
+        "status": "ok"
+      },
+      {
+        "answer": "606",
+        "end": 166,
+        "passage_id": "p_a45eb7eeb5f23c82",
+        "reader_score": 22.48046875,
+        "retrieval_score": 226.80401611328125,
+        "start": 163,
+        "status": "ok"
+      },
+      {
+        "answer": "zahlreiche berühmte britische Staatsmänner bestattet, u. a. der ältere Pitt, Palmerston, Disraeli und Gladstone",
+        "end": 189,
+        "passage_id": "p_d3104575a4dc9d8b",
+        "reader_score": 25.2109375,
+        "retrieval_score": 202.64048767089844,
+        "start": 78,
+        "status": "ok"
+      },
+      {
+        "answer": "in den Kaltzeiten (Eiszeitalter) des Pleistozäns",
+        "end": 804,
+        "passage_id": "p_9f048e1e45866148",
+        "reader_score": 21.314453125,
+        "retrieval_score": 188.78585815429688,
+        "start": 756,
+        "status": "ok"
+      },
+      {
+        "answer": "das westliche Tiefland und das Hochland",
+        "end": 521,
+        "passage_id": "p_7e7eeefcde6d80e8",
+        "reader_score": 27.015625,
+        "retrieval_score": 242.09039306640625,
+        "start": 482,
+        "status": "ok"
+      },
+      {
+        "answer": "eine Oberflächenbehandlung basierend auf organischen Substanzen wie Benzotriazol, Imidazol oder Benzimidazol welche mit der obersten Kupferschicht eine einige 100 nm dicke metallorganische koordinative Bindung eingehen und so das Kupfer vor Oxidation schützen",
+        "end": 296,
+        "passage_id": "p_5cc43d2271d78dd5",
+        "reader_score": 17.3359375,
+        "retrieval_score": 173.0963134765625,
+        "start": 37,
+        "status": "ok"
+      },
+      {
+        "answer": "Tigrinya",
+        "end": 244,
+        "passage_id": "p_251ef1d9957951f7",
+        "reader_score": 13.72607421875,
+        "retrieval_score": 177.96559143066406,
+        "start": 236,
+        "status": "ok"
+      },
+      {
+        "answer": "insulinähnlichen Wachstumsfaktors 1 (IGF-1)",
+        "end": 535,
+        "passage_id": "p_3f27ceb73329fe1a",
+        "reader_score": 17.9794921875,
+        "retrieval_score": 186.1923828125,
+        "start": 492,
+        "status": "ok"
+      },
+      {
+        "answer": "ein Park",
+        "end": 1592,
+        "passage_id": "p_b80c16d9ab0e21e9",
+        "reader_score": 13.084716796875,
+        "retrieval_score": 212.86085510253906,
+        "start": 1584,
+        "status": "ok"
+      },
+      {
+        "answer": "von Cumberland (Maryland) nach Vandalia (Illinois)",
+        "end": 241,
+        "passage_id": "p_24ce4b460a5e2810",
+        "reader_score": 23.85546875,
+        "retrieval_score": 177.93319702148438,
+        "start": 191,
+        "status": "ok"
+      },
+      {
+        "answer": "Tsampa",
+        "end": 536,
+        "passage_id": "p_76e8278114f20653",
+        "reader_score": 15.33203125,
+        "retrieval_score": 260.47808837890625,
+        "start": 530,
+        "status": "ok"
+      },
+      {
+        "answer": "Rezensionszeitschriften (ab 1747) nahm die Literatur zwar das Hauptgewicht ein, doch wurden in ihnen in wachsendem Maße die bildenden Künste in Form von Rezensionen kunsttheoretischer Schriften und Übersetzungen von Vorträgen aus der Pariser ''Académie royale des Inscriptions et Belles-Lettres''",
+        "end": 597,
+        "passage_id": "p_a6de4198b7f28658",
+        "reader_score": -1.31640625,
+        "retrieval_score": 198.66046142578125,
+        "start": 301,
+        "status": "ok"
+      },
+      {
+        "answer": "vom Training und der Verhaltensweise des Spielers ab, in welche Formen sein Digimon digitiert und wie stark es wird",
+        "end": 680,
+        "passage_id": "p_746282bf09f3e88b",
+        "reader_score": 20.0234375,
+        "retrieval_score": 151.11557006835938,
+        "start": 565,
+        "status": "ok"
+      },
+      {
+        "answer": "in den 1840er Jahren",
+        "end": 727,
+        "passage_id": "p_4c13f8bf622d4b6a",
+        "reader_score": 16.578125,
+        "retrieval_score": 215.25018310546875,
+        "start": 707,
+        "status": "ok"
+      },
+      {
+        "answer": "1980",
+        "end": 665,
+        "passage_id": "p_981239239eade599",
+        "reader_score": 22.34765625,
+        "retrieval_score": 177.73416137695312,
+        "start": 661,
+        "status": "ok"
+      },
+      {
+        "answer": "Um artgerechte Haltungsstrukturen auch für Stadthunde zu gewährleisten, Tierschutzgesetze einzuhalten und Konflikte durch freilaufende oder spielende Hunde zu vermeiden",
+        "end": 207,
+        "passage_id": "p_c1d3b203742d08e7",
+        "reader_score": 16.96875,
+        "retrieval_score": 145.5171661376953,
+        "start": 39,
+        "status": "ok"
+      },
+      {
+        "answer": "etwa 250.000 bis 300.000",
+        "end": 387,
+        "passage_id": "p_796613cabd689e9a",
+        "reader_score": 17.36328125,
+        "retrieval_score": 211.35145568847656,
+        "start": 363,
+        "status": "ok"
+      },
+      {
+        "answer": "5072 m über NN",
+        "end": 1033,
+        "passage_id": "p_cdf7106d77749934",
+        "reader_score": 17.890625,
+        "retrieval_score": 206.05624389648438,
+        "start": 1019,
+        "status": "ok"
+      },
+      {
+        "answer": "Appellationsgericht () möglich, über dem es noch als letzte Instanz den Supreme Court des Bundesstaates und der USA gibt. Er ist höchstes Berufungsgericht und zugleich oberstes Verfassungsgericht eines Bundesstaates bzw. der USA. Außer dem Supreme Court dürfen auch alle anderen Bundesgerichte Verfassungsklagen annehmen und entscheiden",
+        "end": 600,
+        "passage_id": "p_1e67ceec1e017b6f",
+        "reader_score": 3.24267578125,
+        "retrieval_score": 172.18247985839844,
+        "start": 264,
+        "status": "ok"
+      },
+      {
+        "answer": "tief liegende Küstengebiete und -städte sowie Inseln",
+        "end": 790,
+        "passage_id": "p_66e9692cda4fe326",
+        "reader_score": 23.203125,
+        "retrieval_score": 178.2639923095703,
+        "start": 738,
+        "status": "ok"
+      },
+      {
+        "answer": "ostslawischen Staat",
+        "end": 271,
+        "passage_id": "p_acf8bde5a3f020b0",
+        "reader_score": 14.55859375,
+        "retrieval_score": 208.9694366455078,
+        "start": 252,
+        "status": "ok"
+      },
+      {
+        "answer": "Durch die Ähnlichkeit beider Sprachen, die gemeinsame Geschichte seit der Kodifizierung der beiden Sprachen und die Verbindung in der Tschechoslowakei",
+        "end": 266,
+        "passage_id": "p_3de5d87a74c9bffd",
+        "reader_score": 20.095703125,
+        "retrieval_score": 202.05020141601562,
+        "start": 116,
+        "status": "ok"
+      },
+      {
+        "answer": "Gletscher reduzieren mikroklimatisch durch ihr Reflexionsvermögen die Temperatur. Sie fördern damit den Austritt von Luftfeuchtigkeit durch Schneefall.",
+        "end": 197,
+        "passage_id": "p_053ef74599361d47",
+        "reader_score": 9.7548828125,
+        "retrieval_score": 174.61087036132812,
+        "start": 46,
+        "status": "ok"
+      },
+      {
+        "answer": "die Ramsar-Konvention und das Washingtoner Artenschutzabkommen (CITES)",
+        "end": 424,
+        "passage_id": "p_bff4da21b5558c81",
+        "reader_score": 13.646484375,
+        "retrieval_score": 168.7999725341797,
+        "start": 354,
+        "status": "ok"
+      },
+      {
+        "answer": "die Alliance for a Green Revolution in Africa",
+        "end": 414,
+        "passage_id": "p_ee236cc50e8e5455",
+        "reader_score": 29.828125,
+        "retrieval_score": 218.189453125,
+        "start": 369,
+        "status": "ok"
+      },
+      {
+        "answer": "die Enklave einer vergangenen Gesellschaftsordnung dar, nämlich der aristokratischen.",
+        "end": 609,
+        "passage_id": "p_0c517938d134d008",
+        "reader_score": 3.9403076171875,
+        "retrieval_score": 188.72308349609375,
+        "start": 524,
+        "status": "ok"
+      },
+      {
+        "answer": "Robert Tor Russell",
+        "end": 294,
+        "passage_id": "p_a0ddcd1c67e5bb6e",
+        "reader_score": 22.8828125,
+        "retrieval_score": 203.56661987304688,
+        "start": 276,
+        "status": "ok"
+      },
+      {
+        "answer": "Die Bauformen zu Beginn des 20. Jahrhunderts wurden noch mechanisch mit Schrauben befestigt und die Anschlüsse per Hand gelötet oder auch angeschraubt",
+        "end": 369,
+        "passage_id": "p_e29250d406418177",
+        "reader_score": 7.53070068359375,
+        "retrieval_score": 174.1602783203125,
+        "start": 219,
+        "status": "ok"
+      },
+      {
+        "answer": "von feinem Ton bis zu mehrere Meter messenden Findlingen",
+        "end": 190,
+        "passage_id": "p_396d76f1d7565915",
+        "reader_score": 21.13671875,
+        "retrieval_score": 191.5637969970703,
+        "start": 134,
+        "status": "ok"
+      },
+      {
+        "answer": "Das Wahlergebnis galt eher als Triumph Eisenhowers und nicht so sehr als ein Sieg der Republikanischen Partei.",
+        "end": 837,
+        "passage_id": "p_5c065e68c0254f31",
+        "reader_score": 14.0859375,
+        "retrieval_score": 172.33901977539062,
+        "start": 727,
+        "status": "ok"
+      },
+      {
+        "answer": "bläuliche, seltener auch leicht grünliche",
+        "end": 730,
+        "passage_id": "p_6d78fd6e817e3f04",
+        "reader_score": 25.1796875,
+        "retrieval_score": 199.28907775878906,
+        "start": 689,
+        "status": "ok"
+      },
+      {
+        "answer": "die handwerkliche Beschäftigung und ästhetische Auseinandersetzung des Menschen mit dem gebauten Raum",
+        "end": 208,
+        "passage_id": "p_d088aaf9b87d7828",
+        "reader_score": 23.267578125,
+        "retrieval_score": 193.79794311523438,
+        "start": 107,
+        "status": "ok"
+      },
+      {
+        "answer": "General Douglas MacArthur",
+        "end": 1203,
+        "passage_id": "p_8cbc38dc3c51e8e8",
+        "reader_score": 25.66015625,
+        "retrieval_score": 164.03224182128906,
+        "start": 1178,
+        "status": "ok"
+      },
+      {
+        "answer": "die Neue-Welt-Übersetzung der Heiligen Schrift",
+        "end": 542,
+        "passage_id": "p_6074a93da45f416a",
+        "reader_score": 23.6328125,
+        "retrieval_score": 196.04205322265625,
+        "start": 496,
+        "status": "ok"
+      },
+      {
+        "answer": "Textilindustrie",
+        "end": 92,
+        "passage_id": "p_2d9be53314b670f0",
+        "reader_score": 25.98828125,
+        "retrieval_score": 236.2858428955078,
+        "start": 77,
+        "status": "ok"
+      },
+      {
+        "answer": "ungefähr einer Winkelminute",
+        "end": 605,
+        "passage_id": "p_76868b40c1871d1f",
+        "reader_score": 16.95703125,
+        "retrieval_score": 123.37901306152344,
+        "start": 578,
+        "status": "ok"
+      },
+      {
+        "answer": "Neonwerbung für ''American Express'', ''Wimpy'', Fluggesellschaften und Hotels",
+        "end": 359,
+        "passage_id": "p_316a24044fc067bc",
+        "reader_score": 24.72265625,
+        "retrieval_score": 192.82916259765625,
+        "start": 281,
+        "status": "ok"
+      },
+      {
+        "answer": "die Vereinigten Staaten (USA) und die Sowjetunion (UdSSR)",
+        "end": 132,
+        "passage_id": "p_f4d2cd3213ee433c",
+        "reader_score": 8.4833984375,
+        "retrieval_score": 170.14215087890625,
+        "start": 75,
+        "status": "ok"
+      },
+      {
+        "answer": "Neu-Delhi innerhalb der Grenzen von Delhi",
+        "end": 89,
+        "passage_id": "p_aa4649393736b167",
+        "reader_score": 18.107421875,
+        "retrieval_score": 236.70181274414062,
+        "start": 48,
+        "status": "ok"
+      },
+      {
+        "answer": "eine aus Schnee hervorgegangene Eismasse mit einem klar definierten Einzugsgebiet, die sich aufgrund von Hangneigung, Struktur des Eises, Temperatur und der aus der Masse des Eises und den anderen Faktoren hervorgehenden Schubspannung eigenständig bewegt",
+        "end": 382,
+        "passage_id": "p_9f048e1e45866148",
+        "reader_score": 22.763671875,
+        "retrieval_score": 182.4524688720703,
+        "start": 128,
+        "status": "ok"
+      },
+      {
+        "answer": "Medina",
+        "end": 38,
+        "passage_id": "p_f8dbcb6b2e2fa6f9",
+        "reader_score": 12.15771484375,
+        "retrieval_score": 221.7727508544922,
+        "start": 32,
+        "status": "ok"
+      },
+      {
+        "answer": "Aufgrund des Erfolgs des ''Netscape Navigators''",
+        "end": 86,
+        "passage_id": "p_200391b520ef56cf",
+        "reader_score": 17.0966796875,
+        "retrieval_score": 167.448486328125,
+        "start": 38,
+        "status": "ok"
+      },
+      {
+        "answer": "16",
+        "end": 249,
+        "passage_id": "p_9f9ae170b15e9b24",
+        "reader_score": 25.109375,
+        "retrieval_score": 217.2436065673828,
+        "start": 247,
+        "status": "ok"
+      },
+      {
+        "answer": "L. Sanches-Vello",
+        "end": 1092,
+        "passage_id": "p_cb9297fa39098120",
+        "reader_score": 17.2095947265625,
+        "retrieval_score": 182.72633361816406,
+        "start": 1076,
+        "status": "ok"
+      },
+      {
+        "answer": "süße, salzige und saure Nahrung",
+        "end": 742,
+        "passage_id": "p_c0bcf979fc026b1e",
+        "reader_score": 26.416015625,
+        "retrieval_score": 212.86741638183594,
+        "start": 711,
+        "status": "ok"
+      },
+      {
+        "answer": "1902 in Elberfeld war. Hier wurde vorerst ein Büro der „Watch Tower Society“ eröffnet. Ein Jahr später wurde es zum Zweigbüro („Bethel“) der Wachtturm-Gesellschaft ausgebaut. In Elberfeld wurde außerdem 1905 die erste deutsche Hauptversammlung (heute Kongress) der Bibelforscher abgehalten. Das Zweigbüro ist 1908 nach Barmen umgezogen, wo es bis 1923",
+        "end": 527,
+        "passage_id": "p_75472f948de5ca68",
+        "reader_score": 11.902069091796875,
+        "retrieval_score": 178.727783203125,
+        "start": 176,
+        "status": "ok"
+      },
+      {
+        "answer": "elektrisch nichtleitenden bzw. leitfähigen isotropen und anisotropen Klebstoffen",
+        "end": 687,
+        "passage_id": "p_3fdb449c31ded7a4",
+        "reader_score": 22.28515625,
+        "retrieval_score": 190.7570343017578,
+        "start": 607,
+        "status": "ok"
+      },
+      {
+        "answer": "Löwe und Einhorn",
+        "end": 386,
+        "passage_id": "p_731846daeb8476a0",
+        "reader_score": 14.23779296875,
+        "retrieval_score": 184.8289337158203,
+        "start": 370,
+        "status": "ok"
+      },
+      {
+        "answer": "das Ideal des Menschen",
+        "end": 442,
+        "passage_id": "p_140e5d9e990a94e5",
+        "reader_score": 30.0859375,
+        "retrieval_score": 238.88076782226562,
+        "start": 420,
+        "status": "ok"
+      },
+      {
+        "answer": "Die Wirkung der Gletscher beruht vor allem auf dem von ihnen mitgeführten Moränenmaterial.",
+        "end": 572,
+        "passage_id": "p_d95ddce912d4bc7b",
+        "reader_score": 17.666015625,
+        "retrieval_score": 183.54141235351562,
+        "start": 482,
+        "status": "ok"
+      },
+      {
+        "answer": "Ill",
+        "end": 67,
+        "passage_id": "p_93b3179ab21d28fb",
+        "reader_score": 21.802734375,
+        "retrieval_score": 199.75149536132812,
+        "start": 64,
+        "status": "ok"
+      },
+      {
+        "answer": "Julie Payette",
+        "end": 227,
+        "passage_id": "p_4ce59dfd13ed512e",
+        "reader_score": 22.52734375,
+        "retrieval_score": 184.55877685546875,
+        "start": 214,
+        "status": "ok"
+      },
+      {
+        "answer": "der vergleichsweise hohe Prozessaufwand und damit verbundene Kosten",
+        "end": 614,
+        "passage_id": "p_e705585b98400e0c",
+        "reader_score": 23.1953125,
+        "retrieval_score": 176.05152893066406,
+        "start": 547,
+        "status": "ok"
+      },
+      {
+        "answer": "Die polare Lage und die vom Polarplateau zur Küste hin wehenden katabatischen Fallwinde",
+        "end": 446,
+        "passage_id": "p_3bb80ca4949af308",
+        "reader_score": 11.6767578125,
+        "retrieval_score": 173.71734619140625,
+        "start": 359,
+        "status": "ok"
+      },
+      {
+        "answer": "nach dem Zweiten Weltkrieg",
+        "end": 382,
+        "passage_id": "p_04e28e773b35a1fd",
+        "reader_score": 30.47265625,
+        "retrieval_score": 182.49749755859375,
+        "start": 356,
+        "status": "ok"
+      },
+      {
+        "answer": "um weniger abhängig von der Preisentwicklung bei Kaffee und Zucker zu sein",
+        "end": 793,
+        "passage_id": "p_e01f9db98b06df09",
+        "reader_score": 7.334716796875,
+        "retrieval_score": 181.06387329101562,
+        "start": 719,
+        "status": "ok"
+      },
+      {
+        "answer": "Nicht tödliche Handlungen einer Regierung, die auf die Vernichtung einer Kultur abzielen",
+        "end": 478,
+        "passage_id": "p_fdbde15ca2246d3c",
+        "reader_score": 30.07421875,
+        "retrieval_score": 226.2271728515625,
+        "start": 390,
+        "status": "ok"
+      },
+      {
+        "answer": "Harry S. Truman",
+        "end": 764,
+        "passage_id": "p_fb9e74aade4eada3",
+        "reader_score": 15.685546875,
+        "retrieval_score": 169.4351043701172,
+        "start": 749,
+        "status": "ok"
+      },
+      {
+        "answer": "die Gesamtheit der materiellen Träger der vererbbaren Informationen einer Zelle oder eines Viruspartikels",
+        "end": 173,
+        "passage_id": "p_8701cf297d54f1fc",
+        "reader_score": 24.14453125,
+        "retrieval_score": 217.10992431640625,
+        "start": 68,
+        "status": "ok"
+      },
+      {
+        "answer": "vulgärlateinisch ''*glaciārium'' abstammen, welches von spätlateinisch ''glacia'' und lateinisch ''glaciēs'' („Eis“) abstammt",
+        "end": 313,
+        "passage_id": "p_509a3971205b62dc",
+        "reader_score": 15.65625,
+        "retrieval_score": 204.26072692871094,
+        "start": 188,
+        "status": "ok"
+      },
+      {
+        "answer": "354",
+        "end": 1030,
+        "passage_id": "p_d6d7c5a8f7b468dc",
+        "reader_score": 25.13671875,
+        "retrieval_score": 271.406005859375,
+        "start": 1027,
+        "status": "ok"
+      },
+      {
+        "answer": "Anfang 1790 wurde General Arthur St. Clair mit der Landgewinnung im Gebiet der heutigen US-Bundesstaaten Indiana und Ohio und damit mit der systematischen Vertreibung der dortigen Indianer beauftragt. Dies dauerte insgesamt fünf Jahre, da St. Clair zusätzlich Befestigungen und eine bleibende militärische Infrastruktur aufbaute.",
+        "end": 408,
+        "passage_id": "p_2db61c54174e51bc",
+        "reader_score": 2.3671875,
+        "retrieval_score": 114.7682876586914,
+        "start": 79,
+        "status": "ok"
+      },
+      {
+        "answer": "einen präventiven nuklearen Erstschlag gegen die NATO plante. Als Beispiel führen sie die Großübung „Buria“ von 1961 an, bei der trainiert wurde, den Schlag präventiv drei Minuten vor einem beginnenden Angriff der NATO durchzuführen. Dabei sollten laut Rühle 422 nukleare Gefechtsköpfe auf westdeutschem Boden zur Explosion kommen.",
+        "end": 1191,
+        "passage_id": "p_4d5f7f0c307b611a",
+        "reader_score": 11.435546875,
+        "retrieval_score": 167.9622802734375,
+        "start": 860,
+        "status": "ok"
+      },
+      {
+        "answer": "2013",
+        "end": 731,
+        "passage_id": "p_d47dff1c535e083a",
+        "reader_score": 14.5849609375,
+        "retrieval_score": 183.64352416992188,
+        "start": 727,
+        "status": "ok"
+      },
+      {
+        "answer": "Ein Studium von Protestanten an katholischen Universitäten war – auch an den nichttheologischen Fakultäten – durch Immatrikulationseid oder Doktoreid",
+        "end": 775,
+        "passage_id": "p_467992e72faa71ab",
+        "reader_score": -0.34326171875,
+        "retrieval_score": 145.08245849609375,
+        "start": 626,
+        "status": "ok"
+      },
+      {
+        "answer": "eine konstante Spannungsänderung, die Spannung steigt linear an",
+        "end": 582,
+        "passage_id": "p_1ffd0cb5d0e20f83",
+        "reader_score": 16.8876953125,
+        "retrieval_score": 204.16110229492188,
+        "start": 519,
+        "status": "ok"
+      },
+      {
+        "answer": "dreißigjährigen",
+        "end": 277,
+        "passage_id": "p_5f252e2ce4de8cb7",
+        "reader_score": 24.94140625,
+        "retrieval_score": 188.3597412109375,
+        "start": 262,
+        "status": "ok"
+      },
+      {
+        "answer": "Metalloxide, sehr häufig 3d-Elemente",
+        "end": 107,
+        "passage_id": "p_cf5d5fce05bffabe",
+        "reader_score": 12.6826171875,
+        "retrieval_score": 195.65916442871094,
+        "start": 71,
+        "status": "ok"
+      }
+    ]
+  },
+  "questions": [
+    "Welche Werte in Kondensatoren steigen bei ihrer Parallelschaltung?",
+    "Dürfen die Zeugen Jehovas Menschen heiraten, die nicht zu ihrer Religionsgemeinschaft gehören?",
+    "Wie heißt die Stiftung, die von Bill Gates und seiner Frau gegründet wurde?",
+    "Wie viele französische Kriegsgefangenen sind in deutscher Gefangenschaft gestorben?",
+    "Welches Unternehmen hat seinen europäischen Sitz in Cork?",
+    "Wozu werden Browser hauptsächlich verwendet?",
+    "Was ist der Hitzerekord von Ann Arbor?",
+    "Seit wann ist das Emirates Stadium die Heimspielstätte des FC Arsenal?",
+    "Welche abgehenden Flugverbindungen gibt es von der Insel St. Helena?",
+    "Welche dunkelhäutigen Völker leben in Melanesien?",
+    "Wann war Eisenhower im Kriegsministerium der Vereinigten Staaten tätig?",
+    "Was machte die Eisenhower-Doktrin?",
+    "Welche Güter in mittelalterlicher Cork waren für den Export gedacht?",
+    "Der wievielte Sohn ist Johann Ohneland?",
+    "Was passiert, wenn man die Spannung in Elektrolytkondensatoren falsch anschließt?",
+    "Aus wie vielen Teilen besteht Straßburg?",
+    "Welche Unternehmen sind die größten Konkurrenten von General Electric?",
+    "Wann können Streukapazität und Parasitärkapazität in Kondensatoren einen negativen Effekt haben?",
+    "Wie viele Mitglieder der Zeugen Jehovas starben bei deren Verfolgung zwischen 1938-1945?",
+    "Wann kommt es zum Verlust des Gleichgewichtes der Kontinentalplatten?",
+    "Wann wuchs die Bevölkerung in Cork rasch?",
+    "Wie groß war Delhi als Neu-Delhi gegründet wurde?",
+    "Wie viele Menschen haben die Krönungszeremonie von Elisabeth 2. besucht?",
+    "Wann wurde die erste Steinkirche der Kiewer Rus gebaut?",
+    "Was grenzt südlich an das tibetanische Hochland?",
+    "Welche Selbstentladungszeitkonstante haben Kunststoff-Folien-Kondensatoren?",
+    "Aus welchen Land stammen die Cochin-Juden?",
+    "Wie nennt man das Mittel, das zur Glasentfärbung genutzt wird?",
+    "Welche Fähigkeit befähigt Hunden zur Verfolgung von Geruchsspuren?",
+    "Wann wurde erstmals eine Verurteilung wegen Völkermord am Internationalen Strafgerichtshof ausgesprochen?",
+    "Wie viele Zeugen jehovas leben in Russland?",
+    "Wie viele Atemzüge macht ein Hund pro Minute?",
+    "Wann wurde Hundefett in der Medizin verwendet?",
+    "Wann wurde in Cork ein Kloster auf der Insel des Flusses gebaut?",
+    "Welche Persönlichkeiten sind im linken Querschiff der Westminster Abbey begraben?",
+    "Wann hatten Gletscher den größten Einfluss auf die Landschaft der Welt?",
+    "Welches sind die landwirtschaftlich vorwiegend genutzten Gebiete in Eritrea?",
+    "Wie hilft das OSP-Verfahren der Leiterplatte?",
+    "Welche Sprache wird in Eritrea neben Arabisch und Tigrinya zur Kommunikation in der Bürokratie und den Institutionen verwendet?",
+    "Welches Hormon könnten den Unterschied in der Lebenserwartung zwischen kleinen und großen Hunden erklären?",
+    "Was befindet sich heute auf dem Gebiet des 1917 von einem Tornado vernichteten Dorf in der Nähe von Ann Arbor?",
+    "Wo verlief die erste moderne Straße durch die Appalachen?",
+    "Was ist das meistverbreitete Getränk in Tibet?",
+    "Wie hieß die deutsche Ausgabe der Dernieres Nouvelle d'Alsace?",
+    "Wovon ist die Power eines Digimon abhängig?",
+    "Wann kam es zur Massenauswanderung aus Cork?",
+    "Wann haben sich die verfassungsrechtlichen Bindungen Kanadas zum Großbritannien aufgelöst?",
+    "Warum sind große Hunde auf dem Land mehr verbreitet als in der Stadt?",
+    "Wie viele größere Versammlungen von Zeugen Jehovas werden jährlich organisiert?",
+    "Was ist die höchste Stelle der Lhasa-Bahn-Strecke?",
+    "Was sind die häufigsten Verfahren, die vor Kirchlichen Gerichten verhandelt werden?",
+    "Welche Länder wären durch einen Anstieg des Meeresspiegels besonders betroffen?",
+    "Welche Staatsform hatte die Kiewer Rus",
+    "Warum können die Einwohner der Slowakei und Tschechien einander gut verstehen?",
+    "Wann kommt es zum basalen Gleiten von Gletschern?",
+    "Auf welchem Abkommen basiert die UN-Konvention gegen Völkermord von 1948?",
+    "Was ist das größte Projekt der Gates Stiftung?",
+    "In welchem zusammenhang steht die one-drop-rule zur Sklaverei?",
+    "Welcher Architekt entwarf den Connaught Place in Neu-Delhi?",
+    "Wie wurden Kondensatoren am Anfang des 20. Jhd. gebaut?",
+    "Wie groß können Steine in Gletschern sein?",
+    "Welche Positionierung nahm Eisenhower innerhalb der republikanischen Partei ein?",
+    "Welche Farbe hat Gletschereis wegen seines niedrigen Anteils an Luft?",
+    "Was versteht man unter Architektur?",
+    "Wer war vor Eisenhower Chief of Staff in der US-Armee?",
+    "Welche Heilige Schrift benutzen die Zeugen Jehovas?",
+    "Welche Industrie war im 17. und 18.Jhd. in Cork weit verbreitet?",
+    "Wie viel Grad kann ein Mensch sehen?",
+    "Durch was sind die Gebäude am Connaught Place in Neu-Delhi gekennzeichnet?",
+    "Wie viele Mächte gewannen den Zweiten Weltkrieg?",
+    "Wie hieß die Hauptstadt Indiens vor Neu-Delhi?",
+    "Was ist ein Gletscher?",
+    "Welches war die Hauptstadt des Medri Bahri- Königreichs?",
+    "Aus welchem Grund wurde Internet Explorer entwickelt?",
+    "Wie viele Minister hat die Staatsvertretung in Eritrea?",
+    "Wer entwichelte das vertikale Ziehverfahren zur Herstellung von Glasrohren?",
+    "Welche Geschmacksrichtungen nehmen die seitlichen Bereiche der Zunge beim Hund wahr?",
+    "Seit wann sind die Zeugen Jehovas in Österreich?",
+    "Welche Klebstoffe werden bei Leiterplatten eingesetzt?",
+    "Welche Tiere halten den Schild im Wappen der englischen Krone?",
+    "Als was betrachteten die Griechen die Kalokagathie?",
+    "Warum Formen Gletscher die Natur so stark um?",
+    "Welcher Fluss fließt durch Straßburg?",
+    "Wen vertritt der Generalgouverneur Kanadas?",
+    "Welchen Vorteil bringt die ENIG-Methode der Oberflächenbehandlung der Leiterplatte?",
+    "Wie heißt das Gleichgewicht, in dem sich Kontinentalplatten befinden?",
+    "Wann wurde die Immigration von Arbeitskräften aus der Karibik nach Großbritannien gefördert?",
+    "Warum hat man in Taiga und Tundra keine Kulturpflanzen angebaut?",
+    "Was wird als Ethnozid genannt?",
+    "Wieso lehnte Eisenhower Kennedy als seinen Nachfolger ab?",
+    "Was ist ein Genom?",
+    "Welche Etymologie hat das Wort Gletscher?",
+    "Wie viele Unternehmen haben ihren Standort in der Hafengelände in Straßburg?",
+    "Wie war der Kontakt zwischen den Briten und den Indianern ab 1763 vorgeschrieben?",
+    "Was planten die Nationen des Warschauer Pakts ab 1961 mit Atomwaffen?",
+    "Wann wurden die Zeugen Jehovas in Österreich eine Religionsgemeinschaft?",
+    "Wie sind katholische Religionslehrer von dem Scheidungsverbot betroffen?",
+    "Wodurch ist ein nichtlinearer Kondensator gekennzeichnet?",
+    "Wie lange dauerte der Unabhängigkeitskampf in Eritrea?",
+    "Wie kann man Glas entfärben?"
+  ]
+}

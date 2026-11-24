@@ -1,0 +1,19 @@
+# Cấu hình reader V1 (GĐ4). Đổi tham số ở đây, không sửa trong mã.
+reader:
+  model_name: deepset/gbert-base   # backbone tiền huấn luyện; chưa học QA
+  max_length: 384                  # độ dài tối đa của một cửa sổ (token)
+  stride: 128                      # số token chồng lấn giữa hai cửa sổ liên tiếp
+  n_best: 20                       # số start/end ứng viên mỗi cửa sổ khi hậu xử lý
+  max_answer_tokens: 30            # độ dài đáp án tối đa (token); GĐ4 chọn lại trên dev
+  eval_batch_size: 32
+  answer_grid: [20, 30, 50, 80]    # lưới dò max_answer_tokens trên dev
+  train:
+    epochs: 3
+    lr: 3.0e-5
+    batch_size: 8
+    grad_accum: 2                  # lô hiệu dụng = 8 x 2 = 16 cửa sổ
+    warmup_ratio: 0.1
+    weight_decay: 0.01
+    max_grad_norm: 1.0
+    fp16: true
+    log_every: 50

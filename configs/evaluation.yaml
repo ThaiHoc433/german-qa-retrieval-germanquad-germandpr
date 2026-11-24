@@ -1,0 +1,6 @@
+# Cấu hình đánh giá V1 (GĐ7).
+evaluation:
+  ks: [1, 5, 10, 20]            # Hit/Recall/MRR@k
+  bootstrap_samples: 1000       # số lần resample câu hỏi
+  confidence: 0.95              # khoảng tin cậy hai phía
+  error_samples_per_class: 40   # số câu rút ra đọc thủ công mỗi loại lỗi (chỉ từ dev)

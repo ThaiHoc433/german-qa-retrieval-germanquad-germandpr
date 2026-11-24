@@ -1,0 +1,59 @@
+{
+  "by_question_type": {
+    "khác": {
+      "found_in_top20": 215,
+      "n": 258
+    },
+    "wann": {
+      "found_in_top20": 105,
+      "n": 126
+    },
+    "warum": {
+      "found_in_top20": 57,
+      "n": 63
+    },
+    "was": {
+      "found_in_top20": 120,
+      "n": 147
+    },
+    "welch-": {
+      "found_in_top20": 172,
+      "n": 222
+    },
+    "wem": {
+      "found_in_top20": 0,
+      "n": 1
+    },
+    "wen": {
+      "found_in_top20": 5,
+      "n": 5
+    },
+    "wer": {
+      "found_in_top20": 58,
+      "n": 72
+    },
+    "wie": {
+      "found_in_top20": 181,
+      "n": 226
+    },
+    "wo": {
+      "found_in_top20": 44,
+      "n": 56
+    }
+  },
+  "config": {
+    "b": 0.2,
+    "k1": 0.7,
+    "use_stopwords": true
+  },
+  "failures": 219,
+  "failures_zero_overlap": 24,
+  "n": 1176,
+  "rank_distribution": {
+    "1": 379,
+    "11-20": 73,
+    "2-5": 371,
+    "6-10": 134,
+    "không có trong top-20": 219
+  }
+}

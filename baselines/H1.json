@@ -1,0 +1,238 @@
+{
+  "bm25": {
+    "fingerprint_parts": {
+      "b": 0.2,
+      "corpus_sha1": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+      "format": 1,
+      "k1": 0.7,
+      "scoring_probe_sha1": "9d31a183e40ffd75ae1b34ffcec0e3ca944bfce3",
+      "stopwords_sha1": "d6772d55fed4c574405ee31548b48bfbf6632334",
+      "tokenization_probe_sha1": "4a9aef53a3df4622ff2bc8fcad3b8f58f8ca938a",
+      "use_stopwords": true
+    },
+    "fingerprint_sha1": "5c86b0fa90822d3e1de5ce66032b553dd9c9ac97",
+    "index_npz_sha1": "7502814475f560047ab2078b8b46f917dd7f5126",
+    "n_terms": 284585,
+    "params": {
+      "b": 0.2,
+      "k1": 0.7,
+      "use_stopwords": true
+    },
+    "store": "artifacts/bm25",
+    "store_fingerprint_matches": true
+  },
+  "code": "H1",
+  "config_id": "H1_32d9bb5a",
+  "data": {
+    "corpus.jsonl": "8aae2dc689c664e451a953a7c255d135281c3d2b",
+    "select_question_ids.json": "f25b6eb2c08211e391c192a52021592d3dd9b620",
+    "splits": {
+      "qa_dev.jsonl": "b7c5d4e4b9aa4c8a65ae80899cde2ebcf100e2c3",
+      "qa_test.jsonl": "6b2dec4efc18fef386bf03559a21c347dafd9340",
+      "qa_train.jsonl": "720b58322bacb307148df4975d1b0b909987b6bf",
+      "qrels_dev.json": "d0f1bfa1eb466fb9f22b223a58b7bf1e174c08ba",
+      "qrels_test.json": "100519ab719f886380e038225c3c537152b6cc19",
+      "qrels_train.json": "f28f5917ad805feeffdc1b86f48426899e7888d4"
+    }
+  },
+  "dense": {
+    "artifact": {
+      "ctx_encoder": {
+        "repo": "deepset/gbert-base-germandpr-ctx_encoder",
+        "revision": "5c13387b5f87efc8b2363f86416b2f2d980e19c7"
+      },
+      "dir": "artifacts/dense/text384",
+      "passage_input": "text",
+      "question_encoder": {
+        "repo": "deepset/gbert-base-germandpr-question_encoder",
+        "revision": "c5b8d88c45320a0f8ba714c286ff3bc0af4d72fa"
+      },
+      "sha1": {
+        "embeddings.npy": "3026b36f18bcbf9edafc3ba0918c4ac11db8f19f",
+        "index.faiss": "e437047fc4fa377ceb33e41ede0cb06c8ee2045d",
+        "manifest.json": "8b7c24582ab288cdccae0549b0e2c963a34d8208",
+        "passage_ids.json": "6a956b4b72bd966748e0826a37a772fb80772b76"
+      },
+      "truncation": {
+        "frac_truncated": 0.10880732578916022,
+        "max_length": 384,
+        "n_truncated": 2923,
+        "tokens_max": 2204,
+        "tokens_mean": 236.2431134603931,
+        "tokens_p95": 454.0
+      }
+    },
+    "config": {
+      "artifact_dir": "artifacts/dense/text384",
+      "ctx_encoder": "deepset/gbert-base-germandpr-ctx_encoder",
+      "encode_batch_size": 32,
+      "fp16": true,
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "passage_max_length": 384,
+      "question_encoder": "deepset/gbert-base-germandpr-question_encoder",
+      "question_max_length": 64,
+      "similarity": "dot",
+      "top_k": 20
+    }
+  },
+  "effective_config": {
+    "code": "H1",
+    "dense": {
+      "artifact_dir": "artifacts/dense/text384",
+      "ctx_encoder": "deepset/gbert-base-germandpr-ctx_encoder",
+      "encode_batch_size": 32,
+      "fp16": true,
+      "passage_field": "original_text",
+      "passage_input": "text",
+      "passage_max_length": 384,
+      "question_encoder": "deepset/gbert-base-germandpr-question_encoder",
+      "question_max_length": 64,
+      "similarity": "dot",
+      "top_k": 20
+    },
+    "hybrid": {
+      "bm25_top_k": 100,
+      "dense_top_k": 100,
+      "fusion_top_k": 20,
+      "rrf_c": 10,
+      "w_dense": 1.0
+    },
+    "pipeline": {
+      "bm25": {
+        "b": 0.2,
+        "k1": 0.7,
+        "use_stopwords": true
+      },
+      "pipeline": {
+        "checkpoint": "models/reader_20261101T213758Z_96717e35",
+        "reader_top_k": 5,
+        "retrieval_top_k": 20
+      },
+      "reader": {
+        "max_answer_tokens": 80,
+        "score_mode": "minus_cls"
+      }
+    },
+    "reader_runtime": {
+      "eval_batch_size": 32,
+      "max_length": 384,
+      "n_best": 20,
+      "stride": 128
+    },
+    "rerank": {
+      "batch_size": 16,
+      "checkpoint": "models/rerank_bge_m3_976fb4ad",
+      "commit": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "fp16": true,
+      "max_length": 512,
+      "model": "bge_m3",
+      "overflow": "windows",
+      "pool": 20,
+      "relevant_label": null,
+      "repo": "BAAI/bge-reranker-v2-m3",
+      "stride": 128
+    },
+    "retriever": "hybrid"
+  },
+  "environment": {
+    "PyYAML": "6.0.3",
+    "cuda_available": true,
+    "cuda_runtime": "12.6",
+    "faiss-cpu": "1.15.1",
+    "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "gpu_total_gb": 4.0,
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "precision": {
+      "dense_fp16": true,
+      "reader_fp16": true
+    },
+    "python": "3.13.3",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.1+cu126",
+    "transformers": "5.19.0"
+  },
+  "frozen_on": "2026-11-08",
+  "hybrid": {
+    "config": {
+      "bm25_top_k": 100,
+      "dense_top_k": 100,
+      "fusion_top_k": 20,
+      "rrf_c": 10,
+      "w_dense": 1.0
+    },
+    "prereg_sha1": {
+      "13_confirmation.json": "730330bfc2ac0483c3186f1992eb3db96b75f53b",
+      "13_prereg.json": "885fb930e8314b1782355240d091dda06b045d69",
+      "13_selection.json": "5df9e6b6460dfd0a1f8fd67fe519a1b269fb7558",
+      "rrf_sweep.json": "8269014dabcf1963b818bb6353d05ff450e8e073"
+    }
+  },
+  "reader": {
+    "checkpoint": "models/reader_20261101T213758Z_96717e35",
+    "d5_max_answer_tokens": {
+      "effective_max_answer_tokens": 80,
+      "note": "reader.yaml (30) chỉ là mặc định lúc huấn luyện; pipeline dùng giá trị trong pipeline.yaml. Không sửa reader.yaml hay reader_config.json.",
+      "reader_gold_context_chosen": 80,
+      "reader_yaml_max_answer_tokens": 30,
+      "source": "configs/pipeline.yaml"
+    },
+    "sha1": {
+      "config.json": "08b92c0df38bacdb2fb5d4758a5bcec7f0f02a83",
+      "model.safetensors": "ad62c06d73e0a733ce91da82ab8a0e84b57bdb99",
+      "reader_config.json": "f5875bbbc96f19b3d1edf75a0ef6eaeaece2f24f",
+      "vocab.txt": "21a14c9929ee463fb8061a7fa0ea7bec4b067fc3"
+    }
+  },
+  "reference_dev_run": {
+    "end_to_end_first_ref": {
+      "em": 0.20512820512820512,
+      "f1": 0.44170278314468564,
+      "queries": 234
+    },
+    "file": "results/14f_H1_dev_unseen.json",
+    "note": "CHỈ 234 câu dev-unseen (không phải toàn dev), đáp án tham chiếu đầu tiên",
+    "retrieval": {
+      "hit@20": 0.9829059829059829,
+      "hit@5": 0.9615384615384616,
+      "source": "results/14_confirmation.json"
+    },
+    "sha1": "04e2575bb9d6290c72615fdad62fd99c3430c598",
+    "split": "dev-unseen"
+  },
+  "rerank": {
+    "checkpoint": "models/rerank_bge_m3_976fb4ad",
+    "config": {
+      "batch_size": 16,
+      "checkpoint": "models/rerank_bge_m3_976fb4ad",
+      "commit": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "fp16": true,
+      "max_length": 512,
+      "model": "bge_m3",
+      "overflow": "windows",
+      "pool": 20,
+      "relevant_label": null,
+      "repo": "BAAI/bge-reranker-v2-m3",
+      "stride": 128
+    },
+    "note": "H1 = H0 + cross-encoder xếp lại 20 đoạn, reader nhận 5 đầu; không fine-tune",
+    "results_sha1": {
+      "14_confirmation.json": "b2729bfbeb1daa4502cf6a5d57840590256ac8ab",
+      "14_prereg.json": "a53222102687b5a40a593ce45f12d942a976bbd0",
+      "14_selection.json": "4c54c2bf934f79f4a455e4923f91c27bb20f4fc3",
+      "14a_probe.json": "ea1b4176791117e2358c7a15d405a53f84981469",
+      "14b_truncation.json": "53a38aab4e72298f7850b3d94e3bdd1b33a381c9",
+      "14c_scores_bge_m3.jsonl": "e41b44592d325b178407bb738160fe15896d0118"
+    },
+    "sha1": {
+      "config.json": "0bb55a5c502f0f90b929c420f21306445fc25827",
+      "model.safetensors": "976fb4ad018e54328bd226f03d6a1bf1df483f91",
+      "sentencepiece.bpe.model": "7e88c49faff6c6c136fdf4a3402d0cb534c6ab10",
+      "tokenizer.json": "378b433887e355cde88f1c7db5de2cfa3c29203f",
+      "tokenizer_config.json": "d9e467809b3ce13481369208323fdfc325b8a2f4"
+    }
+  },
+  "seed": 42,
+  "status": "ĐÃ ĐÓNG BĂNG: H0 + cross-encoder bge-reranker-v2-m3 (cửa sổ, max_length 512) xếp lại 20 đoạn, reader nhận 5; xác nhận một lần trên dev-unseen ở GĐ14"
+}

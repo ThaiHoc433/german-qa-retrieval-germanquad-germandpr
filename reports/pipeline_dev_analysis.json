@@ -1,0 +1,100 @@
+{
+  "reader_ms_top10": {
+    "minus_cls": 111.26987244682402,
+    "raw": 116.93386113778752
+  },
+  "split_k5_minus_cls": {
+    "in_top20_not_top5": {
+      "em": 0.01932367149758454,
+      "em_if_reader_gets_gold_passage": 0.4444444444444444,
+      "f1": 0.10001753808518268,
+      "queries": 207,
+      "share": 0.1760204081632653
+    },
+    "in_top5": {
+      "em": 0.36133333333333334,
+      "em_if_reader_gets_gold_passage": 0.4693333333333333,
+      "f1": 0.547751689750903,
+      "queries": 750,
+      "share": 0.6377551020408163
+    },
+    "in_top5_selected_gold_passage": {
+      "em": 0.5221987315010571,
+      "em_selected_other_passage": 0.08664259927797834,
+      "queries": 473,
+      "share_of_in_top5": 0.6306666666666667
+    },
+    "not_in_top20": {
+      "em": 0.0136986301369863,
+      "em_if_reader_gets_gold_passage": 0.4931506849315068,
+      "f1": 0.07104629764934976,
+      "queries": 219,
+      "share": 0.18622448979591838
+    }
+  },
+  "table": [
+    {
+      "em": 0.1641156462585034,
+      "f1": 0.2906911272137681,
+      "queries": 1176,
+      "reader_top_k": 1,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.22108843537414966,
+      "f1": 0.367506090207452,
+      "queries": 1176,
+      "reader_top_k": 3,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.23299319727891157,
+      "f1": 0.3917123958680267,
+      "queries": 1176,
+      "reader_top_k": 5,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.25595238095238093,
+      "f1": 0.40901579444614344,
+      "queries": 1176,
+      "reader_top_k": 10,
+      "score_mode": "raw"
+    },
+    {
+      "em": 0.16581632653061223,
+      "f1": 0.29116773626847453,
+      "queries": 1176,
+      "reader_top_k": 1,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.22363945578231292,
+      "f1": 0.3564647753827059,
+      "queries": 1176,
+      "reader_top_k": 3,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.23639455782312926,
+      "f1": 0.3801671231989947,
+      "queries": 1176,
+      "reader_top_k": 5,
+      "score_mode": "minus_cls"
+    },
+    {
+      "em": 0.2534013605442177,
+      "f1": 0.400899383163566,
+      "queries": 1176,
+      "reader_top_k": 10,
+      "score_mode": "minus_cls"
+    }
+  ],
+  "taxonomy": {
+    "in_top5_reader_picked_gold_passage_wrong_span": 226,
+    "in_top5_reader_picked_other_passage": 253,
+    "retrieval_failure_not_in_top20": 216,
+    "selection_failure_in_top20_not_top5": 203,
+    "wrong_total": 898
+  }
+}

@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 846" width="1320" height="846" font-family="Segoe UI, Inter, Arial, sans-serif" role="img" aria-label="Ba giai đoạn: baseline gồm các thành phần cơ bản, pipeline B0 ghép BM25 với reader, cải tiến thay khâu truy hồi bằng BM25 cộng dense hợp nhất RRF và reranker tùy chọn, giữ nguyên reader">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d5fd1"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a94a0"/></marker></defs>
+<rect x="0" y="0" width="1320" height="846" fill="#ffffff"/>
+<rect x="820" y="14" width="22" height="14" rx="3" fill="#f1f3f5" stroke="#8a94a0"/>
+<text x="850" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">có từ giai đoạn trước / giữ nguyên</text>
+<rect x="1050" y="14" width="22" height="14" rx="3" fill="#e6effd" stroke="#1d5fd1"/>
+<text x="1080" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">thêm hoặc thay mới</text>
+<rect x="1200" y="14" width="22" height="14" rx="3" fill="#fff" stroke="#8a94a0" stroke-dasharray="4 3"/>
+<text x="1230" y="26" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">tùy chọn</text>
+<text x="20" y="27" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">Hệ thống hỏi đáp tiếng Đức: Baseline → Pipeline → Cải tiến</text>
+<rect x="8" y="44" width="1304" height="218" rx="10" fill="#f7f8fa" stroke="#e1e5ea"/>
+<text x="24" y="74" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 1</text>
+<text x="24" y="94" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">BASELINE</text>
+<text x="24" y="114" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Mô hình cơ bản</text>
+<text x="24" y="132" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 3, 4.1–4.3</text>
+<text x="24" y="148" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">offline, chạy một lần</text>
+<rect x="8" y="274" width="1304" height="274" rx="10" fill="#f7f8fa" stroke="#e1e5ea"/>
+<text x="24" y="304" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 2</text>
+<text x="24" y="324" font-size="15" font-weight="700" fill="#1f2933" text-anchor="start">PIPELINE</text>
+<text x="24" y="344" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Phát triển từ baseline</text>
+<text x="24" y="362" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 4.4–4.6, 6.1.5</text>
+<text x="24" y="378" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">B0 + dense DPR đối chiếu</text>
+<rect x="8" y="560" width="1304" height="272" rx="10" fill="#f3f7fe" stroke="#e1e5ea"/>
+<text x="24" y="590" font-size="12" font-weight="700" fill="#5b6673" text-anchor="start">GĐ 3</text>
+<text x="24" y="610" font-size="15" font-weight="700" fill="#1849a9" text-anchor="start">CẢI TIẾN</text>
+<text x="24" y="630" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">So với pipeline</text>
+<text x="24" y="648" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start">Chương 5</text>
+<text x="24" y="664" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">H0 mặc định · H1 tùy chọn</text>
+<rect x="170" y="72.0" width="190" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="265.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">GermanQuAD + GermanDPR</text>
+<text x="265.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">dữ liệu thô</text>
+<rect x="390" y="72.0" width="230" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="505.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Tiền xử lý · chia tập</text>
+<text x="505.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · khử trùng · Union-Find</text>
+<rect x="650" y="72.0" width="190" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="745.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Corpus 26.864 đoạn</text>
+<text x="745.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">original_text / retrieval_text</text>
+<rect x="870" y="72.0" width="150" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="945.0" y="96" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Train 10.301 câu</text>
+<text x="945.0" y="112" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">dev 1.176 · test 2.203</text>
+<polyline points="360,100 388,100" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="620,100 648,100" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="560,72 560,60 945,60 945,70" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="172.0" width="180" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="490.0" y="196" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">BM25 Okapi</text>
+<text x="490.0" y="212" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">k1 0,7 · b 0,2 · loại stopword</text>
+<rect x="880" y="172.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="196" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Reader GBERT</text>
+<text x="940.0" y="212" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">fine-tune 3 epoch</text>
+<polyline points="700,128 700,150 490,150 490,170" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="570" y="145" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">dựng chỉ mục</text>
+<polyline points="945,128 945,170" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="952" y="158" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="start" font-style="italic">fine-tune</text>
+<text x="1040" y="180" font-size="11.5" font-weight="600" fill="#1f2933" text-anchor="start">Đánh giá riêng từng thành phần (dev)</text>
+<text x="1040" y="200" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">BM25: Hit@20 0,814</text>
+<text x="1040" y="218" font-size="11.5" font-weight="400" fill="#1f2933" text-anchor="start">Reader, đoạn gold cho sẵn: EM 0,469</text>
+<text x="1040" y="236" font-size="11" font-weight="400" fill="#5b6673" text-anchor="start">cửa sổ 384 · stride 128</text>
+<rect x="170" y="372.0" width="80" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="210.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Câu hỏi</text>
+<text x="210.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">tiếng Đức</text>
+<rect x="270" y="372.0" width="110" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="325.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Chuẩn hóa</text>
+<text x="325.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · ≤ 64 token</text>
+<rect x="760" y="372.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="810.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Select</text>
+<text x="810.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-5</text>
+<rect x="880" y="372.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Read</text>
+<text x="940.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">GBERT reader</text>
+<rect x="1020" y="372.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1070.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Aggregate</text>
+<text x="1070.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">minus_cls</text>
+<rect x="1140" y="372.0" width="160" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1220.0" y="396" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Đáp án + bằng chứng</text>
+<text x="1220.0" y="412" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">đoạn · offset [start, end)</text>
+<polyline points="250,400 268,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="860,400 878,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1000,400 1018,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1120,400 1138,400" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="342.0" width="180" height="48" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="490.0" y="362" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Retrieve: BM25</text>
+<text x="490.0" y="378" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-20 đoạn · B0</text>
+<rect x="400" y="410.0" width="180" height="48" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="490.0" y="430" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Retrieve: Dense DPR</text>
+<text x="490.0" y="446" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">256 tok · FAISS Flat · top-20</text>
+<polyline points="380,400 390,400 390,366 398,366" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="390,400 390,434 398,434" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="580,366 680,366 680,392 758,392" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="630" y="360" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">20 đoạn</text>
+<polyline points="580,434 680,434 680,408 758,408" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<text x="630" y="450" font-size="10.5" font-weight="400" fill="#1d5fd1" text-anchor="middle" font-style="italic">hoặc 20 đoạn dense</text>
+<polyline points="490,228 490,340" fill="none" stroke="#8a94a0" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#g)"/>
+<text x="497" y="300" font-size="10.5" font-weight="400" fill="#8a94a0" text-anchor="start" font-style="italic">nạp chỉ mục</text>
+<polyline points="940,228 940,370" fill="none" stroke="#8a94a0" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#g)"/>
+<text x="947" y="300" font-size="10.5" font-weight="400" fill="#8a94a0" text-anchor="start" font-style="italic">nạp checkpoint (epoch 2)</text>
+<text x="490" y="474" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">encoder có sẵn của deepset · mã hóa sẵn 26.864 đoạn</text>
+<text x="700" y="350" font-size="10.5" font-weight="400" fill="#b4410c" text-anchor="start">▲ BM25: 18,6% câu dev có gold ngoài top-20</text>
+<text x="810" y="446" font-size="10.5" font-weight="400" fill="#b4410c" text-anchor="middle">▲ 17,3%: gold bị loại khi cắt top-5</text>
+<text x="1220" y="446" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">FastAPI → React tô sáng đáp án</text>
+<text x="170" y="510" font-size="12" font-weight="600" fill="#1f2933" text-anchor="start">Test B0:  Hit@5 0,793   ·   EM 0,222 (first_ref) / 0,330 (all_refs)   ·   p50 63,8 ms</text>
+<text x="170" y="530" font-size="11.5" font-weight="400" fill="#1849a9" text-anchor="start">Dev, cùng pipeline:  Dense 256 Hit@5 0,816 · EM 0,338  so với  BM25 0,638 · 0,236   (89,8% gold dev encoder đã thấy)</text>
+<rect x="170" y="656.0" width="80" height="56" rx="6" fill="#ffffff" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="210.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Câu hỏi</text>
+<text x="210.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">tiếng Đức</text>
+<rect x="270" y="656.0" width="110" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="325.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Chuẩn hóa</text>
+<text x="325.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">NFC · ≤ 64 token</text>
+<rect x="760" y="656.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="810.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Select</text>
+<text x="810.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-5</text>
+<rect x="880" y="656.0" width="120" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="940.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Read</text>
+<text x="940.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">GBERT reader</text>
+<rect x="1020" y="656.0" width="100" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1070.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Aggregate</text>
+<text x="1070.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">minus_cls</text>
+<rect x="1140" y="656.0" width="160" height="56" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="1220.0" y="680" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">Đáp án + bằng chứng</text>
+<text x="1220.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">đoạn · offset [start, end)</text>
+<polyline points="250,684 268,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="860,684 878,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1000,684 1018,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="1120,684 1138,684" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="400" y="618.0" width="130" height="48" rx="6" fill="#f1f3f5" stroke="#8a94a0" stroke-width="1.4"/>
+<text x="465.0" y="638" font-size="12.5" font-weight="600" fill="#1f2933" text-anchor="middle">BM25</text>
+<text x="465.0" y="654" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-100</text>
+<rect x="400" y="702.0" width="130" height="48" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4"/>
+<text x="465.0" y="722" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Dense DPR · 384 tok</text>
+<text x="465.0" y="738" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">top-100</text>
+<rect x="560" y="656.0" width="75" height="56" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4"/>
+<text x="597.5" y="680" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">RRF</text>
+<text x="597.5" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">c = 10</text>
+<rect x="652" y="656.0" width="96" height="56" rx="6" fill="#e6effd" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="700.0" y="680" font-size="12.5" font-weight="600" fill="#1849a9" text-anchor="middle">Cross-encoder</text>
+<text x="700.0" y="696" font-size="11" font-weight="400" fill="#5b6673" text-anchor="middle">rerank · bge-m3</text>
+<polyline points="380,684 390,684 390,642 398,642" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="390,684 390,726 398,726" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="530,642 545,642 545,674 558,674" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<polyline points="530,726 545,726 545,694 558,694" fill="none" stroke="#1d5fd1" stroke-width="1.4" marker-end="url(#b)"/>
+<polyline points="635,684 650,684" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="748,684 758,684" fill="none" stroke="#1d5fd1" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<polyline points="598,656 598,638 810,638 810,654" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="704" y="632" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">H0: 20 đoạn đi thẳng</text>
+<text x="701" y="730" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">H1: bật reranking, xếp lại 20 đoạn</text>
+<text x="965" y="640" font-size="10.5" font-weight="400" fill="#5b6673" text-anchor="middle" font-style="italic">giữ nguyên reader, top-5 và đầu ra để so công bằng</text>
+<polyline points="640,538 640,600" fill="none" stroke="#1d5fd1" stroke-width="1.4" marker-end="url(#b)"/>
+<text x="648" y="582" font-size="10.5" font-weight="400" fill="#1d5fd1" text-anchor="start" font-style="italic">mở rộng dense 256 → 384, thêm RRF và cross-encoder</text>
+<text x="465" y="766" font-size="10.5" font-weight="400" fill="#1849a9" text-anchor="middle" font-style="italic">từ 256 → 384 token; đo trên dev-unseen 234 câu</text>
+<text x="170" y="792" font-size="12" font-weight="600" fill="#1849a9" text-anchor="start">Test H0 (mặc định):  Hit@5 0,919   ·   EM 0,261 / 0,383   ·   p50 141,9 ms</text>
+<text x="170" y="814" font-size="12" font-weight="400" fill="#1f2933" text-anchor="start">Test H1 (+ cross-encoder):  Hit@5 0,969   ·   EM 0,250 / 0,361 (thấp hơn H0, có ý nghĩa)   ·   p50 743,6 ms</text>
+</svg>
